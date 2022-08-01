@@ -1,0 +1,109 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #primeButton
+        {
+            width: 50%;
+            margin: 7px;
+            color: #3A83BB;
+            padding: 5px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #3A83BB;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+        #isPrime
+        {
+            height: 30px;
+            width: 50%;
+            margin: 7px;
+            padding: 5px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #3A83BB;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+	<title>Is Prime?</title>
+</head>
+<body>
+  <p>다시 메인 페이지로 돌아가기 <br/> <a href="index.html">home</a> </p>
+	<div>
+		<ul>
+			<li>
+				<label for = "isPrime">소수 판별할 수 :</label> 
+				<input id = "isPrime" type = "text">
+			</li>
+			<li>
+				<button id = "primeButton" onclick = "showPrime()">소수 판별하기</button>
+			</li>
+		</ul>
+		<div id="showResult"></div>
+        <div id="showDiv"></div>
+        <div id="showTime"></div>
+	</div>	
+		
+	<script>
+		function showPrime()
+        {	
+            var t0 = performance.now(); // 시작할 수
+            var N = BigInt(document.querySelector('#isPrime').value);  // 판별할 수
+            
+            if (N < 2n)
+            {
+                document.querySelector('#showResult').innerHTML = N + "은 음수 입니다. 양수를 입력해주세요.";
+                throw "stop";
+            }
+            
+			if (isPrimeNumber(N) === false)
+            {
+                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
+            }
+            else
+            {
+                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
+                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
+            }
+            var t1 = performance.now();
+            var t2 = (t1 - t0) / 1000
+            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
+        }
+        function isPrimeNumber(N)
+        {
+			if(N % 2n == 0)
+            {
+                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            if(N % 3n == 0)
+            {
+                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            for(let i = 5n; i * i <= N; i += 2n)
+            {
+                if(N % i == 0)
+                {
+                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+                
+                i += 4n
+                
+                if(N % i == 0)
+                {
+                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+            }
+            return true;
+        }		
+	</script>
+</body>
+</html>
