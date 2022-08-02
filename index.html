@@ -2,34 +2,17 @@
 <html>
   
 <head>
-  
     <meta charset="UTF-8">
-  
     <title>II-eugene-II</title>
-  
-    <script src="/include.js" defer></script>
-  
 </head>
 
 <body>
-  
     <header id = "header"></header>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">   
         $(document).ready( function() {
 
         $("#header").load("/include/header.html");  // 원하는 파일 경로를 삽입하면 된다
-    </script>
-
-
-    <script>
-        fetch("/include/header.html")
-        .then(response => {
-            return response.text()
-        })
-        .then(data => {
-            document.querySelector("header").innerHTML = data;
-        });
     </script>
   
   <h1> Hello World </h1>
