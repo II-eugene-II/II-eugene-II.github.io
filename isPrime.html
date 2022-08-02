@@ -31,7 +31,7 @@
 	<title>Is Prime?</title>
 </head>
 <body>
-  <p>다시 메인 페이지로 돌아가기 <br/> <a href="index.html">home</a> </p>
+  <p>다시 메인 페이지로 돌아가기 <br/> <a href="index.html">Home</a> </p>
 	<div>
 		<ul>
 			<li>
@@ -86,7 +86,7 @@
                 return false;
             }
             
-            for(let i = 5n; i * i <= N; i += 2n)
+            for(let i = 5n; i * i <= N; i += 6n)
             {
                 if(N % i == 0)
                 {
@@ -94,9 +94,7 @@
                     return false;
                 }
                 
-                i += 4n
-                
-                if(N % i == 0)
+                if(N % (i + 4n) == 0)
                 {
                     document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
                     return false;
