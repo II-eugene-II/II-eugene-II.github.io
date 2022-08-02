@@ -74,13 +74,13 @@
         }
         function isPrimeNumber(N)
         {
-			if(N % 2n == 0)
+            if(N % 2n == 0n)
             {
                 document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
                 return false;
             }
             
-            if(N % 3n == 0)
+            if(N % 3n == 0n)
             {
                 document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
                 return false;
@@ -88,13 +88,13 @@
             
             for(let i = 5n; i * i <= N; i += 6n)
             {
-                if(N % i == 0)
+                if(N % i == 0n)
                 {
                     document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
                     return false;
                 }
                 
-                if(N % (i + 4n) == 0)
+                if(N % (i + 4n) == 0n)
                 {
                     document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
                     return false;
