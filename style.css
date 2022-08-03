@@ -1,13 +1,8 @@
-ul {
+.header-ull {
     list-style:none;
 }
 
-li {
-    float: left;
-}
-
 .header-item{
-  list-style:none;
   display: flex;
   float: left;
   text-align: center;
