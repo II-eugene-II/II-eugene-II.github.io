@@ -1,5 +1,6 @@
 .header-item{
   float: left;
+  text-align: center;
   margin-right: 10px;
-  font-weight: bold;
+  font-weight: lighter;
 }
