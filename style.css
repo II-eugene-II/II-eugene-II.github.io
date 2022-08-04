@@ -1,3 +1,8 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .container {
     width:1270px;
     margin:0
@@ -12,5 +17,5 @@
   float: left;
   text-align: center;
   margin-right: 10px;
-  font-weight: lighter;
+  font-weight: 900;
 }
