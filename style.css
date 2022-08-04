@@ -4,8 +4,18 @@ header {
     background-color: gainsboro;
 }
 
+#wrapper{
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 100px; /*footer의 height와 크기가 같아야 함*/
+}
+
 footer {
+    height: 100px; /*#wrapper의 padding-bottom과 크기가 같아야 함*/
+    position : relative;
+    transform : translateY(-100%);
     background-color: gainsboro;
+    
 }
 
 .container {
