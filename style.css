@@ -1,6 +1,11 @@
 header {
     display: flex;
     justify-content: space-between;
+    background-color: gainsboro;
+}
+
+footer {
+    background-color: gainsboro;
 }
 
 .container {
@@ -17,5 +22,5 @@ header {
   float: left;
   text-align: center;
   margin-right: 10px;
-  font-weight: 900;
+  font-weight: 100;
 }
