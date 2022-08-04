@@ -118,6 +118,8 @@
     
     <details>
     <summary> 8월 04일 </summary>
+        
+    <p>8월 4일자 개발 일지부터는 사진이 너무 크므로 height를 400으로 제한하여 올려봅니다.</p>
     
     <img src="history/2022080401.png" height="400" alt="헤더 CSS 코드 수정">
         
@@ -125,12 +127,48 @@
         
     <p>저 부분에 display flex 같은 속성을 추가해주었더니 전날 발생했던 Hello World 타이틀이 헤더 옆으로 가는 현상을 막아주었습니다. (분명히 더 유연해지는 코드라고 했는데 왜 되는지는 잘 모르겠습니다...) </p>
     
+    <p>(찾아보니 justify-content space-between 부분이 알아서 공간을 잘 맞춰주는 그런 역할을 한다고 합니다.)</p>
+    
+    <img src="history/2022080402.png" height="400" alt="헤더 푸터 색상 부여">
+        
+    <p>header와 footer가 확실히 구분되게는 해보았지만 헤더 부분이 아무래도 이상합니다. container Class에 width 1270px을 먹인것이 문제인듯 합니다.</p>
+    
+    <img src="history/2022080403.png" height="400" alt="헤더 수평으로 꽉 채우기">
+    
+    <p>container Class에 width 100%를 먹여줍니다.</p>
+        
+    <p>이제 어떤 화면 크기로 보든 header가 꽉 차있는 모습을 보여줄 것입니다. 일종의 반응형 웹 만들기...를 시작한 셈입니다</p>
+    
+    <p>그러고 보니 footer가 공중에 붕 떠있는 모습이 보기에 별로 좋지는 않습니다.</p>
+        
+    <img src="history/2022080404.png" height="400" alt="푸터 바닥에 붙이기 실패 1">
+        
+    <p>분명히 본문을 wrapper로 감싸고 저렇게 CSS 코드를 짜면 바닥에 붙는다고 검색결과 나왔었는데 역시나 안되는 모습입니다.</p>
+        
+    <img src="history/2022080405.png" height="400" alt="푸터 바닥에 붙이기 실패 2">
+        
+    <p>다른 방식으로 본문을 wrapper로 감싸고 footer까지 감싸는 all-wrapper를 만들고 그걸 가지고 하면 나온다고 검색결과가 나왔지만 이번엔 헤더가 떠버립니다.</p>
+        
+    <img src="history/2022080406.png" height="400" alt="푸터 바닥에 붙이기 대실패 3">
+        
+    <p>거기다가 스크롤을 잘 굴리면 저렇게 아예 박살나버리는 상황이 옵니다.</p>
+        
+    <p>우선 다 없던 일로 하고 footer 관련 id를 다 지워줍니다.</p>
+        
+    <img src="history/2022080407.png" height="400" alt="푸터 어거지로 바닥에 붙이기">
+        
+    <p>본문 콘텐츠가 적어 footer가 띄워진다면 footer 크기를 아주 크게 키워서 아무튼 어쨌든 바닥에 닿도록 처리해줍니다.</p>
+        
+    <p>footer에 아주 많은 컨텐츠를 담아야 할 듯 합니다. 원래는 header를 꾸미려 했는데 우선 방대한 footer에 무엇인가를 채워야겠습니다.</p>
+        
+    <p>전날 해야겠다고 생각했던 일과 합치면 내일은 1. 헤더 부분의 math 부분 글을 쓰거나 2. footer에 컨텐츠를 채우는 일을 해봐야겠습니다.</p>    
+
     </details>
     
     <details>
     <summary> 8월 XX일 </summary>
     
-    <p>
+    <p></p>
     
     </details>
   
