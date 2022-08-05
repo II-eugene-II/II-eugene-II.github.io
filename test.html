@@ -4,9 +4,21 @@
 <head>
   <meta charset="utf-8" />
   <!-- <script src="footer.js"></script> -->
+  <style>
+  #wrap{min-height: 100vh; position: relative; width:100%;}
+  footer{
+  width: 100%;
+	height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+	bottom: 0px;
+	position: absolute;
+  background-color: #BBDEFB;
+  }
+  </style>
+  
 </head>
 
 <body>
+  <div id='wrap'>
   <header>
     <script type="text/javascript" src="/headerWrite.js"></script>
     <p>test</p>
@@ -16,6 +28,11 @@
   
   </div>
   <!-- <footer id = "footer"></footer> -->
+    <footer>
+    blog | github
+    </footer>
+  
+  </div> <!-- wrap -->
 </body>
 </html>
 
