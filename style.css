@@ -1,8 +1,8 @@
-/* html, body {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-} */
+}
 
 header {
     display: flex;
@@ -10,11 +10,18 @@ header {
     background-color: gainsboro;
 }
 
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
 footer {
     width: 100%;
-    height: 450px;
+    height: 150px;
+    bottom: 0px;
+    position : absolite;
     background-color: silver;
-    
 }
 
 .container {
