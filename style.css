@@ -4,6 +4,10 @@ html, body {
     height: 100%;
 }
 
+header, nav, section, article, aside, footer {
+    text-align: center;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -17,9 +21,9 @@ header {
     */
 }
 
-/*section{
+section{
     float: left;
-}*/
+}
 
 details {
     margin: 20px;
@@ -29,7 +33,7 @@ aside {
     text-align: center;
     width: 120px;
     height: 240px; 
-    float: right;
+    float: left;
     background: #a0a0a0;
 } 
 
@@ -39,6 +43,7 @@ footer {
     /*bottom: 0px;
     position : absolute;
     */
+    clear: both;
     background-color: darkslategray;
 }
 
