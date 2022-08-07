@@ -20,6 +20,10 @@ section{
     float: left;
 }
 
+details {
+    margin: 10px;
+}
+
 aside {
     text-align: center;
     width: 120px;
