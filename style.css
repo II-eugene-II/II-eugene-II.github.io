@@ -21,7 +21,7 @@ section{
 }
 
 details {
-    padding: 20px;
+    margin: 20px;
 }
 
 aside {
@@ -56,4 +56,3 @@ footer {
   margin-right: 10px;
   font-weight: 100;
 }
- 
