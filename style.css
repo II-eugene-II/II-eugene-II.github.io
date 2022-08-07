@@ -21,7 +21,7 @@ section{
 }
 
 details {
-    margin: 20px;
+    padding: 20px;
 }
 
 aside {
@@ -30,7 +30,7 @@ aside {
     height: 240px; 
     float: right;
     background: #a0a0a0;
-}
+} 
 
 footer {
     width: 100%;
