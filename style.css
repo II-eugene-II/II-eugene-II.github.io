@@ -9,6 +9,8 @@ html, body {
 }
 
 a {
+    height: 20px;
+    border: 5px double #aaaaaa;
     text-decoration: none;
 }
 
