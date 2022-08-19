@@ -10,7 +10,8 @@ html, body {
 
 a {
     height: 20px;
-    border: 4px double #aaaaaa;
+    border-bottom: dashed 3px blue;
+    /*border: 4px double #aaaaaa;*/
     margin: 2px;
     padding: 2px;
     display: inline-block;
