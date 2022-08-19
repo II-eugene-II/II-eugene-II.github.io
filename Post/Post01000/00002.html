@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title>소수 판별법</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div id = 'wrap'>  
+  <div class="container">
+      <header>
+          <script type="text/javascript" src="/headerWrite.js"></script>
+      </header>
+  </div>
+  <section>
+    
+    <h1> 모듈러 연산(나머지 연산) </h1>
+      
+    <p>
+      
+    프로그래밍에서의 모듈러 연산 (통상적으로 % 연산) 과 정수론에서의 mod 연산 (Modular arithmetic) 은 거의 비슷하지만 약간은 다릅니다.  <br> 
+      
+    예를 들어, 프로그래밍에서 101 % 10 == 1 이지만, 수학에서는 $101 \equiv 11 \pmod{10}$로 표기할 수도 있고, <br>
+    
+    $101 \equiv 1 \equiv 10001 \pmod{10}$로 이야기 할 수도 있습니다. <br>
+      
+    몫은 상관없이, 나머지만 따지다보니 아주 다양한 특징들이 존재합니다. </p>
+      
+    <p> <h3> 모듈러 연산의 특징들 </h3> </p>
+      
+    <p>
+      
+    0. 기본 전제 - $a \equiv b \pmod{n}$, $a_1 \equiv b_1 \pmod{n}$, $a_2 \equiv b_2 \pmod{n}$, $k$는 모든 정수 <br>
+    
+    1. $a + k \equiv b + k \pmod{n}$ <br>
+    
+    2. $ka \equiv kb \pmod{n}$ <br>
+    
+    3. $ka \equiv kb \pmod{kn}$ <br>
+    
+    4. $a_1 \pm a_2 \equiv b_1 \pm b_2 \pmod{n}$ <br>
+    
+    5. $a_1  a_2 \equiv b_1  b_2 \pmod{n}$ <br>
+    
+    6. $a^k \equiv b^k \pmod{n}$ (단, 이때의 $k$는 음이 아닌 모든 정수 $k$) <br>
+    
+    7. $p(a) \equiv p(b) \pmod{n}$ (단, $p(x)$는 모든 계수가 정수인 다항식) <br>
+    
+    8. $a^c \equiv a^d \pmod{n}$ (단, 오일러 토션트 함수 $\phi (n)$에 대하여, $c \equiv d \pmod{\phi (n)}$, $a$와 $n$은 서로소)
+      
+    </p>
+      
+  </section>
+  <aside>
+      <script type="text/javascript" src="/asideWrite.js"></script>
+  </aside>
+    
+  <footer>
+      <script type="text/javascript" src="/footerWrite.js"></script>
+  </footer>
+    
+  </div> <!-- wrap -->
+  
+  <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
