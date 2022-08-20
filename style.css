@@ -18,6 +18,14 @@ a {
     text-decoration: none;
 }
 
+table {
+    border: 1px solid #444444;
+}
+
+th, td {
+    border: 1px solid #444444;
+}
+
 header {
     display: flex;
     justify-content: space-between;
