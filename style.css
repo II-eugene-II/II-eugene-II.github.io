@@ -26,6 +26,22 @@ th, td {
     border: 1px solid #444444;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid gray;
+  text-align: center;
+  overflow: visible;
+}
+
+hr:after {
+  content: "◇";
+  display : inline-block;
+  position: relative;
+  top: -15px;
+  background-color: white;
+  padding: 0 10px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
