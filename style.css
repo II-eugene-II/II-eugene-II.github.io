@@ -56,7 +56,7 @@ header {
 }
 
 section{
-    width: calc(100% - 150px - 1rem);
+    width: calc(100% - 140px - 1rem);
     margin: 10px;
     float: left;
 }
