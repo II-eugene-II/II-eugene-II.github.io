@@ -353,6 +353,63 @@
     </details>
     
     <details>
+    <summary> 8월 22일 </summary>
+    
+    <p>
+    
+    <img src="history/2022082201.png" height="500" alt="백준 티어 띄워주기"> <br>
+        
+    허전했던 Code 챕터에 문제 풀이 사이트 백준의 티어를 띄워줍니다. <br>
+        
+    <img src="history/2022082202.png" height="500" alt="백준 티어 띄워주는 방법"> <br>
+        
+    먼저 백준 계정을 solved ac에 연계를 해준 다음, HTML 태그를 저렇게 달아주면 예쁜 모양의 백준 티어가 뜨게 됩니다. <br>
+
+    오른쪽에 있는 사이트 (mazas...) 에서 해당 계정에 맞는 이미지 파일을 만들어서 띄어주는 형식으로 보입니다. 각자에게 맞는 아이디를 삽입하면 됩니다. (II_eugene_II 부분) <br>
+        
+    <img src="history/2022082203.png" height="500" alt="제목과 본문 분리"> <br>
+        
+    제목과 본문을 분리하는 가로선을 hr 태그를 사용하여 그어줬습니다. <br>
+        
+    <img src="history/2022082204.png" height="500" alt="hr태그 CSS"> <br>
+        
+    간단히 설명한다면, border에 none 속성을 먹여서 초기화 시켜주고, top에만 1px 짜리를 만들어서 직선을 만들어준 후, 가운데 정렬(center 속성)해준 후, 글자가 넘치더라도 보이게 해주는 (overflow : visible) 속성을 먹여줍니다. <br>
+
+    원래 hr 태그는 그냥 줄 만 있는 속성이므로, 가운데에 글자를 넣어주려면 가상의 클래스인 after를 만들어줍니다. <br>
+
+    content에 ◇ 모양을 띄워달라고 하고, 줄에 가리지 않도록 글자 근처 부분만 뒷 배경을 희게 해줍니다. <br>
+
+    통상적으로는 ☆, §, ◎, ◇, ♥ 등의 문자로 꾸미는 듯 합니다. <br>
+        
+    <img src="history/2022082205.png" height="500" alt="hr태그 더 꾸미기"> <br>
+
+    예쁜 특수문자 없나 찾아보다가 다이아몬드 옆에 작은 별을 붙여주었습니다. <br>
+
+    드디어 좀 블로그 다운 블로그가 만들어지는 느낌이 듭니다. <br>
+        
+    <img src="history/2022082206.png" height="500" alt="aside 문제 해결하기"> <br>
+
+    하지만 벌써 블로그 다운 블로그가 되었을리 만무합니다. <br>
+
+    article의 양이 길다면 aside가 밑으로 가버리는 문제입니다. <br>
+
+    과거에 article을 왼쪽으로, aside를 오른쪽으로 보냈음에도, article의 양이 길어서 오른쪽까지 다 가버리면 aside는 어쨌든 오른쪽에 붙기 위해 밑으로 가서 오른쪽으로 붙습니다. <br>
+
+    그렇다고 둘 다 왼쪽으로 보내면? aside가 오른쪽에 붙지 않고 붕 뜨게 되고, 오른쪽으로 둘 다 보내면 이번엔 article이 왼쪽에서 붕 떠버릴겁니다. <br>
+        
+    <img src="history/2022082207.png" height="500" alt="aside 문제 해결"> <br>
+
+    section에 width: calc(100% - 160px - 1rem) 속성을 먹여주자 (aside 의 width: 150px, section의 margin: 10px) 본문 크기가 제한되는 모습입니다. <br>
+        
+    <img src="history/2022082208.png" height="500" alt="aside 문제 해결 2"> <br>
+
+    브라우저 크기를 왕창 줄여도 잘 적용 됩니다. - 1rem은 세세한 계산 오차로 인해 100% - 160px + 150px + 10px 이 100%를 넘어버리는 불상사를 방지하기 위해 존재하는듯 합니다. <br>
+    
+    </p>
+    
+    </details>
+    
+    <details>
     <summary> 8월 XX일 </summary>
     
     <p>
