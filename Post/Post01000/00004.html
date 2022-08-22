@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title>윌슨의 정리</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <h1> 윌슨의 정리 </h1>
+      
+    <hr>
+      
+    <p>
+      
+    윌슨의 정리는 정수론의 주요 정리중 하나로, 내용은 다음과 같습니다. <br>
+      
+    <blockquote>
+        1. $(n-1)! \equiv -1 \pmod{n}$이다.
+        2. $n$이 소수이다.
+        
+        두 명제는 <b>동치</b>이다.
+    </blockquote>
+      
+    여기서 두 명제가 동치라는 것은, 완전히 동일하다는 것으로, 1번 문장을 만족하면 2번 문장도 만족하고, 2번 문장을 만족하면 1번 문장도 만족한다는 뜻입니다. <br>
+    
+    일반적으로 소수 관련 명제가 "$n$이 소수이면 A를 만족한다. (단, 소수가 아니어도 만족할 수도...)"가 되거나 "B를 만족하면 $n$은 소수이다. (단, 모든 소수가 B를 만족시키지는 않...)" 같은 애매함이 있는것과는 대조적입니다. <br>
+      
+    예를 들어 페르마의 소정리에서는 $n$이 소수이면 $n$과 서로소인 $a$에 대하여 $a^{n-1} \equiv 1 \pmod{n}$ 이지만, $a^{n-1} \equiv 1 \pmod{n}$이라고 꼭 $n$이 소수가 되진 않는 카마이클 수라는 예외가 있습니다. <br>
+      
+    윌슨의 정리는 예외없이 필요충분조건이다보니 정수론의 각종 분야에서 쓰입니다. <br> </p>
+      
+    <p> <h3> 윌슨의 정리로 소수판별? </h3> </p>
+      
+    <p>
+      
+    정수론 문제 풀 때는 윌슨의 정리가 쓸만할 수 있어도, 소수판별에는 <b>전혀</b> 쓸모가 없습니다. <br>
+      
+    어떤 자연수 $N$에 대하여, $(N-1)! \equiv -1 \pmod{N}$ 인지 확인해보려 하면, 1부터 N-1 까지 곱하면서 계속 N으로 나눠가는 수밖에 없습니다. 차라리 <a href="/Post/Post01000/00001.html"> $\sqrt{N}$까지 나눠보는 소수판별법 </a>이 $\sqrt{N}$배 더 빠릅니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
