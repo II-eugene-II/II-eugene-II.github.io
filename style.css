@@ -56,8 +56,8 @@ header {
 }
 
 section{
-    width: calc(100% - 160px - 1rem);
-    margin: 10px;
+    width: calc(100% - 170px - 1rem);
+    margin: 20px;
     float: left;
 }
 
