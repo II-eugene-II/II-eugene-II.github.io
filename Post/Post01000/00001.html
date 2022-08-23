@@ -26,13 +26,21 @@
       
     어떤 자연수 $N$이 소수임을 판단하는 가장 쉬운 방법은 $N$을 일일이 $2$부터 $N-1$까지 나눠서, 모두 나머지가 $0$이 아니라면 $N$은 소수라고 할 수 있습니다. <br>
       
-    <h3> 방법 1. $N$을 일일이 $2$부터 $N-1$까지 나누기 </h3>
+    <h3> 방법 1. $N$을 일일이 $2$부터 $N-1$까지 나눠보기 </h3>
       
     이를 위해서 보통 코딩을 할때 isPrime(n) 함수를 만들곤 합니다. </p>
       
-    <p> (추후 코드 추가 예정) </p>
+    <blockquote>
+        def isPrime(N): <br>
+            if(N == 1): <br>
+                return False # 1은 소수가 아닙니다. <br>
+            for i in range(2, N): <br>
+                if(N % i == 0): # 2부터 N-1까지 중에 N의 약수가 있으면 <br>
+                    return False # 소수가 아닙니다. <br>
+            return True # 그 외의 경우엔 소수입니다. <br>
+    </blockquote>
       
-    <p> 물론 진짜 $N-1$까지의 수로 모두 나눠보는것은 비효율적입니다. <br>
+    <p> 입력되는 수가 1보다 큰 자연수라는 보장이 있으면 if(N == 1): return False 물론 진짜 $N-1$까지의 수로 모두 나눠보는것은 비효율적입니다. <br>
       
     $N$이 1조에 가까운 어떤 수라고 가정하면 말 그대로 1조번의 연산이 필요할 수 있습니다. 따라서 조금 더 빠르게 할 수 있는 방법을 생각해야합니다. <br>
       
@@ -44,7 +52,16 @@
       
     <h3> 방법 2. $N$을 $2$부터 $\lceil \sqrt{N} \rceil$까지만 나눠보기 </h3> </p>
       
-    <p> (추후 코드 추가 예정) </p>
+    <blockquote>
+        def isPrime(N): <br>
+            if(N == 1): <br>
+                return False # 1은 소수가 아닙니다. <br>
+            sqrtN = int(N ** 0.5) + 1 <br>
+            for i in range(2, sqrtN): <br>
+                if(N % i == 0): # 2부터 sqrt(N)까지 중에 N의 약수가 있으면 <br>
+                    return False # 소수가 아닙니다. <br>
+            return True # 그 외의 경우엔 소수입니다. <br>
+    </blockquote>
       
     <p> 방법 2보다도 2배 더 빠르게 하는 법이 있습니다. <br>
       
@@ -59,6 +76,21 @@
     $\lceil \sqrt{N} \rceil$까지 $2$ 이외의 짝수를 배제했으므로, 방법 2보다 2배 빨리 판정할 수 있습니다. (홀수/짝수 비중이 반반이므로)
       
     </p>
+  
+    <blockquote>
+        def isPrime(N): <br>
+            if(N == 1): <br>
+                return False # 1은 소수가 아닙니다. <br>
+            if(N == 2): <br>
+                return True # 2는 소수입니다. <br>
+            if(N % 2 == 0): <br>
+                return False # 2 이외의 2의 배수는 모두 소수가 아닙니다. <br>
+            sqrtN = int(N ** 0.5) + 1 <br>
+            for i in range(3, sqrtN, 2): <br>
+                if(N % i == 0): # 2부터 sqrt(N)까지 중에 N의 약수가 있으면 <br>
+                    return False # 소수가 아닙니다. <br>
+            return True # 그 외의 경우엔 소수입니다. <br>
+    </blockquote>
       
     </section>
     <aside>
