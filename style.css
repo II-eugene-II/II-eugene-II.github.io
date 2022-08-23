@@ -60,8 +60,8 @@ header {
 }
 
 section{
-    width: calc(100% - 170px - 1rem);
-    margin: 20px;
+    width: calc(100% - 200px - 1rem);
+    margin: 25px;
     float: left;
 }
 
