@@ -30,15 +30,9 @@
       
     이를 위해서 보통 코딩을 할때 isPrime(n) 함수를 만들곤 합니다. </p>
       
-    <blockquote> <pre>
-        def isPrime(N): <br>
-            if(N == 1): <br>
-                return False # 1은 소수가 아닙니다. <br>
-            for i in range(2, N): <br>
-                if(N % i == 0): # 2부터 N-1까지 중에 N의 약수가 있으면 <br>
-                    return False # 소수가 아닙니다. <br>
-            return True # 그 외의 경우엔 소수입니다. <br>
-    </pre> </blockquote>
+    <blockquote>
+        <script src="https://gist.github.com/II-eugene-II/1bf84dacb7089d8d496131ecb390d46b.js"></script>
+    </blockquote>
       
     <p> 입력되는 수가 1보다 큰 자연수라는 보장이 있으면 if(N == 1): return False 물론 진짜 $N-1$까지의 수로 모두 나눠보는것은 비효율적입니다. <br>
       
