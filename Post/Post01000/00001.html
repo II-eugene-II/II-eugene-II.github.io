@@ -49,17 +49,12 @@
     따라서 $N$을 $2$부터 $\sqrt{N}$까지만 (정확히는 $\sqrt{N}$를 올림한) 나눠봐도 충분합니다. <br>
       
     <h3> 방법 2. $N$을 $2$부터 $\lceil \sqrt{N} \rceil$까지만 나눠보기 </h3> </p>
+  
+    <p>
       
-    <blockquote> <pre>
-        def isPrime(N): <br>
-            if(N == 1): <br>
-                return False # 1은 소수가 아닙니다. <br>
-            sqrtN = int(N ** 0.5) + 1 <br>
-            for i in range(2, sqrtN): <br>
-                if(N % i == 0): # 2부터 sqrt(N)까지 중에 N의 약수가 있으면 <br>
-                    return False # 소수가 아닙니다. <br>
-            return True # 그 외의 경우엔 소수입니다. <br>
-    </pre> </blockquote>
+    <script src="https://gist.github.com/II-eugene-II/9b31b91d3118d463f7b0f010753740e8.js"></script>
+      
+    </p>
       
     <p> 방법 2보다도 2배 더 빠르게 하는 법이 있습니다. <br>
       
