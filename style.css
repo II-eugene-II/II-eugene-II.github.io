@@ -18,8 +18,12 @@ table {
     border: 1px solid #444444;
 }
 
-th, td {
+th {
     border: 1px solid #444444;
+}
+
+td {
+    /* border: 1px solid #444444; */
 }
 
 hr {
