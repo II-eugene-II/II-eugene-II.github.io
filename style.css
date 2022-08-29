@@ -47,7 +47,7 @@ hr:after {
 }
 
 header {
-    margin: 50px;
+    padding: 50px;
     display: flex;
     justify-content: space-between;
     background-color: gainsboro;
