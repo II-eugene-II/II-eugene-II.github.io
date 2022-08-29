@@ -1,5 +1,5 @@
 * {
-     line-height: 180%;
+     line-height: 190%;
 }
 
 html, body {
@@ -47,6 +47,7 @@ hr:after {
 }
 
 header {
+    margin: 50px;
     display: flex;
     justify-content: space-between;
     background-color: gainsboro;
