@@ -1,5 +1,5 @@
 * {
-     line-height: 190%;
+    line-height: 190%;
 }
 
 html, body {
@@ -13,6 +13,7 @@ a {
     border-bottom: dashed 3px Aqua;
     /*border: 4px double #aaaaaa;*/
     margin: 2px;
+    padding: 2px;
     display: inline-block;
     text-decoration: none;
 }
@@ -30,19 +31,19 @@ td {
 }
 
 hr {
-  border: none;
-  border-top: 1px solid gray;
-  text-align: center;
-  overflow: visible;
+    border: none;
+    border-top: 1px solid gray;
+    text-align: center;
+    overflow: visible;
 }
 
 hr:after {
-  content: "⋆ ◇ ⋆";
-  display : inline-block;
-  position: relative;
-  top: -15px;
-  background-color: white;
-  padding: 0 10px;
+    content: "⋆ ◇ ⋆";
+    display : inline-block;
+    position: relative;
+    top: -15px;
+    background-color: white;
+    padding: 0 10px;
 }
 
 del {
@@ -104,8 +105,8 @@ footer {
 }
 
 .header-item{
-  float: left;
-  text-align: center;
-  margin-right: 10px;
-  font-weight: 100;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    font-weight: 100;
 }
