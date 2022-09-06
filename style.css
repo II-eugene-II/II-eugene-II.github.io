@@ -46,6 +46,10 @@ hr:after {
   padding: 0 10px;
 }
 
+del {
+    text-decoration: line-through;
+}
+
 header {
     padding: 10px 50px 10px 50px;
     display: flex;
