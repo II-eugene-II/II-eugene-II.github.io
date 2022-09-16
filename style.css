@@ -87,7 +87,7 @@ header {
 }
 
 section{
-    background-color: #F8F8FF;
+    /* background-color: #F8F8FF; */
     width: calc(100% - 550px - 1rem);
     padding: 30px 200px 30px 200px;
     float: left;
