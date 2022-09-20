@@ -12,8 +12,8 @@ a {
     height: 20px;
     border-bottom: dashed 3px Aqua;
     /*border: 4px double #aaaaaa;*/
-    margin: 2px;
-    padding: 2px;
+    margin: 2px 1px 2px 1px;
+    padding: 2px 1px 2px 1px;
     display: inline-block;
     text-decoration: none;
 }
