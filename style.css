@@ -12,8 +12,8 @@ a {
     height: 20px;
     border-bottom: dashed 3px Aqua;
     /*border: 4px double #aaaaaa;*/
-    margin: 2px 1px 2px 1px;
-    padding: 2px 1px 2px 1px;
+    margin: 2px 0px 2px 0px;
+    padding: 2px 0px 2px 0px;
     display: inline-block;
     text-decoration: none;
 }
@@ -50,7 +50,7 @@ hr {
 }
 
 hr:after {
-    content: "⋆ ◇ ⋆";
+    content: " ⋆ ◇ ⋆ ";
     display : inline-block;
     position: relative;
     top: -15px;
