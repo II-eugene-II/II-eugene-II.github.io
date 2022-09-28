@@ -13,7 +13,11 @@
 	position: absolute;
   background-color: #BBDEFB;
   }
-  .test {animation: rotate_image 5s linear infinite;transform-origin: 10px 10px;}
+  .test {
+	  display: inline-block;
+	  animation: rotate_image 5s linear infinite;
+	  transform-origin: 10px 10px;
+	  }
   @keyframes rotate_image{
     100% {
         transform: rotate(360deg);
