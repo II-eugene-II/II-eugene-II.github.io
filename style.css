@@ -77,6 +77,7 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: gainsboro;
+    border-bottom: 2px double;
 }
 
 #wrap {
