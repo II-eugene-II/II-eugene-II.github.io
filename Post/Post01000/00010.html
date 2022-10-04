@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> PS에 사용중인 소수판별법 </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> PS에 사용중인 소수판별법 </div>
+    
+    <hr>
+      
+    <p>
+        
+    <a href="/Post/Post01000/00001.html"> $2$부터 $\sqrt{N}$까지 나누어보는 방법 </a>은 상당히 느리므로 <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수판별법 </a>을 기초로 합니다. <br>
+      
+    밀러-라빈 소수판별법은 입력된 수가 홀수일 때만 제대로 작동하니 짝수는 미리 걸러주도록 합니다. <br>
+      
+    이때, 2로 나누는 방법 대신 <a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a>를 이용해 pow(2, N-1, N) != 1인지 확인하여 (즉, $2^{N-1} \not\equiv 1 \pmod{N}$인지 확인) 짝수와 기타 합성수들을 한번에 걸러줍니다. <br>
+      
+    짝수일 때는 $2^{N-1} \equiv 1 \pmod{N}$일 리가 없고, (짝수를 짝수로 나누었는데 나머지가 홀수 $1$이 나올 수는 없습니다.) <br>
+      
+    거의 대부분의 합성수들은 날아가고 남은 판별 대상은 진짜 소수들과 유사소수인 <a href="/Post/Post01000/00008.html"> Poulet Number </a> 밖에 남지 않습니다. <br>
+      
+    풀렛 수들은 밀러-라빈 소수판별법으로 날려주되, 그 전의 일반화된 프로트의 정리를 사용해줍니다. <br>
+      
+    $N$이 프로트수인지 판별해주고, $d \not\equiv 0 \pmod{3}$이면 $3^{\frac{N-1}{2}} \equiv -1 \pmod{N}$인지만 판단해도 충분합니다. <br>
+      
+    <script src="https://gist.github.com/II-eugene-II/6ad4db21a87173473cdf1406aecda7eb.js"></script>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
