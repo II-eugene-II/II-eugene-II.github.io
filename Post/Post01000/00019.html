@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 테일러 급수 표 </title>
+    <title> 피보나치 수열 </title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -16,25 +16,19 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 테일러 급수 표 </div>
+    <div id = "postTitle"> 피보나치 수열 </div>
     
     <hr>
       
     <p>
-    테일러 급수를 간단하게 볼 수 있는 표 입니다.
+    
+    피보나치 수를 단순 재귀 형식으로 구하면 $O(2^{n})$ 시간에 구할 수 있고, <br>
 
-    <table>
-        <tr>
-            <th scope="col"> $f(x)$ </td>
-            <th scope="col"> 테일러 급수 </td>
-            <th scope="col"> 수렴범위 </td>
-        </tr>
-        <tr>
-            <td> $e^{z}$ </td>
-            <td> $$ \sum^{\infty}_{n = 0} \frac{z^{n}}{n!} $$ </td>
-            <td> all $z$ </td>
-        </tr>
-    </table>
+    메모이제이션 방식으로 구하면 $O(n)$ 시간에 구할 수 있고, <br>
+
+    행렬곱과 분할정복 거듭제곱을 사용하면 $O(\log{n})$ 시간에 구할 수 있습니다. <br>
+
+    $F_{n+1} F_{n-1} - {F_n}^2 = (-1)^n$
       
     </p>
       
