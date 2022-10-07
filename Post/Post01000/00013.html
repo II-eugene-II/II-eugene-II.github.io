@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 이산균등분포 </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 이산균등분포 </div>
+    
+    <hr>
+      
+    <p>
+      
+    이산확률분포 중에서, 다음과 같은 확률질량함수를 가지는 분포를 이산균등분포라고 합니다. <br>
+      
+    <blockquote>
+        $f(x) = \frac{1}{n}$ , $x=1$, $2$, $\cdots$, $n-1$, $n$
+    </blockquote>
+
+    $1$부터 $6$까지 써진 정육면체 주사위의 각 면이 나올 확률이 $\frac{1}{6}$인 것이 이산균등분포의 한 예시입니다. <br>
+      
+    이산균등분포의 평균은 $E(X) = \frac{n + 1}{2}$, 분산은 $V(X) = \frac{n^{2} - 1}{12}$입니다.
+
+    <details><summary> 이산균등분포의 평균과 분산 증명 </summary>
+    
+        <p>
+                
+            평균과 분산은 $\sum\limits_{k = 1}^{n}{k} = \frac{n (n + 1)}{2}$, $\sum\limits_{k = 1}^{n}{k^{2}} = \frac{n (n + 1)(2 n + 1)}{6}$임을 알고 있다면 다음과 같이 쉽게 구할 수 있습니다. <br>
+
+            $$ \begin{align} E[X] & = \sum_{x = 1}^{n}{x f(x)} = \sum_{x = 1}^{n}{x\left( \frac{1}{n} \right)} = \frac{1}{n}\sum_{x = 1}^{n}{x} \\
+            \\
+            & = \frac{1}{n} \times \frac{n (n + 1)}{2} \\
+            \\
+            & = \frac{n + 1}{2} \\
+            \\
+            E[X^{2}] & = \sum_{x = 1}^{n}{x^{2} f(x)} = \sum_{x = 1}^{n}{x^{2} \left( \frac{1}{n} \right)} = \frac{1}{n}\sum_{x = 1}^{n}{x^{2}} \\
+            \\
+            & = \frac{1}{n} \times \frac{n (n + 1)(2 n + 1)}{6} \\
+            \\
+            & = \frac{(n + 1)(2 n + 1)}{6} \\
+            \\
+            V[X] & = E[X^{2}] - {\left( E[X] \right)}^{2} \\
+            \\
+            & = \frac{n^{2} - 1}{12} \end{align} $$
+    
+        </p>
+    
+    </details> <!-- 이산균등분포의 평균과 분산 증명 -->
+    
+    
+    
+    $a$이상 $b$이하의 모든 정수에 대해 확률질량함수 $f(y) = \frac{1}{b-a+1}$를 가지는 분포를 생각하고 싶으시다면, $X = Y - a + 1$, $n= b - a + 1$로 놓으시면 됩니다.
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
