@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 이항분포 </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 이항분포 </div>
+    
+    <hr>
+      
+    <p>
+      
+    성공 확률이 $p$인 <a href="/Post/Post01000/00015.html"> 베르누이실험 </a>을 N번 반복하여 x번 성공할 확률에 대한 확률분포를 이항분포라고 합니다. <br>
+
+    이항분포는 다음의 확률질량함수를 갖습니다.
+      
+    <blockquote>
+        $f(x) = \binom{N}{x} p^{x} q^{N-x}$, $q = 1 - p$, $0 \leq x \leq N$
+    </blockquote>
+
+    이항계수 $\binom{N}{x}$은 $N$번 중에 $x$번 성공하는 <b>횟수</b>, $p^{x}$는 $x$번 성공하는 확률, $q^{N-x}$는 $N-x$번 실패하는 확률 입니다. (N번 중에 x번 성공했으니 N-x번은 실패) <br>
+    
+    이항분포의 평균은 $E[X] = np$, 분산은 $V[X] = npq$입니다.
+
+    <details><summary> <del> 이항분포의 평균과 분산 증명 </del> </summary>
+    
+        <p>
+                
+        </p>
+    
+    </details> <!-- 이항분포의 평균과 분산 증명 -->
+    
+    이항분포의 조금 다른 경우로 음이항분포도 존재합니다.
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
