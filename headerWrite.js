@@ -1,5 +1,5 @@
 document.write("<div class=\"container\">");
-document.write("<h2>II-eugene-II</h2>");
+document.write("<h2>II-eugene-II Note</h2>");
 document.write("<nav>");
 document.write("<ul class=\"header-ull\">");
 document.write("<li class=\"header-item\"><a href=\"/index.html\">Home</a></li>");
