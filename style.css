@@ -63,7 +63,8 @@ del {
 }
 
 blockquote {
-    background-color: Ghostwhite;
+    /*background-color: Ghostwhite;*/
+    background-color: rgba(240, 240, 255, 0.5);
     padding-left: 30px;
     padding-right: 20px;
     padding-bottom: 15px;

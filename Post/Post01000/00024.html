@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 몫의 미분법 </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 몫의 미분법 </div>
+    
+    <hr>
+      
+    <p>
+      
+    함수 $f(x) = \frac{g(x)}{h(x)}$를 미분한 공식은 다음과 같습니다.
+      
+    <blockquote>
+        $$ f ' (x) = \frac{g'(x)h(x) - g(x)h'(x)}{{\left\{h(x)\right\}}^{2}} $$
+    </blockquote>
+
+    <details><summary> 몫의 미분법 공식 증명 </summary>
+    
+        <p>
+
+            $\ln{\left(f(x)\right)} = \ln{\left(g(x)\right)} - \ln{\left(h(x)\right)}$이고, <a href="/Post/Post01000/00025.html"> 로그 미분법 </a>에 의해 <br>
+
+            $\frac{f '(x)}{f(x)} = \frac{g '(x)}{g(x)} - \frac{h '(x)}{h(x)}$이다. 양 변에 $f(x)$를 곱해주어 <br>
+
+            $f '(x) = f(x) \times \left(\frac{g '(x)}{g(x)} - \frac{h '(x)}{h(x)}\right)$이다. $f(x) = \frac{g(x)}{h(x)}$이므로 식 정리를 해주면 <br>
+
+            $f ' (x) = \frac{g'(x)h(x) - g(x)h'(x)}{{\left\{h(x)\right\}}^{2}}$이다.
+                
+        </p>
+    
+    </details> <!-- 몫의 미분법 공식 증명 -->
+
+    거의 모든 미적분 교재에 존재하는 미분법이지만 공식이 너무 지저분하고 너저분하여 솔직히 저는 한 번도 써본 적이 없습니다. <br>
+    
+    분수함수꼴은 로그를 씌워 <a href="/Post/Post01000/00025.html"> 로그 미분법 </a>으로 풀어주면 아주 편하게 미분할 수 있습니다.
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
