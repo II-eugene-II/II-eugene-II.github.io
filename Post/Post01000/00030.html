@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 감마함수 </title>
+    <title> 이항계수 </title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -16,21 +16,23 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 감마함수 </div>
+    <div id = "postTitle"> 이항계수 </div>
       
     <hr>
       
     <p>
       
-    감마함수는 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a>을 실수 전체의 범위로 확장 시킨 것으로, 다음과 같이 정의합니다. <br>
+    이항계수 $\binom{n}{k}$는 음이 아닌 정수 $n$과, $n$보다 작은 음이 아닌 정수 $k$에 대하여 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a>을 이용해 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        \Gamma(s) = \int^{1}_{0} {\left\{\ln\left( \frac{1}{x} \right)\right\}}^{s - 1} dx
+        \binom{n}{k} = \frac{n!}{k! (n - k)!}
         $$
     </blockquote>
       
-    이렇게 정의하면 $\Gamma(x) = x \Gamma(x - 1)$를 만족하고, $\Gamma(n + 1) = n!$을 만족합니다. <br>
+    $n$개 중 $k$개를 뽑는 경우의 수와 동일하고, $(a + b)^{n}$의 전개식에서 $a^{k} b^{n - k}$의 계수, $a^{n - k} b^{k}$의 계수와 동일합니다. <br>
+      
+    $n$개를 뽑아서 줄을 세우는 경우의 수와 동일합니다. <br>
       
     </section>
     <aside>
