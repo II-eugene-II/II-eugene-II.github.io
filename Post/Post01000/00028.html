@@ -30,7 +30,17 @@
         $$
     </blockquote>
       
-    이렇게 정의하면 $\Gamma(x) = x \Gamma(x - 1)$를 만족하고, $\Gamma(n + 1) = n!$을 만족합니다. <br>
+    이렇게 정의하면 $\Gamma(x + 1) = x \Gamma(x)$를 만족하고, $\Gamma(n + 1) = n!$을 만족합니다. <br>
+
+    위의 정의에서 $x = e^{-t}$로 치환해주면, $dx = - e^{-t} dt$이고, $x = 0 → t = \infty$, $x = 1 → t = 0$에서 다음과 같이 정의할 수도 있습니다. <br>
+      
+    <blockquote>
+        $$
+        \Gamma(s) = \int^{\infty}_{0} t^{s - 1} e^{-t} dt
+        $$
+    </blockquote>
+
+    오히려 이 정의가 익숙하신 분들이 더 많으실 수 있습니다. <br>
       
     </section>
     <aside>
