@@ -56,6 +56,12 @@
             <td class = "tdPost">  </td>
         </tr>
         <tr>
+            <td class = "tdPost"> $$ f(t)e^{-a t} $$ </td>
+            <td class = "tdPost"> $$ F(s + a) $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $ \mathscr{L}(f(t)) = F(s) $ </td>
+        </tr>
+        <tr>
             <td class = "tdPost"> $$ {\operatorname{d}\over\operatorname{d}\!t}f(t) $$ </td>
             <td class = "tdPost"> $$ sF(s) - f(0) $$ </td>
             <td class = "tdPost">  </td>
@@ -146,16 +152,46 @@
             <td class = "tdPost"> $a$, $b$는 실수, $a \not= 0$ </td>
         </tr>
         <tr>
-            <td class = "tdPost"> $$ \sinh(at) $$ </td>
-            <td class = "tdPost"> $$ \frac{a}{ s^{2} - a^{2} } $$ </td>
+            <td class = "tdPost"> $$ \sinh(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{k}{ s^{2} - k^{2} } $$ </td>
             <td class = "tdPost">  </td>
-            <td class = "tdPost"> $a$는 실수, 함수 $\sinh(x)$는 쌍곡사인함수 </td>
+            <td class = "tdPost"> 함수 $\sinh(x)$는 쌍곡사인함수, $k$는 실수 </td>
         </tr>
         <tr>
-            <td class = "tdPost"> $$ \cosh(at) $$ </td>
-            <td class = "tdPost"> $$ \frac{s}{ s^{2} - a^{2} } $$ </td>
+            <td class = "tdPost"> $$ \cosh(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{s}{ s^{2} - k^{2} } $$ </td>
             <td class = "tdPost">  </td>
-            <td class = "tdPost"> $a$는 실수, 함수 $\cosh(x)$는 쌍곡코사인함수 </td>
+            <td class = "tdPost"> 함수 $\cosh(x)$는 쌍곡코사인함수, $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ kt - \sin(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{k^{3}}{ s^{2} \left( s^{2} + k^{2} \right) } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1 - \cos(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{k^{2}}{ s \left( s^{2} + k^{2} \right) } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \sin(kt) - kt \cos(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{2 k^{3}}{ {\left( s^{2} + k^{2} \right)}^2 } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ t\sin(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{2 k s}{ {\left( s^{2} + k^{2} \right)}^2 } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \sin(kt) + kt \cos(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{2 k s^{2}}{ {\left( s^{2} + k^{2} \right)}^2 } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $k$는 실수 </td>
         </tr>
     </table>
       
