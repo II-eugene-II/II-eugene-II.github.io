@@ -24,48 +24,138 @@
 
     라플라스 변환과 역변환의 관계를 간단하게 볼 수 있는 표 입니다. <br>
 
-    $n$은 자연수, $k$는 실수입니다. <br>
-
     <table>
         <tr>
             <th scope="col"> $f(t)$ </td>
             <th scope="col"> $\mathscr{L}(f(t)) = F(s)$ </td>
-            <th scope="col"> 수렴영역 $ROC$ </td>
+            <th scope="col"> 수렴영역 ($ROC$) </td>
+            <th scope="col"> 비고 </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ 1 $$ </td>
             <td class = "tdPost"> $$ \frac{1}{s} $$ </td>
             <td class = "tdPost"> $$ \forall s $$ </td>
+            <td class = "tdPost">  </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ t $$ </td>
             <td class = "tdPost"> $$ \frac{1}{s^{2}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost">  </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ t^{n} $$ </td>
             <td class = "tdPost"> $$ \frac{n!}{s^{n + 1}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost"> $n$은 자연수 </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ t^{\frac{1}{2}} $$ </td>
             <td class = "tdPost"> $$ \sqrt{\frac{\pi}{s}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost">  </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ {\operatorname{d}\over\operatorname{d}\!t}f(t) $$ </td>
+            <td class = "tdPost"> $$ sF(s) - f(0) $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $ \mathscr{L}(f(t)) = F(s) $ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ {\operatorname{d}^{n}\over\operatorname{d}\!t^{n}}f(t) $$ </td>
+            <td class = "tdPost"> $$ s^{n}F(s) + \sum^{n - 1}_{k = 0} s^{n - 1 - k} \left( \left. {\operatorname{d}^{k}\over\operatorname{d}\!t^{k}}f(t) \right|_{t = 0} \right) $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $ \mathscr{L}(f(t)) = F(s) $,  $n$은 자연수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ tf(t) $$ </td>
+            <td class = "tdPost"> $$ -{\operatorname{d}\over\operatorname{d}\!s}F(s) $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $ \mathscr{L}(f(t)) = F(s) $ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ t^{n}f(t) $$ </td>
+            <td class = "tdPost"> $$ (-1)^{n}{\operatorname{d}^{n}\over\operatorname{d}\!s^{n}}F(s) $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $ \mathscr{L}(f(t)) = F(s) $, $n$은 자연수 </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ t^{- \frac{1}{2}} $$ </td>
             <td class = "tdPost"> $$ \frac{\sqrt{\pi}}{2s^{\frac{3}{2}}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost">  </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ \sin(kt) $$ </td>
             <td class = "tdPost"> $$ \frac{k}{s^{2} + k^{2}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost"> $k$는 실수 </td>
         </tr>
         <tr>
             <td class = "tdPost"> $$ \cos(kt) $$ </td>
             <td class = "tdPost"> $$ \frac{s}{s^{2} + k^{2}} $$ </td>
             <td class = "tdPost"> $$ \Re(s) > 0 $$ </td>
+            <td class = "tdPost"> $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ e^{-at} $$ </td>
+            <td class = "tdPost"> $$ \frac{1}{s + a} $$ </td>
+            <td class = "tdPost"> $$ \Re(s) > - a $$ </td>
+            <td class = "tdPost"> $a$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ t e^{-at} $$ </td>
+            <td class = "tdPost"> $$ \frac{1}{{(s + a)}^{2}} $$ </td>
+            <td class = "tdPost"> $$ \Re(s) > - a $$ </td>
+            <td class = "tdPost"> $a$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ e^{-at}\sin(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{k}{ {(s + a)}^{2} + k^{2} } $$ </td>
+            <td class = "tdPost"> $$ \Re(s) > - a $$ </td>
+            <td class = "tdPost"> $a$, $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ t e^{-at}\cos(kt) $$ </td>
+            <td class = "tdPost"> $$ \frac{s + a}{ {(s + a)}^{2} + k^{2} } $$ </td>
+            <td class = "tdPost"> $$ \Re(s) > - a $$ </td>
+            <td class = "tdPost"> $a$, $k$는 실수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \frac{1}{b - a} \left( e^{-a t} - e^{-b t} \right) $$ </td>
+            <td class = "tdPost"> $$ \frac{1}{ (s + a) (s + b)} $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$, $b$는 실수, $a \not= b$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \frac{1}{b - a} \left( b e^{-b t} - a e^{-a t}  \right) $$ </td>
+            <td class = "tdPost"> $$ \frac{s}{ (s + a) (s + b)} $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$, $b$는 실수, $a \not= b$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \frac{1}{ab} \left\{ 1 + \frac{1}{a - b} \left( b e^{-a t} - a e^{-b t}  \right) \right\} $$ </td>
+            <td class = "tdPost"> $$ \frac{1}{ s (s + a) (s + b)} $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$, $b$는 실수, $a \not= b$, $ab \not= 0$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \frac{1}{a^{2}} \left( at - 1 + e^{-a t}  \right) $$ </td>
+            <td class = "tdPost"> $$ \frac{1}{ s^{2} (s + a)} $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$, $b$는 실수, $a \not= 0$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \sinh(at) $$ </td>
+            <td class = "tdPost"> $$ \frac{a}{ s^{2} - a^{2} } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$는 실수, 함수 $\sinh(x)$는 쌍곡사인함수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \cosh(at) $$ </td>
+            <td class = "tdPost"> $$ \frac{s}{ s^{2} - a^{2} } $$ </td>
+            <td class = "tdPost">  </td>
+            <td class = "tdPost"> $a$는 실수, 함수 $\sinh(x)$는 쌍곡코사인함수 </td>
         </tr>
     </table>
       
