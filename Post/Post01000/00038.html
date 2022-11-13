@@ -68,15 +68,15 @@
         
     $n$번의 덧셈을 하는 대신 상대적으로 범위가 더 작은 $p$에 대한 식은 없을까? 라는 생각에서 <a href="https://en.wikipedia.org/wiki/Faulhaber%27s_formula"> 파울하버의 공식 </a>이 나오게 됩니다. <br>
 
-    $$ \sum_{k=1}^n k^{p} = \frac{n^{p+1}}{p+1}+\frac{1}{2}n^p+\sum_{j=2}^p \frac{B_{j}}{j!} \frac{p!}{(p-j+1)!}n^{p-j+1} $$
+    $$ \sum_{k = 1}^n k^{p} = \frac{n^{p + 1}}{p + 1}+\frac{1}{2}n^p+\sum_{j = 2}^p \frac{B_{j}}{j!} \frac{p!}{(p - j + 1)!} n^{p - j + 1} $$
 
     에서, 다른 식들은 충분히 구할 수 있으나, 가장 큰 문제는 $B_{j}$, 즉 베르누이 수입니다. <br>
 
-    베르누이 수의 일반항이 $$B_{n} = \sum_{k=0}^n \frac{1}{k+1} \sum_{r=0}^{k} \binom{k}{r}(-1)^{r} r^{n}$$인 만큼 계산이 매우 복잡하고 번거롭습니다. (심지어 베르누이 수는 정수도 아니고 분수꼴로 나옵니다.) <br>
+    베르누이 수의 일반항이 $$B_{n} = \sum_{k = 0}^n \frac{1}{k + 1} \sum_{r = 0}^{k} \binom{k}{r}(-1)^{r} r^{n}$$인 만큼 계산이 매우 복잡하고 번거롭습니다. (심지어 베르누이 수는 정수도 아니고 분수꼴로 나옵니다.) <br>
     
     따라서 다른 방법을 찾아보던 중... <br>
 
-    $$ \sum_{k=0}^n k^p = \sum_{k=0}^p \left\{{p\atop k}\right\}\frac{(n+1)_{k+1}}{k+1} $$
+    $$ \sum_{k = 0}^n k^p = \sum_{k=0}^p \left\{{p\atop k}\right\}\frac{(n+1)_{k+1}}{k+1} $$
 
     라는 공식을 발견했습니다. <br>
 
