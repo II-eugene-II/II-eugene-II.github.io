@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 12728번 </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 12728번 - n제곱 계산 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/12728"> 백준 12728번 문제 링크 </a> <br>
+        문제 이름 : n제곱 계산 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 분할 정복을 이용한 거듭제곱 <br>
+        solved.ac 등급 : Platinum I (2022/11/20 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        문제 : <br>
+        
+        이 문제에서 숫자 ${\left(3 + \sqrt{5}\right)}^{n}$ 에 대한 소수점 앞의 마지막 세 자리를 찾아야합니다. 예를 들어, $n = 5$ 일 때 ${\left(3 + \sqrt{5}\right)}^{5} = 3935.73982\cdots$이므로 답은 $935$입니다. $n = 2$ 인 경우 ${\left(3 + \sqrt{5}\right)}^{2} = 27.4164079\cdots$ 이므로, 답은 $027$입니다. <br>
+        
+        입력 : <br>
+        
+        첫 번째 입력 줄은 테스트 케이스의 수 T를 알려줍니다. 각각의 T 테스트 케이스는 행(라인)이 분할되어 주어지며, 각 테스트 케이스는 하나의 양의 정수 n을 알려줍니다. <br>
+        
+        출력 : <br>
+        
+        각 입력 테스트 케이스에 대해 다음과 같은 출력이 필요합니다. <br>
+
+        Case #X: Y <br>
+
+        여기서 X는 테스트 케이스 번호이고, Y는 숫자 ${\left(3 + \sqrt{5}\right)}^{n}$ 의 마지막 세 정수입니다. 만일 소수점 앞의 숫자(정수)가 세 자리보다 작은 경우 출력에 정확히 세 자리가 포함되도록 앞에 0을 추가하십시오.
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    피보나치의 수열의 일반항인 비네의 공식에서 아이디어를 착안하였습니다. <br>
+
+    행렬 ${\left[
+    \begin{matrix}
+        6 & -4 \\
+        1 & 0 \\
+    \end{matrix}
+    \right]}^{n - 2} \left[
+    \begin{matrix}
+        A_{2} \\
+        A_{1} \\
+    \end{matrix}
+    \right] = \left[
+    \begin{matrix}
+        A_{n} \\
+        A_{n - 1} \\
+    \end{matrix}
+    \right]$
+
+    을 계산하면, $A_{n} = {\left(3 + \sqrt{5}\right)}^{n} + {\left(3 - \sqrt{5}\right)}^{n}$ 이고, 행렬 거듭제곱은 행렬멱법으로 빠르게 계산해줍니다. <br>
+
+    ${\left(3 - \sqrt{5}\right)}^{n} < 1$이므로, 구한 $A_{n}$의 값에서 1을 빼주기만 하면 됩니다. <br>
+
+    모듈러 1000을 기준으로 계산하므로, ${\left[
+        \begin{matrix}
+            6 & 996 \\
+            1 & 0 \\
+        \end{matrix}
+        \right]}^{n - 2}$ 을 구해줘도 괜찮습니다. ($996 \equiv -4 \pmod{1000}$)<br>
+
+    <script src="https://gist.github.com/II-eugene-II/ec84a008e0997b82b08beb30f73e4162.js"></script> <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    258번째 푼 문제 (2022/11/19) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
