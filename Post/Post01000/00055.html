@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 팩토리얼 </title>
+    <title> 르장드르 기호 </title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -16,29 +16,21 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 팩토리얼 </div>
+    <div id = "postTitle"> 르장드르 기호 </div>
       
     <hr>
       
     <p>
-      
-    팩토리얼은 음이 아닌 정수 범위($0$, $1$, $2$, $3$, $\cdots$)에서 다음과 같이 정의합니다. <br>
+    
+    르장드르 기호(Legendre Symbol)의 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        $$
-        n!=
-        \begin{cases}
-        n \times (n - 1)! & \mbox{if }n > 0 \\
-        1 & \mbox{if }n = 0
-        \end{cases}
-        $$
+        홀수 소수 $p$와, $p$와 서로소인 $a$에 대하여 $a$가 법 $n$에 대한 <a href="/Post/Post01000/00054.html"> 이차잉여 </a>이면 $\left(\frac{a}{p}\right) = 1$, $a$가 법 $p$에 대한 이차비잉여이면 $\left(\frac{a}{p}\right) = -1$이다.
     </blockquote>
       
-    편의상 수식대신, $n!$은 $n$부터 $1$까지 곱한 값이라고 생각하면 더 편합니다. <br>
-      
-    $n$개를 뽑아서 줄을 세우는 경우의 수와 동일합니다. <br>
+    다음과 같은 성질이 성립합니다. <br>
 
-    팩토리얼을 실수 전체로 확장 시킨 함수를 <a href="/Post/Post01000/00028.html"> 감마함수 </a> 라고 합니다. <br>
+    1. $\left(\frac{a}{p}\right) \equiv a^{\frac{p(p-1)}{2}} \pmod{p}$
       
     </section>
     <aside>
