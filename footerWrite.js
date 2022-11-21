@@ -1,5 +1,12 @@
+maxPost = 57
+
+rand = Math.floor(Math.random() * maxPost) + 1
+
+rand = rand.toString()
+
 document.write("<nav>");
 document.write("<a href=\"/index.html\">Home</a> ");
-document.write("<a href=\"https://github.com/II-eugene-II/II-eugene-II.github.io\">GithubRepo</a><br>");
+document.write("<a href=\"https://github.com/II-eugene-II/II-eugene-II.github.io\">Github Repo</a><br>");
+document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> ");
 document.write("II-eugene-II note");
 document.write("</nav>");
