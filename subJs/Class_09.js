@@ -1,5 +1,5 @@
 document.write(`
-<table style="text-align: center">
+<table style="margin-left: auto; margin-right: auto; text-align: center">
         <tr>
             <th scope="col"> 문제 번호 </td>
             <th scope="col"> 문제 제목 </td>
