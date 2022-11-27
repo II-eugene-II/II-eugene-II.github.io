@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 17356번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 17356번 - 욱 제 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/17356"> 백준 17356번 문제 링크 </a> <br>
+        문제 이름 : 욱 제 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 <br>
+        solved.ac 등급 : Bronze III (2022/11/27 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        오늘은 운명의 라이벌 권욱과 권제가 숙명의 대결을 펼치는 날이다. 대결 종목은 바로 2019년 천하제일 코딩대회 본선 문제 중 하나인 "욱 제"를 더 빨리 푸는 것이다. <br>
+        
+        욱과 제는 "욱 제"를 빨리 푸는 능력, 일명 "욱제력"을 가지고 있다. 이 욱제력은 하나의 정수로 수치화할 수 있다. 욱의 욱제력이 $A$, 제의 욱제력이 $B$일 때, <br>
+        
+        $M$을 $\frac{B - A}{400}$이라고 하자. 이때 욱이 제를 이길 확률은 $\frac{1}{1 + 10^{M}}$이다. 이 값은 얼마일까? <br>
+        
+        <h4> 입력 : </h4>
+        
+        욱의 욱제력과 제의 욱제력이 한 줄에 주어진다. 욱제력은 0 이상 5,000 이하의 정수이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        욱이 제를 이길 확률을 출력한다. 정답과의 절대오차 또는 상대오차가 ${10}^{-4}$ 이하이면 정답으로 인정한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    각 언어에서 거듭제곱을 어떻게 할 수 있을지 생각해볼 수 있는 문제입니다. <br>
+
+    크게 다음과 같은 단계를 거칩니다. <br>
+
+    1. $A$, $B$ 두 수를 입력받는다. <br>
+
+    2. $M = \frac{B - A}{400}$를 구한다. <br>
+
+    3. $\frac{1}{1 + 10^{M}}$을 구한다. (즉, $10^{M}$을 어떻게 구할 수 있는지 알아야 한다.) <br>
+
+    파이썬에서는 A ** B가 $A^{B}$이므로, 다음과 같이 구해줍니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/f13b8494117e0f16d56c186d54d6cad4.js"></script> <br>
+
+    (B - A) // 400 으로 하면 정수 나눗셈이 되므로 주의해줍니다.
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
