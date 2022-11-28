@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 18108번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 18108번 - 1998년생인 내가 태국에서는 2541년생?! </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/18108"> 백준 18108번 문제 링크 </a> <br>
+        문제 이름 : 1998년생인 내가 태국에서는 2541년생?! <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 <br>
+        solved.ac 등급 : Bronze V (2022/11/28 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        ICPC Bangkok Regional에 참가하기 위해 수완나품 국제공항에 막 도착한 팀 레드시프트 일행은 눈을 믿을 수 없었다. 공항의 대형 스크린에 올해가 2562년이라고 적혀 있던 것이었다. <br>
+        
+        불교 국가인 태국은 불멸기원(佛滅紀元), 즉 석가모니가 열반한 해를 기준으로 연도를 세는 불기를 사용한다. 반면, 우리나라는 서기 연도를 사용하고 있다. 불기 연도가 주어질 때 이를 서기 연도로 바꿔 주는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        서기 연도를 알아보고 싶은 불기 연도 y가 주어진다. (1000 ≤ y ≤ 3000) <br>
+        
+        <h4> 출력 : </h4>
+        
+        불기 연도를 서기 연도로 변환한 결과를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    정수를 입력받아서 특정 정수를 빼는 문제입니다. <br>
+
+    크게 다음과 같은 단계를 거칩니다. <br>
+
+    1. 정수 $y$를 입력받는다. <br>
+
+    2. 불기 연도 $y$에서 서기 연도를 구한다. <br>
+
+    정확히 불기 연도와 서기 연도가 얼마나 차이 나는지 계산하기 귀찮다면, 그냥 예제에 있는 $2541$을 빼고 다시 $1998$을 더해줘도 좋습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/e1bbd5e6ac5184c6c9e8a5104efd73ef.js"></script> <br>
+
+    조금 더 디테일 하게 설명하자면, <br>
+    
+    불기 연도 $y$, 구하고자 하는 서기 연도 $x$, 그 차이를 $y - x = t$라 하면 $y - t = x$이고, 예제에서 $2541 - t = 1998$입니다. <br>
+
+    따라서 $2541 - 1998 = t$이고, $y - t = x$에서 $y - (2541 - 1998) = y - 2541 + 1998 = x$이므로, 구하고자 하는 $x$를 $y - 2541 + 1998$로 구할 수 있습니다.
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
