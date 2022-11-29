@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 19944번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 19944번 - 뉴비의 기준은 뭘까? </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/19944"> 백준 19944번 문제 링크 </a> <br>
+        문제 이름 : 뉴비의 기준은 뭘까? <br>
+        주 언어 : Python <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze IV (2022/11/29 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        2020 INPC는 IGRUS 뉴비들을 위해 열리는 대회입니다. 하지만 영수 할아버지나 인용 할아버지와 같이 14학번이지만 마음만은 뉴비인 어르신들 때문에 대회장이 TLE들의 파티가 되자 뉴비의 기준을 정의하기로 하였습니다. <br>
+        
+        INPC 운영진들은 고심 끝에 뉴비를 1학년 혹은 2학년인 학생으로 정의 내렸고 뉴비를 정의하는 김에 올드비와 TLE도 정의 내리기로 하였습니다. 올드비는 N학년 이하이면서 뉴비가 아닌 학생으로 정의하기로 하였고 TLE은 뉴비도 아니고 올드비도 아닌 학생으로 정의하였습니다. <br>
+        
+        N과 M이 주어졌을 때, M학년이 뉴비인지 올드비인지 TLE인지 구별해 주세요. <br>
+        
+        <h4> 입력 : </h4>
+        
+        양의 정수 N과 M이 공백을 사이에 두고 주어집니다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        M학년이 뉴비라면 NEWBIE!를, 올드비라면 OLDBIE!를 TLE이라면 TLE!을 출력합니다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    if문을 돌릴 수 있는지 간단히 확인하는 문제입니다. <br>
+
+    크게 다음과 같은 단계를 거칩니다. <br>
+
+    1. 정수 $N$, $M$을 입력받는다. <br>
+
+    2 - 1. $M$이 $1$이거나 $2$라면 NEWBIE!를 출력한다. <br>
+
+    2 - 2. $M$이 $1$, $2$가 아닌데 $M$이 $N$<b>이하라면</b> OLDBIE!를 출력한다. <br>
+
+    2 - 3. 다 아니면 TLE!를 출력한다. <br>
+
+    파이썬에서는 이를 if-elif-else문으로 해결할 수 있습니다. (A인지 물어보고 아니면 B인지 물어보고 그것도 아니면 다른걸 하는...) <br>
+
+    <script src="https://gist.github.com/II-eugene-II/1c09678e11baf3f58c68ace326389690.js"></script> <br>
+
+    어차피 $M$이 자연수이므로 $1$이거나 $2$라는 조건을 M <= 2 라는 조건으로 퉁칠 수 있습니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
