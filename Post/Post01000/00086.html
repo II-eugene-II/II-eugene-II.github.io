@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 뤼카 수열 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 뤼카 수열 </div>
+    
+    <hr>
+      
+    <p>
+    
+    뤼카(루카스) 수열 $L_{n}$의 기본 정의는 다음과 같습니다.
+      
+    <blockquote>
+        $$ L_{0} = 2, L_{1} = 1, L_{n + 2} = L_{n + 1} + L_{n} $$
+    </blockquote>
+    
+    <a href="/Post/Post01000/00019.html"> 피보나치 수열 </a> 과도 비슷한 점이 아주 많습니다. <br>
+
+    </p>
+
+    <p> <h3> 뤼카 수열의 주요 특징들 </h3> </p>
+  
+    <p>
+  
+    0. 기본 전제 - $L_{n}$은 $n$번째 뤼카 수, $F_{n}$은 $n$번째 피보나치 수, $L_{0} = 2, L_{1} = 1, L_{n + 2} = L_{n + 1} + L_{n}$, $\phi=\frac{1+\sqrt{5}}{2}$ <br>
+
+    1. $L_{n} = \phi^{n} + (1 - \phi)^{n}$ <br>
+
+    2. $L_n=F_{n-1}+F_{n+1}, F_n=\frac{L_{n-1}+L_{n+1}}{5}$ <br>
+  
+    </p>
+
+    <p>
+
+    $a_{0} = u, a_{1} = v, a_{n + 2} = a_{n + 1} + a_{n}$은 $a_{n} = \frac{u}{2}L_{n} + \left(v - \frac{u}{2}\right) F_{n}$으로 나타낼 수 있습니다. <br>
+
+    뤼카 수열을 일반화한 수열로 <a href="/Post/Post01000/00087.html"> 제 2종 뤼카 수열 </a>이 있습니다.
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
