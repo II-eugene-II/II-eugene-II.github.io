@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 선택 정렬 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 선택 정렬 </div>
+    
+    <hr>
+      
+    <p>
+        
+    선택정렬을 한문장으로 요약하면 "가장 작은 것을 앞으로 보낸다" 입니다. <br>
+
+    최솟값을 계속 왼쪽에 보내면서, 왼쪽은 정렬된 리스트, 오른쪽은 정렬되지 않은 리스트로 만듭니다. <br>
+
+    빨간색은 정렬되지 않은 리스트의 최솟값, 파란색은 빨간색 요소와 교환될 요소 (혹은 교환 후 위치), 초록색은 이미 정렬된 리스트를 뜻합니다. <br>
+
+    리스트 안에서 교환만을 이용해 추가 공간 필요 없이(교환 할 때 생기는 tmp는 제외) 정렬한다는 점에서 제자리 정렬로 볼 수 있습니다. <br>
+      
+    <p>
+      
+        <table>
+            <tr>
+                <th scope="col"> 1번 칸 </td>
+                <th scope="col"> 2번 칸 </td>
+                <th scope="col"> 3번 칸 </td>
+                <th scope="col"> 4번 칸 </td>
+                <th scope="col"> 5번 칸 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost"> 5 </td>
+                <td class = "tdPost"> 4 </td>
+                <td class = "tdPost"> 1 </td>
+                <td class = "tdPost"> 3 </td>
+                <td class = "tdPost"> 2 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class = "tdPost"> 4 </td>
+                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 1 </td>
+                <td class = "tdPost"> 3 </td>
+                <td class = "tdPost"> 2 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost"> 4 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class = "tdPost"> 3 </td>
+                <td class = "tdPost"> 2 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 4 </td>
+                <td class = "tdPost"> 5 </td>
+                <td class = "tdPost"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 2 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost"> 5 </td>
+                <td class = "tdPost"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 4 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 3 </td>
+                <td class = "tdPost"> 4 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class = "tdPost"> 4 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 4 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 4 </td>
+                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+            </tr>
+            <tr>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 4 </td>
+                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 5 </td>
+            </tr>
+        </table>
+          
+        </p>
+      
+    <script src="https://gist.github.com/II-eugene-II/6ad4db21a87173473cdf1406aecda7eb.js"></script>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
