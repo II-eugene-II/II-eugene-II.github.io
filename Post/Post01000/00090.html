@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 균등분포 </title>
+    <title> 감마분포 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,31 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 균등분포 </div>
+    <div id = "postTitle"> 감마분포 </div>
     
     <hr>
       
     <p>
       
-    <a href="/Post/Post01000/00013.html"> 이산균등분포 </a>와 이름이 비슷하지만 균등분포는 연속적인 상황에서의 확률분포입니다. <br>
-
-    균등분포는 다음의 확률밀도함수를 갖습니다.
+    비율 $\lambda = \frac{1}{\beta}$인 푸아송과정에 따라 어떤 사건이 발생한다면, 관측 시작 이후 $\alpha$번 사건이 발생할때 까지의 시간 $T$는 모수 $\alpha$, $\beta$인 감마분포를 이룹니다. <br>
+    
+    감마분포는 다음의 확률밀도함수를 갖습니다.
       
     <blockquote>
-        $f(x) = \frac{1}{b - a}$ , $a \leq x \leq b$
+        $f(x) = \frac{1}{\Gamma(\alpha){\beta}^{\alpha}} x^{\alpha - 1} e^{-\frac{x}{\beta}}$, $x > 0$
     </blockquote>
 
-    균등분포의 평균은 $E[X] = \frac{a + b}{2}$, 분산은 $V[X] = \frac{{(b - a)}^{2}}{12}$입니다.
+    감마분포의 평균은 $E[X] = \alpha \beta$, 분산은 $V[X] = \alpha {\beta}^{2}$입니다.
 
-    <details><summary> <del>균등분포의 평균과 분산 증명</del> </summary>
+    <details><summary> <del> 감마분포의 평균과 분산 증명 </del> </summary>
     
         <p>
                 
-            
-    
         </p>
     
-    </details> <!-- 균등분포의 평균과 분산 증명 -->
+    </details> <!-- 감마분포의 평균과 분산 증명 -->
     
-    다른 아주 복잡한 연속분포에 비하면 평균이나 분산 구하는게 쉬운 편입니다.
+    <a href="/Post/Post01000/00089.html"> 지수분포 </a>와 관련이 있습니다.
       
     </p>
       

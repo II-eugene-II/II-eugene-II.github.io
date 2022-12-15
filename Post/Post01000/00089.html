@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 균등분포 </title>
+    <title> 지수분포 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,29 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 균등분포 </div>
+    <div id = "postTitle"> 지수분포 </div>
     
     <hr>
       
     <p>
       
-    <a href="/Post/Post01000/00013.html"> 이산균등분포 </a>와 이름이 비슷하지만 균등분포는 연속적인 상황에서의 확률분포입니다. <br>
-
-    균등분포는 다음의 확률밀도함수를 갖습니다.
+    모수가 $\lambda$인 지수분포는 다음의 확률밀도함수를 갖습니다.
       
     <blockquote>
-        $f(x) = \frac{1}{b - a}$ , $a \leq x \leq b$
+        $f(x) = \lambda e^{-\lambda x}$, $x > 0$
     </blockquote>
 
-    균등분포의 평균은 $E[X] = \frac{a + b}{2}$, 분산은 $V[X] = \frac{{(b - a)}^{2}}{12}$입니다.
+    지수분포의 평균은 $E[X] = \frac{1}{\lambda}$, 분산은 $V[X] = \frac{1}{\lambda^{2}}$입니다.
 
-    <details><summary> <del>균등분포의 평균과 분산 증명</del> </summary>
+    <details><summary> <del> 지수분포의 평균과 분산 증명 </del> </summary>
     
         <p>
                 
-            
-    
         </p>
     
-    </details> <!-- 균등분포의 평균과 분산 증명 -->
+    </details> <!-- 지수분포의 평균과 분산 증명 -->
     
-    다른 아주 복잡한 연속분포에 비하면 평균이나 분산 구하는게 쉬운 편입니다.
+    <a href="/Post/Post01000/00026.html"> 포아송분포 </a>와 관련이 있습니다.
       
     </p>
       

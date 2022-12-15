@@ -1,4 +1,4 @@
-maxPost = 87
+maxPost = 92
 
 rand = Math.floor(Math.random() * maxPost) + 1
 
