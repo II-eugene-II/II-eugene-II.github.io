@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #primeButton
+        {
+            width: 50%;
+            margin: 7px;
+            color: #3A83BB;
+            padding: 5px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #3A83BB;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+        #isPrime
+        {
+            height: 30px;
+            width: 50%;
+            margin: 7px;
+            padding: 5px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #3A83BB;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+    <title> 정수론 계산기 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 정수론 계산기 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <div>
+        <ul>
+            <li>
+                <label for = "isPrime">계산할 수 :</label> 
+                <input id = "isPrime" type = "text">
+            </li>
+            <li>
+                <button id = "primeButton" onclick = "showPrime()">소수 판별하기</button>
+            </li>
+            <li>
+                <button id = "MRprimeButton" onclick = "showMRPrime()">밀러 - 라빈 소수 판별법쓰기</button>
+            </li>
+        </ul>
+    <div id="showResult"></div>
+    <div id="showDiv"></div>
+    <div id="showTime"></div>
+	</div>
+
+    <script>
+        function showPrime()
+        {	
+            var t0 = performance.now(); // 시작할 시간
+            var N = BigInt(document.querySelector('#isPrime').value);  // 판별할 수
+            
+            if (N < 2n)
+            {
+                document.querySelector('#showResult').innerHTML = N + "1보다 큰 자연수를 입력해주세요.";
+                throw "stop";
+            }
+            
+			if (isPrimeNumber(N) === false)
+            {
+                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
+            }
+            else
+            {
+                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
+                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
+            }
+            var t1 = performance.now();
+            var t2 = (t1 - t0) / 1000
+            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
+        }
+        function isPrimeNumber(N)
+        {
+            if(N % 2n == 0n)
+            {
+                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            if(N % 3n == 0n)
+            {
+                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            for(let i = 5n; i * i <= N; i += 6n)
+            {
+                if(N % i == 0n)
+                {
+                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+                
+                if(N % (i + 2n) == 0n)
+                {
+                    document.querySelector('#showDiv').innerHTML = (i + 2n) + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+            }
+            return true;
+        }
+        function showMRPrime()
+        {	
+            var t0 = performance.now(); // 시작할 시간
+            var N = BigInt(document.querySelector('#isPrime').value);  // 판별할 수
+            
+            if (N < 2n)
+            {
+                document.querySelector('#showResult').innerHTML = N + "1보다 큰 자연수를 입력해주세요.";
+                throw "stop";
+            }
+            
+			if (isMRPrimeNumber(N) === false)
+            {
+                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
+            }
+            else
+            {
+                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
+                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
+            }
+            var t1 = performance.now();
+            var t2 = (t1 - t0) / 1000
+            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
+        }
+        function isMRPrimeNumber(N)
+        {
+            if(N % 2n == 0n)
+            {
+                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            if(N % 3n == 0n)
+            {
+                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
+                return false;
+            }
+            
+            for(let i = 5n; i * i <= N; i += 6n)
+            {
+                if(N % i == 0n)
+                {
+                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+                
+                if(N % (i + 2n) == 0n)
+                {
+                    document.querySelector('#showDiv').innerHTML = (i + 2n) + "가 가장 작은 소인수 입니다.";
+                    return false;
+                }
+            }
+            return true;
+        }		
+	</script>
+      
+    <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
