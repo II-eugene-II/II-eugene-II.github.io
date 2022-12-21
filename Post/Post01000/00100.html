@@ -111,6 +111,7 @@
             
             for(let i = 5n; i * i <= N; i += 6n)
             {
+                document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
                 if(N % i == 0n)
                 {
                     document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";

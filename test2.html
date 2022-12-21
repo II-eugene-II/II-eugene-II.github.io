@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
-    <script type="text/javascript" src="/googleAnalytics.js"></script>
 </head>
 
 <body>
     <div id = "wrap">  
     <div class = "container">
         <header>
-            <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
@@ -32,7 +30,7 @@
                 <input id = "isPrime" type = "text">
             </li>
             <li>
-                <button id = "primeButton" onclick = "showPrime()">소수 판별하기</button>
+                <button id = "primeButton" onclick = "test()">소수 판별하기</button>
             </li>
         </ul>
     <div id="showResult"></div>
@@ -41,77 +39,24 @@
 	</div>
 
     <script>
-        function showPrime()
-        {	
-            var t0 = performance.now(); // 시작할 시간
-            var N = BigInt(document.querySelector('#isPrime').value);  // 판별할 수
-            
-            if (N < 2n)
-            {
-                document.querySelector('#showResult').innerHTML = N + "1보다 큰 자연수를 입력해주세요.";
-                throw "stop";
-            }
-            
-			if (isPrimeNumber(N) === false)
-            {
-                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
-            }
-            else
-            {
-                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
-                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
-            }
-            var t1 = performance.now();
-            var t2 = (t1 - t0) / 1000
-            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
-        }
-        function isPrimeNumber(N)
+        function test()
         {
-            if(N % 2n == 0n)
-            {
-                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
-                return false;
-            }
-            
-            if(N % 3n == 0n)
-            {
-                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
-                return false;
-            }
-            
-            for(let i = 5n; i * i <= N; i += 6n)
-            {
-                if(N % i == 0n)
-                {
-                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
-                    return false;
-                }
-                
-                if(N % (i + 2n) == 0n)
-                {
-                    document.querySelector('#showDiv').innerHTML = (i + 2n) + "가 가장 작은 소인수 입니다.";
-                    return false;
-                }
-            }
-            return true;
-        }		
+            test2("시험1");
+            sleep(1500);
+            test2("시험2");
+        }
+        function test2(txt)
+        {
+            var time = new Date();
+            var seconds = time.getSeconds();
+            document.querySelector('#showDiv').innerText = seconds + txt;
+            // setTimeout(() => test2(), 1000);
+        }
 	</script>
-      
-    <blockquote>
-        $$ \lim_{n \to \infty} \ln n \prod_{p < n}\left(1-\frac1p \right)=e^{-\gamma}, $$
-    </blockquote>
       
     $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>입니다. <br>
     
     리만제타함수와도 관련이 있는 식입니다. <br>
-
-    <details><summary> <del> 메르텐스의 제 3 정리 증명 </del> </summary>
-    
-        <p>
-                
-        </p>
-    
-    </details> <!-- 메르텐스의 제 3 정리 증명 -->
                   
     <a href="/Post/Post01000/00097.html"> 메르텐스의 제 1 정리 </a>와 <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a> 도 존재합니다. <br>
       
@@ -119,16 +64,13 @@
       
     </section>
     <aside>
-        <script type="text/javascript" src="/asideWrite.js"></script>
     </aside>
     
     <footer>
-        <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
       
     </div> <!-- wrap -->
     
-    <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>
 </html>
