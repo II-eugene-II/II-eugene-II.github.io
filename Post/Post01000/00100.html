@@ -59,9 +59,6 @@
                 <input id = "isPrime" type = "text">
             </li>
             <li>
-                <button id = "primeButton" onclick = "showPrime()">소수 판별하기</button>
-            </li>
-            <li>
                 <button id = "MRprimeButton" onclick = "showMRPrime()">밀러 - 라빈 소수 판별법쓰기</button>
             </li>
         </ul>
@@ -71,61 +68,8 @@
 	</div>
 
     <script>
-        function showPrime()
-        {	
-            var t0 = performance.now(); // 시작할 시간
-            var N = BigInt(document.querySelector('#isPrime').value);  // 판별할 수
-            
-            if (N < 2n)
-            {
-                document.querySelector('#showResult').innerHTML = N + "1보다 큰 자연수를 입력해주세요.";
-                throw "stop";
-            }
-            
-			if (isPrimeNumber(N) === false)
-            {
-                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
-            }
-            else
-            {
-                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
-                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
-            }
-            var t1 = performance.now();
-            var t2 = (t1 - t0) / 1000
-            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
-        }
-        function isPrimeNumber(N)
-        {
-            if(N % 2n == 0n)
-            {
-                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
-                return false;
-            }
-            
-            if(N % 3n == 0n)
-            {
-                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
-                return false;
-            }
-            
-            for(let i = 5n; i * i <= N; i += 6n)
-            {
-                document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
-                if(N % i == 0n)
-                {
-                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
-                    return false;
-                }
-                
-                if(N % (i + 2n) == 0n)
-                {
-                    document.querySelector('#showDiv').innerHTML = (i + 2n) + "가 가장 작은 소인수 입니다.";
-                    return false;
-                }
-            }
-            return true;
-        }
+        let mPL = [2n, 3n, 5n, 7n, 11n, 13n, 17n, 19n, 23n, 29n, 31n, 37n, 41n];
+
         function showMRPrime()
         {	
             var t0 = performance.now(); // 시작할 시간
@@ -133,7 +77,7 @@
             
             if (N < 2n)
             {
-                document.querySelector('#showResult').innerHTML = N + "1보다 큰 자연수를 입력해주세요.";
+                document.querySelector('#showResult').innerHTML = N + "보다 큰 자연수를 입력해주세요.";
                 throw "stop";
             }
             
@@ -143,43 +87,87 @@
             }
             else
             {
-                document.querySelector('#showDiv').innerHTML = "소인수가 없습니다.";
                 document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
             }
             var t1 = performance.now();
-            var t2 = (t1 - t0) / 1000
-            document.querySelector('#showTime').innerHTML = t2 + "초 걸림";
+            var t2 = (t1 - t0) / 1000;
+            document.querySelector('#showTime').innerHTML = t2.toFixed(5) + "초 걸림";
         }
         function isMRPrimeNumber(N)
         {
-            if(N % 2n == 0n)
+            for (let i = 0; i < mPL.length; i += 1)
             {
-                document.querySelector('#showDiv').innerHTML = "2가 가장 작은 소인수 입니다.";
-                return false;
+                if (N === mPL[i]) { return true }
             }
-            
-            if(N % 3n == 0n)
+            if (N < 4n) { return true }
+            if (pow(2n, N - 1n, N) !== 1n) {return false}
+
+            let s = 0n;
+            let d = N - 1n;
+            while(d % 2n === 0n)
             {
-                document.querySelector('#showDiv').innerHTML = "3이 가장 작은 소인수 입니다.";
-                return false;
+                s += 1n;
+                d = d / 2n;
             }
-            
-            for(let i = 5n; i * i <= N; i += 6n)
+
+            if (d < 2n ** s)
             {
-                if(N % i == 0n)
+                if ( pow(3n, (N - 1n) / 2n, N) === N - 1n ) {return true}
+                else {return false}
+            }
+
+            if (N < 3317044064679887385961981n)
+            {
+                for (let i = 0; i < mPL.length; i += 1)
                 {
-                    document.querySelector('#showDiv').innerHTML = i + "가 가장 작은 소인수 입니다.";
-                    return false;
-                }
-                
-                if(N % (i + 2n) == 0n)
-                {
-                    document.querySelector('#showDiv').innerHTML = (i + 2n) + "가 가장 작은 소인수 입니다.";
-                    return false;
+                if ( MRTest(mPL[i], s, d, N) === false ) { return false }
                 }
             }
-            return true;
-        }		
+
+            if ( MRTest(2n, s, d, N) === false ) { return false }
+
+            let k = BigInt(String(N).length) * 3n;
+            let pk = 2n ** k;
+
+            while (pk < N)
+            {
+                pk = pk * 2n;
+                k += 1n;
+            }
+
+            let Sln2N = k * k * 123n / 128n + 1n;
+
+            for (let i = 3n; i < Sln2N; i += 2n)
+                {
+                if ( MRTest(i, s, d, N) === false ) { return false }
+                }
+            
+
+            return true
+        }
+        function MRTest(a, s, d, N){
+            let b = pow(a, d, N)
+            if (b === 1n) {return true}
+            if (b === N - 1n) {return true}
+            for (let i = 0n; i < s - 1n; i += 1n)
+            {
+                b = pow(b, 2n, N)
+                if (b === N - 1n) {return true}
+            }
+            return false
+        }
+        function pow(b, e, m) {
+            if (e === 0n) {return 1n}
+            if (e % 2n === 0n) {
+                let byTwo = pow(b, e / 2n, m)
+                return (byTwo * byTwo) % m
+            }
+            else {
+                let byTwoPlusOne = pow(b, (e - 1n)/2n, m)
+                return (b * ((byTwoPlusOne * byTwoPlusOne) % m)) % m
+            }
+        }
+         
 	</script>
       
     <br>
