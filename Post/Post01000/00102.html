@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 주요 소수 리스트 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 주요 소수 리스트 </div>
+    
+    <hr>
+      
+    <p>
+      
+    개인적인 주관으로 주요한 소수들을 모아놓은 글입니다. <br>
+
+    구현한 소수 판별법을 시험할 때 사용하는 용도로도 사용합니다. <br>
+
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <th scope="col"> 소수 $p$ </td>
+            <th scope="col"> 자릿수 </td>
+            <th scope="col"> 비고 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 2 $$ </td>
+            <td class = "tdPost"> $$ 1 $$ </td>
+            <td class = "tdPost"> 첫번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 3 $$ </td>
+            <td class = "tdPost"> $$ 1 $$ </td>
+            <td class = "tdPost"> 두번째 소수 <br> $2^{2} - 1$ <br> $1$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 5 $$ </td>
+            <td class = "tdPost"> $$ 1 $$ </td>
+            <td class = "tdPost"> 세번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 7 $$ </td>
+            <td class = "tdPost"> $$ 1 $$ </td>
+            <td class = "tdPost"> 네번째 소수 <br> $10^{1}$보다 작은 소수 중 가장 큰 수 <br> $2^{3} - 1$ <br> $2$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 11 $$ </td>
+            <td class = "tdPost"> $$ 2 $$ </td>
+            <td class = "tdPost"> 다섯번째 소수 <br> $10^{1}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 29 $$ </td>
+            <td class = "tdPost"> $$ 2 $$ </td>
+            <td class = "tdPost"> $10$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 31 $$ </td>
+            <td class = "tdPost"> $$ 2 $$ </td>
+            <td class = "tdPost"> $2^{5} - 1$ <br> $3$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 97 $$ </td>
+            <td class = "tdPost"> $$ 2 $$ </td>
+            <td class = "tdPost"> $10^{2}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 101 $$ </td>
+            <td class = "tdPost"> $$ 3 $$ </td>
+            <td class = "tdPost"> $10^{2}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 127 $$ </td>
+            <td class = "tdPost"> $$ 3 $$ </td>
+            <td class = "tdPost"> $2^{7} - 1$ <br> $4$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 541 $$ </td>
+            <td class = "tdPost"> $$ 3 $$ </td>
+            <td class = "tdPost"> $10^{2}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 997 $$ </td>
+            <td class = "tdPost"> $$ 3 $$ </td>
+            <td class = "tdPost"> $10^{3}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1009 $$ </td>
+            <td class = "tdPost"> $$ 4 $$ </td>
+            <td class = "tdPost"> $10^{3}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 7919 $$ </td>
+            <td class = "tdPost"> $$ 4 $$ </td>
+            <td class = "tdPost"> $10^{3}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 8 \, 191 $$ </td>
+            <td class = "tdPost"> $$ 4 $$ </td>
+            <td class = "tdPost"> $2^{13} - 1$ <br> $5$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 9973 $$ </td>
+            <td class = "tdPost"> $$ 4 $$ </td>
+            <td class = "tdPost"> $10^{4}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 10007 $$ </td>
+            <td class = "tdPost"> $$ 5 $$ </td>
+            <td class = "tdPost"> $10^{4}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 99991 $$ </td>
+            <td class = "tdPost"> $$ 5 $$ </td>
+            <td class = "tdPost"> $10^{5}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 100003 $$ </td>
+            <td class = "tdPost"> $$ 6 $$ </td>
+            <td class = "tdPost"> $10^{5}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 104729 $$ </td>
+            <td class = "tdPost"> $$ 6 $$ </td>
+            <td class = "tdPost"> $10^{4}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 131 \, 071 $$ </td>
+            <td class = "tdPost"> $$ 6 $$ </td>
+            <td class = "tdPost"> $2^{17} - 1$ <br> $6$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 524 \, 287 $$ </td>
+            <td class = "tdPost"> $$ 6 $$ </td>
+            <td class = "tdPost"> $2^{19} - 1$ <br> $7$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 999983 $$ </td>
+            <td class = "tdPost"> $$ 6 $$ </td>
+            <td class = "tdPost"> $10^{6}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1000003 $$ </td>
+            <td class = "tdPost"> $$ 7 $$ </td>
+            <td class = "tdPost"> $10^{6}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1299709 $$ </td>
+            <td class = "tdPost"> $$ 7 $$ </td>
+            <td class = "tdPost"> $10^{5}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 9999991 $$ </td>
+            <td class = "tdPost"> $$ 7 $$ </td>
+            <td class = "tdPost"> $10^{7}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 10 \, 000 \, 019 $$ </td>
+            <td class = "tdPost"> $$ 8 $$ </td>
+            <td class = "tdPost"> $10^{7}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 15 \, 485 \, 863 $$ </td>
+            <td class = "tdPost"> $$ 8 $$ </td>
+            <td class = "tdPost"> $10^{6}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 99 \, 999 \, 989 $$ </td>
+            <td class = "tdPost"> $$ 8 $$ </td>
+            <td class = "tdPost"> $10^{8}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 100 \, 000 \, 007 $$ </td>
+            <td class = "tdPost"> $$ 9 $$ </td>
+            <td class = "tdPost"> $10^{8}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 179 \, 424 \, 673 $$ </td>
+            <td class = "tdPost"> $$ 9 $$ </td>
+            <td class = "tdPost"> $10^{7}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 999 \, 999 \, 937 $$ </td>
+            <td class = "tdPost"> $$ 9 $$ </td>
+            <td class = "tdPost"> $10^{9}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1 \, 000  \, 000  \, 007 $$ </td>
+            <td class = "tdPost"> $$ 10 $$ </td>
+            <td class = "tdPost"> $10^{9}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 2 \, 038 \, 074 \, 743 $$ </td>
+            <td class = "tdPost"> $$ 10 $$ </td>
+            <td class = "tdPost"> $10^{8}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 2 \, 147 \, 483 \, 647 $$ </td>
+            <td class = "tdPost"> $$ 10 $$ </td>
+            <td class = "tdPost"> $2^{31} - 1$ <br> C, C++등에서 int형 변수의 최댓값 <br> $105097565$번째 소수 <br> $8$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 9 \, 999 \, 999 \, 967 $$ </td>
+            <td class = "tdPost"> $$ 10 $$ </td>
+            <td class = "tdPost"> $10^{10}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 10 \, 000 \, 000 \, 019 $$ </td>
+            <td class = "tdPost"> $$ 11 $$ </td>
+            <td class = "tdPost"> $10^{10}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 22 \, 801 \, 763 \, 489 $$ </td>
+            <td class = "tdPost"> $$ 11 $$ </td>
+            <td class = "tdPost"> $10^{9}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 99 \, 999 \, 999 \, 977 $$ </td>
+            <td class = "tdPost"> $$ 11 $$ </td>
+            <td class = "tdPost"> $10^{11}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 100 \, 000 \, 000 \, 003 $$ </td>
+            <td class = "tdPost"> $$ 12 $$ </td>
+            <td class = "tdPost"> $10^{11}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 252 \, 097 \, 800 \, 623 $$ </td>
+            <td class = "tdPost"> $$ 12 $$ </td>
+            <td class = "tdPost"> $10^{10}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 999 \, 999 \, 999 \, 989 $$ </td>
+            <td class = "tdPost"> $$ 12 $$ </td>
+            <td class = "tdPost"> $10^{12}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 1 \, 000 \, 000 \, 000 \, 039 $$ </td>
+            <td class = "tdPost"> $$ 13 $$ </td>
+            <td class = "tdPost"> $10^{12}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 2 \, 760 \, 727 \, 302 \, 517 $$ </td>
+            <td class = "tdPost"> $$ 13 $$ </td>
+            <td class = "tdPost"> $10^{11}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 9 \, 999 \, 999 \, 999 \, 971 $$ </td>
+            <td class = "tdPost"> $$ 13 $$ </td>
+            <td class = "tdPost"> $10^{13}$보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 10 \, 000 \, 000 \, 000 \, 037 $$ </td>
+            <td class = "tdPost"> $$ 14 $$ </td>
+            <td class = "tdPost"> $10^{13}$보다 큰 소수 중 가장 작은 수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 29 \, 996 \, 224 \, 275 \, 833 $$ </td>
+            <td class = "tdPost"> $$ 14 $$ </td>
+            <td class = "tdPost"> $10^{12}$번째 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 2 \, 305 \, 843 \, 009 \, 213 \, 693 \, 951 $$ </td>
+            <td class = "tdPost"> $$ 19 $$ </td>
+            <td class = "tdPost"> $2^{61} - 1$ <br> $9$번째 메르센 소수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ 9 \, 223 \, 372 \, 036 \, 854 \, 775 \, 783 $$ </td>
+            <td class = "tdPost"> $$ 19 $$ </td>
+            <td class = "tdPost"> $2^{63} - 25$ <br> C, C++등에서 long long int형 변수의 최댓값($2^{63} - 1$)보다 작은 소수 중 가장 큰 수 </td>
+        </tr>
+    </table>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

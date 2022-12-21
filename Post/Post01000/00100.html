@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        #primeButton
+        #MRprimeButton
         {
             width: 50%;
             margin: 7px;
@@ -53,13 +53,15 @@
     <p>
       
     <div>
-        <ul>
+        <ul><li>
+                <a href="/Post/Post01000/00101.html"> 정수론 계산기 사용설명서 </a>
+            </li>
             <li>
                 <label for = "isPrime">계산할 수 :</label> 
                 <input id = "isPrime" type = "text">
             </li>
             <li>
-                <button id = "MRprimeButton" onclick = "showMRPrime()">밀러 - 라빈 소수 판별법쓰기</button>
+                <button id = "MRprimeButton" onclick = "showMRPrime()">밀러 - 라빈 소수 판별법 쓰기</button>
             </li>
         </ul>
     <div id="showResult"></div>
@@ -81,80 +83,79 @@
                 throw "stop";
             }
             
-			if (isMRPrimeNumber(N) === false)
-            {
-                document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다.";
-            }
-            else
-            {
-                document.querySelector('#showResult').innerHTML = N + "은 소수 입니다.";
-            }
+			if (isMRPrimeNumber(N) === false) { document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다."; }
+            else { document.querySelector('#showResult').innerHTML = N + "은 소수 입니다."; }
+
             var t1 = performance.now();
             var t2 = (t1 - t0) / 1000;
             document.querySelector('#showTime').innerHTML = t2.toFixed(5) + "초 걸림";
         }
         function isMRPrimeNumber(N)
         {
-            for (let i = 0; i < mPL.length; i += 1)
-            {
-                if (N === mPL[i]) { return true }
-            }
-            if (N < 4n) { return true }
-            if (pow(2n, N - 1n, N) !== 1n) {return false}
+            for (let i = 0; i < mPL.length; i += 1) { if (N === mPL[i]) { return true } }
+            if ( N < 4n ) { return true }
+            if ( pow(2n, N - 1n, N) !== 1n ) {return false}
 
             let s = 0n;
             let d = N - 1n;
-            while(d % 2n === 0n)
-            {
-                s += 1n;
-                d = d / 2n;
-            }
+            while(d % 2n === 0n) { s += 1n; d = d / 2n; }
+            if (d < 2n ** s) { return pow(3n, (N - 1n) / 2n, N) === N - 1n }
 
-            if (d < 2n ** s)
-            {
-                if ( pow(3n, (N - 1n) / 2n, N) === N - 1n ) {return true}
-                else {return false}
-            }
-
-            if (N < 3317044064679887385961981n)
-            {
-                for (let i = 0; i < mPL.length; i += 1)
-                {
-                if ( MRTest(mPL[i], s, d, N) === false ) { return false }
-                }
+            if (N < 3317044064679887385961981n) {
+                for (let i = 0; i < mPL.length; i += 1) { if ( MRTest(mPL[i], s, d, N) === false ) { return false } }
+                return true
             }
 
             if ( MRTest(2n, s, d, N) === false ) { return false }
 
             let k = BigInt(String(N).length) * 3n;
             let pk = 2n ** k;
-
-            while (pk < N)
-            {
-                pk = pk * 2n;
-                k += 1n;
-            }
+            while (pk < N) { pk = pk * 2n; k += 1n; }
 
             let Sln2N = k * k * 123n / 128n + 1n;
-
             for (let i = 3n; i <= Sln2N; i += 2n)
-                {
-                if ( MRTest(i, s, d, N) === false ) { return false }
-                inText(i, Sln2N);
-                console.log(i);
-                wait(2000);
+            {
+                if (isPrimeI(i) ) {
+                    if ( MRTest(i, s, d, N) === false ) { document.querySelector('#showDiv').innerText = "소수 아님"; return false; }
+                    console.log(i);
                 }
-            
+                inText(i, Sln2N);
+                
+            }
+            return true
+        }
+        function isPrimeI(N)
+        {
+            for (let i = 0; i < mPL.length; i += 1) { if (N === mPL[i]) { return true } }
+            if ( N < 4n ) { return true }
+            if ( pow(2n, N - 1n, N) !== 1n ) {return false}
 
+            let s = 0n;
+            let d = N - 1n;
+            while(d % 2n === 0n) { s += 1n; d = d / 2n; }
+            if (d < 2n ** s) { return pow(3n, (N - 1n) / 2n, N) === N - 1n }
+
+            if (N < 3317044064679887385961981n) {
+                for (let i = 0; i < mPL.length; i += 1) { if ( MRTest(mPL[i], s, d, N) === false ) { return false } }
+                return true
+            }
+
+            if ( MRTest(2n, s, d, N) === false ) { return false }
+
+            let k = BigInt(String(N).length) * 3n;
+            let pk = 2n ** k;
+            while (pk < N) { pk = pk * 2n; k += 1n; }
+
+            let Sln2N = k * k * 123n / 128n + 1n;
+            for (let i = 3n; i <= Sln2N; i += 2n) { if ( MRTest(i, s, d, N) === false ) { return false; } }
             return true
         }
         function MRTest(a, s, d, N){
             let b = pow(a, d, N)
-            if (b === 1n) {return true}
-            if (b === N - 1n) {return true}
+            if (b === 1n || b === N - 1n) {return true}
             for (let i = 0n; i < s - 1n; i += 1n)
             {
-                b = pow(b, 2n, N)
+                b = pow(b, 2n, N);
                 if (b === N - 1n) {return true}
             }
             return false
@@ -162,11 +163,11 @@
         function pow(b, e, m) {
             if (e === 0n) {return 1n}
             if (e % 2n === 0n) {
-                let byTwo = pow(b, e / 2n, m)
+                let byTwo = pow(b, e / 2n, m);
                 return (byTwo * byTwo) % m
             }
             else {
-                let byTwoPlusOne = pow(b, (e - 1n)/2n, m)
+                let byTwoPlusOne = pow(b, (e - 1n)/2n, m);
                 return (b * ((byTwoPlusOne * byTwoPlusOne) % m)) % m
             }
         }
