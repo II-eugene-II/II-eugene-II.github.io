@@ -137,9 +137,12 @@
 
             let Sln2N = k * k * 123n / 128n + 1n;
 
-            for (let i = 3n; i < Sln2N; i += 2n)
+            for (let i = 3n; i <= Sln2N; i += 2n)
                 {
                 if ( MRTest(i, s, d, N) === false ) { return false }
+                inText(i, Sln2N);
+                console.log(i);
+                wait(2000);
                 }
             
 
@@ -166,6 +169,15 @@
                 let byTwoPlusOne = pow(b, (e - 1n)/2n, m)
                 return (b * ((byTwoPlusOne * byTwoPlusOne) % m)) % m
             }
+        }
+        function wait(msec)
+        {
+            let start = Date.now();
+            now = start;
+            while (now - start < msec) { now = Date.now(); }
+        }
+        function inText(i, Sln2N) {
+            document.querySelector('#showDiv').innerText = String(i) + " / " + String(Sln2N) + "소수로 추정중";
         }
          
 	</script>
