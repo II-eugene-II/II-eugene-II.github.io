@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 프로젝트 오일러 363번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 프로젝트 오일러 363번 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://euler.synap.co.kr/problem=363"> 프로젝트 오일러 363번 한국어판 링크 </a> <br>
+        <a href="https://projecteuler.net/problem=363"> 프로젝트 오일러 363번 원문 링크 </a> <br>
+        문제 이름 : 베지어 곡선 / Bézier Curves <br>
+        주 언어 : Python <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        (베지어 곡선의 정의 부분 생략)
+        
+        네 점 $P_0=(1,0)$, $P_1=(1,v)$, $P2=(v,1)$ 과 $P3=(0,1)$로 정의되는 3차 베지어 곡선을 이용해 사분원에 유사하게 만들 수 있습니다 <br>
+        
+        두 선분 $OP_0$, $OP_3$ 과 베지어 곡선이 이루는 영역의 면적이 (사분원의 면적인) $\frac{\pi}{4}$이 되도록 v > 0의 값을 정합니다. <br>
+        
+        이렇게 만든 베지어 곡선의 길이와 사분원의 길이는 몇 퍼센트나 차이납니까? <br>
+        
+        즉, $L$을 베지어 곡선의 길이라고 할 때, 다음 값을 계산하세요. $100 \times \frac{L - \frac{\pi}{2}}{\frac{\pi}{2}}$ <br>
+        
+        답은 소수점 이하 10자리까지 반올림하여 제출하세요. <br>
+        
+        <h4> 출력 : </h4>
+        
+        답은 소수점 이하 10자리까지 반올림하여 제출하세요. (답이 0.12345678912면 0.1234567891을, 답이 0.1234567891445면 0.1234567892를) <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    프로젝트 오일러 자체 규정상 101번 문제부터는 답을 그대로 오픈할 수가 없습니다. <br>
+
+    따라서 몇가지 힌트만을 드리고자 합니다. <br>
+
+    (검색해보니 한국 웹에는 이 문제에 대한 어느 글도 안 나와 있어서...아무것도 없는 것 보다는 힌트나마 있는것이 맞지 않나 싶었습니다.) <br>
+
+    0. $B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3$로 쓰고 나면, $B(t) = \{x(t), y(t)\}$꼴로 정리가 됩니다. $x(t)$와 $y(t)$는 $t$에 대한 <b>다항식</b>이 됩니다. <br>
+
+    1. 곡선 $y=f(x)$가 $x = g(t)$, $y = h(t)$꼴의 매개변수꼴로 나타나져 있으면 $\int f(x) dx$는 어떻게 구해야 할까요? <br>
+
+    <details><summary> 1번 질문 </summary>
+    
+        <p>
+
+            $f(x) = y$, $y = h(t)$에서 $\int f(x) dx = \int h(t) dx$이고, $x = g(t)$에서 $dx = g'(t)dt$이므로 $\int h(t) dx = \int h(t)g'(t)dt$입니다. <br>
+
+            따라서 $\int f(x) dx = \int h(t)g'(t)dt$ 입니다. (정적분 구간은 치환적분처럼 정하시면 됩니다.)
+                
+        </p>
+    
+    </details> <!-- 1번 질문 -->
+
+    2. $v$를 구하긴 했는데 정말 이게 맞나요??? 잘못 구한거 같은데... <br>
+
+    <details><summary> 2번 질문 </summary>
+    
+        <p>
+
+            어떤 자연수 $n_{1}$, $n_{2}$, $n_{3}$, $n_{4}$에 대하여 $v = n_{1} - \sqrt{\frac{n_{2} - n_{3} \times \pi}{n_{4}}} = 0.5517...$이 나오신다면 잘 푸신게 맞습니다. <br>
+                
+        </p>
+    
+    </details> <!-- 2번 질문 -->
+
+    3. 곡선의 길이를 어떻게 구하나요? <br>
+
+    <details><summary> 3번 질문 </summary>
+    
+        <p>
+
+            $\int \sqrt{ {x'(t)}^2 + {y'(t)}^2 }$로 풀어줍니다. <br>
+                
+        </p>
+    
+    </details> <!-- 3번 질문 -->
+
+    4. 적분공식표도 뒤져봤는데 이거 어떻게 적분해야하나요? <br>
+
+    <details><summary> 4번 질문 </summary>
+    
+        <p>
+
+            적분 안되는게 맞습니다. <br>
+
+            수치해석적으로 고등학교때 배우는 구분구적법으로 일일이 적분값을 쌓아가면 됩니다. <br>
+
+            (더 좋은 테크닉이 있다면 그걸 쓰셔도 좋습니다.) <br>
+                
+        </p>
+    
+    </details> <!-- 4번 질문 -->
+
+    5. 어느정도 정밀도로 적분해야하나요? <br>
+
+    <details><summary> 5번 질문 </summary>
+    
+        <p>
+
+            저같은 경우에는 파이썬 Decimal 모듈로 넉넉하게 50자리 정도의 계산을 했고, <br>
+
+            단순히 구분구적법으로 구간 100만개로 쪼개서 적분값을 구했습니다. (넉넉하게 50만개로 쪼개도 값은 나옵니다.) <br>
+
+            더 좋은 테크닉으로는 훨씬 적은 구간으로도 구할 수 있을 수 있습니다. <br>
+                
+        </p>
+    
+    </details> <!-- 5번 질문 -->
+
+    6. 추가 힌트
+
+    <details><summary> 추가 힌트 </summary>
+    
+        <p>
+
+            소수점 10자리 중에 0은 5번 나오고, 마지막 숫자는 1입니다. <br>
+
+            (이걸 만족하는 수가 826686개 있으니 일일이 대입한다는 생각보다는 계산결과를 검산할 때 사용하시기 바랍니다.) <br>
+                
+        </p>
+    
+    </details> <!-- 추가 힌트 -->
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    1번째 푼 문제 (2022/12/22) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

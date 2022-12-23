@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 에라토스테네스의 체 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 에라토스테네스의 체 </div>
+    
+    <hr>
+      
+    <p>
+        
+    수 하나에 대하여 소수인지 판정할 때는 <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수판별법 </a> 같은 빠른 소수판별법을 사용하면 되지만 1부터 N 사이의 소수가 필요한 경우도 존재합니다. <br>
+
+    그럴때는 1부터 N까지 리스트를 쫙 깔아두고 그 리스트를 가지고 소수 리스트를 생성하게 됩니다. <br>
+
+    예를 들어서 1부터 100 사이의 모든 소수를 원한다고 가정해보겠습니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost"> $1$ </td>
+            <td class = "tdPost"> $2$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $4$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $6$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $8$ </td>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost"> $14$ </td>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $21$ </td>
+            <td class = "tdPost"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $24$ </td>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost"> $26$ </td>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $32$ </td>
+            <td class = "tdPost"> $33$ </td>
+            <td class = "tdPost"> $34$ </td>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost"> $38$ </td>
+            <td class = "tdPost"> $39$ </td>
+            <td class = "tdPost"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost"> $44$ </td>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost"> $48$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $51$ </td>
+            <td class = "tdPost"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost"> $54$ </td>
+            <td class = "tdPost"> $55$ </td>
+            <td class = "tdPost"> $56$ </td>
+            <td class = "tdPost"> $57$ </td>
+            <td class = "tdPost"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost"> $62$ </td>
+            <td class = "tdPost"> $63$ </td>
+            <td class = "tdPost"> $64$ </td>
+            <td class = "tdPost"> $65$ </td>
+            <td class = "tdPost"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost"> $68$ </td>
+            <td class = "tdPost"> $69$ </td>
+            <td class = "tdPost"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost"> $74$ </td>
+            <td class = "tdPost"> $75$ </td>
+            <td class = "tdPost"> $76$ </td>
+            <td class = "tdPost"> $77$ </td>
+            <td class = "tdPost"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $81$ </td>
+            <td class = "tdPost"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost"> $84$ </td>
+            <td class = "tdPost"> $85$ </td>
+            <td class = "tdPost"> $86$ </td>
+            <td class = "tdPost"> $87$ </td>
+            <td class = "tdPost"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $91$ </td>
+            <td class = "tdPost"> $92$ </td>
+            <td class = "tdPost"> $93$ </td>
+            <td class = "tdPost"> $94$ </td>
+            <td class = "tdPost"> $95$ </td>
+            <td class = "tdPost"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost"> $98$ </td>
+            <td class = "tdPost"> $99$ </td>
+            <td class = "tdPost"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    1은 우선 소수가 아니니까 걸러줍니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost"> $2$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $4$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $6$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $8$ </td>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost"> $14$ </td>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $21$ </td>
+            <td class = "tdPost"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $24$ </td>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost"> $26$ </td>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $32$ </td>
+            <td class = "tdPost"> $33$ </td>
+            <td class = "tdPost"> $34$ </td>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost"> $38$ </td>
+            <td class = "tdPost"> $39$ </td>
+            <td class = "tdPost"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost"> $44$ </td>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost"> $48$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $51$ </td>
+            <td class = "tdPost"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost"> $54$ </td>
+            <td class = "tdPost"> $55$ </td>
+            <td class = "tdPost"> $56$ </td>
+            <td class = "tdPost"> $57$ </td>
+            <td class = "tdPost"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost"> $62$ </td>
+            <td class = "tdPost"> $63$ </td>
+            <td class = "tdPost"> $64$ </td>
+            <td class = "tdPost"> $65$ </td>
+            <td class = "tdPost"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost"> $68$ </td>
+            <td class = "tdPost"> $69$ </td>
+            <td class = "tdPost"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost"> $74$ </td>
+            <td class = "tdPost"> $75$ </td>
+            <td class = "tdPost"> $76$ </td>
+            <td class = "tdPost"> $77$ </td>
+            <td class = "tdPost"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $81$ </td>
+            <td class = "tdPost"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost"> $84$ </td>
+            <td class = "tdPost"> $85$ </td>
+            <td class = "tdPost"> $86$ </td>
+            <td class = "tdPost"> $87$ </td>
+            <td class = "tdPost"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $91$ </td>
+            <td class = "tdPost"> $92$ </td>
+            <td class = "tdPost"> $93$ </td>
+            <td class = "tdPost"> $94$ </td>
+            <td class = "tdPost"> $95$ </td>
+            <td class = "tdPost"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost"> $98$ </td>
+            <td class = "tdPost"> $99$ </td>
+            <td class = "tdPost"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    짝수(즉, "$2$"의 배수)도 걸러줍니다. <br>
+
+    단, $2$ <b>그 자체는 소수</b>이므로 거르지 않습니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $4$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $6$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $8$ </td>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $14$ </td>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $21$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $24$ </td>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $26$ </td>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $32$ </td>
+            <td class = "tdPost"> $33$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $34$ </td>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $38$ </td>
+            <td class = "tdPost"> $39$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $44$ </td>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $48$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $51$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $54$ </td>
+            <td class = "tdPost"> $55$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $56$ </td>
+            <td class = "tdPost"> $57$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $62$ </td>
+            <td class = "tdPost"> $63$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $64$ </td>
+            <td class = "tdPost"> $65$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $68$ </td>
+            <td class = "tdPost"> $69$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $74$ </td>
+            <td class = "tdPost"> $75$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $76$ </td>
+            <td class = "tdPost"> $77$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $81$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $84$ </td>
+            <td class = "tdPost"> $85$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $86$ </td>
+            <td class = "tdPost"> $87$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $91$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $92$ </td>
+            <td class = "tdPost"> $93$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $94$ </td>
+            <td class = "tdPost"> $95$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $98$ </td>
+            <td class = "tdPost"> $99$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    $3$의 배수도 걸러줍니다. <br>
+
+    단, $3$ <b>그 자체는 소수</b>이므로 거르지 않습니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $3$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $4$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $6$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $8$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $9$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $14$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $15$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $21$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $24$ </td>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $26$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $27$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $32$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $33$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $34$ </td>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $38$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $39$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $44$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $45$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $48$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $51$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $54$ </td>
+            <td class = "tdPost"> $55$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $56$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $57$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $62$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $63$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $64$ </td>
+            <td class = "tdPost"> $65$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $68$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $69$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $74$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $75$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $76$ </td>
+            <td class = "tdPost"> $77$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $81$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $84$ </td>
+            <td class = "tdPost"> $85$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $86$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $87$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $91$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $92$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $93$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $94$ </td>
+            <td class = "tdPost"> $95$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $98$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $99$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    $4$의 배수는 거를 필요가 없습니다. <br>
+
+    $4$ 자체가 $2$의 배수라서 이미 걸러지고, $4$의 배수들도 $2$의 배수이기때문에 이미 걸러진지 오래입니다. <br>
+
+    앞으로 $k$가 이미 걸러진 수라면, $k$의 배수도 이미 걸러져있을테니 <b>무시</b>해주도록 합니다. <br>
+
+    $5$는 아직 걸러지지 않았으므로 $5$의 배수도 걸러줍니다. <br>
+
+    단, $5$ <b>그 자체는 소수</b>이므로 거르지 않습니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $3$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $4$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $5$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $6$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $8$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $9$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $14$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $15$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $21$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $24$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $25$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $26$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $27$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $32$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $33$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $34$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $35$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $38$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $39$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $44$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $45$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $48$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $51$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $54$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $55$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $56$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $57$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $62$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $63$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $64$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $65$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $68$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $69$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $74$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $75$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $76$ </td>
+            <td class = "tdPost"> $77$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $81$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $84$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $85$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $86$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $87$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $91$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $92$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $93$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $94$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $95$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $98$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $99$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    이미 걸러진 $6$의 경우 무시해줍니다. <br>
+
+    $7$이 아닌 $7$의 배수를 걸러줍니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $3$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $4$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $5$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $6$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $7$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $8$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $9$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $10$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $12$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $14$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $15$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $16$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $18$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $20$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $21$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $22$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $24$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $25$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $26$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $27$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $28$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $30$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $32$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $33$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $34$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $35$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $36$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $38$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $39$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $40$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $42$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $44$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $45$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $46$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $48$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $49$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $50$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $51$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $52$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $54$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $55$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $56$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $57$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $58$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $60$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $62$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $63$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $64$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $65$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $66$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $68$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $69$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $70$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $72$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $74$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $75$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $76$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $77$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $78$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $80$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $81$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $82$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $84$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $85$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $86$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $87$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $88$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.6);"> $90$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $91$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $92$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $93$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $94$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $95$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $96$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $98$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $99$ </td>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.4);"> $100$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    빨간색이 좀 너저분 해보이니 아예 빨간색으로 칠한 부분을 삭제해주도록 하겠습니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $3$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $5$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $7$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $67$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $71$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $73$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $79$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $83$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $89$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $97$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    $8$은 이미 없어진지 오래입니다. <br>
+
+    $9$와 $10$도 이미 없어졌습니다. <br>
+
+    $11$의 배수를 걸러주려 했더니 이미 표에 $11$의 배수가 없습니다. <br>
+
+    $13$의 배수도 없습니다...왜일까요? <br>
+
+    $11$의 배수를 걸러준다는 것은 $11 \times 2$, $11 \times 3$, $11 \times 4$, ...를 걸러준다는 것인데 <br>
+
+    바꿔서 생각해보면 $2 \times 11$, $3 \times 11$, $4 \times 11$, ...이므로, $10 \times 11$까지는 <b>이미</b> 걸러진 것입니다. <br>
+
+    $11 \times 11$부터 걸러야 하는데, $100$까지의 범위에서 거르기로 하였으므로 이미 끝난 셈입니다. <br>
+
+    $N$까지의 범위에서 거르기로 했으면, $k \leq \sqrt{N}$인 $k$의 배수까지만 걸러주면 된다는 사실을 알았습니다. <br>
+
+    소거는 이걸로 끝났고, 나머지 모두를 소수로 판정해줍니다. <br>
+
+    <br>
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> $1$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $2$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $3$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $5$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $7$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $11$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $13$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $17$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $19$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $23$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $29$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $31$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $37$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $41$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $43$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $47$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $53$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $59$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $61$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $67$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $71$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $73$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $79$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $83$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $89$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> $97$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+            <td class = "tdPost"> $\times$ </td>
+        </tr>
+    </table>
+
+    <br>
+
+    앞에서 이야기 한 주제들을 가지고 이제 코드로 만들어봅시다. <br>
+
+    1. 1은 소수가 아니다. <br>
+
+    2. 2가 아닌 짝수(2의 배수)는 소수가 아니다. <br>
+
+    3. 차례차례 걸러지지 않은 수의 배수를 거른다. <br>
+
+    4. $k$의 배수를 거를 때는 $k \times k$부터 걸러도 된다. <br>
+
+    5. $k$의 배수를 거를 때 $k$가 소수가 아니라면 이미 걸러져 있으니 필요가 없다. <br>
+
+    <a href="https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4"> 위키백과에 굉장히 잘 짜여진 코드 </a>가 있으니 이를 기반으로 만들어주도록 합니다. <br>
+
+    <br>
+
+    <script src="https://gist.github.com/II-eugene-II/f8d042faa7ea05ba3bc547a9d432416d.js"></script>
+
+    <br>
+
+    어지간하면 이정도 코드로도 충분히 체를 사용할 수 있습니다. <br>
+
+    물론 최적화의 여지는 있습니다. <br>
+
+    아예 return 부분에서 짝수 부분을 없는거처럼 그냥 계산한 다음에, 맨 앞에 2만 붙여주면 됩니다. <br>
+
+    <br>
+
+    <script src="https://gist.github.com/II-eugene-II/aa5340f8240366aa9224d4f00ed1a046.js"></script>
+
+    <br>
+
+    1, 2를 넣었을 때 결과로 2가 나와버리는 약간의 미스가 있지만, 굳이 에라토스테네스의 체에 2를 넣진 않을거라고 생각됩니다. <br>
+
+    i * i부터 판단해줘도 되므로 구간도 바꿔주도록 합니다. <br>
+
+    <br>
+
+    <script src="https://gist.github.com/II-eugene-II/b8e6b7c245898ef497012feb6d7e00fe.js"></script>
+
+    <br>
+
+    return 부분에서 아에 sieve 짝수 부분이 어떻게 되든 상관하지도 않으므로 애초에 i가 짝수일 때는 계산 하지 않아도 됩니다. <br>
+
+    <br>
+
+    <script src="https://gist.github.com/II-eugene-II/5855fc429a3fa64922bc5c33fb50641b.js"></script>
+
+    <br>
+
+    i가 홀수일 때만 검사하고, i * i(홀수)부터 검사를 시작하므로 2i만큼 거리를 두고 걸러주면 홀수만 건드릴 수 있습니다. <br>
+
+    여기서 더욱 최적화 하면 Linear-sieve로 진화하는 과정도 존재합니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
