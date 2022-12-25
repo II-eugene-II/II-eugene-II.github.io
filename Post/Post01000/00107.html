@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 13705번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 13705번 - Ax+Bsin(x)=C </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/13705"> 백준 13705번 문제 링크 </a> <br>
+        문제 이름 : Ax+Bsin(x)=C <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 이분 탐색 / 임의 정밀도 & 큰 수 연산 / 수치해석 <br>
+        solved.ac 등급 : Diamond V (2022/12/25 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+        
+        <h4> 문제 : </h4>
+        
+        A, B, C가 주어졌을 때, Ax+Bsin(x)=C를 만족하는 x를 찾는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 정수 A, B, C가 주어진다. (0 < B ≤ A ≤ 100,000, 0 < C ≤ 100,000) <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 x를 반올림해서 소수점 여섯째 자리까지 출력한다. <br>
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    문제를 그냥 아주 단순히 생각하면 int형 변수 3개 받아서 float 하나 출력하는건데 다이아V를 받은 데에는 이유가 있습니다. <br>
+
+    예를 들어서, $97084 x + 82977 \sin x = 68488$의 해가 $x≈0.3847004999999999999990390194199784511375$입니다. <br>
+    
+    7번째 자리인 $4$에서 반올림한 $x=0.384700$으로 출력해야 하는데, 자릿수가 정밀하지 못하다면 $x≈0.3847005000000000...$으로 계산하여 $x≈0.384701$로 출력하여 틀릴 수 있습니다. <br>
+    
+    따라서 이 케이스 때문에라도 "최소한 20자리 이상"을 계산해서 출력해야 합니다. <br>
+
+    $B \leq A$ 조건에서 $A x + B \sin x$는 증가함수이므로, 이분탐색으로 $A x + B \sin x = C$의 해를 금방 찾을 수 있습니다. <br>
+
+    대신 $\sin x$ 함수는 테일러급수로 <b>직접</b> 구현하셔야 합니다. <br>
+
+    다이아몬드 문제다보니 직접적인 코드를 올려드리기보단 흐름만 설명드리겠습니다. <br>
+
+    1. 저는 파이썬 Decimal 모듈로 자릿수를 30자리까지 확장해서 풀었습니다. (25자리까지만 확장해도 풀리긴 풀린다고 합니다.) <br>
+
+    1 - 1. 파이썬이 아니신 분들은 C/C++의 경우 거의 무조건 float128 모듈을 이용하여 푸셨고, Java의 경우 BigDecimal 모듈로 푸셨습니다. <br>
+
+    2. 30자리까지의 파이값은 pi = Decimal("3.141592653589793238462643383279") 입니다. <br>
+
+    3. x가 너무 커지면 테일러급수로 만든 사인값이 너무 커지게 되므로 사인함수의 성질 $\sin (x + 2 \pi) = \sin x$를 이용하여 $0 < x < 2 \pi$가 되게끔 강제로 조절해도 좋습니다. <br>
+
+    4. 해 x는 low = C / A - B / A 보다 크고, high = C / A + B / A 보다 작습니다. <br>
+
+    5. 파이썬에서 7번째 자리에서 반올림을 하시려면 print('{:.6f}'.format(mid))로 출력하시면 됩니다. <br>
+
+    이 아래로는 정말 아름다운 예제 리스트이니 자신의 코드가 맞는지 확인해보시기 바랍니다. <br>
+
+    <details><summary> 백준 13705번 예제 리스트 </summary>
+    
+        <p>
+
+            input N에 있는 수 3개를 입력하면 <br>
+
+            output N에 있는 수가 나와야 합니다. <br>
+
+            note N에 있는 기다란 수는 답의 자리수를 30자리 이상으로 맞춘 답입니다. <br>
+            
+            <script src="https://gist.github.com/II-eugene-II/0e2ae73aeb531fb31dacb2bf3854bb90.js"></script>
+                
+        </p>
+    
+    </details> <!-- 백준 13705번 예제 리스트 -->
+
+    되도록이면 정수 연산만 하면서 살도록 합시다. <br>
+
+    $B \leq A$ 제한이 없어진 문제가 생겨서 $A x + B \sin x = C$의 모든 해를 출력하라고 하면 난이도가 얼마나 오를지 궁금하긴 합니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/-/-) <br>
+
+    처음 푼 다이아몬드 문제 <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
