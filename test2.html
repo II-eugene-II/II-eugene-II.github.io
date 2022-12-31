@@ -37,30 +37,54 @@
     <div id="showDiv"></div>
     <div id="showTime"></div>
 	</div>
+      
+    $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>입니다. <br>
+    
+    리만제타함수와도 관련이 있는 식입니다. <br>
+
+    <button type="button" onclick="location.href='/Post/Post01000/00100.html' ">Test</button> <br>
+
+    <input id="whatPage" type="text"> <br>
+
+    <button id="goPage" onclick="givePage()"> givePage </button> <br>
+
+    <div id="showGoPage"></div> <br>
+
+    
+    <script>
+	</script>
+
+    <a href="https://www.facebook.com/">
+        <input type="button" value="Facebook">
+        </a> <br>
+                  
+    <a href="/Post/Post01000/00097.html"> 메르텐스의 제 1 정리 </a>와 <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a> 도 존재합니다. <br>
+      
+    </p>
 
     <script>
         function test()
         {
             test2("시험1");
-            sleep(1500);
             test2("시험2");
         }
         function test2(txt)
         {
             var time = new Date();
             var seconds = time.getSeconds();
-            document.querySelector('#showDiv').innerText = seconds + txt;
+            document.querySelector('#showDiv').innerHTML = seconds + txt;
+            document.querySelector('#showGoPage').innerHTML = `<a href="/Post/Post01000/00097.html"> 메르텐스의 제 1 정리 </a>`
+            console.log(1)
             // setTimeout(() => test2(), 1000);
         }
+        function givePage()
+        {
+            var page = document.querySelector('#whatPage').value;
+            page = page.toString()
+            var but = `<button type="button" onclick="location.href='/Post/Post01000/` + page.padStart(5, "0") + `.html' ">Test</button>`
+            document.querySelector('#showGoPage').innerHTML = but
+        }
 	</script>
-      
-    $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>입니다. <br>
-    
-    리만제타함수와도 관련이 있는 식입니다. <br>
-                  
-    <a href="/Post/Post01000/00097.html"> 메르텐스의 제 1 정리 </a>와 <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a> 도 존재합니다. <br>
-      
-    </p>
       
     </section>
     <aside>
