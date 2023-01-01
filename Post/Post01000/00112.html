@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 파이썬 Decimal 모듈 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 파이썬 Decimal 모듈 </div>
+    
+    <hr>
+      
+    <p>
+      
+    파이썬 Decimal 모듈 파이썬의 기본 내장 모듈로, 컴퓨터의 용량이 허락하는 한 굉장히 높은 정밀도의 소수점 연산이 가능합니다. <br>
+    
+    <br> <script src="https://gist.github.com/II-eugene-II/55d923a0e44b691144f598f24cc7213a.js"></script> <br>
+
+    우선 from decimal import * 로 decimal 모듈에 있는 모든 것들을 가져와주도록 합니다. <br>
+
+    만약 그냥 import decimal로만 하신다면, 이후에 나오는 모든 decimal 모듈의 함수는 decimal.함수이름()로 쓰셔야 합니다. <br>
+    
+    그리고 소수점 확장은 getcontext().prec = N 으로 하시면 소수점 밑 N자리까지 출력되며, N - 2자리까지는 거의 확실하게 값을 얻을 수 있습니다. <br>
+
+    가볍게 100자리까지 확장해주도록 합니다. (어지간한건 25자리나 50자리여도 충분합니다.) <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/f10db9291b5842fdedd966938cb01cde.js"></script> <br>
+
+    ("\n" 부분은 출력할 때 보기 편하라고 넣어놓은거지 필수가 아닙니다.) <br>
+
+    5가지 사례로 어떻게 Decimal 모듈을 써야하는지 설명드리겠습니다. <br>
+
+    <h3> 1. 정수가 써진 문자열을 Decimal() 안에 넣기 </h3> <br>
+
+    int("123") == 123 인 것처럼, Decimal("123")을 하게 되면 Decimal형 변수가 됩니다. <br>
+    
+    따라서 Decimal("1")/Decimal("7")을 출력하면 99자리까지 0.142857142857...이 반복되게 됩니다. (마지막 자리의 오차는 어쩔 수 없습니다.) <br>
+
+    <h3> 2. 그냥 정수를 Decimal() 안에 넣기 </h3> <br>
+
+    int(123) == 123 인 것처럼, 그냥 Decimal() 안에 들어갔다 나오면 Decimal형 변수가 됩니다. <br>
+
+    따라서 정수의 경우에는 문자열 상태로 넣든, 문자열이 아닌 상태로 넣든 상관이 없습니다. <br>
+
+    <h3> 3. 분수를 Decimal() 안에 넣기 (잘못된 사례) </h3> <br>
+
+    컴퓨터의 소수점 오류때문에 Decimal 모듈을 찾으시는 케이스라면 컴퓨터가 0과 1로 연산을 하는 것은 알고 계실거라 생각됩니다. <br>
+
+    1/7을 0과 1로 나타내려면 당연히 소수점 밑으로 무한히 내려가야 하고, 그런 일을 방지하고자 그냥 1/7에 아주 가까운 적당한 수로 컴퓨터가 저장합니다. <br>
+
+    즉, 1/7은 0.142857142857142857...142857이 무한히 반복되는 것이 아닌 <br>
+
+    0.142857142857142849212692681248881854116916656494140625와 동일하고, <br>
+
+    Decimal(1/7) == Decimal(0.142857142857142849212692681248881854116916656494140625) == "0.142857142857142849212692681248881854116916656494140625"가 되어버립니다. <br>
+
+    이렇게 쓰시면 안되겠습니다. <br>
+
+    <h3> 4. float형 변수(소수)를 Decimal() 안에 넣기 (잘못된 사례) </h3> <br>
+
+    위에서의 사례처럼 0.1도 사실은 컴퓨터가 0.1000000000000000055511151231257827021181583404541015625 이라는 수로 저장을 합니다. ($0.1000000000000000055511151231257827021181583404541015625 = \frac{3602879701896397}{2^{55}}$) <br>
+
+    그렇기 때문에 당연히 저런 희한한 결과가 나오게 됩니다. <br>
+
+    <h3> 5. 소수점이 써져있는 문자열을 Decimal() 안에 넣기 </h3> <br>
+
+    "0.1"로 넣으시면 문제가 생기지 않습니다. Decimal(str(0.1))도 되는거 같기는 한데 그닥 추천드리진 않습니다. <br>
+
+    일반적인 내장함수로는 sqrt(), exp(), ln() (자연로그함수) 가 있습니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
