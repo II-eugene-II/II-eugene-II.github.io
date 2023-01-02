@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> p진 값매김 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> $p$진 값매김 </div>
+      
+    <hr>
+      
+    <p>
+      
+    자연수 $n$과 소수 $p$에 대하여 $p$진 값매김($p$-adic valuation) $\nu_p (n)$은 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        $$
+        \nu_p (n) = \mathrm{max}\{k \in \mathbb{N} : p^k \mid n\}
+        $$
+    </blockquote>
+      
+    (만약 $n = 0$이면 $\nu_p (n) = \infty$로 정의합니다.) <br>
+    
+    집합 기호 때문에 복잡해보이지만 $n$을 나눌 수 있는 $p^{\nu}$에 대하여 가장 큰 $\nu$값을 $\nu_p (n)$라 합니다. <br>
+
+    그래도 어렵다면 $p^{\nu_p (n)}$은 $n$을 나눌 수 있는데 $p^{\nu_p (n) + 1}$은 $n$을 나누지 못한다고 생각하시면 됩니다. <br>
+
+    즉, $n$의 소인수분해에서의 $p$의 지수입니다. <br>
+
+    </p>
+
+    <p> <h3> $p$진 값매김($p$-adic valuation) $\nu_p (n)$의 성질들 </h3> </p>
+  
+    <p>
+  
+    1. $\nu_p(n) \leq \log_p n$ <br>
+
+    증명 - 정의에서 우선 $n \geq p^{\nu_p(n)}$일테니 자명한 결과입니다. <br> <br>
+
+    2. $\nu_p(mn) = \nu_p(m) + \nu_p(n)$ <br>
+
+    증명 - $m$의 소인수분해에서의 $p$의 지수와 $n$의 소인수분해에서의 $p$의 지수를 더하면 $mn$의 $p$의 지수가 됩니다. <br> <br>
+
+    3. $\nu_p(n^{m}) = m \times \nu_p(n)$ <br>
+
+    증명 - $n^{m}$의 소인수분해에서의 $p$의 지수는 $n$의 소인수분해에서의 $p$의 지수의 $m$배와 동일합니다. <br> <br>
+  
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
