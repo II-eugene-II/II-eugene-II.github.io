@@ -19,9 +19,22 @@
         
         #isPrime
         {
-            height: 30px;
+            height: 50px;
+            width: 100%;
+            margin: 7px;
+            padding: 5px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #3A83BB;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+        #nearPrime
+        {
             width: 50%;
             margin: 7px;
+            color: #3A83BB;
             padding: 5px;
             border-style: solid;
             border-width: 2px;
@@ -57,16 +70,24 @@
                 <a href="/Post/Post01000/00101.html"> 정수론 계산기 사용설명서 </a>
             </li>
             <li>
-                <label for = "isPrime">계산할 수 :</label> 
+                <label for = "isPrime"> 계산할 수 : </label> 
                 <input id = "isPrime" type = "text">
             </li>
             <li>
-                <button id = "MRprimeButton" onclick = "showMRPrime()">밀러 - 라빈 소수 판별법 쓰기</button>
+                <button id = "MRprimeButton" onclick = "showMRPrime()"> 밀러 - 라빈 소수 판별법 쓰기 </button>
+            </li>
+            <li>
+                <button id = "nearPrime" onclick = "NearPrime()"> 가까운 소수 출력하기 </button>
+            </li>
+            <li>
+                <button id = "naivePrime" onclick = "naivePrime()"> 베일리 - PSW 소수 판별법 쓰기 (개발 중) </button>
             </li>
         </ul>
     <div id="showResult"></div>
+    <div id="showNearPrimeResult"></div>
     <div id="showDiv"></div>
     <div id="showTime"></div>
+    <div id="showAlert"></div>
 	</div>
 
     <script>
@@ -90,23 +111,50 @@
             var t2 = (t1 - t0) / 1000;
             document.querySelector('#showTime').innerHTML = t2.toFixed(5) + "초 걸림";
         }
-        function isMRPrimeNumber(N)
+        
+        function NearPrime()
+        {
+            var t0 = performance.now(); // 시작할 시간
+            var N = BigInt(document.querySelector('#isPrime').value);  // 위 아래로 찾아갈 수
+            if (N < 4n)
+            {
+                document.querySelector('#showResult').innerHTML = "3보다 큰 자연수를 입력해주세요.";
+                throw "stop";
+            }
+            var Riemann = 2n;
+            if (isPrimeI(N) === false) { document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다."; }
+            else { document.querySelector('#showResult').innerHTML = N + "은 소수 입니다."; Riemann = 1n;}
+            upper = 1n;
+            lower = 1n;
+            while (isPrimeI(N + upper) === false) { upper += 1n;}
+            while (isPrimeI(N - lower) === false) { lower += 1n;}
+            document.querySelector('#showNearPrimeResult').innerHTML = (N - lower) + "는 주어진 수보다 더 작은 소수 (N - " + (lower) + ") 이고, <br>" + (N + upper) + "는 주어진 수보다 더 큰 소수 (N + " + (upper) + ") 입니다.";
+            if (N > 10000000000n && (lower + upper) * (lower + upper) >= N * Riemann)
+            {
+                document.querySelector('#showAlert').innerHTML = N + "이라는 숫자를 제 GitHub에 제보해주세요! 리만가설 관련 문제입니다.";
+            }
+            var t1 = performance.now();
+            var t2 = (t1 - t0) / 1000;
+            document.querySelector('#showTime').innerHTML = t2.toFixed(5) + "초 걸림";
+        }
+
+        function isMRPrimeNumber(N) // HTML을 건드는 밀러-라빈법
         {
             for (let i = 0; i < mPL.length; i += 1) { if (N === mPL[i]) { return true } }
-            if ( N < 4n ) { return true }
+            if ( N < 43n ) { return true }
             if ( pow(2n, N - 1n, N) !== 1n ) {return false}
 
             let s = 0n;
             let d = N - 1n;
             while(d % 2n === 0n) { s += 1n; d = d / 2n; }
             if (d < 2n ** s) { return pow(3n, (N - 1n) / 2n, N) === N - 1n }
+            
+            if ( MRTest(2n, s, d, N) === false ) { return false }
 
             if (N < 3317044064679887385961981n) {
                 for (let i = 0; i < mPL.length; i += 1) { if ( MRTest(mPL[i], s, d, N) === false ) { return false } }
                 return true
             }
-
-            if ( MRTest(2n, s, d, N) === false ) { return false }
 
             let k = BigInt(String(N).length) * 3n;
             let pk = 2n ** k;
@@ -115,43 +163,53 @@
             let Sln2N = k * k * 123n / 128n + 1n;
             for (let i = 3n; i <= Sln2N; i += 2n)
             {
-                if (isPrimeI(i) ) {
+                if ( isPrimeI(i) ) {
                     if ( MRTest(i, s, d, N) === false ) { document.querySelector('#showDiv').innerText = "소수 아님"; return false; }
                     console.log(i);
                 }
                 inText(i, Sln2N);
-                
             }
             return true
         }
-        function isPrimeI(N)
+        function isPrimeI(N) // HTML을 건들지 않는 순수 밀러-라빈법
         {
             for (let i = 0; i < mPL.length; i += 1) { if (N === mPL[i]) { return true } }
-            if ( N < 4n ) { return true }
+            for (let i = 0; i < mPL.length; i += 1)
+            {
+                if (N % mPL[i] === 0n) { return false }
+            }
+            if ( N < 1849n ) { return true }
             if ( pow(2n, N - 1n, N) !== 1n ) {return false}
 
             let s = 0n;
             let d = N - 1n;
             while(d % 2n === 0n) { s += 1n; d = d / 2n; }
             if (d < 2n ** s) { return pow(3n, (N - 1n) / 2n, N) === N - 1n }
+            
+            if ( MRTest(2n, s, d, N) === false ) { return false }
 
             if (N < 3317044064679887385961981n) {
                 for (let i = 0; i < mPL.length; i += 1) { if ( MRTest(mPL[i], s, d, N) === false ) { return false } }
                 return true
             }
 
-            if ( MRTest(2n, s, d, N) === false ) { return false }
-
             let k = BigInt(String(N).length) * 3n;
             let pk = 2n ** k;
             while (pk < N) { pk = pk * 2n; k += 1n; }
 
             let Sln2N = k * k * 123n / 128n + 1n;
-            for (let i = 3n; i <= Sln2N; i += 2n) { if ( MRTest(i, s, d, N) === false ) { return false; } }
+            for (let i = 3n; i <= Sln2N; i += 2n)
+            {
+                if ( isPrimeI(i) ) {
+                    if ( MRTest(i, s, d, N) === false ) { return false; }
+                    console.log(i, Sln2N);
+                }
+            }
             return true
         }
+
         function MRTest(a, s, d, N){
-            let b = pow(a, d, N)
+            let b = pow(a, d, N);
             if (b === 1n || b === N - 1n) {return true}
             for (let i = 0n; i < s - 1n; i += 1n)
             {
@@ -160,23 +218,26 @@
             }
             return false
         }
+
         function pow(b, e, m) {
-            if (e === 0n) {return 1n}
+            if (e === 0n) { return 1n }
             if (e % 2n === 0n) {
                 let byTwo = pow(b, e / 2n, m);
                 return (byTwo * byTwo) % m
             }
             else {
-                let byTwoPlusOne = pow(b, (e - 1n)/2n, m);
+                let byTwoPlusOne = pow(b, (e - 1n) / 2n, m);
                 return (b * ((byTwoPlusOne * byTwoPlusOne) % m)) % m
             }
         }
+
         function wait(msec)
         {
             let start = Date.now();
             now = start;
             while (now - start < msec) { now = Date.now(); }
         }
+
         function inText(i, Sln2N) {
             document.querySelector('#showDiv').innerText = String(i) + " / " + String(Sln2N) + "소수로 추정중";
         }
