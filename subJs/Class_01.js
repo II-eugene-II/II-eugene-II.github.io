@@ -117,14 +117,14 @@ document.write(`
     <td class = "tdPost"> N 찍기 </td>
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00117.html"> N 찍기 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(173, 86, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02742"> 02742번 </a> </td>
     <td class = "tdPost"> 기찍 N </td>
     <td class = "tdPost" style="background-color:rgb(173, 86, 0, 0.2); color: rgb(173, 86, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/3.svg" alt="Bronze III"> Bronze III </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00118.html"> 기찍 N 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02753"> 02753번 </a> </td>

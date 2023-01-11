@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 파이썬 pow 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 파이썬 pow 함수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    파이썬 pow 함수는 파이썬의 기본 내장함수로, 숫자의 거듭제곱등에 사용됩니다. <br>
+
+    기본적으로 매개변수 2개가 필요하고, pow(a, b)는 $a^{b}$, 즉 $a$의 $b$제곱을 출력합니다. <br>
+    
+    <br> <script src="https://gist.github.com/II-eugene-II/6a6cde826eaac8cb43dbfb0caf22e5a9.js"></script> <br>
+
+    파이썬의 기본 자료형인 복소수에 대해서도 당연히 연산을 해줍니다. <a href="https://www.wolframalpha.com/input?i=%283+%2B+3i%29%5E%284+%2B+4i%29"> $(3 + 3i)^{4 + 4i}$ 계산 결과 </a> <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/a679919a9f5508de0127b89c8e2f5bec.js"></script> <br>
+
+    pow(a, b)에서 a, b가 모두 자연수라면 세번째 매겨변수를 사용할 수 있습니다. pow(a, b, c)는 $0$부터 $c - 1$사이의 $a^{b} \pmod{c}$값, 즉 $a$의 $b$제곱을 $c$로 나눈 나머지를 출력합니다. <br>
+
+    보통 a, b가 아주 크면 빠른 거듭제곱법 등을 사용해줘야 하지만, 굳이 그러지 않아도 좋습니다. <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/756cfd2a5a7904706ee5f4dc54676cf8.js"></script> <br>
+
+    (이하 정수론 지식 약간 필요) <br> <br>
+
+    사실, a에는 음의 정수를 넣을 수 있습니다. <br>
+
+    그래도 pow(a, b, c)는 멀쩡히 $0$부터 $c - 1$사이의 $a^{b} \pmod{c}$값을 내놓습니다. <br>
+
+    $(-2)^{9} \equiv -512 \equiv 488 \pmod{1000}$같은 역할을 해줍니다. <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/f7c9edde11b26a417d7c48dced801ad6.js"></script> <br>
+
+    사실 b에도 음의 정수를 넣을 수 있습니다. 특히, -1을 넣을 수 있습니다. <br>
+
+    $a^{-1} \pmod{c}$는 아시다시피 법 $c$에서의 $a$의 모듈려 곱셈 역원입니다. <br>
+
+    즉, pow(a, -1, c)는 $a m \equiv 1 \pmod{c}$인 $0 \leq m < c$값을 찾아 출력합니다. <br> 
+
+    다른 언어에서 이거 구하려면 확장된 유클리드 호제법 등으로 구해야 하지만 파이썬은 무려 <b>그냥</b> 내장함수로 있는 셈입니다. <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/f6739fe4782c206cb2cf9766efb91a62.js"></script> <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

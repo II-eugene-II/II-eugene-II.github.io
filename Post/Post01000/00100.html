@@ -66,8 +66,10 @@
     <p>
       
     <div>
-        <ul><li>
-                <a href="/Post/Post01000/00101.html"> 정수론 계산기 사용설명서 </a>
+        <ul>
+            <li>
+                <a href="/Post/Post01000/00101.html"> 정수론 계산기 사용설명서 </a> <br>
+                <a href="/Post/Post01000/00102.html"> 주요 소수 리스트 </a>
             </li>
             <li>
                 <label for = "isPrime"> 계산할 수 : </label> 
@@ -80,7 +82,7 @@
                 <button id = "nearPrime" onclick = "NearPrime()"> 가까운 소수 출력하기 </button>
             </li>
             <li>
-                <button id = "naivePrime" onclick = "naivePrime()"> 베일리 - PSW 소수 판별법 쓰기 (개발 중) </button>
+                <button id = "BailiePrime" onclick = "naivePrime()"> 베일리 - PSW 소수 판별법 쓰기 (개발 중) </button>
             </li>
         </ul>
     <div id="showResult"></div>
@@ -122,16 +124,22 @@
                 throw "stop";
             }
             var Riemann = 2n;
-            if (isPrimeI(N) === false) { document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다."; }
-            else { document.querySelector('#showResult').innerHTML = N + "은 소수 입니다."; Riemann = 1n;}
+            if (isPrimeI(N) === false) { document.querySelector('#showResult').innerHTML = N + " (" + (N.toString()).length +"자리수) 은 합성수 입니다."; }
+            else { document.querySelector('#showResult').innerHTML = N + " (" + (N.toString()).length +"자리수) 은 소수 입니다."; Riemann = 1n;}
             upper = 1n;
             lower = 1n;
             while (isPrimeI(N + upper) === false) { upper += 1n;}
             while (isPrimeI(N - lower) === false) { lower += 1n;}
             document.querySelector('#showNearPrimeResult').innerHTML = (N - lower) + "는 주어진 수보다 더 작은 소수 (N - " + (lower) + ") 이고, <br>" + (N + upper) + "는 주어진 수보다 더 큰 소수 (N + " + (upper) + ") 입니다.";
-            if (N > 10000000000n && (lower + upper) * (lower + upper) >= N * Riemann)
+            if (N > 10000000000n)
             {
-                document.querySelector('#showAlert').innerHTML = N + "이라는 숫자를 제 GitHub에 제보해주세요! 리만가설 관련 문제입니다.";
+                if (Riemann === 1n)
+                {
+                    if (upper * upper >= N) { document.querySelector('#showAlert').innerHTML = N + "이라는 숫자를 제 GitHub에 제보해주세요! 리만가설 관련 문제입니다."; }
+                    if (lower * lower >= N) { document.querySelector('#showAlert').innerHTML = N + "이라는 숫자를 제 GitHub에 제보해주세요! 리만가설 관련 문제입니다."; }
+                } else {
+                    if ((lower + upper) * (lower + upper) >= N) { document.querySelector('#showAlert').innerHTML = N + "이라는 숫자를 제 GitHub에 제보해주세요! 리만가설 관련 문제입니다."; }
+                }
             }
             var t1 = performance.now();
             var t2 = (t1 - t0) / 1000;
