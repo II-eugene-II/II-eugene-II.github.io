@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 리만 제타함수 </title>
+    <title> 아벨의 합 공식 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,31 +19,19 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 리만 제타함수 </div>
+    <div id = "postTitle"> 아벨의 합 공식 </div>
     
     <hr>
       
     <p>
-    
-    리만 제타함수 $\zeta(s)$ $(\Re(s) > 1)$의 기본 정의는 다음과 같습니다.
+      
+    아벨의 합 공식은 다음과 같습니다.
       
     <blockquote>
-        $$ \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^{s}} $$
+        $$ \sum_{y < n \leq x} a(n)f(n) = A(x)f(x) - A(y)f(y) - \int_{y}^{x} A(t)f '(t) dt $$
     </blockquote>
-
-    다음과 같은 소수와 관련된 무한곱으로 정의할 수도 있습니다.
       
-    <blockquote>
-        $$ \zeta(s) = \prod_{p} \frac{1}{1-p^{-s}} $$
-    </blockquote>
-
-    이를 이용하여 다음과 같은 확장 또한 할 수 있습니다.
-      
-    <blockquote>
-        $$ \zeta(s) = s \int_{2}^{\infty} \frac{\pi(x)}{x(x^{s} - 1)} dx $$
-    </blockquote>
-    
-    이때, $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다. <br>
+    이때, $A(x) = \sum_{n \leq x}$이고, $f(x)$는 해당 범위에서 도함수가 연속인 함수입니다. <br>
       
     </p>
       
