@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 야코비 기호 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 야코비 기호 </div>
+      
+    <hr>
+      
+    <p>
+    
+    야코비 기호(Jacobi Symbol)의 정의는 다음과 같습니다. <br>
+      
+    <blockquote>
+        홀수 $n$이 $n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$으로 소인수분해 될 때,
+        $$
+        \Bigg(\frac{a}{n}\Bigg) = \left(\frac{a}{p_1}\right)^{\alpha_1}\left(\frac{a}{p_2}\right)^{\alpha_2} \cdots \left(\frac{a}{p_k}\right)^{\alpha_k}
+        $$
+        이다. (좌변이 야코비기호, 우변은 <a href="/Post/Post01000/00055.html"> 르장드르 기호 </a>)
+    </blockquote>
+      
+    보통 둘 다 괄호로 표기하기 때문에, 구분이 안 갈 것 같은 상황에서는 쓰는 사람이 무슨 기호인지 꼭 이름을 붙여줍니다. <br>
+    
+    아래에 나오는 괄호는 특별한 표기가 없으면 모두 야코비 기호입니다. <br>
+    
+    야코비 기호는 다음과 같은 성질이 성립합니다. <br>
+
+    1. $\Bigg(\frac{1}{n}\Bigg) = 1$ <br>
+
+    2. $\Bigg(\frac{-1}{n}\Bigg) = {(-1)}^{\frac{n - 1}{2}}$ <br>
+
+    3. $\Bigg(\frac{2}{n}\Bigg) = {(-1)}^{\frac{n^{2} - 1}{8}}$ <br>
+
+    4. $\gcd(a, n) = \gcd(b, n) = 1$이면, $\Bigg(\frac{ab}{n}\Bigg) = \Bigg(\frac{a}{n}\Bigg) \Bigg(\frac{b}{n}\Bigg)$ <br>
+
+    5. $\gcd(a, n) = \gcd(b, n) = 1$이고, $a \equiv b \pmod{n}$이면, $\Bigg(\frac{ab}{n}\Bigg) = \Bigg(\frac{a}{n}\Bigg) \Bigg(\frac{b}{n}\Bigg)$ <br>
+
+    6. $\gcd(m, n) = 1$이면, $\Bigg(\frac{m}{n}\Bigg) \Bigg(\frac{n}{m}\Bigg) = {(-1)}^{\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)}$ (우변의 $\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)$는 그냥 괄호) <br>
+
+    야코비 기호를 일반화한 크로네커 기호가 존재합니다. <br>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
