@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 소수 간극 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 소수 간극 </div>
+      
+    <hr>
+      
+    <p>
+    
+    <a href="/Post/Post01000/00121.html"> $n$번째 소수 </a> $p_{n}$을 이용하여 소수 간극 $g_{n}$을 다음과 같이 나타냅니다. <br>
+      
+    <blockquote>
+        $$
+        g_{n} = p_{n + 1} - p_{n}
+        $$
+    </blockquote>
+      
+    $p_{n} < 100000000 = 10^{8}$일 때에는 $g_{n} < 222$임이 알려져있고, $p_{n} < 2^{31}$일 때에는 $g_{n} < 294$임이 알려져있습니다. (즉, int 범위에서는 아무 수나 골라도 $\pm 147$안에 소수 하나쯤은 있는 셈입니다.) <br>
+
+    또, $p_{n} < 2^{63}$일 때에는 $g_{n} < 1512$임이 알려져 있으므로, 소수는 생각보다 굉장히 조밀하게 모여있음을 알 수 있습니다. <br>
+
+    (Christian Axler(2017), New estimates for the nth prime number)
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
