@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 27110번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 27110번 - 특식 배부 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/27110"> 백준 27110번 문제 링크 </a> <br>
+        문제 이름 : 특식 배부 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 <br>
+        solved.ac 등급 : Bronze IV (2023/01/28 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        설날을 맞아 부대원들을 위해 특식으로 치킨을 주문했다. 후라이드 치킨, 간장치킨, 양념치킨을 각각 $N$마리씩 주문했고, $1$인당 치킨을 한 마리씩 배부하고자 한다. <br>
+        
+        최대한 많은 부대원에게 본인이 선호하는 종류의 치킨을 배부해주기 위해 으뜸병사는 부대원들의 치킨 종류 선호도를 조사했고, 세 가지 치킨 중 후라이드 치킨, 간장치킨, 양념치킨을 가장 선호하는 인원의 수는 각각 $A$명, $B$명, $C$명이라는 것을 알아냈다. 이때, 모든 부대원은 각자 한 종류의 치킨만 골라 답했다. <br>
+        
+        본인이 가장 선호하는 종류의 치킨을 받을 수 있는 인원수의 최댓값을 구하여라. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 번째 줄에 주문한 각 종류의 치킨 마릿수 $N$이 주어진다. $(1\leq N\leq 1\,000)$ <br>
+        
+        두 번째 줄에 후라이드 치킨을 가장 선호하는 병사의 수 $A$, 간장치킨을 가장 선호하는 병사의 수 $B$, 양념치킨을 가장 선호하는 병사의 수 $C$가 공백으로 구분되어 주어진다. $(1\leq A,B,C\leq 3\,000)$ <br>
+        
+        <h4> 출력 : </h4>
+        
+        본인이 가장 선호하는 종류의 치킨을 받을 수 있는 최대 인원수를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    기본 N마리 씩은 있고, 한 사람당 1마리씩 가져갈 수 있습니다. <br>
+
+    만약 후라이드가 10마리 있는데 원하는 사람이 9명이면 9명 모두가 가져갈 수 있습니다. <br>
+
+    후라이드가 10마리 있는데 원하는 사람이 10명이면 10명 모두가 가져갈 수 있습니다. <br>
+
+    후라이드가 10마리 있는데 원하는 사람이 11명이면 10명만 가져갈 수 있습니다. <br>
+
+    특정 치킨이 X마리 있고, 해당 치킨을 원하는 사람이 Y명이면 X, Y 중에 더 작은 수 만큼 가져갈 수 있는 셈입니다. 즉, 이 경우에 min(X, Y)명이 가져갈 수 있습니다. <br>
+
+    따라서 이 문제의 답은, min(A, N) + min(B, N) + min(C, N) 입니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/344377ca55498417737cebe3fca39829.js"></script> <br>
+
+    당연히 C나 C++에도 min max 함수는 내장되어있겠지? 하고 검색해봤는데 C는 직접 만들고 C++은 알고리즘 헤더에서 가져와야한다고 해서 좀 놀랐습니다. <br>
+
+    항이 두 개밖에 없는 경우의 min을 계산하는 것이니, 그냥 삼항연산자 같은 걸로 A < N ? A : N 같은 느낌으로 구현하셔도 좋습니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2023/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

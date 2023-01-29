@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 25314번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 25314번 - 코딩은 체육과목 입니다 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/25314"> 백준 25314번 문제 링크 </a> <br>
+        문제 이름 : 코딩은 체육과목 입니다 <br>
+        주 언어 : Python <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze V (2023/01/28 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        오늘은 혜아의 면접 날이다. 면접 준비를 열심히 해서 앞선 질문들을 잘 대답한 혜아는 이제 마지막으로 칠판에 직접 코딩하는 문제를 받았다. 혜아가 받은 문제는 두 수를 더하는 문제였다. C++ 책을 열심히 읽었던 혜아는 간단히 두 수를 더하는 코드를 칠판에 적었다. 코드를 본 면접관은 다음 질문을 했다. “만약, 입출력이 $N$바이트 크기의 정수라면 프로그램을 어떻게 구현해야 할까요?” <br>
+        
+        혜아는 책에 있는 정수 자료형과 관련된 내용을 기억해 냈다. 책에는 long int는 $4$바이트 정수까지 저장할 수 있는 정수 자료형이고 long long int는 $8$바이트 정수까지 저장할 수 있는 정수 자료형이라고 적혀 있었다. 혜아는 이런 생각이 들었다. “int 앞에 long을 하나씩 더 붙일 때마다 $4$바이트씩 저장할 수 있는 공간이 늘어나는 걸까? 분명 long long long int는 $12$바이트, long long long long int는 $16$바이트까지 저장할 수 있는 정수 자료형일 거야!” 그렇게 혜아는 당황하는 면접관의 얼굴을 뒤로한 채 칠판에 정수 자료형을 써 내려가기 시작했다.
+        
+        혜아가 $N$바이트 정수까지 저장할 수 있다고 생각해서 칠판에 쓴 정수 자료형의 이름은 무엇일까? <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 번째 줄에는 문제의 정수 $N$이 주어진다. $(4\le N\le 1\, 000$; $N$은 $4$의 배수$)$ <br>
+        
+        <h4> 출력 : </h4>
+        
+        혜아가 $N$바이트 정수까지 저장할 수 있다고 생각하는 정수 자료형의 이름을 출력하여라. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    별 찍기 같은 문제와 비슷하게 푸실 수 있습니다. <br>
+
+    4를 입력받으면 long을 1개 출력하고 int를 출력하고, <br>
+
+    8을 입력받으면 long을 2개 출력하고 int를 출력하고, <br>
+
+    12를 입력받으면 long을 3개 출력하고 int를 출력하고... <br>
+
+    N을 입력받으면 long을 N / 4개 출력하고, int를 출력해주면 됩니다. <br>
+
+    혹은 그냥 문자열로 "long " 이 N / 4개 붙어있고 (끝에 공백 주의) 마지막에 "int"가 붙은 문자열을 만드셔서 출력하셔도 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/f3a6a98d8fdf1e257e24437889185331.js"></script> <br>
+
+    파이썬에서 정수 나눗셈은 N / 4가 아니고 N // 4임을 유의해주면 됩니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
