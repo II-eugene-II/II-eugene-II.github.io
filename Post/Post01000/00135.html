@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 이항계수 </title>
+    <title> 카탈랑 수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,27 +19,23 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 이항계수 </div>
+    <div id = "postTitle"> 카탈랑 수 </div>
       
     <hr>
       
     <p>
       
-    이항계수 $\binom{n}{k}$는 음이 아닌 정수 $n$과, $n$보다 작은 음이 아닌 정수 $k$에 대하여 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a>을 이용해 다음과 같이 정의합니다. <br>
+    $n$번째 카탈랑 수 (Catalan Number) $C_{n}$은 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        \binom{n}{k} = \frac{n!}{k! (n - k)!}
+        C_{n} = \frac{1}{n + 1}\binom{2 n}{n}
         $$
     </blockquote>
       
-    $n$개 중 $k$개를 뽑는 경우의 수와 동일하고, $(a + b)^{n}$의 전개식에서 $a^{k} b^{n - k}$의 계수, $a^{n - k} b^{k}$의 계수와 동일합니다. <br>
+    여기서 $\binom{2 n}{n}$은 <a href="/Post/Post01000/00134.html"> 중심 이항계수 </a>입니다. <br>
       
-    $n$개를 뽑아서 줄을 세우는 경우의 수와 동일합니다. <br>
-
-    이항계수 중 특수한 경우로 <a href="/Post/Post01000/00134.html"> 중심 이항계수 </a> 도 존재합니다. <br>
-
-    이항계수를 구하는 방법에는 여러가지가 존재합니다. <br>
+    주로 몇몇 조합론 문제들의 해가 되곤 합니다. <br>
       
     </section>
     <aside>
