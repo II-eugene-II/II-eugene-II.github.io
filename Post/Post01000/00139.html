@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 기본적인 소인수분해법 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 기본적인 소인수분해법 </div>
+      
+    <hr>
+      
+    <p>
+
+    $N = 360 = 2^{3} \times 3^{2} \times 5$일 때, 소인수분해의 결과인 [2, 2, 2, 3, 3, 5]를 얻고 싶을 때는 어떻게 해야할까요?
+      
+    <a href="/Post/Post01000/00001.html"> 기본적인 소수 판별법 </a> 처럼, 기본 아이디어는 $2$부터 $\sqrt{N}$까지 일일이 나누어보는 것 입니다. <br>
+
+    소수판별법에서는 그저 딱 한 번만 나눠보고 말면 될 일이었지만, 소인수분해에서는 몇번 나누어떨어지는지도 굉장히 중요합니다. <br>
+
+    예를 들어, 위의 예시처럼 360을 그냥 평범한 소수 판별법처럼 한번만 나눠보고 만다면 결과는 [2, 3, 5]만 나오게 될 것입니다. <br>
+
+    따라서, N을 진짜로 변형시켜야 합니다. N이 2로 나누어떨어지는걸 확인했으면 $N := \frac{N}{2}$로 두고, 또 2로 나누어떨어지면 또 $N := \frac{N}{2}$를 하고...를 반복해야합니다. <br>
+
+    그러므로 이런 소인수분해법에서는 while 문을 같이 사용하는것이 적절합니다. <br>
+
+    언제까지 나누어주면 좋을까요? 계속 나누고 나누고 나누다가 N이 1이 되면 종료하면 됩니다. <br>
+
+    <h3> 방법 1. d = 2부터 계속 일일이 나눠주고, d를 하나씩 늘려나가다가 N이 1이면 종료하기 </h3>
+
+    <script src="https://gist.github.com/II-eugene-II/e7ee91651a8a0000177a3bc4162e8d20.js"></script> <br>
+
+    꼭 N = 1이 되어야만 종료해야할까요? <br>
+    
+    위 방법대로라면, $N = 20014 = 2 \times 10007$ (10007은 소수)에 대해서, d가 10007이 될 때까지 계속 나누어보게 됩니다. <br>
+    
+    소수 판별법에서 이야기 했던 것 처럼, p * p > N인 소수 p에 대해서는 N이 나누어떨어질 수가 없습니다. <br>
+
+    따라서, d * d > N이 되면 종료하게끔 하면 더 빠르게 종료할 수 있습니다. 이렇게 되면 위의 $N = 20014 = 2 \times 10007$는 $101 \times 101 > 10007$에서 d = 101이 되는 순간 종료하게 됩니다. <br>
+
+    단, 이때는 N이 1이 아니라면 factorList에 N을 넣어주어야 합니다. 최후에 남은 1이 아닌 N은 원래 N의 소인수 입니다. <br>
+
+    <h3> 방법 2. d = 2부터 계속 일일이 나눠주고, d를 하나씩 늘려나가다가 d * d > N이면 종료하기 </h3>
+
+    <script src="https://gist.github.com/II-eugene-II/d11a5a1a68bc90a624b74a229c3204b1.js"></script> <br>
+
+    꼭 d = 2부터 시작해야 하는 것은 아닙니다. <br>
+
+    d = 2로 계속 나누어 떨어질때까지 계속 나누고나면, d = 4, d = 6, d = 8...로는 나누어떨어질 리가 없습니다. <br>
+
+    따라서, 2는 따로 처리하고 d = 3부터 시작하여 2씩 늘려갈 수 있습니다. <br>
+
+    <h3> 방법 3. d = 2는 따로 처리하고, d = 3부터 계속 일일이 나눠주고, d를 둘씩 늘리기 </h3>
+
+    <script src="https://gist.github.com/II-eugene-II/afe90d3c0dc14345b499c0032ecc4953.js"></script> <br>
+      
+    그냥 간단하게 하면 이정도로 소인수분해는 끝이지만, 보통 여기서 더 나아가서 Lehman 소인수분해, 폴라드 로 소인수분해등 다양한 시간복잡도 줄이기 방법이 동원됩니다. <br>
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
