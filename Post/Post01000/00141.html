@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 로그 적분 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 로그 적분 함수 </div>
+      
+    <hr>
+      
+    <p>
+      
+    로그 적분 함수는 로그함수의 역수를 적분한 함수로, 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        $$
+        {\rm li} (x) = \int_0^x \frac{dt}{\ln t}
+        $$
+    </blockquote>
+      
+    이렇게 정의하면 x > 1에서 값이 나오기는 하지만 이상적분을 해야한다는 점이 좀 기분나쁠 수 있으니 다음과 같이 정의할 수도 있습니다. <br>
+      
+    <blockquote>
+        $$
+        {\rm Li} (x) = \int_2^x \frac{dt}{\ln t}
+        $$
+    </blockquote>
+
+    두 정의는 거의 비슷하고, 대략 1.05 정도의 차이밖에 나지 않습니다. <br>
+
+    그냥 평범한 적분 같은데 함수의 이름까지 있는 것은, <a href="/Post/Post01000/00083.html"> 소수 정리 </a> 와 아주 밀접한 관련이 있는데, 다음과 같은 사실이 알려져 있기 때문입니다. <br>
+      
+    <blockquote>
+        $$
+        \lim_{x \to \infty} \frac{\pi(x)}{{\rm Li} (x)} = 1
+        $$
+    </blockquote>
+
+    여기서 $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다.
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
