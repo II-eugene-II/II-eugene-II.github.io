@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 브룬 상수 </title>
+    <title> 최대공약수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,32 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 브룬 상수 </div>
+    <div id = "postTitle"> 최대공약수 </div>
       
     <hr>
       
     <p>
-      
-    브룬 상수 $B_{2}$는 다음과 같이 정의합니다. <br>
+    
+    $n$와 $m$의 최대공약수 $\gcd(n, m)$의 정의는 다음과 같습니다. <br>
       
     <blockquote>
+        소수집합 $p \in \mathbb{P}$에 대하여, $n$, $m$이 각각
         $$
-        B_2 = \left({1\over 3}+{1\over 5}\right)+\left({1\over 5}+{1\over 7}\right)+\left({1\over 11}+{1\over 13}\right)+\left({1\over 17}+{1\over 19}\right)+\cdots
+        n = \prod_{p} p^{a_{p}} \left( a_{p} \geq 0 \right)
         $$
+        $$
+        m = \prod_{p} p^{b_{p}} \left( b_{p} \geq 0 \right)
+        $$
+        일 때, 최대공약수 $\gcd(n, m)$는
+        $$
+        \gcd(n, m) = \prod_{p} p^{\min(a_{p}, b_{p})}
+        $$
+        로 정의한다.
     </blockquote>
       
-    쌍둥이 소수 쌍의 역수를 합한 것으로, 대략 1.9 정도의 값이 알려지고 있습니다. <br>
+    유클리드 호제법으로도 구할 수 있습니다. <br>
 
-    <a href="/Post/Post01000/00158.html"> 쌍둥이 소수 추측 </a> 에서 파생된 상수입니다. <br>
-
-    존재성은 <a href="/Post/Post01000/00143.html"> 브룬의 정리 </a>로 알려져 있습니다. <br>
+    비슷한 관계로 <a href="/Post/Post01000/00156.html"> 최소공배수 </a>가 있습니다. <br>
       
     </section>
     <aside>
