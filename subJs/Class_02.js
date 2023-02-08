@@ -68,7 +68,7 @@ document.write(`
             <td class = "tdPost"> 소수 구하기 </td>
             <td class = "tdPost" style="background-color:rgb(67, 95, 122, 0.2); color: rgb(67, 95, 122); font-weight: 600"> <img src="https://static.solved.ac/tier_small/8.svg" alt="Silver III"> Silver III </td>
             <td class = "tdPost"> ☆☆☆ </td>
-            <td class = "tdPost"> - </td>
+            <td class = "tdPost"> <a href="/Post/Post01000/00159.html"> 소수 구하기 해설 </a> </td>
         </tr>
         <tr style = "background-color:rgb(67, 95, 122, 0.1)">
             <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01966"> 01966번 </a> </td>
