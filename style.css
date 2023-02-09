@@ -21,7 +21,8 @@ a {
     padding: 2px 0px 2px 0px;
     display: inline-block;
     text-decoration: none;
-    color: #8181F7;
+    /*color: #8181F7;*/
+    color: #5555dd;
 }
 
 table {

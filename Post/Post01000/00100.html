@@ -150,7 +150,7 @@
         {
             for (let i = 0; i < mPL.length; i += 1) { if (N === mPL[i]) { return true } }
             if ( N < 43n ) { return true }
-            if ( pow(2n, N - 1n, N) !== 1n ) {return false}
+            if ( pow(2n, N - 1n, N) !== 1n ) { return false }
 
             let s = 0n;
             let d = N - 1n;

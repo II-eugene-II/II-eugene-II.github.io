@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 스도쿠 시뮬레이션 </title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        table{ border-collapse : collapse; }  /*이중선 제거*/
+        td { width: 30px; height: 30px; border: 0px solid #444444; padding: 1px;}
+        .sudoku_row { width: 120px; font-size:small; }
+        .sudoku_col {height: 30px; font-size:small; }
+        .sudoku_minimap { border: 1px solid #444444 !important; border-color: black; width: 30px; height: 30px; font-size:xx-small; }
+        .sudoku_button_color1 {background-color: rgb(255, 255, 255); -webkit-appearance: none; -moz-appearance: none; appearance: none; border: 3px; width: 100%; height: 100%; padding: 0px;}
+        .sudoku_button_color2 {background-color: rgb(196, 196, 196); -webkit-appearance: none; -moz-appearance: none; appearance: none; border: 3px; width: 100%; height: 100%; padding: 0px;}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 스도쿠 시뮬레이션 </div>
+    
+    <hr>
+      
+    <p>
+
+    우선 스도쿠 판 자체 만들기
+
+    <table style="margin-left: auto; margin-right: auto; text-align:center">
+	    <tr><!-- 1번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-01"> 1 2 3 4 5 6 7 8 9 </td>
+	        <td> <button class="sudoku_button_color1" id="arr-01" onclick="changeN(1)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color1" id="arr-02" onclick="changeN(2)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color1" id="arr-03" onclick="changeN(3)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color2" id="arr-04" onclick="changeN(4)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color2" id="arr-05" onclick="changeN(5)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color2" id="arr-06" onclick="changeN(6)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color1" id="arr-07" onclick="changeN(7)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color1" id="arr-08" onclick="changeN(8)"> 0 </button> </td>
+	        <td> <button class="sudoku_button_color1" id="arr-09" onclick="changeN(9)"> 0 </button> </td>
+	    </tr><!-- 1번째 줄 끝 -->
+	    <tr><!-- 2번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-02"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color1" id="arr-10" onclick="changeN(10)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-11" onclick="changeN(11)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-12" onclick="changeN(12)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-13" onclick="changeN(13)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-14" onclick="changeN(14)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-15" onclick="changeN(15)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-16" onclick="changeN(16)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-17" onclick="changeN(17)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-18" onclick="changeN(18)"> 0 </button> </td>
+	    </tr><!-- 2번째 줄 끝 -->
+	    <tr><!-- 3번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-03"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color1" id="arr-19" onclick="changeN(19)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-20" onclick="changeN(20)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-21" onclick="changeN(21)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-22" onclick="changeN(22)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-23" onclick="changeN(23)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-24" onclick="changeN(24)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-25" onclick="changeN(25)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-26" onclick="changeN(26)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-27" onclick="changeN(27)"> 0 </button> </td>
+	    </tr><!-- 3번째 줄 끝 -->
+	    <tr><!-- 4번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-04"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color2" id="arr-28" onclick="changeN(28)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-29" onclick="changeN(29)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-30" onclick="changeN(30)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-31" onclick="changeN(31)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-32" onclick="changeN(32)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-33" onclick="changeN(33)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-34" onclick="changeN(34)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-35" onclick="changeN(35)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-36" onclick="changeN(36)"> 0 </button> </td>
+	    </tr><!-- 4번째 줄 끝 -->
+	    <tr><!-- 5번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-05"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color2" id="arr-37" onclick="changeN(37)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-38" onclick="changeN(38)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-39" onclick="changeN(39)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-40" onclick="changeN(40)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-41" onclick="changeN(41)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-42" onclick="changeN(42)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-43" onclick="changeN(43)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-44" onclick="changeN(44)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-45" onclick="changeN(45)"> 0 </button> </td>
+	    </tr><!-- 5번째 줄 끝 -->
+	    <tr><!-- 6번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-06"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color2" id="arr-46" onclick="changeN(46)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-47" onclick="changeN(47)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-48" onclick="changeN(48)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-49" onclick="changeN(49)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-50" onclick="changeN(50)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-51" onclick="changeN(51)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-52" onclick="changeN(52)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-53" onclick="changeN(53)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-54" onclick="changeN(54)"> 0 </button> </td>
+	    </tr><!-- 6번째 줄 끝 -->
+	    <tr><!-- 7번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-07"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color1" id="arr-55" onclick="changeN(55)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-56" onclick="changeN(56)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-57" onclick="changeN(57)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-58" onclick="changeN(58)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-59" onclick="changeN(59)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-60" onclick="changeN(60)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-61" onclick="changeN(61)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-62" onclick="changeN(62)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-63" onclick="changeN(63)"> 0 </button> </td>
+	    </tr><!-- 7번째 줄 끝 -->
+	    <tr><!-- 8번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-08"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color1" id="arr-64" onclick="changeN(64)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-65" onclick="changeN(65)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-66" onclick="changeN(66)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-67" onclick="changeN(67)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-68" onclick="changeN(68)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-69" onclick="changeN(69)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-70" onclick="changeN(70)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-71" onclick="changeN(71)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-72" onclick="changeN(72)"> 0 </button> </td>
+	    </tr><!-- 8번째 줄 끝 -->
+	    <tr><!-- 9번째 줄 시작 -->
+	        <td class="sudoku_row", id="row-09"> 1 2 3 4 5 6 7 8 9 </td>
+            <td> <button class="sudoku_button_color1" id="arr-73" onclick="changeN(73)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-74" onclick="changeN(74)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-75" onclick="changeN(75)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-76" onclick="changeN(76)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-77" onclick="changeN(77)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color2" id="arr-78" onclick="changeN(78)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-79" onclick="changeN(79)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-80" onclick="changeN(80)"> 0 </button> </td>
+            <td> <button class="sudoku_button_color1" id="arr-81" onclick="changeN(81)"> 0 </button> </td>
+	    </tr><!-- 9번째 줄 끝 -->
+	    <tr><!-- 10번째 줄 시작 -->
+	        <td>
+                <table style="margin-left: auto; margin-right: auto; border-collapse : none">
+                    <tr >
+                        <td class="sudoku_minimap" id="box-01"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-02"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-03"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku_minimap" id="box-04"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-05"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-06"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku_minimap" id="box-07"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-08"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                        <td class="sudoku_minimap" id="box-09"> 1 2 3 <br> 4 5 6 <br> 7 8 9 <br> </td>
+                    </tr>
+                </table>
+            </td>
+	        <td class="sudoku_col", id="col-01"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-02"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-03"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-04"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-05"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-06"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-07"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-08"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	        <td class="sudoku_col", id="col-09"> 1 <br> 2 <br> 3 <br> 4 <br> 5 <br> 6 <br> 7 <br> 8 <br> 9 <br> </td>
+	    </tr><!-- 10번째 줄 끝 -->
+    </table>
+
+    <!-- <input id = "changeSudoku" type="text"> -->
+
+    <div style="margin-left: auto; margin-right: auto; text-align:center">
+        
+        <button id = "MRprimeButton" onclick="changeSudoku(0)"> 비우기 </button> <br>
+
+        <button id = "MRprimeButton" onclick="changeSudoku(1)"> 1로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(2)"> 2로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(3)"> 3로 바꾸기 </button> <br>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(4)"> 4로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(5)"> 5로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(6)"> 6로 바꾸기 </button> <br>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(7)"> 7로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(8)"> 8로 바꾸기 </button>
+    
+        <button id = "MRprimeButton" onclick="changeSudoku(9)"> 9로 바꾸기 </button>
+    
+    </div>
+
+    
+
+    <script>
+        var sudoku = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+        var dark = [4, 5, 6,
+                   13, 14, 15,
+                   22, 23, 24,
+        28, 29, 30,            34, 35, 36,
+        37, 38, 39,            43, 44, 45, 
+        46, 47, 48,            52, 53, 54,
+                   58, 59, 60,
+                   67, 68, 69,
+                   76, 77, 78]
+
+        var N = 0n;
+
+        function divide9(N) // 몇9분면(?)인지 알려주는 함수 1 2 3/4 5 6/7 8 9
+        {
+            N = BigInt(N);
+            return (((N - 1n) / 27n) * 3n) + (((N - 1n) % 9n) / 3n) + 1n
+        }
+
+        function changeN(n)
+        {
+            if (N < 10n) { button = 'arr-0' + String(N); }
+            else { button = 'arr-' + String(N); }
+            console.log(button);
+            if (N != 0n) {
+                if (dark.includes(Number(N))) { document.getElementById(button).style.backgroundColor='rgb(196, 196, 196)'; }
+                else { document.getElementById(button).style.backgroundColor='rgb(255, 255, 255)'; }
+            }
+            N = BigInt(n);
+            if (N < 10n) { button = 'arr-0' + String(N); }
+            else { button = 'arr-' + String(N); }
+            if (N != 0n) { document.getElementById(button).style.backgroundColor='rgb(204, 255, 204)'; }
+            console.log(N);
+        }
+
+        function changeSudoku(K)
+        {	
+            // var N = BigInt(document.querySelector('#changeSudoku').value);  // 바꿀 칸
+            console.log(N);
+
+            buttonChange(K);
+
+            changeRow();
+
+            changeCol();
+
+            changeBox();
+        }
+
+        function buttonChange(K)
+        {
+            sudoku[(N - 1n) / 9n][(N - 1n) % 9n] = K;
+            if (N < 10n) { button = '#arr-0' + String(N); }
+            else { button = '#arr-' + String(N); }
+			document.querySelector(button).innerHTML = K;
+        }
+
+        function changeRow()
+        {
+            var one_to_nine_row = [];
+            for (var i = 1; i < 10; i++){
+                if (sudoku[(N - 1n) / 9n].includes(i) == false) {one_to_nine_row.push(i)};
+            }
+            rowbutton = "#row-0" + String(((N - 1n) / 9n) + 1n);
+            rowString = ""
+            for (let row of one_to_nine_row) { rowString += String(row) + " "; }
+			document.querySelector(rowbutton).innerHTML = rowString;
+        }
+
+        function changeCol()
+        {
+            var col_sudoku = [];
+            for (var i = 0; i < 9; i++){
+                col_sudoku.push(sudoku[i][(N - 1n) % 9n]);
+            }
+            var one_to_nine_col = [];
+            for (var i = 1; i < 10; i++){
+                if (col_sudoku.includes(i) == false) {one_to_nine_col.push(i)};
+            }
+            colbutton = "#col-0" + String(((N - 1n) % 9n) + 1n);
+            colString = ""
+            for (let col of one_to_nine_col) { colString += String(col) + "<br>"; }
+			document.querySelector(colbutton).innerHTML = colString;
+        }
+
+        function changeBox()
+        {
+            var D9 = divide9(N);
+            boxbutton = "#box-0" + String(D9);
+            var one_to_nine_box = [];
+            for (var i = 1; i < 82; i++) {
+                if (D9 == divide9(i)) {
+                    one_to_nine_box.push(sudoku[(BigInt(i) - 1n) / 9n][(BigInt(i) - 1n) % 9n])
+                }
+            }
+            console.log(one_to_nine_box)
+            console.log(boxbutton)
+            boxString = "";
+            for (var i = 1; i < 10; i++) {
+                if (one_to_nine_box.includes(i)) { boxString += "&nbsp " } 
+                else {boxString += String(i) + " "}
+                if (i % 3 == 0 && i < 9) {boxString += "<br>"}
+            }
+            document.querySelector(boxbutton).innerHTML = boxString;
+        }
+    </script>
+      
+    <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
