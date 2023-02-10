@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 약수의 개수 함수 </title>
+    <title> 과잉수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -11,32 +11,30 @@
 </head>
 
 <body>
-    <div id = 'wrap'>  
-    <div class="container">
+    <div id = "wrap">  
+    <div class = "container">
         <header>
             <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
     
-    <div id = "postTitle"> 약수의 개수 함수 </div>
-      
+    <div id = "postTitle"> 과잉수 </div>
+    
     <hr>
       
     <p>
       
-    약수의 개수 함수 (Count of Divisor Function) 는 정수론 함수로, 다음과 같이 정의합니다. <br>
+    과잉수의 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        $$
-        d(n) = \sigma_{0}(n) = \sum_{d \mid n}1
-        $$
+        자연수 $n$에 대하여, $\sigma(n) > 2n$ (즉, $I(n) > 2$) 인 자연수 $n$을 <b>부족수</b>라고 한다.
     </blockquote>
+      
+    $\sigma(n)$은 <a href="/Post/Post01000/00161.html"> 약수의 합 함수 </a>이고, $I(n)$은 <a href="/Post/Post01000/00163.html"> 풍요 지수 (Abundancy Index) </a> 입니다. <br>
 
-    즉, $n$의 모든 약수의 개수 $\d(n)$으로 표기합니다. <br>
-    
-    <a href="/Post/Post01000/00160.html"> 약수 함수 </a> 에서 $a = 0$인 경우입니다. <br>
-
+    과잉수의 배수는 모두 과잉수인데, 과잉수는 존재하므로 과잉수 또한 무한합니다. <br>
+      
     </p>
       
     </section>
@@ -47,9 +45,9 @@
     <footer>
         <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
-    
+      
     </div> <!-- wrap -->
-  
+    
     <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>
