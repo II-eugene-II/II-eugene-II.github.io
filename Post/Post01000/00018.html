@@ -24,26 +24,44 @@
     <hr>
       
     <p>
-    테일러 급수를 간단하게 볼 수 있는 표 입니다.
 
-    <table>
+    테일러 급수를 간단하게 볼 수 있는 표 입니다. $n!$은 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 표기입니다.
+
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
         <tr>
             <th scope="col"> $f(x)$ </td>
             <th scope="col"> 테일러 급수 </td>
             <th scope="col"> 처음 다섯번째 항 </td>
             <th scope="col"> 수렴범위 </td>
+            <th scope="col"> 비고 </td>
         </tr>
         <tr>
-            <td class = "tdPost"> $e^{x}$ </td>
+            <td class = "tdPost"> $$ e^{x} $$ </td>
             <td class = "tdPost"> $$ \sum^{\infty}_{n = 0} \frac{x^{n}}{n!} $$ </td>
-            <td class = "tdPost"> $ 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \cdots $ </td>
-            <td class = "tdPost"> $\forall x$  </td>
+            <td class = "tdPost"> $$ 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \cdots $$ </td>
+            <td class = "tdPost"> $$ \forall x $$ </td>
+            <td class = "tdPost"> $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> </td>
         </tr>
         <tr>
-            <td class = "tdPost"> $\sin{x}$ </td>
-            <td class = "tdPost"> $$ \sum^{\infty}_{n = 0} \frac{{(-1)}^n}{(2n + 1)!} x^{2n + 1} $$ </td>
-            <td class = "tdPost"> $ x - \frac{1}{3!}x^{3} + \frac{1}{5!}x^{5} - \frac{1}{7!}x^{7} + \frac{1}{9!}x^{9} + \cdots $ </td>
-            <td class = "tdPost"> $\forall x$ </td>
+            <td class = "tdPost"> $$ \sin{x} $$ </td>
+            <td class = "tdPost"> $$ \sum^{\infty}_{n = 0} \frac{{(-1)}^{n}}{(2n + 1)!} x^{2n + 1} $$ </td>
+            <td class = "tdPost"> $$ x - \frac{1}{3!}x^{3} + \frac{1}{5!}x^{5} - \frac{1}{7!}x^{7} + \frac{1}{9!}x^{9} + \cdots $$ </td>
+            <td class = "tdPost"> $$ \forall x $$ </td>
+            <td class = "tdPost"> $\sin{x}$는 삼각함수 중 사인함수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \cos{x} $$ </td>
+            <td class = "tdPost"> $$ \sum^\infty_{n = 0} \frac{{(-1)}^{n}}{(2n)!} x^{2n} $$ </td>
+            <td class = "tdPost"> $$ 1 - \frac{1}{2!}x^{2} + \frac{1}{4!}x^{4} - \frac{1}{6!}x^{6} + \frac{1}{8!}x^{8} + \cdots $$ </td>
+            <td class = "tdPost"> $$ \forall x $$ </td>
+            <td class = "tdPost"> $\cos{x}$는 삼각함수 중 코사인함수 </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $$ \frac{1}{1 - x} $$ </td>
+            <td class = "tdPost"> $$ \sum_{n=0}^\infty x^n $$ </td>
+            <td class = "tdPost"> $$ 1 + x + x^2 + x^3 + x^4 + \cdots $$ </td>
+            <td class = "tdPost"> $$ |x| < 1 $$ </td>
+            <td class = "tdPost"> </td>
         </tr>
     </table>
       
