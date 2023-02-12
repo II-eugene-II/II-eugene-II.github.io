@@ -37,7 +37,7 @@
     
     르장드르 공식은 $n!$의 소인수분해에서의 $p$의 지수를 알려주는 공식입니다. <br>
 
-    무한합이라서 계산할 걱정에 불안해지지만 $p^i$가 충분히 커져서 $n$보다 커진 이후에는 최대 정수 함수의 특징에 따라 $\left\lfloor \frac{n}{p^i} \right\rfloor$ 값이 $0$이 되기 때문에 유한합이 됩니다. <br>
+    무한합이라서 계산할 걱정에 불안해지지만 $p^{i}$가 충분히 커져서 $n$보다 커진 이후에는 최대 정수 함수의 특징에 따라 $\left\lfloor \frac{n}{p^i} \right\rfloor$ 값이 $0$이 되기 때문에 유한합이 됩니다. <br>
 
     르장드르의 공식에서 다음과 같은 $\nu_p (n!)$값의 상한과 하한을 알 수 있습니다. <br>
       
@@ -46,20 +46,34 @@
         \frac{n}{p}-1 \leq \nu_p (n!) \leq \frac{n}{p-1}
         $$
     </blockquote>
-    
-    증명 part1. 좌변의 경우: <br> <br>
 
-    $\nu_p (n!) = \sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \left\lfloor \frac{n}{p} \right\rfloor + \sum_{i=2}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor$에서 최대 정수 함수의 성질로 $\frac{n}{p} - 1 \leq \left\lfloor \frac{n}{p} \right\rfloor$이다. <br>
+    <details><summary> 증명 part1. 좌변의 경우: </summary>
+    
+        <p>
+
+            $\nu_p (n!) = \sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \left\lfloor \frac{n}{p} \right\rfloor + \sum_{i=2}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor$에서 최대 정수 함수의 성질로 $\frac{n}{p} - 1 \leq \left\lfloor \frac{n}{p} \right\rfloor$이다. <br>
 
     $\frac{n}{p^i}$ 값이 양수이므로 $0 \leq \sum_{i=2}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor$이다. <br>
 
-    따라서 $\frac{n}{p} - 1 \leq \left\lfloor \frac{n}{p} \right\rfloor + 0 \leq \left\lfloor \frac{n}{p} \right\rfloor + \sum_{i=2}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \nu_p (n!)$이고, 따라서 $\frac{n}{p}-1 \leq \nu_p (n!)$이다. <br> <br>
+    따라서 $\frac{n}{p} - 1 \leq \left\lfloor \frac{n}{p} \right\rfloor + 0 \leq \left\lfloor \frac{n}{p} \right\rfloor + \sum_{i=2}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \nu_p (n!)$이고, 따라서 $\frac{n}{p}-1 \leq \nu_p (n!)$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 증명 part1. 좌변의 경우: -->
 
-    증명 part2. 우변의 경우: <br> <br>
+    <details><summary> 증명 part2. 우변의 경우: </summary>
+    
+        <p>
 
-    최대 정수 함수의 성질로 $\left\lfloor \frac{n}{p^i} \right\rfloor \leq \frac{n}{p^i}$이고, 따라서 $\sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor \leq \sum_{i=1}^{\infty} \frac{n}{p^i}$이고, 우변은 기하급수이므로 $\sum_{i=1}^{\infty} \frac{n}{p^i} = \frac{n}{p - 1}$이다. <br>
+            최대 정수 함수의 성질로 $\left\lfloor \frac{n}{p^i} \right\rfloor \leq \frac{n}{p^i}$이고, 따라서 $\sum_{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor \leq \sum_{i=1}^{\infty} \frac{n}{p^i}$이다. <br>
+            
+            우변은 기하급수이므로 $\sum_{i=1}^{\infty} \frac{n}{p^i} = \frac{n}{p - 1}$이다. <br>
 
-    따라서 $\nu_p (n!) = \left\lfloor \frac{n}{p^i} \right\rfloor \leq \frac{n}{p^i} = \frac{n}{p - 1}$에서 $\nu_p (n!) \leq \frac{n}{p - 1}$이다. <br>
+            따라서 $\nu_p (n!) = \left\lfloor \frac{n}{p^i} \right\rfloor \leq \frac{n}{p^i} = \frac{n}{p - 1}$에서 $\nu_p (n!) \leq \frac{n}{p - 1}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 증명 part2. 우변의 경우: -->
   
     </p>
       
