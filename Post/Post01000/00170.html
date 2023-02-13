@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 아커만 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 아커만 함수 </div>
+      
+    <hr>
+      
+    <p>
+      
+    아커만 함수는 다음과 같이 재귀적으로 정의합니다. <br>
+      
+    <blockquote>
+        $$
+        A(m, n) =
+\begin{cases}
+n+1 & \mbox{if } m = 0 \\
+A(m-1, 1) & \mbox{if } m > 0 \mbox{ and } n = 0 \\
+A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
+\end{cases}
+        $$
+    </blockquote>
+
+    $m$이 커질수록 급하게 상승하는 재귀함수입니다. 사실상 4만 넘어도 직접적인 값을 계산하기는 어려워집니다. <br>
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
