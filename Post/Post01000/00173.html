@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 소수 간극 </title>
+    <title> 르장드르 상수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,23 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 소수 간극 </div>
+    <div id = "postTitle"> 르장드르 상수 </div>
       
     <hr>
       
     <p>
-    
-    <a href="/Post/Post01000/00121.html"> $n$번째 소수 </a> $p_{n}$을 이용하여 소수 간극 $g_{n}$을 다음과 같이 나타냅니다. <br>
+      
+    르장드르 상수 $B$는 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        g_{n} = p_{n + 1} - p_{n}
+        B = \lim_{n\to\infty}\left(\ln n - \frac{n}{\pi(n)} \right)
         $$
     </blockquote>
       
-    $p_{n} < 100000000 = 10^{8}$일 때에는 $g_{n} < 222$임이 알려져있고, $p_{n} < 2^{31}$일 때에는 $g_{n} < 294$임이 알려져있습니다. (즉, int 범위에서는 아무 수나 골라도 $\pm 147$안에 소수 하나쯤은 있는 셈입니다.) <br>
+    $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다. <br>
 
-    또, $p_{n} < 2^{63}$일 때에는 $g_{n} < 1512$임이 알려져 있으므로, 소수는 생각보다 굉장히 조밀하게 모여있음을 알 수 있습니다. <br>
-
-    </p>
+    르장드르는 이 상수의 값을 대략 $B = 1.08...$정도로 예상했으나, 실제로는 그냥 $1$입니다. $1.0000...00019$이런거 아니고 그냥 깔끔하게 $1$입니다. <br>
       
     </section>
     <aside>
