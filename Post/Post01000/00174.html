@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 21864번 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 21864번 - 이산로그가 장난이냐? </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/21864"> 백준 21864번 문제 링크 </a> <br>
+        문제 이름 : 이산로그가 장난이냐? <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 정수론 / 런타임 전의 전처리 / 이산로그 <br>
+        solved.ac 등급 : Diamond III (2023/02/15 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        BOJ에서 어떤 문제를 풀었던 Sait2000은 입력 범위를 늘려서 장난 아니고 이산로그를 구해야 하는 문제를 만들기로 했습니다. <br>
+        
+        $M = 10^{18} + 31$은 소수이고, $g = 42$는 $M$의 원시근입니다. 즉, $g^{1} mod M$, $g^2 mod M$, ..., $g^{M - 1} mod M$은 각각 서로 다른 [1; M) 범위의 정수입니다. $f(x)$를 $g^p \pmod{M} = x$를 만족하는 최소의 양의 정수 $p$로 정의합니다. 그러면 $f$는 [1; M)에서 [1; M)으로 가는 전단사함수(일대일 대응)입니다. <br>
+
+        수열 ${a_n}$을 다음과 같이 정의합니다. <br>
+        
+        $a_0 = 960002411612632915$ <br>
+
+        $a_{i + 1} = $f(a_i)$ <br>
+        
+        $n$이 주어졌을 때, $a_n$을 찾아봅시다. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫번째 줄에 정수 n이 주어집니다. ($0 ≤ n ≤ 2 \times 10^6$) <br>
+        
+        <h4> 출력 : </h4>
+        
+        $a_n$을 출력합니다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    <a href="https://hinohie.tistory.com/18"> 참고자료 1 </a> <br>
+        
+    <b>이 문제는 아직 풀고 있는 중입니다.</b> <br>
+
+    이산로그를 100만번 구하는 문제입니다. <br>
+
+    원래는 그냥 무식하게 브루트포스로 구하려고 작정했으나, 이번 생에 안나올 것 같아서 포기했습니다. <br>
+
+    일반 $\sqrt{N}$ 방법으로 100만번 구해서 시작해보려 했는데, 용량이 부족합니다. (10억개의 int가 있는 리스트...?) <br>
+
+    그래서 참고자료 1을 기반으로 새로운 방식을 시도하고 있습니다. <br>
+
+    예를 들어, $\operatorname{ind}_{42} 2 = 616320896497656200$, $\operatorname{ind}_{42} 3 = 216445357691997426$, $\operatorname{ind}_{42} 5 = 805764401374230400$ 을 기반으로, $300 = 2^2 \times 3 \times 5^2$이므로, <br>
+
+    $\operatorname{ind}_{42} 300 = 616320896497656200 \times 2 + 216445357691997426 + 805764401374230400 \times 2 = 60615953435770536$으로 구할 수 있습니다. <br>
+
+    $60615953435770536$은 2, 3, 5로만 나누어떨어지진 않는데 어떻게 해야할까요? 42씩 계속 곱해가면서 2, 3, 5로만 나누어 떨어지는 경우가 있는지 계속 찾아가면 됩니다. <br>
+
+    $\operatorname{ind}_{42} 42^{s} \times t = s + \operatorname{ind}_{42} t 이기 때문입니다.<br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
