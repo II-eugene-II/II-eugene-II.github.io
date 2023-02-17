@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 자연로그의 밑 e </title>
+    <title> 자연로그함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,39 +19,33 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 자연로그의 밑 e </div>
+    <div id = "postTitle"> 자연로그함수 </div>
       
     <hr>
       
     <p>
       
-    <a href="/Post/Post01000/00183.html"> 자연로그 </a>의 밑 $e$는 다음 식을 만족하는 수로 정의합니다. <br>
+    자연로그함수 $\ln{x}$는 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        \int_{1}^{e} \frac{1}{x} dx = 1
+        \ln x=\int_{1}^{x} {1 \over t}\, dt
         $$
     </blockquote>
       
-    여러 분야에서 사용되는 만큼 여러가지 정의가 존재합니다. <br>
+    이렇게 정의하면 지수함수의 역함수를 로그함수로 정의하고 로그함수의 역함수를 지수함수로 정의하고 다시 지수함수의 역함수를 로그함수로 정의...의 고리를 끊어낼 수 있습니다. <br>
 
-    극한값으로 표현하는 방법이 있습니다. <br>
-      
-    <blockquote>
-        $$
-        e = \lim_{n \to \infty} {\left(1 + \frac{1}{n}\right)}^{n}
-        $$
-    </blockquote>
-
-    무한합으로 표현하는 방법이 있습니다. <br>
+    이렇게 정의해도 지수함수의 역함수인 것은 동일하므로 다음이 모든 실수 $x$에 대해 성립합니다. <br>
       
     <blockquote>
         $$
-        e = \sum_{n = 0}^{\infty} \frac{1}{n!}
+        \ln {e^{x}} = x
         $$
     </blockquote>
 
-    $n!$은 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a>기호입니다. <br>
+    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
+
+    적분으로 정의한 경우에도 로그함수의 성질인 $\ln{xy} = \ln{x} + \ln{y}$가 성립합니다. <br>
       
     </section>
     <aside>
