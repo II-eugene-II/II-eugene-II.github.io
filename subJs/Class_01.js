@@ -201,7 +201,7 @@ document.write(`
     <td class = "tdPost"> 최소, 최대 </td>
     <td class = "tdPost" style="background-color:rgb(173, 86, 0, 0.2); color: rgb(173, 86, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/3.svg" alt="Bronze III"> Bronze III </td>
     <td class = "tdPost"> ★★★ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00191.html"> 최소, 최대 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/10869"> 10869번 </a> </td>
