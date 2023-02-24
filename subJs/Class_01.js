@@ -26,7 +26,7 @@ document.write(`
     <td class = "tdPost"> A/B </td>
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00206.html"> A/B 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(181, 93, 10, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01152"> 01152번 </a> </td>
@@ -243,7 +243,7 @@ document.write(`
     <td class = "tdPost"> AxB </td>
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00208.html"> AxB 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/11654"> 11654번 </a> </td>
