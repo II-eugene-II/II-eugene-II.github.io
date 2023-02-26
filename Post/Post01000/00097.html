@@ -30,6 +30,8 @@
     <blockquote>
         $$\ln n - \sum_{p < n} \frac{\ln p}{p} = O(1)$$
     </blockquote>
+
+    $\ln{p}$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다. <br>
       
     $n$보다 작은 모든 소수 $p$에 대하여 $\frac{\ln p}{p}$의 값을 합한 값은 $\ln n$과 거의 유사하다는 것을 알 수 있습니다. <br>
 
@@ -47,7 +49,7 @@
 
             이다. <a href="/Post/Post01000/00113.html"> 이때, $\frac{n}{p}-1 \leq \nu_p (n!) \leq \frac{n}{p-1}$ 이므로 </a>
             
-            $$ \sum_{p \leq n} \ln{p} \left( \frac{n}{p}-1 \right) \leq \ln{n!} = \sum_{p \leq n} \nu_p (n) \ln{p} \leq \sum_{p \leq n} \frac{n}{p-1} \ln{p} $$ <br>
+            $$ \sum_{p \leq n} \ln{p} \left( \frac{n}{p} - 1 \right) \leq \ln{n!} = \sum_{p \leq n} \nu_p (n) \ln{p} \leq \sum_{p \leq n} \frac{n}{p-1} \ln{p} $$ <br>
 
             임을 알 수 있다. <br>
 
