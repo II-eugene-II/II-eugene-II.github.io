@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 01271번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 01271번 - 엄청난 부자2 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/01271"> 백준 01271번 문제 링크 </a> <br>
+        문제 이름 : 엄청난 부자2 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 / 임의 정밀도 & 큰 수 연산 <br>
+        solved.ac 등급 : Bronze V (2023/03/01 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+        
+        <h4> 문제 : </h4>
+        
+        갑부 최백준 조교는 동전을 최소로 바꾸는데 성공했으나 김재홍 조교가 그 돈을 발견해서 최백준 조교에게 그 돈을 나누자고 따진다. <br>
+        
+        그 사실이 전 우주로 알려지자 우주에 있던 많은 생명체들이 자신들에게 돈을 분배해 달라고 당장 달려오기 시작했다. <br>
+        
+        프로토스 중앙 우주 정부의 정책인, ‘모든 지적 생명체는 동등하다’라는 규칙에 입각해서 돈을 똑같이 분배하고자 한다. <br>
+        
+        한 생명체에게 얼마씩 돈을 줄 수 있는가? <br>
+        
+        또, 생명체들에게 동일하게 분배한 후 남는 돈은 얼마인가? <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에는 최백준 조교가 가진 돈 n과 돈을 받으러 온 생명체의 수 m이 주어진다. (1 ≤ m ≤ n ≤ $10^{1000}$, m과 n은 10진수 정수) <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 생명체 하나에게 돌아가는 돈의 양을 출력한다. 그리고 두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    (해당 글은 파이썬으로 풀 경우를 상정한 경우입니다. C나 C++ 계열인 경우 풀이가 아득해집니다.) <br>
+
+    n원을 m명(생명체의 수인데 "명"을 써야하는지는 모르겠지만)으로 나누어야 하니까 n을 m으로 나눈 몫, n을 m으로 나눈 나머지를 각각 출력해주면 됩니다. <br>
+
+    파이썬에서는 정수 나눗셈이 // 임을 유의하고, 나머지 연산자는 % 임을 알고 있으면 됩니다. <br>
+
+    한 줄에 입력이 주어지므로 n, m = map(int, input().split()) 꼴로 입력을 쪼개서 받을 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/ff0c815be3bb805920995a0e98340fd8.js"></script> <br>
+
+    C, C++ 같은 BigInt가 안되는 언어들은...직접 만드시는거 말고는 답이 없습니다. <br>
+
+    이 문제만을 위한 BigInt 말고 이런 문제들에 다 쓸 수 있는 개인용 BigInt 클래스를 만들어야겠습니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

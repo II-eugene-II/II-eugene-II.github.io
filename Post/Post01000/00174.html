@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 백준 21864번 </title>
+    <title> 백준 21864번 해설 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -47,15 +47,15 @@
         
         BOJ에서 어떤 문제를 풀었던 Sait2000은 입력 범위를 늘려서 장난 아니고 이산로그를 구해야 하는 문제를 만들기로 했습니다. <br>
         
-        $M = 10^{18} + 31$은 소수이고, $g = 42$는 $M$의 원시근입니다. 즉, $g^{1} mod M$, $g^2 mod M$, ..., $g^{M - 1} mod M$은 각각 서로 다른 [1; M) 범위의 정수입니다. $f(x)$를 $g^p \pmod{M} = x$를 만족하는 최소의 양의 정수 $p$로 정의합니다. 그러면 $f$는 [1; M)에서 [1; M)으로 가는 전단사함수(일대일 대응)입니다. <br>
+        $M = 10^{18} + 31$은 소수이고, $g = 42$는 $M$의 원시근입니다. 즉, $g^{1} \pmod{M}$, $g^2 \pmod{M}$, ..., $g^{M - 1} \pmod{M}$은 각각 서로 다른 [1; M) 범위의 정수입니다. $f(x)$를 $g^p \pmod{M} = x$를 만족하는 최소의 양의 정수 $p$로 정의합니다. 그러면 $f$는 [1; M)에서 [1; M)으로 가는 전단사함수(일대일 대응)입니다. <br>
 
-        수열 ${a_n}$을 다음과 같이 정의합니다. <br>
+        수열 $\left\{a_n\right\}$을 다음과 같이 정의합니다. <br>
         
         $a_0 = 960002411612632915$ <br>
 
-        $a_{i + 1} = $f(a_i)$ <br>
+        $a_{i + 1} = f\left(a_{i}\right)$ <br>
         
-        $n$이 주어졌을 때, $a_n$을 찾아봅시다. <br>
+        $n$이 주어졌을 때, $a_{n}$을 찾아봅시다. <br>
         
         <h4> 입력 : </h4>
         
@@ -95,7 +95,7 @@
 
     $60615953435770536$은 2, 3, 5로만 나누어떨어지진 않는데 어떻게 해야할까요? 42씩 계속 곱해가면서 2, 3, 5로만 나누어 떨어지는 경우가 있는지 계속 찾아가면 됩니다. <br>
 
-    $\operatorname{ind}_{42} 42^{s} \times t = s + \operatorname{ind}_{42} t 이기 때문입니다.<br>
+    $\operatorname{ind}_{42} 42^{s} \times t = s + \operatorname{ind}_{42} t$ 이기 때문입니다.<br>
 
     </p>
         
