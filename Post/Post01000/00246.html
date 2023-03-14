@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 03046번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 03046번 - R2 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/03046"> 백준 03046번 문제 링크 </a> <br>
+        문제 이름 : R2 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 사칙연산 <br>
+        solved.ac 등급 : Bronze IV (2023/03/14 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        두 숫자 R1과 R2가 있을 때, 두 수의 평균 S는 (R1+R2)/2와 같다. 상근이는 정인이 생일 선물로 두 숫자 R1과 R2를 주려고 한다. 생일 파티에서 상근이는 정인이에게 이 두 숫자를 말해주고, 정인이는 이 숫자를 받아 적는다. 그리고 나서 기쁜 마음으로 1년동안 이 숫자를 외우면서 산다. <br>
+        
+        상근이는 R1과 R2를 엄청난 고민 끝에 정했다. 작년에는 R1과 R2를 까먹어서 아무 숫자나 정해서 주었기 때문에, 올해는 까먹지 않기 위해서 평균 S도 같이 기억하려고 한다. <br>
+        
+        오늘은 정인이 생일이다. 5분 후에 상근이는 생일 선물로 두 숫자 R1과 R2를 말해주어야 하지만, 안타깝게도 R2를 까먹고 말았다. 하지만 R1과 S는 기억하고 있다! <br>
+        
+        상근이를 도와 R2가 몇 인지 구하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 두 정수 R1과 S가 주어진다. 두 수는 -1000보다 크거나 같고, 1000보다 작거나 같다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 R2를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    평균의 정의까지 알려주는 친절한 문제입니다. <br>
+
+    $R_{1}$도 알고 있고, $S = \frac{R_{1} + R_{2}}{2}$까지 알고 있으니 $R_{2}$는 쉽게 구할 수 있습니다. <br>
+
+    $2S = R{1} + R{2}$임을 알 수 있고, 따라서 $2S$에서 $R_{1}$을 뺀 것이 답입니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/c39094a96d499257be8ea41fed14e86c.js"></script> <br>
+
+    map(int, input().split())으로 입력받으면 한 줄에 입력받을 수 있고, 굳이 변수선언 해줄 필요도 없이 한꺼번에 출력해줄 수도 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/4dde5c8129cc118bef5534f84aedb725.js"></script> <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
