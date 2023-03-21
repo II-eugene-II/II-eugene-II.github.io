@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 02440번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 02440번 - 별 찍기 - 3 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/02440"> 백준 02440번 문제 링크 </a> <br>
+        문제 이름 : 별 찍기 - 3 <br>
+        주 언어 : Python <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze IV (2023/03/21 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        첫째 줄에는 별 N개, 둘째 줄에는 별 N-1개, ..., N번째 줄에는 별 1개를 찍는 문제 <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    <a href="/Post/Post01000/00110.html"> 백준 02438번 - 별 찍기 - 1 </a> 와 <a href="/Post/Post01000/00111.html"> 백준 02439번 - 별 찍기 - 2 </a>보다 조금 더 발전되고 어려운 문제입니다. <br>
+
+    다음 세 가지를 잘 생각해서 코드를 짤 수 있습니다. <br>
+
+    0. 우선 N개의 줄을 출력해야 한다. <br>
+
+    1. 맨 처음에는 별을 N개 출력해야 한다. <br>
+
+    2. 그 다음 줄로 갈 때마다 1개씩 별 개수를 줄여나가야 한다. <br>
+
+    for i in range(N) 에서 N - i가 해당 문제에서의 조건을 만족시킨다는 것을 알고, 파이썬에서 문자열의 곱셈이 가능하다는 것을 안다면 다음과 같은 코드를 작성할 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/b7c82329419a794eec2c18d4f89a7c07.js"></script> <br>
+
+    range(N, 0, -1)을 써도 되기는 합니다. 0이 되기 직전까지 N에서 시작해서 -1씩 한다는 표현식입니다. <br>
+
+    다른 언어에서는 통상적으로 별 N - i개를 출력하는 과정도 반복문으로 N - i번 출력하고 줄 바꿈을 출력하는 형식으로 이중 반복문을 사용듭니다. <br>
+        
+</p>
+    
+<hr>
+    
+<p>
+    
+-번째 푼 문제 (2022/--/--) <br>
+    
+</p>
+  
+</section>
+<aside>
+    <script type="text/javascript" src="/asideWrite.js"></script>
+</aside>
+
+<footer>
+    <script type="text/javascript" src="/footerWrite.js"></script>
+</footer>
+  
+</div> <!-- wrap -->
+
+<script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
