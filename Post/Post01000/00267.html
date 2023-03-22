@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 리틀우드의 정리 </title>
+    <title> 단위 계단 함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -11,31 +11,37 @@
 </head>
 
 <body>
-    <div id = "wrap">  
-    <div class = "container">
+    <div id = 'wrap'>  
+    <div class="container">
         <header>
             <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
     
-    <div id = "postTitle"> 리틀우드의 정리 </div>
-    
+    <div id = "postTitle"> 단위 계단 함수 </div>
+      
     <hr>
       
     <p>
       
-    리틀우드의 정리의 내용은 다음과 같습니다.
+    단위 계단 함수 $H(x)$는 다음과 같이 정의합니다. <br>
       
     <blockquote>
-        $$ \lvert \pi(x) - \operatorname{li}(x) \rvert > \frac13\frac{\sqrt x}{\log x}\log\log\log x $$ 인 $x$는 무한히 많다.
+        $$
+        H(x)= \begin{cases} 0, & x < 0 \\ 1, & x > 0 \end{cases} 
+        $$
     </blockquote>
 
-    ${\rm li} (x)$는 <a href="/Post/Post01000/00141.html"> 로그 적분 함수 </a>이고, $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다. <br>
+    x = 0일 때의 정의는 약간씩 다릅니다. 0으로 생각하는 경우도 있고 $\frac{1}{2}$로 생각하는 경우도 있고 1로 생각하는 경우도 있고...각각 상황에 맞는 것으로 사용할 수 있습니다. <br>
 
-    소수 계량 함수의 근사에 관련한 정리입니다. <br>
+    <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>를 이용하면 다음과 같은 정의가 가능합니다. <br>
       
-    </p>
+    <blockquote>
+        $$
+        H(x)= [ x > 0 ]
+        $$
+    </blockquote>
       
     </section>
     <aside>
@@ -45,9 +51,9 @@
     <footer>
         <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
-      
-    </div> <!-- wrap -->
     
+    </div> <!-- wrap -->
+  
     <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>

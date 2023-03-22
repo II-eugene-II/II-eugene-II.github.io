@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 14935번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 14935번 - FA </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/14935"> 백준 14935번 문제 링크 </a> <br>
+        문제 이름 : FA <br>
+        주 언어 : Text <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze IV (2023/03/22 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+        
+        <h4> 문제 : </h4>
+        
+        함수 F(x)는 입력으로 주어진 수 x의 첫 자리와 수 x의 자리수를 곱한 결과를 반환하는 함수이다. <br>
+        
+        예를 들어 x = 932 일때 F(x)는 9×3으로 27을 반환한다. <br>
+        
+        입력받은 x에 대해서 함수 F를 수행하고, 나온 결과값에 다시 함수 F를 수행하는 것을 반복한다. 계속 반복해서 수행했을 때 어느 시점에서부터 동일한 수가 나오는 경우, 입력 x를 FA수 라고 한다. <br>
+        
+        입력 x가 주어졌을때 이 수가 FA 수인지 출력하라. <br>
+        
+        <h4> 입력 : </h4>
+        
+        정수 x 가 주어진다. (0 ≤ x ≤ $10^{100}$) <br>
+        
+        <h4> 출력 : </h4>
+        
+        정수 x가 FA수 라면 FA를 출력하고, 아니라면 NFA를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    만약 X가 세 자리수 이상이라면 X의 첫자리는 1부터 9 사이, X의 자릿수는 로그함수에 가까우므로 로그 스케일로 쭉쭉 줄어들게 됩니다. <br>
+
+    X가 두 자리수라면 X의 첫자리는 1부터 9 사이, X의 자릿수는 F(X) = 2, 4, 6, 8, 10, 12, 14, 16, 18 중 하나입니다. <br>
+
+    한 자리수라면 계속 동일한 수가 나오게 됩니다. <br>
+
+    아무리 큰 수도 한 자리수로 줄어들고, 한 자리수는 계속 동일한 수가 나온다는 것은...! <br>
+
+    <script src="https://gist.github.com/II-eugene-II/715aab83b7bb0fdea3dd0552441740fa.js"></script> <br>
+
+    백준에서는 Text로도 제출이 가능합니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
