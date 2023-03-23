@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 싱마스터의 추측 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 싱마스터의 추측 </div>
+      
+    <hr>
+      
+    <p>
+    
+    싱마스터의 추측 (Singmaster's Conjecture) 의 내용은 다음과 같습니다. <br>
+      
+    <blockquote>
+        $N(a)$를 $\binom{n}{k} = a$인 경우의 수로 정의할 때, $N(a) = O(1)$이다.
+    </blockquote>
+
+    $\binom{n}{k}$는 <a href="/Post/Post01000/00030.html"> 이항계수 </a> 입니다. <br>
+
+    굳이 빅 오 표기법으로 나타낸 이유는, 모든 자연수 $n$에 대하여 $\binom{n}{0} = 1$이므로 $N(a)$가 $a=1$에서 무한대로 발산합니다. <br>
+
+    이 부분을 제외하면 다음과 같이 표기할 수 있습니다. <br>
+      
+    <blockquote>
+        $N(a)$를 $\binom{n}{k} = a$인 경우의 수로 정의할 때, 어떤 상수 $M$과 $1$보다 큰 모든 정수 $a$에 대하여 $N(a) < M$이다.
+    </blockquote>
+
+    싱마스터는 $a$가 $2$이상인 경우에, $N(a) \leq 2 + 2 \lg a$임을 증명했는데, $\lg x$는 <a href="/Post/Post01000/00195.html"> 이진로그함수 </a> 입니다. <br>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
