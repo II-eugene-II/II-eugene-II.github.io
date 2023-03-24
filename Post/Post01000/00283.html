@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 05893번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 05893번 - 17배 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/05893"> 백준 05893번 문제 링크 </a> <br>
+        문제 이름 : 17배 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 임의 정밀도 & 큰 수 연산 <br>
+        solved.ac 등급 : Bronze III (2023/03/24 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        상근이는 이진수 곱셈에 어려움을 겪는 여자친구를 위한 프로그램을 만들려고 한다. <br>
+        
+        상근이의 여자친구는 항상 이진수에 17을 곱한다. 즉, 이진수 N이 입력으로 들어오면 17을 곱한 다음 이진수로 출력하는 프로그램을 작성하시오.  <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 이진수 N이 주어진다. N은 최대 1000자리인 이진수이며, 0이 들어오는 경우는 없다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        입력으로 주어진 N을 17배한 다음, 이진수로 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    보통 파이썬의 int 함수에는 문자열을 정수형으로 바꾸는 함수...정도로 알려져 있습니다. <br>
+
+    int("문자열")로 하면, 예를 들어 int("1234")를 하면 정수형 변수 1234로 변합니다. <br>
+
+    이때, int("1111", 2)를 하게 되면, 이 수는 정수형 변수 15가 됩니다. <br>
+
+    "1111"을 2진법으로 읽어서 10진법으로 15 ($2^3 + 2^2 + 2^1 + 2^0$)라는 값이 나오게 된 셈입니다. <br>
+
+    따라서 이 수를 17배 하는 것은 쉽습니다. 문제는 다시 이 수를 2진법으로 바꾸는 일입니다. <br>
+
+    파이썬에서는 정수 -> 이진법 변환 함수인 bin 함수를 지원하는데, bin(15) == "0b1111" 같은 꼴입니다. (앞의 0b는 이 표현이 이진법 표기라는 것을 알려주는 것입니다.) <br>
+
+    따라서, 앞의 "0b"만 지운다면 깔끔하게 출력이 가능합니다. bin 함수를 씌운 순간 문자열이 되므로 문자열 슬라이싱을 적용할 수 있습니다. <br>
+    
+    즉, 문자열 뒤에 [2:] 를 붙여 앞의 두 칸을 날려버리고 뒤의 칸들만 취하겠다는 의미입니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/9355c50b8dd7a16e8b4a0e8598178220.js"></script> <br>
+
+    근데 왜 17배를 구하는지는 솔직히 알 수가 없습니다. (만약 16배 였다면 문자열 맨 뒤에 "0000"을 붙이기만 하면 되는 문제로 변했을 것입니다.) <br>
+    
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 리만 가설 </title>
+    <title> 파이썬 zfill 함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -11,31 +11,31 @@
 </head>
 
 <body>
-    <div id = 'wrap'>  
-    <div class="container">
+    <div id = "wrap">  
+    <div class = "container">
         <header>
             <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
     
-    <div id = "postTitle"> 리만 가설 </div>
-      
+    <div id = "postTitle"> 파이썬 zfill 함수 </div>
+    
     <hr>
       
     <p>
-    
-    리만 가설 (Riemann Hypothesis) 의 내용은 다음과 같습니다. <br>
       
-    <blockquote>
-        $\zeta(s) = 0$인 모든 비자명한 해 $s$의 실수부는 $\frac{1}{2}$이다.
-    </blockquote>
+    파이썬 zfill 함수는 파이썬의 기본 내장함수로, 문자열 앞에 Leading Zero를 붙여주는 함수입니다. <br>
 
-    $\zeta(s)$는 <a href="/Post/Post01000/00120.html"> 리만 제타함수 </a> 입니다. <br>
+    예를 들어서, "2"라는 문자열을 "0002"로 출력하고 싶다면 "2".zfill(4)로 쓸 수 있습니다. <br>
 
-    실수부가 1이 아니다라는 내용이 <a href="/Post/Post01000/00083.html"> 소수 정리 </a> 입니다. <br>
+    "문자열".zfill(N) 을 하게 되면, 문자열 앞에 0을 붙여서 N칸을 채우는 역할입니다. <br>
 
-    자명한 해로는 음의 짝수들이 있습니다.
+    이미 문자열이 길이 N을 넘었다면, 아무것도 하지 않습니다.
+    
+    <br> <script src="https://gist.github.com/II-eugene-II/22c9536fcf5330c9f49a518794d5ee37.js"></script> <br>
+      
+    </p>
       
     </section>
     <aside>
@@ -45,9 +45,9 @@
     <footer>
         <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
-    
+      
     </div> <!-- wrap -->
-  
+    
     <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>

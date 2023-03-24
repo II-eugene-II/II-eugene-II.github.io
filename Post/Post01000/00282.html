@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 02490번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 02490번 - 윷놀이 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/02490"> 백준 02490번 문제 링크 </a> <br>
+        문제 이름 : 윶놏이 <br>
+        주 언어 : Python <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze III (2023/03/24 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        우리나라 고유의 윷놀이는 네 개의 윷짝을 던져서 배(0)와 등(1)이 나오는 숫자를 세어 도, 개, 걸, 윷, 모를 결정한다. 네 개 윷짝을 던져서 나온 각 윷짝의 배 혹은 등 정보가 주어질 때 도(배 한 개, 등 세 개), 개(배 두 개, 등 두 개), 걸(배 세 개, 등 한 개), 윷(배 네 개), 모(등 네 개) 중 어떤 것인지를 결정하는 프로그램을 작성하라. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄부터 셋째 줄까지 각 줄에 각각 한 번 던진 윷짝들의 상태를 나타내는 네 개의 정수(0 또는 1)가 빈칸을 사이에 두고 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄부터 셋째 줄까지 한 줄에 하나씩 결과를 도는 A, 개는 B, 걸은 C, 윷은 D, 모는 E로 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    배의 개수와 등의 개수를 동시에 셀 필요가 없습니다. (어차피 둘의 합은 4이므로 하나를 구하면 다른 하나는 자동으로 결정되기 때문) <br>
+
+    따라서, 배의 개수인 "0"의 개수를 세주고, 0개라면 모(E), 1개라면 도(A), 2개라면 개(B), 3개라면 걸(C), 4개라면 윷(D) 를 출력해줍니다. <br>
+
+    이것도 굳이 조건문으로 가 줄 필요없이, 문자열 "EABCD" 에서 "배의 개수"번째 문자를 출력해주면 되는 일입니다. <br>
+
+    input 받은 문자열에서 0의 개수만 세주면 되니. input().count("0")으로 세 줄 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/6151f7111655545cac03e0e44ed41836.js"></script> <br>
+    
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
