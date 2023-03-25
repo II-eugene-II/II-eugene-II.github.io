@@ -28,12 +28,18 @@
     피보나치 수열 $F_{n}$의 기본 정의는 다음과 같습니다.
       
     <blockquote>
-        $$ F_{0} = 0, F_{1} = 1, F_{n + 2} = F_{n + 1} + F_{n} $$
+        $$ F_{n} = \begin{cases} 0 & n = 0 \\ 1 & n = 1 \\ F_{n - 1} + F_{n - 2} & n \in \mathbb{Z} \end{cases} $$
     </blockquote>
         
     (초항 두개를 $F_{1} = 1, F_{2} = 1$ 로 정의하는 경우도 있지만, 두 정의는 완전히 동일합니다.) <br>
+
+    $n \in \mathbb{Z}$는 모든 정수 $n$에 대하여 성립한다는 뜻입니다. <br>
+
+    당연히 1일 때도 성립되어 $F_{1} = F_{0} + F{-1}$ 같이 음수로도 확장될 수 있습니다. <br>
+
+    $F_{1} = 1$, $F_{0} = 0$에서 $F_{-1} = 1$, 또 $F_{0} = F_{-1} + F_{-2}$ 에서 $F_{0} = 0$, $F_{-1} = 1$ 이므로 $F_{-2} = -1$ 같이 음수로도 확장 될 수 있습니다. 
       
-    <details> <summary> 피보나치 수열 100번째 항까지 보기 </summary>
+    <details> <summary> 피보나치 수열 0번째 항부터 100번째 항까지 보기 </summary>
     
         <p>
 
@@ -444,7 +450,7 @@
             </tr>
             <tr>
                 <td class = "tdPost"> $100$ </td>
-                <td class = "tdPost"> $354224848179261915075$ </td>
+                <td class = "tdPost"> $ $ $354224848179261915075$ $ $ </td>
             </tr>
         </table>
     
@@ -466,7 +472,7 @@
 
     1. $F_{n} = \frac{1}{\sqrt{5}} \times \frac{ {\left( 1 + \sqrt{5} \right)}^{n} - {\left( 1 - \sqrt{5} \right)}^{n}}{2^{n}}$ (비네의 공식) <br>
 
-    2. (피보나치수의 행렬표현) $$ \left[
+    2. 모든 양의 정수 $n$에 대하여 다음을 만족한다. (피보나치 수의 행렬표현) $$ \left[
     \begin{matrix}
         F_{n+1} & F_{n} \\
         F_{n} & F_{n-1} \\
@@ -476,27 +482,91 @@
         1 & 1 \\
         1 & 0 \\
     \end{matrix}
-    \right]^{n} $$ <br>
+    \right]^{n} $$
+
+    <details><summary> 2번 성질 증명 </summary>
+    
+        <p>
+
+            행렬 $M_{n} = \left[ \begin{matrix} F_{n + 1} & F_{n} \\ F_{n} & F_{n - 1} \\ \end{matrix} \right]$ 에다가 행렬 $Q = \left[ \begin{matrix} 1 & 1 \\ 1 & 0 \\ \end{matrix} \right]$을 곱하면, 행렬곱의 정의에 따라서 $$ M_{n} Q = \left[ \begin{matrix} F_{n + 1} & F_{n} \\ F_{n} & F_{n - 1} \\ \end{matrix} \right] \left[ \begin{matrix} 1 & 1 \\ 1 & 0 \\ \end{matrix} \right] = \left[ \begin{matrix} 1 \times F_{n + 1} + 1 \times F_{n} & 1 \times F_{n} + 1 \times F_{n - 1} \\ 1 \times F_{n + 1} + 0 \times F_{n} & 1 \times F_{n} + 0 \times F_{n - 1} \\ \end{matrix} \right] $$ 이다. <br>
+
+            이때, 피보나치 수열의 정의 $F_{n + 2} = F_{n + 1} + F_{n}$를 이용하면 $$ \left[ \begin{matrix} 1 \times F_{n + 1} + 1 \times F_{n} & 1 \times F_{n} + 1 \times F_{n - 1} \\ 1 \times F_{n + 1} + 0 \times F_{n} & 1 \times F_{n} + 0 \times F_{n - 1} \\ \end{matrix} \right] = \left[ \begin{matrix} F_{n + 2} & F_{n + 1} \\ F_{n + 1} & F_{n} \\ \end{matrix} \right] = M_{n + 1}$$ 이다. <br>
+
+            임의의 양의 정수 $n$에 대하여 $M_{n} Q = M_{n + 1}$이므로, 이를 반복 적용해주면 임의의 양의 정수 $k$에 대해 $M_{n} Q^{k - 1} = M_{n + k - 1}$이고, $n = 1$ 대입시 $M_{1} Q^{k - 1} = M_{1 + k - 1} = M_{k}$ 이다. <br>
+
+            <br> 이때, 행렬 $M_{n}$의 정의 $M_{n} = \left[ \begin{matrix} F_{n + 1} & F_{n} \\ F_{n} & F_{n - 1} \\ \end{matrix} \right]$에서 $M_{1} = \left[ \begin{matrix} F_{2} & F_{1} \\ F_{1} & F_{0} \\ \end{matrix} \right] = \left[ \begin{matrix} 1 & 1 \\ 1 & 0 \\ \end{matrix} \right] = Q$이다. <br>
+
+            <br> 따라서, $M_{1} Q^{k - 1} = Q Q^{k - 1} = Q^{k}$이고, $$ M_{1} Q^{k - 1} = Q^{k} = \left[ \begin{matrix} 1 & 1 \\ 1 & 0 \\ \end{matrix} \right]^{k} = \left[ \begin{matrix} F_{k + 1} & F_{k} \\ F_{k} & F_{k - 1} \\ \end{matrix} \right] = M_{k} $$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 2번 성질 증명 -->
 
     3. $F_{n + 1} F_{n - 1} - {F_{n}}^{2} = {(-1)}^{n}$ (카시니 항등식) <br>
 
     4. ${F_{n}}^2 - F_{n + r}F_{n - r} = (-1)^{n - r}{F_{n}}^2$ (카시니 항등식의 일반화 / 카탈랑 항등식) <br>
 
-    5. $F_{m+n} = F_{m - 1} F_{n} + F_{m} F_{n + 1}$ (도가뉴 항등식) <br>
+    5. $F_{m + n} = F_{m - 1} F_{n} + F_{m} F_{n + 1}$ (도가뉴 항등식) <br>
 
     6. $F_{2n} = {F_{n + 1}}^{2} - {F_{n - 1}}^{2}$ (피보나치 수의 짝수번째 항의 연산) <br>
 
     7. $F_{2n - 1} = {F_{n}}^{2} - {F_{n - 1}}^{2}$ (피보나치 수의 홀수번째 항의 연산) <br>
 
-    8. $\sum\limits_{k = 0}^n F_{k} = F_{n + 2}-1$ (피보나치 수의 합) <br>
+    8. $\sum\limits_{k = 0}^{n} F_{k} = F_{n + 2}-1$ (피보나치 수의 합) <br>
 
-    9. $\sum\limits_{k = 0}^n {F_{k}}^2 = F_{n} F_{n + 1}$ (피보나치 수의 제곱의 합) <br>
+    9. $\sum\limits_{k = 0}^{n} {F_{k}}^2 = F_{n} F_{n + 1}$ (피보나치 수의 제곱의 합) <br>
 
-    10. $\sum\limits_{k = 1}^n F_{2k - 1} = F_{2n}$ (피보나치 수의 홀수번째 항의 합) <br>
+    10. $\sum\limits_{k = 1}^{n} F_{2k - 1} = F_{2n}$ (피보나치 수의 홀수번째 항의 합) <br>
 
-    11. $\sum\limits_{k = 0}^n F_{2k} = F_{2n + 1} - 1$ (피보나치 수의 짝수번째 항의 합) <br>
+    <details><summary> 10번 성질 증명 </summary>
+    
+        <p>
 
-    12. $\gcd(F_{m}, F_{n}) = F_{\gcd(m, n)} - 1$ (두 피보나치 수의 최대공약수) <br>
+            $\sum\limits_{k = 1}^{n} F_{2k - 1} = S_{n}$이라 하면, $S_{n + 1} - S_{n} = F_{2n + 1}$ 이다. <br>
+
+            $F_{2n} = T_{n}$이라 하면, $T_{n + 1} = F_{2(n + 1)} = F_{2n + 2}$ 이다. <br>
+
+            $T_{n + 1} - T_{n} = \left( F_{2n + 2} \right) - \left( F_{2n} \right) = F_{2n + 2} - F_{2n}$ 이다. <br>
+
+            피보나치 수열의 정의 $F_{n + 2} = F_{n + 1} + F_{n}$에서 $F_{2n + 2} = F_{2n + 1} + F_{2n}$ 이므로, $F_{2n + 2} - F_{2n} = F_{2n + 1}$이다. <br>
+
+            따라서, $T_{n + 1} - T_{n} = F_{2n + 2} - F_{2n} = F_{2n + 1}$이다. <br>
+
+            또, $S_{1} = F_{2 \times 1 - 1} = F_{1} = 1$이고, $T_{1} = F_{2 \times 1} = 1$이므로 $S_{1} = T_{1}$이고, $S_{n + 1} - S_{n} = F_{2n + 1}$, $T_{n + 1} - T_{n} = F_{2n + 1}$이다. <br>
+
+            따라서, 모든 양의 정수 $n$에 대하여 $S_{n} = T_{n}$임을 알 수 있고, $$ S_{n} = \sum\limits_{k = 1}^{n} F_{2k - 1} = F_{2n} = T_{n} $$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 10번 성질 증명 -->
+
+    11. $\sum\limits_{k = 0}^{n} F_{2k} = F_{2n + 1} - 1$ (피보나치 수의 짝수번째 항의 합) <br>
+
+    <details><summary> 11번 성질 증명 </summary>
+    
+        <p>
+
+            <!--피보나치 수열의 정의에서 $F_{2n + 1} = F_{2n} + F_{2n - 1}$이고, 식 변환을 해주어 $F_{2n} = F_{2n + 1} - F_{2n - 1}$이다. 따라서 $\sum\limits_{k = 0}^{n} F_{2k} = \sum\limits_{k = 0}^{n} \left(F_{2n + 1} - F_{2n - 1}\right)$이고, -->
+
+            $\sum\limits_{k = 0}^{n} F_{2k} = S_{n}$이라 하면, $S_{n + 1} - S_{n} = F_{2n + 2}$ 이다. <br>
+
+            $F_{2n + 1} - 1 = T_{n}$이라 하면, $T_{n + 1} = F_{2(n + 1) + 1} - 1 = F_{2n + 3} - 1$ 이다. <br>
+
+            $T_{n + 1} - T_{n} = \left( F_{2n + 3} - 1 \right) - \left( F_{2n + 1} - 1 \right) = F_{2n + 3} - F_{2n + 1}$ 이다. <br>
+
+            피보나치 수열의 정의 $F_{n + 2} = F_{n + 1} + F_{n}$에서 $F_{2n + 3} = F_{2n + 2} + F_{2n + 1}$ 이므로, $F_{2n + 3} - F_{2n + 1} = F_{2n + 2}$이다. <br>
+
+            따라서, $T_{n + 1} - T_{n} = F_{2n + 3} - F_{2n + 1} = F_{2n + 2}$이다. <br>
+
+            또, $S_{0} = 0$이고, $T_{0} = F_{1} - 1 = 1 - 1 = 0$이므로 $S_{0} = T_{0}$이고, $S_{n + 1} - S_{n} = F_{2n + 2}$, $T_{n + 1} - T_{n} = F_{2n + 2}$이다. <br>
+
+            따라서, 모든 음이 아닌 정수 $n$에 대하여 $S_{n} = T_{n}$임을 알 수 있고, $$ S_{n} = \sum\limits_{k = 0}^{n} F_{2k} = F_{2n + 1} - 1 = T_{n} $$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 11번 성질 증명 -->
+
+    12. $\gcd(F_{m}, F_{n}) = F_{\gcd(m, n)} - 1$ (두 피보나치 수의 <a href="/Post/Post01000/00155.html"> 최대공약수 </a>) <br>
   
     </p>
 
