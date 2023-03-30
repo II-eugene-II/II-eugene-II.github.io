@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 위수 </title>
+    <title> 서로소 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,17 +19,23 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 위수 </div>
+    <div id = "postTitle"> 서로소 </div>
       
     <hr>
       
     <p>
     
-    위수(Order / Multiplicative Order)의 정의는 다음과 같습니다. <br>
+    서로소의 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        정수 $a$와 양의 정수 $n$에 대해, $$ a^k \equiv 1 \pmod{n} $$를 만족시키는 가장 작은 양의 정수 $k$를 <b>법 $n$에 대한 $a$의 위수</b>라 하고, \operatorname{ord}_n a$라 한다.
+        두 정수 $a$, $b$에 대하여 $$ \gcd(a, b) = 1 $$ 를 서로소라고 한다.
     </blockquote>
+
+    $\gcd(a, b)$는 <a href="/Post/Post01000/00155.html"> 최대공약수 </a>입니다. <br>
+
+    굉장히 자주 쓰이는 개념임에도 명확한 표기법이 없어 그냥 "두 정수 $a$, $b$가 $\gcd(a, b) = 1$ 이다" 로 쓰이기도 하고, 그것도 줄여서 "두 정수 $a$, $b$가 $(a, b) = 1$ 이다" 로 쓰기도 합니다. <br>
+
+    최근에서야 $a \perp b$라는 표기법이 퍼질 듯 말 듯 한 상태입니다. 해당 표기법은 도널드 커누스가 책 "구체 수학" 에서 제안했습니다. <br>
       
     </section>
     <aside>
