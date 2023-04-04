@@ -29,13 +29,23 @@
       
     <blockquote>
         $$
-        \varphi(n) = n \prod_{p \mid n} \left(1-\frac{1}{p}\right)
+        \varphi(n) = \sum_{m = 1}^{n} \left[ \gcd(m, n) = 1 \right]
         $$
     </blockquote>
-      
-    "$n$과 서로소인 $n$ 이하의 자연수의 개수"와도 동치입니다. <br>
 
-    정의에 의해서 $n$을 나누는 소인수 $p$가 필요하므로 토션트 함수를 구하고자 한다면 소인수분해는 거의 필수입니다. <br>
+    $\left[ P \right]$는 <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>, $\gcd(m, n)$는 <a href="/Post/Post01000/00155.html"> 최대공약수 </a> 입니다. <br>
+      
+    $n$과 서로소인 $n$ 이하의 자연수의 개수라는 이야기 입니다. (아이버슨 괄호는 괄호 내의 명제가 참이면 1, 거짓이면 0) <br>
+
+    오일러 토션트 함수는 다음과도 동치입니다. <br>
+      
+    <blockquote>
+        $$
+        \varphi(n) = n \prod_{p \mid n} \left( 1 - \frac{1}{p} \right)
+        $$
+    </blockquote>
+
+    이에 의해서 $n$을 나누는 소인수 $p$가 필요하므로 토션트 함수를 구하고자 한다면 소인수분해는 거의 필수입니다. <br>
 
     <script src="https://gist.github.com/II-eugene-II/bd4cc771057ab4cd62b9dbe14aaaa87d.js"></script> <br>
 
