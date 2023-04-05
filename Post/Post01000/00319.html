@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 균등분포 </title>
+    <title> 그린 타오 정리 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,31 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 균등분포 </div>
+    <div id = "postTitle"> 그린 타오 정리 </div>
     
     <hr>
       
     <p>
-
-    균등분포는 다음의 확률밀도함수를 갖습니다.
+      
+    그린 타오 정리 (Green-Tao Theorem)의 내용은 다음과 같습니다.
       
     <blockquote>
-        $f(x) = \frac{1}{b - a}$ , $a \leq x \leq b$
+        원소가 모두 소수인 임의의 길이의 등차수열이 존재한다.
     </blockquote>
-      
-    <a href="/Post/Post01000/00013.html"> 이산균등분포 </a>와 이름이 비슷하지만 균등분포는 연속적인 상황에서의 확률분포입니다. <br>
 
-    균등분포의 평균은 $E[X] = \frac{a + b}{2}$, 분산은 $V[X] = \frac{{(b - a)}^{2}}{12}$입니다.
+    <a href="/Post/Post01000/00198.html"> 디리클레의 등차수열 정리 </a> 보다 더욱 더 나간 정리인데, 예를 들어 5, 11, 17, 23, 29는 공차가 6이고 길이가 5이면서 모든 원소가 소수로 이루어진 등차수열 입니다. <br>
+    
+    그린 타오 정리는, 길이가 1억 짜리인 소수 등차수열도, 길이가 1조 짜리인, 길이가 1경 짜리인 소수 등차수열도 모두 존재한다는 정리입니다. <br>
 
-    <details><summary> <del>균등분포의 평균과 분산 증명</del> </summary>
+    <details><summary> <del> 그린 타오 정리 증명 </del> </summary>
     
         <p>
+
+            Szemerédi's theorem의 확장
                 
-            적분을 이용하여 $\int_{a}^{b} f(x) = \int_{a}^{b} \frac{1}{b - a}$ 값을 이용
-    
         </p>
     
-    </details> <!-- 균등분포의 평균과 분산 증명 -->
-    
-    다른 아주 복잡한 연속분포에 비하면 평균이나 분산 구하는게 쉬운 편입니다.
+    </details> <!-- 그린 타오 정리 증명 -->
       
     </p>
       

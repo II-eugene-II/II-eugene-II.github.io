@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 이항 정리 </title>
+    <title> 오일러의 오각수 정리 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,21 +19,22 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 이항 정리 </div>
+    <div id = "postTitle"> 오일러의 오각수 정리 </div>
       
     <hr>
       
     <p>
       
-    이항 정리 (Binomial Theorem) 은 다음과 같습니다. <br>
+    오일러의 오각수 정리 (Euler's Pentagonal Number Theorem) 은 다음과 같습니다. <br>
       
     <blockquote>
+        $\quad|q| < 1$ 인 모든 $q$에 대해
         $$
-        {(x + y)}^{n}=\sum_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = {x}^{n} + n {x}^{n - 1} y+\frac{n (n - 1)}2 x^{n - 2} y^{2} + \cdots + y^{n}
+        \prod_{n = 1}^{\infty} (1 - q^n) = \sum_{n = -\infty}^{\infty} (-1)^n q^{\frac{n(3n - 1)}{2}}
         $$
     </blockquote>
-    
-    $\binom{n}{k}$는 <a href="/Post/Post01000/00030.html"> 이항계수 </a> 입니다. <br>
+
+    오각수와는 크게 관련 없어보이지만, $\frac{n(3n - 1)}{2}$가 오각수라서 붙은 이름 입니다. <br>
       
     </section>
     <aside>
