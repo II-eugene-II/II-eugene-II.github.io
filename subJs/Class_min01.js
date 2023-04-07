@@ -33,7 +33,7 @@ document.write(`
     <td class = "tdPost"> 단어의 개수 </td>
     <td class = "tdPost" style="background-color:rgb(181, 93, 10, 0.2); color: rgb(181, 93, 10); font-weight: 600"> Bronze II </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00327.html"> 단어의 개수 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(198, 119, 57, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01157"> 01157번 </a> </td>

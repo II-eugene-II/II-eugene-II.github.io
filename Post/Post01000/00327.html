@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 01152번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 01152번 - 단어의 개수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/01152"> 백준 01152번 문제 링크 </a> <br>
+        문제 이름 : 단어의 개수 <br>
+        주 언어 : Python <br>
+        태그 : 구현 / 문자열 <br>
+        solved.ac 등급 : Bronze II (2023/04/07 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        영어 대소문자와 공백으로 이루어진 문자열이 주어진다. 이 문자열에는 몇 개의 단어가 있을까? 이를 구하는 프로그램을 작성하시오. 단, 한 단어가 여러 번 등장하면 등장한 횟수만큼 모두 세어야 한다. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 줄에 영어 대소문자와 공백으로 이루어진 문자열이 주어진다. 이 문자열의 길이는 1,000,000을 넘지 않는다. 단어는 공백 한 개로 구분되며, 공백이 연속해서 나오는 경우는 없다. 또한 문자열은 공백으로 시작하거나 끝날 수 있다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 단어의 개수를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    어느 언어든지 공백을 기준으로 쪼개서 몇 개인지 측정하는 방식이 제일 편하게 풀 수 있습니다. <br>
+
+    파이썬에서는 input() 함수로 한 줄의 모든 것을 한 번에 입력받고, split() 함수로 이를 공백을 기준으로 분해한 다음 (앞 뒤 공백은 무시합니다.) <a href="/Post/Post01000/00108.html"> len 함수 </a> <br> 를 이용해서 길이를 측정해줍니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/22ce551eccbc08c64fc11909f584aeb7.js"></script> <br>
+
+    풀이 자체는 조금 황당하게 짧은 모습을 보여줍니다. <br>
+
+    이런 방법 말고 다른 방법으로는, 공백의 개수를 세는 방법이 있습니다. <br>
+
+    예를 들어 "파이썬 파이썬" 이라는 문자열에는 공백이 하나있고 그 양 옆으로 단어가 각각 하나씩 총 두 개가 있는 모습입니다. <br>
+
+    맨 앞이나 맨 뒤에도 공백이 입력될 수 있으니, 맨 앞이나 맨 뒤는 제외하고 공백의 개수를 세는 방식으로도 할 수 있습니다. <br>
+
+    답은 "맨 앞이나 맨 뒤는 제외하고 공백의 개수" + 1인 셈입니다. <br>
+
+    +) C++ 등에서도 첫 번째 풀이인 string 형태로 입력 받은 횟수로 푸는 것도 됩니다. 알아서 공백은 걸러서 입력을 받습니다. <br>
+
+    </p>
+    
+    <hr>
+    
+    <p>
+
+    이 문제는 <a href="/Post/Post01000/00043.html"> solved.ac Class 1 </a>에 수록된 문제입니다. <br>
+
+    다른 문제도 같이 풀어보시는걸 추천드립니다. <br>
+  
+    <details> <summary> Class 1 문제 모음 </summary>
+
+        <p>
+
+            <script type="text/javascript" src="/subJs/Class_min01.js"></script>
+
+        </p>
+
+    </details>
+    
+    -번째 푼 문제 (2022/--/--) <br>
+    
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
