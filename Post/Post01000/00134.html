@@ -33,11 +33,120 @@
         $$
     </blockquote>
       
-    $\binom{2 n}{n}$은 <a href="/Post/Post01000/00030.html"> 이항계수 </a>입니다. <br>
+    $\binom{2 n}{n}$은 <a href="/Post/Post01000/00030.html"> 이항계수 </a>, $n!$은 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 표기입니다. <br>
       
-    $\frac{4^{n}}{2 n + 1} \leq \binom{2 n}{n} \leq 4^{n}$이라는 상한과 하한의 범위도 알려져있습니다. <br>
+    $\frac{4^{n}}{2 n + 1} < \binom{2 n}{n} < 4^{n}$이라는 상한과 하한의 범위도 알려져있습니다. <br>
 
     $n$번째 중심 이항계수를 $n + 1$로 나누면 <a href="/Post/Post01000/00135.html"> 카탈랑 수 </a>가 됩니다. <br>
+    
+    중심 이항 계수의 주요 특징들은 다음과 같습니다. <br>
+
+    </p>
+
+    <p> <h3> 중심 이항 계수의 주요 특징들 </h3> </p>
+
+    <p>
+
+    1. $f(k) = \binom{2n}{k} (0 \leq k \leq 2n)$의 최댓값은 $k = n$일 때의 값 $\binom{2n}{n}$이다. <br>
+
+    <details><summary> 1번 성질 증명 </summary>
+
+        <p>
+
+            <blockquote>
+                보조정리 <br>
+
+                A. $\binom{n}{k - 1} < \binom{n}{k}$ 와 $k < \frac{n + 1}{2}$는 동치이다. <br>
+
+                B. $\binom{n}{k - 1} > \binom{n}{k}$ 와 $k > \frac{n + 1}{2}$는 동치이다. <br>
+
+                C. $\binom{n}{k - 1} = \binom{n}{k}$ 와 $k = \frac{n + 1}{2}$ ($n$은 홀수)는 동치이다. <br>
+        
+                <details><summary> 보조정리 증명 </summary>
+            
+                    <p>
+        
+                        증명은 이항계수의 정의에 의해 쉽게 할 수 있습니다. <br>
+        
+                        <blockquote>
+                            <a href="/Post/Post01000/00030.html"> 이항계수 </a>의 정의 <br>
+
+                            $$ \binom{n}{k} = \frac{n!}{k! (n - k)!} $$
+                        </blockquote>
+
+                        어떤 비율 $r(k)$를 $$ r(k) = \frac{\binom{n}{k}}{\binom{n}{k - 1}} $$ 라 하자. <br>
+
+                        이항계수의 정의에 따라 $$ \frac{\binom{n}{k}}{\binom{n}{k - 1}} = \frac{\frac{n!}{k! (n - k)!}}{\frac{n!}{(k - 1)! (n - k + 1)!}} = \frac{(k - 1)! (n - k + 1)!}{k! (n - k)!} = \frac{n - k + 1}{k} $$ 이다. 따라서 $r(k) = \frac{n - k + 1}{k}$이다. <br>
+        
+                        $r(k) > 1$인 것과 $k < \frac{n + 1}{2}$인 것은 동치이고, $r(k) < 1$인 것과 $k > \frac{n + 1}{2}$인 것은 동치이고, $r(k) = 1$인 것과 $k = \frac{n + 1}{2}$ 인 것은 동치이다. <br>
+
+                        B에는 $k := k + 1$을 대입해서 $\binom{n}{k} > \binom{n}{k + 1}$ 와 $k > \frac{n - 1}{2}$은 동치이다 라고 할 수 있다. <br>
+                            
+                    </p>
+                
+                </details> <!-- 보조정리 증명 -->
+        
+            </blockquote> <br>
+
+            보조정리 중 A에 따라서 $k < n + \frac{1}{2}$이면 $\binom{2n}{k - 1} < \binom{2n}{k}$ 이다. <br>
+
+            보조정리 중 B에 따라서 $k > n - \frac{1}{2}$이면 $\binom{2n}{k} < \binom{2n}{k + 1}$ 이다. <br>
+
+            $f(k)$가 $(0 \leq k \leq n)$에서 강하게 증가하고, $(n \leq k \leq 2n)$에서 강하게 감소하기 때문에, $f(k)$는 $k = n$에서 최댓값 $\binom{2n}{n}$을 갖는다. <br>
+            
+        </p>
+
+    </details> <!-- 1번 성질 증명 -->
+
+    2. 모든 양의 정수 $n$에 대하여 $$ \frac{4^{n}}{2 n + 1} < \binom{2 n}{n} < 4^{n} $$ 이다.
+
+    <details><summary> 2번 성질 증명 </summary>
+
+        <p>
+
+            <a href="/Post/Post01000/00278.html"> 이항정리 </a>에 의해 $$ 2^{2n} = {(1 + 1)}^{2n} = \sum_{k = 0}^{2n} \binom{2n}{k} {1}^{2n - k} {1}^{k} = \sum_{k = 0}^{2n} \binom{2n}{k} $$ 이다. <br>
+
+            성질 1에서 $f(k) = \binom{2n}{k} (0 \leq k \leq 2n)$의 최댓값은 $k = n$일 때의 값 $\binom{2n}{n}$ 이므로, $(0 \leq k < n)$ 일 때 $\binom{2n}{k} < \binom{2n}{n}$, $(n < k \leq 2n)$ 일 때 $\binom{2n}{k} < \binom{2n}{n}$이다. <br>
+
+            따라서 $$ \sum_{k = 0}^{2n} \binom{2n}{k} = \binom{2n}{n} + \left( \sum_{k = 0}^{n - 1} \binom{2n}{k} \right) + \left( \sum_{k = n + 1}^{2n} \binom{2n}{k} \right) $$ 이다. <br>
+
+            <details><summary> 증명 part1. 좌변의 경우: </summary>
+            
+                <p>
+
+                    $(0 \leq k < n)$ 일 때 $\binom{2n}{k} < \binom{2n}{n}$, $(n < k \leq 2n)$ 일 때 $\binom{2n}{k} < \binom{2n}{n}$ 조건에 따라서, $$ \sum_{k = 0}^{2n} \binom{2n}{k} = \binom{2n}{n} + \left( \sum_{k = 0}^{n - 1} \binom{2n}{k} \right) + \left( \sum_{k = n + 1}^{2n} \binom{2n}{k} \right) < \binom{2n}{n} + n \binom{2n}{n} + n \binom{2n}{n} $$ 이다. <br>
+
+                    따라서 $$ {(1 + 1)}^{2n} < \binom{2n}{n} + n \binom{2n}{n} + n \binom{2n}{n} = (2n + 1) \binom{2n}{n} $$ 에서, $$ \frac{4^{n}}{2n + 1} < \binom{2n}{n} $$ 이다. <br>
+                        
+                </p>
+            
+            </details> <!-- 증명 part1. 좌변의 경우: -->
+        
+            <details><summary> 증명 part2. 우변의 경우: </summary>
+            
+                <p>
+
+                    $$ \sum_{k = 0}^{2n} \binom{2n}{k} = \binom{2n}{n} + \left( \sum_{k = 0}^{n - 1} \binom{2n}{k} \right) + \left( \sum_{k = n + 1}^{2n} \binom{2n}{k} \right) $$ 에서, $$ \left( \sum_{k = 0}^{n - 1} \binom{2n}{k} \right) + \left( \sum_{k = n + 1}^{2n} \binom{2n}{k} \right) $$ 의 값이 양수이므로, $$ \sum_{k = 0}^{2n} \binom{2n}{k} = \binom{2n}{n} + \left( \sum_{k = 0}^{n - 1} \binom{2n}{k} \right) + \left( \sum_{k = n + 1}^{2n} \binom{2n}{k} \right) > \binom{2n}{n} $$ 이다. <br>
+
+                    따라서 $$ {(1 + 1)}^{2n} = \sum_{k = 0}^{2n} \binom{2n}{k} > \binom{2n}{n} $$ 에서, $$ \binom{2n}{n} < 4^{n} $$ 이다. <br>
+                        
+                </p>
+            
+            </details> <!-- 증명 part2. 우변의 경우: -->
+
+            따라서 $$ \frac{4^{n}}{2 n + 1} < \binom{2 n}{n} < 4^{n} $$ 이다. <br>
+            
+        </p>
+
+    </details> <!-- 2번 성질 증명 -->
+
+    3. 점근 공식은 $$ \binom{2n}{n} \sim \frac{4^{n}}{\sqrt{\pi n}} $$ 이다. ($\pi$는 <a href="/Post/Post01000/00186.html"> 원주율 $\pi$ </a>) <br>
+
+    </p>
+
+    <p>
+
+    <a href="/Post/Post01000/00205.html"> 아페리 상수 </a> $\zeta(3)$에 대하여 $\zeta(3) = \frac{5}{2} \sum\limits_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^3 \binom{2n}{n}}$ 라는 관계식이 성립합니다. <br>
 
     </p>
       
