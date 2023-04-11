@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 루트 2 </title>
+    <title> 주세걸-방데르몽드 항등식 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,43 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 루트 2 </div>
+    <div id = "postTitle"> 주세걸-방데르몽드 항등식 </div>
       
     <hr>
       
     <p>
       
-    루트 2 $\sqrt{2}$는 다음과 같이 정의합니다. <br>
+    주세걸-방데르몽드 항등식 (Zhu-Vandermonde Identity) 은 다음과 같습니다. <br>
       
     <blockquote>
-        $\sqrt{2} \times \sqrt{2} = 2$를 만족시키는 양의 실수
+        $$
+        \sum_{j = 0}^{k} \binom{m}{j} \binom{n}{k-j} = \binom{m + n}{k}
+        $$
     </blockquote>
+    
+    $\binom{n}{k}$는 <a href="/Post/Post01000/00030.html"> 이항계수 </a> 입니다. <br>
 
-    에우클레이데스 (익숙한 이름으로는 "유클리드") 가 이미 2000년도 더 전에 $\sqrt{2}$가 귀류법으로 <a href="/Post/Post01000/00337.html"> 무리수 </a>임을 증명했습니다. (유리수라고 쳤을 때 오류가 발견 -> 유리수인거 자체가 문제 -> 무리수 이다) <br>
+    이 항등식의 특수한 경우로 다음이 있습니다. <br>
+      
+    <blockquote>
+        $$
+        \sum_{k = 0}^{n} {\binom{n}{k}}^{2} = \binom{2n}{n}
+        $$
+    </blockquote>
+    
+    $\binom{2n}{n}$는 <a href="/Post/Post01000/00134.html"> 중심 이항계수 </a> 입니다. <br>
 
-    <details><summary> <del> 루트 2 무리수 증명 </del> </summary>
+    <details><summary> <del> 주세걸-방데르몽드 항등식 증명 </del> </summary>
     
         <p>
 
-            귀류법으로 증명
+            이항정리에서 항 별로 비교...
                 
         </p>
     
-    </details> <!-- 루트 2 무리수 증명 -->
+    </details> <!-- 주세걸-방데르몽드 항등식 증명 -->
 
-    현대 해석학에서는 $\sqrt{2}$가 실수인 것 부터 증명하기도 합니다. <br>
-
-    $2^{\sqrt{2}}$는 특별히 <a href="/Post/Post01000/00218.html"> 겔폰트-슈나이더 상수 </a> 라는 이름이 붙어있습니다. <br>
+    </p>
       
     </section>
     <aside>
