@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 로지스틱 함수 </title>
+    <title> 란다우 표기법 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,27 +19,25 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 로지스틱 함수 </div>
+    <div id = "postTitle"> 란다우 표기법 </div>
       
     <hr>
       
     <p>
       
-    로지스틱 함수 (Logistic Function) 는 시그모이드 함수의 대표명사로, 다음과 같이 정의합니다. <br>
+    란다우 표기법 / 빅 오 표기법 (Landau Notation / Big-O Notation)는 다음과 같이 사용합니다. <br>
       
     <blockquote>
+        두 함수 $f$, $g$에 대해 어떤 두 양의 상수 $x_{0}$, $c$가 존재하여 $x_0 < x$인 모든 실수 $x$에 대해
         $$
-        f(x) = \frac{1}{1 + e^{-x}}
+        | f(x) | \leq c | g(x) |
         $$
+        이면, $f(x) = O(g(x))$라 한다.
     </blockquote>
 
-    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
+    일반적으로 코딩 용어로는 그냥 "빅 오" 정도로 이야기하는 그 시간복잡도 표기입니다. <br>
 
-    $f(x) = \frac{e^{x}}{e^{x} + 1}$로 정의한 경우도 있는데, 두 정의는 동일합니다. (분모 분자에 각각 $e^{x}$를 곱한 꼴) <br>
-      
-    미분방정식 ${\operatorname{d}\!f(x)\over\operatorname{d}\!x} = f(x) \left( 1 - f(x) \right)$의 해로도 정의할 수 있습니다. <br>
-
-    보통 딥러닝 등의 분야에서 <a href="/Post/Post01000/00269.html"> 램프 함수 (ReLU 함수) </a> 와 비슷하게 사용됩니다. <br>
+    예를 들어, <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> 의 시간복잡도는 $O(\log^{4} n)$ 입니다. $\log x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다. (사실 로그함수의 경우 밑이 어떻든 상관이 없습니다.) <br>
 
     </p>
       
