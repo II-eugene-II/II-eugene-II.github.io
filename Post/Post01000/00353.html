@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 메르센 수 </title>
+    <title> 제곱 평균 제곱근 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -11,28 +11,32 @@
 </head>
 
 <body>
-    <div id = "wrap">  
-    <div class = "container">
+    <div id = 'wrap'>  
+    <div class="container">
         <header>
             <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
     
-    <div id = "postTitle"> 메르센 수 </div>
-    
+    <div id = "postTitle"> 제곱 평균 제곱근 </div>
+      
     <hr>
       
     <p>
       
-    메르센 수 (Mersenne Number) 의 정의는 다음과 같습니다. <br>
+    $n$개의 수 $a_1$, $a_2$, $a_3$, ..., $a_n$의 제곱 평균 제곱근 (Root-Mean Square) $R$은 다음과 같이 정의합니다. <br>
       
     <blockquote>
-        자연수 $n$에 대하여, $M_{n} = 2^{n} - 1$ 꼴의 수를 <b>메르센 수</b>라고 한다.
+        $$
+        R = \sqrt{\frac{{a_1}^{2} + {a_2}^{2} + \cdots + {a_n}^{2}}{n}}
+        $$
     </blockquote>
-      
-    메르센 수 중에서도 <a href="/Post/Post01000/00342.html"> 소수 </a>인 메르센 수는 <b><a href="/Post/Post01000/00103.html"> 메르센 소수 </a></b>라고 합니다. <br>
-      
+
+    일반적으로 실생활에서 사용하는 "평균"은 <a href="/Post/Post01000/00286.html"> 산술 평균 </a>입니다. <br>
+
+    표준편차를 구하는 공식과 굉장히 유사해보입니다. <br>
+
     </p>
       
     </section>
@@ -43,9 +47,9 @@
     <footer>
         <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
-      
-    </div> <!-- wrap -->
     
+    </div> <!-- wrap -->
+  
     <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>
