@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 05554번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 05554번 - 심부름 가는 길 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/05554"> 백준 05554번 문제 링크 </a> <br>
+        문제 이름 : 심부름 가는 길 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 사칙연산 <br>
+        solved.ac 등급 : Bronze IV (2023/04/20 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        승균이는 매일 학교, PC방, 학원에 다닌다. 반복되는 일상에 익숙해진 승균이는 이동시간을 단축해서 PC방에 더 오래 머물고 싶었다. 그래서 스톱워치를 들고 이동할 때마다 기록을 잰 후 집에 가서 분석해보기로 했다. <br>
+        
+        집에 도착한 승균이는 측정한 결과를 보는 데, 전부 초 단위로 기록되어있다! 맨날 놀기만 해서 총 이동 시간이 몇 분 몇 초인지 계산을 못 하는 승균이를 도와주자. <br>
+        
+        하루 동안 측정한 결과가 주어지면, 이날의 총 이동 시간이 몇 분 몇 초인지 출력하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        입력은 총 4줄이며, 한 줄에 하나씩 양의 정수가 적혀있다. <br>
+        
+        첫 번째 줄에 집에서 학교까지의 이동 시간을 나타내는 초가 주어진다. <br>
+        
+        두 번째 줄에 학교에서 PC방까지의 이동 시간을 나타내는 초가 주어진다. <br>
+        
+        세 번째 줄에 PC방에서 학원까지의 이동 시간을 나타내는 초가 주어진다. <br>
+        
+        마지막 줄에 학원에서 집까지의 이동 시간을 나타내는 초가 주어진다. <br>
+        
+        집에 늦게 가면 혼나기 때문에, 총 이동시간은 항상 1 분 0 초 이상 59 분 59 초 이하이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        총 이동시간 x 분 y 초를 출력한다. 첫 번째 줄에 x를, 두 번째 줄에 y를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    우선 4개의 초를 전부 더해줘야 합니다. <br>
+
+    그러면 총 이동 시간 (초) 를 알 수 있고, 이를 분 / 초 단위로 변환해주어야 합니다. <br>
+
+    61초는 1분 1초, 120초는 2분 0초, 150초는 2분 30초 등... <br>
+
+    (총 이동 시간을 60으로 나눈 몫)이 분 단위이고, (총 이동 시간을 60으로 나눈 나머지)가 초 단위 입니다. <br>
+
+    파이썬에서 몫은 /가 아닌 //로 쓴다는 것을 감안하여 다음과 같이 코드를 짤 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/b09794efb67960670b5d88222d2a6e60.js"></script> <br>
+
+    int(input())을 저렇게 여러번 쓰기 싫으시다면 T = sum([int(input()) for _ in range(4)]) 같이도 할 수 있습니다. <br>
+    
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
