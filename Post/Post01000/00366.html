@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 아이버슨 괄호 </title>
+    <title> 상승계승 / 하강계승 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,28 +19,31 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 아이버슨 괄호 </div>
+    <div id = "postTitle"> 상승계승 / 하강계승 </div>
       
     <hr>
       
     <p>
       
-    아이버슨 괄호 (Iverson Bracket) 는 어떤 명제 $P$에 대하여 다음과 같이 정의합니다. <br>
+    상승계승 (Rising Factorial) 은 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        \left[ P \right] = \begin{cases}
-        1 & \text{if } P \text{ is true;} \\
-        0 & \text{otherwise.}
-        \end{cases}
+        x^{\overline n} = x(x+1)(x+2)\cdots(x+n-1) = \frac{(x+n-1)!}{(x-1)!} = \frac{\Gamma(x+n)}{\Gamma(x)}
         $$
     </blockquote>
       
-    예를 들어, n = 1부터 n = 5까지 더하라는 식은 $\sum_{n = 1}^{5} n$에서 $\sum_{n} n \times \left[1 \leq n \leq 5\right]$라고 쓸 수 있습니다. <br>
+    하강계승 (Falling Factorial) 은 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        $$
+        x^{\underline n} = x(x-1)(x-2)\cdots(x-n+1) = \frac{x!}{(x-n)!} = \frac{\Gamma(x+1)}{\Gamma(x-n+1)}
+        $$
+    </blockquote>
+      
+    <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 이나 <a href="/Post/Post01000/00028.html"> 감마함수 </a>의 굉장히 특수한 확장으로 볼 수 있습니다. <br>
 
-    <a href="/Post/Post01000/00269.html"> 램프 함수 </a> $R(x)$를 $R(x)= x [ x > 0 ]$와 같이 정의할 수도 있습니다. <br>
-
-    일반적으로 참 & 거짓이 명확한 경우에만 사용하는 편입니다. [<a href="/Post/Post01000/00275.html"> 리만 가설 </a>은 참이다] 같은 명제를 넣지는 않습니다. <br>
+    포츠하머 기호라고도 표현합니다. <br>
 
     </p>
       
