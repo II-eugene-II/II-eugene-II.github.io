@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 로지스틱 함수 </title>
+    <title> 아크쌍곡탄젠트함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,27 +19,34 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 로지스틱 함수 </div>
+    <div id = "postTitle"> 아크쌍곡탄젠트함수 </div>
       
     <hr>
       
     <p>
       
-    로지스틱 함수 (Logistic Function) 는 시그모이드 함수의 대표명사로, 다음과 같이 정의합니다. <br>
+    아크쌍곡탄젠트함수 $\operatorname{artanh} x$는 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        f(x) = \frac{1}{1 + e^{-x}}
+        \tanh y = x
+        $$
+        인 $y$값 (단, $|x| < 1$)
+    </blockquote>
+
+    즉, <a href="/Post/Post01000/00238.html"> 쌍곡탄젠트함수 </a>의 역함수 입니다. <br>
+
+    다른 표현법으로는 다음과 같이 쓸 수 있습니다. <br>
+      
+    <blockquote>
+        $$
+        \operatorname{artanh} x = \frac{1}{2}\ln \left( \frac{1 + x}{1 - x} \right) \, \, (|x| < 1)
         $$
     </blockquote>
 
-    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
+    $\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다. <br>
 
-    $f(x) = \frac{e^{x}}{e^{x} + 1}$로 정의한 경우도 있는데, 두 정의는 동일합니다. (분모 분자에 각각 $e^{x}$를 곱한 꼴) <br>
-      
-    미분방정식 ${\operatorname{d}\!f(x)\over\operatorname{d}\!x} = f(x) \left( 1 - f(x) \right)$의 해로도 정의할 수 있습니다. <br>
-
-    보통 딥러닝 등의 분야에서 <a href="/Post/Post01000/00269.html"> 램프 함수 (ReLU 함수) </a> 나 <a href="/Post/Post01000/00369.html"> 아크쌍곡탄젠트함수 </a> 와 비슷하게 사용됩니다. <br>
+    시그모이드 함수의 일종인데, 비슷한 함수로는 <a href="/Post/Post01000/00035.html"> 로지스틱 함수 </a> 등이 있습니다. <br>
 
     </p>
       
