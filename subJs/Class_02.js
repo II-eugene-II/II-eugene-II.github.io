@@ -33,7 +33,7 @@ document.write(`
             <td class = "tdPost"> 팰린드롬수 </td>
             <td class = "tdPost" style="background-color:rgb(198, 119, 57, 0.2); color: rgb(198, 119, 57); font-weight: 600"> <img src="https://static.solved.ac/tier_small/5.svg" alt="Bronze I"> Bronze I </td>
             <td class = "tdPost"> ★★★ </td>
-            <td class = "tdPost"> - </td>
+            <td class = "tdPost"> <a href="/Post/Post01000/00373.html"> 팰린드롬수 해설 </a> </td>
         </tr>
         <tr style = "background-color:rgb(56, 84, 110, 0.1)">
             <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01436"> 01436번 </a> </td>
