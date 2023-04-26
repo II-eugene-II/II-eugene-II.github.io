@@ -82,7 +82,7 @@ document.write(`
     <td class = "tdPost"> Hello World! </td>
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ★★★ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00383.html"> Hello World! 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(173, 86, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02562"> 02562번 </a> </td>

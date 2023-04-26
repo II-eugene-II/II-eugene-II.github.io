@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 15813번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 15813번 - 너의 이름은 몇 점이니? </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/15813"> 백준 15813번 문제 링크 </a> <br>
+        문제 이름 : 너의 이름은 몇 점이니? <br>
+        주 언어 : Python <br>
+        태그 : 구현 / 문자열 <br>
+        solved.ac 등급 : Bronze II (2023/04/26 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        소윤이는 성필이에게 단단히 화가 났다. 성필이가 자꾸 소윤이의 이름을 놀리는 것이다! <br>
+        
+        극대노한 소윤이는 이름에 대해 많은 검색을 하던 도중 "이름점수"라는 것을 발견하게 된다. 이름 점수란, 알파벳 하나하나에 점수가 있고 이름에 들어가는 모든 알파벳 점수를 합한 것이라고 한다. 예를 들어 이름이 SUNG PIL 이라면, <br>
+        
+        A = 1점 <br>
+        
+        B = 2점 <br>
+        
+        C = 3점 <br>
+        
+        ... <br>
+        
+        Z = 26점 <br>
+        
+        인 점수판에 따라 S(19)+U(21) + N(14) + G(7) + P(16) + I(9) + L(12) = 98점이다. (즉, 점수는 알파벳 순서이다) <br>
+        
+        소윤이는 SO YOON이므로 S(19) + O(15) + Y(25) + O(15) + O(15) + N(14) = 103점으로 성필이보다 "이름점수"가 높았다! 그 사실을 알아챈 소윤이는 성필이에게 자신이 "이름점수"가 더 높다는 것을 전했고 성필이는 아직 충격에서 헤어나오지 못했다고 한다. <br>
+        
+        이제 소윤이는 사람의 이름을 볼 때 마다 "이름점수"를 계산해본다. 하지만 너무나 많은 사람을 만나기 때문에 계산하기가 귀찮다! 귀찮아진 소윤이를 위해 "이름점수"를 계산하는 프로그램을 만들어 주자. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 번째 줄에 이름의 길이가 주어진다. 길이는 100자 이하이다 <br>
+        
+        두 번째 줄에 이름이 띄어쓰기 없이 대문자로 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        주어진 이름에 대한 "이름점수"를 출력해주자. <br> 
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    아스키코드에서 A는 65, B는 66, C는 67...이 됩니다. <br>
+
+    그렇다면 각 문자별로 아스키코드를 구해서, 64를 뺀 값을 계속 더해준다면 정답이 될 것입니다. <br>
+
+    파이썬에서 아스키코드 값은 <a href="/Post/Post01000/00380.html"> 파이썬 ord 함수 </a> 로 구할 수 있습니다. <br>
+
+    ord("A") == 65 라는 것을 생각해준다면, 이후 구현은 취향껏 하실 수 있습니다. <br>
+        
+    <script src="https://gist.github.com/II-eugene-II/08f19eba7e6c7088650457961f8154dd.js"></script> <br>
+
+    사실 굳이 N을 쓰지 않아도 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/ab4064374da19cc6a174152fef3220c9.js"></script> <br>
+
+    이것마저 귀찮으시다면 그냥 한 줄에 List Comprehension 을 사용하여 풀어주실 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/6130b8920bc1759ab40bf083d1a30c6e.js"></script> <br>
+
+    이 문제에선 딱히 N과 S를 딱 한 번만 사용하면 되기때문에 굳이 변수 선언도 없이 그냥 한번 쓰고 버릴 수 있습니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
