@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 단위 계단 함수 </title>
+    <title> 바이어슈트라스 함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,26 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 단위 계단 함수 </div>
+    <div id = "postTitle"> 바이어슈트라스 함수 </div>
       
     <hr>
       
     <p>
       
-    단위 계단 함수 (Unit Step Function) $H(x)$는 다음과 같이 정의합니다. <br>
+    바이어슈트라스 함수 (Weierstrass Function) 는 다음과 같이 정의합니다. <br>
       
     <blockquote>
         $$
-        H(x) = \begin{cases} 0, & x < 0 \\ 1, & x > 0 \end{cases} 
+        f(x) = \sum_{n = 0}^{\infty} a^{n} \cos (b^{n} \pi x)
         $$
+        ($b$는 양의 홀수, $a$는 $0 < a < 1$, $ab \geq 1 + \frac{3 \pi}{2}$)
     </blockquote>
 
-    $x = 0$일 때의 정의는 약간씩 다릅니다. $0$으로 생각하는 경우도 있고 $\frac{1}{2}$로 생각하는 경우도 있고 $1$로 생각하는 경우도 있고...각각 상황에 맞는 것으로 사용할 수 있습니다. <br>
+    $\cos x$는 <a href="/Post/Post01000/00185.html"> 코사인함수 </a>, $\pi$는 <a href="/Post/Post01000/00186.html"> 원주율 $\pi$ </a> 입니다. <br>
 
-    <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>를 이용하면 다음과 같은 정의가 가능합니다. <br>
-      
-    <blockquote>
-        $$
-        H(x) = [ x > 0 ]
-        $$
-    </blockquote>
+    그냥 적당히 평범하게 복잡하고 희한한 정의를 가진 함수로 볼 수도 있는데, 놀랍게도 이 함수는 "모든 점에서 연속"이면서 "모든 점에서 미분 불가능"한 함수입니다. <br>
 
-    물론 이렇게 정의하면 $x = 0$일 때의 함수값은 $0$이 됩니다. <br>
-
-    헤비사이드 계단 함수 라고도 불립니다. <br>
+    비슷한 미분불가능 함수로 <a href="/Post/Post01000/00387.html"> 셀레리에 함수 </a>가 있습니다. <br>
 
     </p>
       

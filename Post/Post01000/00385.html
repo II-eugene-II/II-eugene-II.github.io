@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 미분의 연쇄법칙 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 미분의 연쇄법칙 </div>
+    
+    <hr>
+      
+    <p>
+      
+    미분의 연쇄법칙 (합성함수의 미분 / Chain Rule) 은 다음과 같습니다. <br>
+      
+    <blockquote>
+        두 미분 가능한 함수 $g(x)$, $f(x)$에 대하여 $g(f(x))$가 잘 정의되는 구간에서
+        $$ \left( g(f(x)) \right)' = g '(f(x)) f'(x) $$ 이다.
+    </blockquote>
+
+    <details><summary> 연쇄법칙 증명 </summary>
+    
+        <p>
+
+            함수 $d(y)$를 $d(y) = frac{g(y) - g(f(c))}{y - f(c)}$라 하자. $d(f(c)) = g'(f(c))$라 하면 $d(y)$는 $y = f(c)$에서 연속이다. <br>
+
+            $d(y) = frac{g(y) - g(f(c))}{y - f(c)}$에서 $g(y) - g(f(c)) = d(y)(y - f(c))$라고 할 수 있고, 이는 $f(c)$근방의 모든 $y$에 대해서 가능하므로 $y = f(t)$를 대입할 수 있다. <br>
+
+            따라서 $g(f(t)) - g(f(c)) = d(f(t))(f(t) - f(c))$이고, 양 변을 $t - c$로 나누어 $\frac{g(f(t)) - g(f(c))}{t - c} = d(f(t)) \frac{f(t) - f(c)}{t - c}$로 할 수 있고, $t \to c$의 극한을 취한다. <br>
+                
+        </p>
+    
+    </details> <!-- 연쇄법칙 공식 증명 -->
+
+    고등학교 과정에서는 합성함수의 미분법이라 불리는 연쇄법칙입니다. <br>
+
+    <a href="/Post/Post01000/00379.html"> 곱의 미분법 </a> 같은 기본 미분법 만큼이나 어지간한 미분법의 기초가 되는 미분법입니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
