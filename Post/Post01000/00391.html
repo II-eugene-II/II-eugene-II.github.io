@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 10872번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 10872번 - 팩토리얼 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/10872"> 백준 10872번 문제 링크 </a> <br>
+        문제 이름 : 팩토리얼 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 조합론 <br>
+        solved.ac 등급 : Bronze V (새싹) (2023/04/28 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        0보다 크거나 같은 정수 N이 주어진다. 이때, N!을 출력하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 정수 N(0 ≤ N ≤ 12)이 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 N!을 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 값을 구하는 문제로, 간단한 반복문으로 처리할 수 있는 문제입니다. <br>
+
+    예제 2에서도 볼 수 있듯이 편의상 0!은 1로 정의합니다. <br>
+
+    N!은 1부터 N까지 모든 정수의 곱이므로, 1에다가 1을 곱하고, 2를 곱하고, 3을 곱하고... N을 곱해서 N!을 얻을 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/04011e3bf6fae395bf4a2373730bfc74.js"></script> <br>
+
+    N = int(input())으로 정수 입력을 받을 수 있고, 반복문으로 계속 정수를 곱해갑니다. <br>
+
+    range(1, N)을 하면 1부터 N - 1까지만 진행하고, range(0, N + 1)을 하면 맨 앞에 0을 곱해버리니 꼭 피하셔야 합니다. <br>
+
+    파이썬에서는 이렇게 풀 수 있고, C, C++ 등에서도 이와 비슷한 방법으로 풀 수 있습니다. 이와 비슷한 <a href="/Post/Post01000/00392.html"> 백준 27433번 - 팩토리얼 2 </a>는 이 문제와 거의 똑같은 코드로 풀 수 있고, <a href="/Post/Post01000/00393.html"> 백준 27434번 - 팩토리얼 3 </a>는 파이썬은 여전히 쉽지만 C, C++은 매우 풀기가 어려워집니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

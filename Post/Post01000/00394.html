@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 로빈 부등식 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 로빈 부등식 </div>
+      
+    <hr>
+      
+    <p>
+    
+    로빈 부등식 (Robin's Inequality) 은 다음과 같습니다. <br>
+      
+    <blockquote>
+        $$ \sigma(n) < e^{\gamma} n \ln{\ln{n}} $$
+    </blockquote>
+
+    $\sigma(n)$은 <a href="/Post/Post01000/00161.html"> 약수의 합 함수 </a>, $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a>, $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>, $\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다. <br>
+
+    이 부등식이 이름까지 가지게 된 이유는, $n > 5040$인 모든 자연수 $n$에 대하여 로빈 부등식을 만족시키면 <a href="/Post/Post01000/00275.html"> 리만 가설 </a>이 참이 되기 때문입니다. (로빈 부등식과 리만 가설은 동치 (Equivalent) 입니다.) <br>
+
+    <details><summary> <del>로빈 부등식 == 리만가설 증명</del> </summary>
+    
+        <p>
+
+            과정 중에 <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a> 까지 사용 <br>
+
+            $$ \prod_{p < x} \left( \frac{p}{p - 1} \right) \leq e^{\gamma} \ln x \left( 1 + \frac{1}{2 {(\ln x)}^{2}}\right) $$ 보이기 <br>
+                
+        </p>
+    
+    </details> <!-- 로빈 부등식 == 리만가설 증명 -->
+
+    현재까지 알려진 반례는 존재하지 않습니다. <br>
+
+    $5040$이하의 반례는 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 16, 18, 20, 24, 30, 36, 48, 60, 72, 84, 120, 180, 240, 360, 720, 840, 2520, 5040인데, 리만가설에 영향을 주지 않습니다. <br>
+
+    절대적인 부등식도 있는데, $n > 2$이면 리만가설이고 뭐고 무조건 $\sigma(n) < e^{\gamma} n \ln{\ln{n}} + \frac{0.6483 n}{\ln{\ln{n}}}$이 성립합니다. <br>
+
+    현재까지 알려진 것들로는 다음과 같은 것들이 있습니다. <br>
+
+    1. 우선 $5040 < n < {10}^{\left( {10}^{10}\right)}$이면 로빈 부등식을 만족한다. (Briggs, Keith. "Abundant numbers and the Riemann hypothesis.." Experimental Mathematics 15.2 (2006): 251-256. < http://eudml.org/doc/226939 >.) <br>
+
+    2. 모든 소수 $p$에 대하여 <a href="/Post/Post01000/00113.html"> $p$진 값매김 </a> $\nu_p (n)$이 $20$ 이하인 $n$은 로빈 부등식을 만족한다. (Axler, C. On Robin’s inequality. Ramanujan J (2022). https://doi.org/10.1007/s11139-022-00683-0) <br>
+
+    2 - 1. 더 나아가, $\nu_2 (n) \leq 20$이기만 하면 로빈 부등식을 만족시킨다. <br>
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
