@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> Divisor Summatory Function </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> Divisor Summatory Function </div>
+      
+    <hr>
+      
+    <p>
+      
+    Divisor Summatory Function $D(x)$ 는 정수론 함수로, 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        $$
+        D(x) = \sum_{n \leq x} d(n) = \sum_{j, k \atop jk \leq x} 1
+        $$
+    </blockquote>
+
+    $d(n)$은 <a href="/Post/Post01000/00162.html"> 약수의 개수 함수 </a>로, <a href="/Post/Post01000/00160.html"> 약수 함수 </a> 에서 $a = 0$인 경우입니다. <br>
+
+    $D(x)$를 구하는 공식은 다음과 같이 알려져있습니다. ($x$는 편의상 자연수로) <br>
+      
+    <blockquote>
+        $$
+        D(x) = \sum_{k = 1}^{x} \left\lfloor \frac{x}{k} \right\rfloor = 2 \left( \sum_{k = 1}^{\lfloor \sqrt{x} \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \right) - { \left( \lfloor \sqrt{x} \rfloor \right) }^{2}
+        $$
+    </blockquote>
+
+    $\lfloor x \rfloor$는 <a href="/Post/Post01000/00137.html"> 최대 정수 함수 </a> 입니다. <br>
+
+    <details><summary> <del> 해당 관계식 증명</del> </summary>
+    
+        <p>
+
+            뫼비우스 반전 등 이용 <br>
+                
+        </p>
+    
+    </details> <!-- 해당 관계식 증명 -->
+
+    또, 다음과 같은 점근 공식이 알려져있습니다. <br>
+      
+    <blockquote>
+        $$
+        D(x) = \sum_{n \leq x} d(n) = x \ln x + (2 \gamma - 1) x + O\left( x^{\theta} \right)
+        $$
+    </blockquote>
+
+    $\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>, $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>, $O(f(x))$는 <a href="/Post/Post01000/00341.html"> 란다우 표기법 </a> 입니다. <br>
+
+    $\theta = \frac{1}{2}$로 둘 수 있는 것은 쉽게 보일 수 있으며, 최소 $\frac{1}{4}$ 이상, 최대 $\frac{131}{416}$ 이하인 것으로 알려져있습니다. $\theta$값이 얼마인지에 대한 문제를 Dirichlet Divisor Problem 라고 합니다. <br>
+
+    <details><summary> <del> $\theta \leq \frac{1}{2}$ 증명</del> </summary>
+    
+        <p>
+
+            $D(x) = 2 \left( \sum\limits_{k = 1}^{\lfloor \sqrt{x} \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \right) - { \left( \lfloor \sqrt{x} \rfloor \right) }^{2}$에서, $2 \left( \sum\limits_{k \leq \sqrt{x}} \left( \frac{x}{k} + O(1) \right) \right) - {( \sqrt{x} - \{\sqrt{x}\} )}^{2}$이용하여 조화수의 점근식 사용 ($\{ x \}$는 <a href="/Post/Post01000/00207.html"> 분수 부분 함수 </a>) <br>
+                
+        </p>
+    
+    </details> <!-- \theta \leq \frac{1}{2} 증명 -->
+
+    <hr>
+
+    어지간하면 한글 표기를 하는 편인데 "약수의 연속합 함수", "약수의 총계 함수"라는 말도 애매하고, "약수의 개수 함수의 합 함수"도 영 이상해서 적당한 표기법을 찾을때 까지는 한글 제목은 보류합니다. <br>
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

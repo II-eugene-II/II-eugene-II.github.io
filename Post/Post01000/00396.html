@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 파이썬 math.isqrt 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 파이썬 math.isqrt 함수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    파이썬 math.isqrt 함수는 파이썬의 math 모듈에 내장된 함수로, 음이 아닌 정수 $n$을 입력 받아 $\lfloor \sqrt{n} \rfloor$의 값을 return 하는 함수입니다. $\lfloor x \rfloor$는 <a href="/Post/Post01000/00137.html"> 최대 정수 함수 </a> 입니다. <br>
+
+    즉, $k^{2} \leq n$인 최대의 $k$값, 정수 제곱근을 return 하는 함수인데, 그냥 int(n ** 0.5) 쓰면 되지 않냐고 할 수 있습니다. <br>
+
+    하지만 n ** 0.5는 부동소수점 연산으로 어쩔 수 없는 오차가 필연적인데, 파이썬의 정수 범위는 거의 무한하기 때문에 수가 커질수록 필연적으로 오류가 생기기 마련입니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/153bd1f0b96788babb99a63958c4410d.js"></script> <br>
+
+    만약, $k^{2} \geq n$인 최소의 $k$값을 찾아야 하는 경우에는, 1 + math.isqrt(n - 1)로 찾을 수 있습니다. <br>
+
+    math.isqrt(n)의 값이 n = 0부터 0, 1, 1, 1, 2, 2, 2, 2, 2, 3, ...로 이어지는데, $k^{2} \geq n$인 최소의 $k$는 n = 1부터 1, 2, 2, 2, 3, 3, 3, 3, 3, 4, ...이므로, 평행이동을 시키고 1씩 키워준 값으로 이해하면 됩니다. <br>
+
+    단, 음수가 입력되면 오류가 발생하니, 1 + math.isqrt(n - 1)을 쓸 때는, n이 0이 들어오지 않도록 주의해야 합니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
