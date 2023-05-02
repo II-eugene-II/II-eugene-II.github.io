@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 15965번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 15965번 - K번째 소수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/15965"> 백준 15965번 문제 링크 </a> <br>
+        문제 이름 : K번째 소수 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 정수론 / 소수 판정 / 에라토스테네스의 체 <br>
+        solved.ac 등급 : Silver II (2023/05/02 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+
+        (문제 일부 생략) <br>
+
+        한결이를 도와 k번째 소수를 알려주자. <br>
+        
+        소수의 정의는 다음과 같다. <br>
+        
+        2 이상의 자연수 N이 1과 N을 제외하고 어떤 자연수로도 나누어 떨어지지 않을 때 소수라고 한다. <br>
+        
+        <h4> 입력 : </h4>
+        
+        자연수 K가 주어진다.(1 ≤ K ≤ 500,000) <br>
+        
+        <h4> 출력 : </h4>
+        
+        K번째 소수를 출력하자. <br>
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    <a href="/Post/Post01000/00342.html"> 소수 </a>에 대한 문제인데, 그 중에서도 <a href="/Post/Post01000/00121.html"> $n$번째 소수 </a> $p_{n}$에 대한 문제입니다. <br>
+
+    갑자기 뜬금없는 결과지만, $n \geq 6$이면 $p_{n} < n \left( \ln n + \ln\ln n \right)$ 임이 알려져 있습니다. ($\ln n$은 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다.) <br>
+
+    $n = 500000$이면, $\ln n + \ln\ln n = 15.6966812...$이므로, 50만번째 소수는 대략 7848340보다 작다는 것을 알 수 있습니다. <br>
+
+    따라서, <a href="/Post/Post01000/00105.html"> 에라토스테네스의 체 </a>로 적당히 800만 정도까지의 소수 리스트를 받아서, 그 리스트의 n번째 원소를 얻어주면 되겠습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/168bedb603f8a9673fec560fc6173ade.js"></script> <br>
+
+    인덱스 0에 2가 들어가기 때문에, N번째 소수는 인덱스 N - 1에 있습니다. <br>
+
+    이 문제를 푸실 수 있다면, <a href="/Post/Post01000/00403.html"> 백준 09842번 - Prime </a> 도 쉽게 풀 수 있습니다. 1만번째까지의 소수를 구하면 되기 때문입니다. <br>
+
+    여담으로, 실제 50만번째 소수는 7368787 입니다. <br>
+
+    </p>
+    
+    <hr>
+    
+    <p>
+    
+    -번째 푼 문제 (2022/--/--) <br>
+    
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

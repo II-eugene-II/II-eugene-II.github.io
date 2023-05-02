@@ -82,7 +82,7 @@ document.write(`
             <td class = "tdPost"> 소수 찾기 </td>
             <td class = "tdPost" style="background-color:rgb(56, 84, 110, 0.2); color: rgb(56, 84, 110); font-weight: 600"> <img src="https://static.solved.ac/tier_small/6.svg" alt="Silver V"> Silver V </td>
             <td class = "tdPost"> ★★★ </td>
-            <td class = "tdPost"> - </td>
+            <td class = "tdPost"> <a href="/Post/Post01000/00405.html"> 소수 찾기 해설 </a> </td>
         </tr>
         <tr style = "background-color:rgb(67, 95, 122, 0.1)">
             <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02108"> 02108번 </a> </td>
