@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 파이썬 sum 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 파이썬 sum 함수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    파이썬 sum 함수는 파이썬의 기본 내장함수로, 리스트, 튜플 등에 있는 모든 수의 합 등을 계산해 return 합니다. <br>
+    
+    <br> <script src="https://gist.github.com/II-eugene-II/d76198eaf0daa124111588b2d07975b1.js"></script>
+
+    정말 뜬금없이 100에다가 1, 2, 3, 4, 5를 더한 값을 알고 싶다면, sum 함수에 두 번째 매개변수로 100을 넣으면 됩니다. <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/f27986f6e3cc6d84f292c8ecb6ee4c6e.js"></script>
+
+    굳이 이렇게 안쓰고 그냥 100 + sum(리스트) 라고 쓰셔도 괜찮습니다. <br>
+
+    사실 두 번째 매개변수를 쓰지 않는다면 기본으로 0이 세팅되어있는 형식이기 때문이기에, 첫번째 코드의 sum([1, 2, 3, 4, 5])도 사실은 sum([1, 2, 3, 4, 5], 0)이었고, 0 + 1 + 2 + 3 + 4 + 5의 값을 출력한 것입니다. <br>
+
+    파이썬에서는 문자열끼리도 덧셈이 가능한데, "Git" + "Hub" == "GitHub" 같은 형식입니다. <br>
+
+    기본 두 번째 매개변수가 0이라서 정수형과 문자열 덧셈이 불가능해서 sum(["Git", "Hub"])같은건 불가능한데, 그렇다면 두 번째 매개변수를 문자열로 바꿔서 sum(["Git", "Hub"], "Z")를 하면 "ZGitHub"이 나올까요? "GitZHub"가 나올까요? "GitHubZ"가 나올까요? <br>
+
+    <br> <script src="https://gist.github.com/II-eugene-II/22418d49ee32c433e2a7021bb3a6b466.js"></script>
+
+    순서대로 앞에서부터 더해줄 것 같지만, 오류가 발생하게 됩니다. <br>
+
+    오류 메세지에서 볼 수 있듯이, 우리가 원하는 꼴은 "".join(["Git", "Hub"])으로 얻을 수 있습니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
