@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 백준 11282번 해설 </title>
+    <title> 백준 11283번 해설 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,18 +19,18 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 백준 11282번 - 한글 </div>
+    <div id = "postTitle"> 백준 11283번 - 한글 2 </div>
     
     <hr>
       
     <p>
       
     <blockquote>
-        <a href="https://www.acmicpc.net/problem/11282"> 백준 11282번 문제 링크 </a> <br>
-        문제 이름 : 한글 <br>
+        <a href="https://www.acmicpc.net/problem/11283"> 백준 11283번 문제 링크 </a> <br>
+        문제 이름 : 한글 2 <br>
         주 언어 : Python <br>
         태그 : 구현 <br>
-        solved.ac 등급 : Bronze IV (2023/05/02 확인)
+        solved.ac 등급 : Bronze IV (2023/05/05 확인)
     </blockquote>
       
     </p>
@@ -53,15 +53,15 @@
         
         초성과 중성, 그리고 종성을 합쳐서 만들 수 있는 글자의 개수는 총 19*21*28 = 11,172개가 된다. <br>
         
-        입력으로 N이 주어졌을 때, N번째 글자를 구하는 프로그램을 작성하시오. <br>
+        한글이 주어졌을 때, 몇 번째 글자인지 구하는 프로그램을 작성하시오. <br>
         
         <h4> 입력 : </h4>
         
-        첫째 줄에 N(1 ≤ N ≤ 11,172)이 주어진다. <br>
+        첫째 줄에 글자 하나가 주어진다. 주어지는 글자는 UTF-8로 인코딩 되어 있는 한글이며, 문제 설명에 나온 방법으로 만들 수 있다. <br>
         
         <h4> 출력 : </h4>
         
-        첫째 줄에 N번째 글자를 출력한다. 문자열의 인코딩은 UTF-8을 사용해야 한다. <br> 
+        입력으로 주어진 글자가 몇 번째인지 출력한다. <br> 
     
         </p>
     
@@ -75,13 +75,13 @@
         
     <p>
         
-    파이썬에는 chr 함수가 있는데, 이는 정수를 유니코드 문자로 바꿔주는 함수입니다. 예를 들어, "가"는 유니코드로 44032번째에 있습니다. 따라서 chr(44032) == "가" 입니다. <br>
+    파이썬에는 <a href="/Post/Post01000/00380.html"> 파이썬 ord 함수 </a>가 있는데, 이는 유니코드 문자가 몇번째에 있는지 해당 정수값을 return 하는 함수입니다. 예를 들어, "가"는 유니코드로 44032번째에 있습니다. 따라서 ord("가") == 44032 입니다. <br>
 
-    입력받은 정수에, 44031을 더해주면 chr(1 + 44031) == "가"가 되는 것 처럼, 풀 수 있습니다. <br>
+    따라서 ord 함수를 씌운 값에 44031을 빼주면 ord("가") - 44031 == 1가 되는 것 처럼, 풀 수 있습니다. <br>
 
-    <script src="https://gist.github.com/II-eugene-II/ee6d28c1bd4743d0058d09486c37c2e3.js"></script> <br>
+    <script src="https://gist.github.com/II-eugene-II/dc7dbf85fa61fd91714ff88c4e3d2515.js"></script> <br>
 
-    이 문제를 풀었다면 <a href="/Post/Post01000/00430.html"> 백준 11283번 - 한글 2 </a> 도 비슷하게 풀 수 있습니다. <br>
+    이 문제를 풀었다면 <a href="/Post/Post01000/00406.html"> 백준 11282번 - 한글 </a> 도 비슷하게 풀 수 있습니다. <br>
 
     뜬금없는 이야기로 북한에서는 초성, 중성, 종성 모두 한국과 순서가 달라서 이렇게는 풀지 못한다고 합니다. <br>
 
