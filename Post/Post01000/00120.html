@@ -25,21 +25,23 @@
       
     <p>
     
-    리만 제타함수 (Riemann Zeta Function) $\zeta(s)$ $(\Re(s) > 1)$의 기본 정의는 다음과 같습니다.
+    리만 제타함수 (Riemann Zeta Function) $\zeta(s)$ $(\Re(s) > 1)$의 기본 정의는 다음과 같습니다. <br>
       
     <blockquote>
         $$ \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^{s}} $$
     </blockquote>
 
-    다음과 같은 소수와 관련된 무한곱으로 정의할 수도 있습니다.
+    이 정의가 $s > 1$인 실수 $s$에 대해서 수렴한다는 것은 <a href="/Post/Post01000/00436.html"> $p$급수 판정법 </a> 에 의해 보일 수 있습니다. <br>
+
+    다음과 같은 <a href="/Post/Post01000/00342.html"> 소수 </a>와 관련된 무한곱으로 정의할 수도 있습니다. <br>
       
     <blockquote>
-        $$ \zeta(s) = \prod_{p} \frac{1}{1-p^{-s}} $$
+        $$ \zeta(s) = \prod_{p} \frac{1}{1 - {p}^{-s}} $$
     </blockquote>
 
     모든 소수 $p$에 대하여 $\frac{1}{1 - p^{-s}}$를 곱한 값입니다. <br>
     
-    이를 이용하여 다음과 같은 확장 또한 할 수 있습니다.
+    이를 이용하여 다음과 같은 확장 또한 할 수 있습니다. <br>
       
     <blockquote>
         $$ \zeta(s) = s \int_{2}^{\infty} \frac{\pi(x)}{x (x^{s} - 1)} dx $$

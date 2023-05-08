@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 적분 판정법 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 적분 판정법 </div>
+    
+    <hr>
+      
+    <p>
+      
+    적분 판정법 (Integral Test) 은 다음과 같습니다. <br>
+      
+    <blockquote>
+        함수 $f(x)$가 어떤 정수 $N$에 대해 $x > N$에서 단조감소하고 $f(x) \geq 0$이면 급수 $$ \sum_{n = N}^{\infty} f(n) $$ 와 이상적분 $$ \int_{N}^{\infty} f(x) \, dx $$ 은 동시에 발산하거나 동시에 수렴한다.
+    </blockquote>
+
+    <details><summary> 적분 판정법 증명 </summary>
+    
+        <p>
+
+            $f(x)$가 단조감소하므로 $f(n + 1) \leq \int_{n}^{n + 1} f(x) \, dx \leq f(n)$이 성립한다. <br>
+
+            $M$까지의 합을 취해주면 $\sum\limits_{n = N}^{M} f(n + 1) \leq \int_{N}^{M + 1} f(x) \, dx \leq \sum\limits_{n = N}^{M} f(n)$에서, $\sum\limits_{n = N + 1}^{M + 1} f(n) \leq \int_{N}^{M + 1} f(x) \, dx \leq \sum\limits_{n = N}^{M} f(n)$이고, $M$에 극한을 취하면 $$ \sum_{n = N + 1}^{\infty} f(n) \leq \int_{N}^{\infty} f(x) \, dx \leq \sum_{n = N}^{\infty} f(n) $$ 이다. <br>
+
+            해당 부등식에서 (급수 / 이상적분)이 (발산 / 수렴)하면 (이상적분 / 급수)또한 (발산 / 수렴)한다. <br>
+                
+        </p>
+    
+    </details> <!-- 적분 판정법 증명 -->
+
+    적분 판정법으로 $p$급수 판정법 등을 할 수 있게 됩니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 지수함수의 미분 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 지수함수의 미분</div>
+    
+    <hr>
+      
+    <p>
+      
+    지수함수 $e^{x}$를 미분한 공식은 다음과 같습니다. <br>
+      
+    <blockquote>
+        $$ {\operatorname{d}\over\operatorname{d}\!x} e^{x} = e^{x} $$
+    </blockquote>
+
+    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a> 입니다. <br>
+
+    <details><summary> 지수함수의 미분 증명 1 </summary>
+    
+        <p>
+
+            $f(x) = e^{x}$로 두고, <a href="/Post/Post01000/00433.html"> 도함수 </a>의 정의에서 $$ f'(x) = \lim_{h \to 0} \frac{e^{x + h} - e^{x}}{h} = \lim_{h \to 0} e^{x} \frac{e^{h} - 1}{h} = e^{x} \lim_{h \to 0} \frac{e^{h} - 1}{h} $$ 이고, $\lim\limits_{h \to 0} \frac{e^{h} - 1}{h} = 1$이므로 $e^{x}$의 미분은 $e^{x}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 지수함수의 미분 증명 1 -->
+
+    적당히 심플하고 좋지만 이렇게 증명하려면 더 디테일하게 $e$가 무엇인지, 지수법칙이 모든 실수에 대해 성립하는지, $\lim\limits_{h \to 0} \frac{e^{h} - 1}{h} = 1$이 정말 성립하는지를 판단해야 합니다. <br>
+
+    <details><summary> 지수함수의 미분 증명 2 </summary>
+    
+        <p>
+
+            $f(x) = \ln x$로 두면, $g(x) = e^{x}$는 $f(x)$의 역함수이다. ($\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>) <br>
+            
+            <a href="/Post/Post01000/00432.html"> 역함수의 미분법 </a>에서 $f'(g(x))g'(x) = 1$이고, $f'(x) = \frac{1}{x}$이므로 $\frac{1}{e^{x}} g'(x) = 1$에서, $g'(x) = e^{x}$이다. <br>
+
+            따라서, $e^{x}$의 미분은 $e^{x}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 지수함수의 미분 증명 2 -->
+
+    좀 더 명확해보이지만 이렇게 증명하려면 더 디테일하게 $\ln x$랑 $e^{x}$가 정말 역함수 관계인지 (그냥 $e^{x}$를 $\ln x$의 역함수라고 정의해버리기도 합니다.) , 역함수 미분법이 진짜인지 + 역함수 미분법을 증명하기 위한 <a href="/Post/Post01000/00385.html"> 미분의 연쇄법칙 </a>까지도, 증명해야 합니다. <br>
+
+    <details><summary> 지수함수의 미분 증명 3 </summary>
+    
+        <p>
+
+            $e^{x} = \sum_{n = 0}^{\infty} \frac{x^{n}}{n!}$로 <b>정의</b>한다고 하자. ($n!$은 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 표기) <br>
+
+            $\sum_{n = 0}^{\infty} \frac{x^{n}}{n!} = 1 + \sum_{n = 1}^{\infty} \frac{x^{n}}{n!}$에서, 우변을 미분하면 $\left(1 + \sum_{n = 1}^{\infty} \frac{x^{n}}{n!} \right)' = \sum_{n = 1}^{\infty} \frac{n x^{n - 1}}{n!} = \sum_{n = 1}^{\infty} \frac{x^{n - 1}}{(n - 1)!}$이다. <br>
+
+            $$ \sum_{n = 1}^{\infty} \frac{x^{n - 1}}{(n - 1)!} = \sum_{n = 0}^{\infty} \frac{x^{n}}{n!} = e^{x} $$ 에서, $e^{x}$의 미분은 $e^{x}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 지수함수의 미분 증명 3 -->
+
+    이 경우에는 그냥 $e^{x}$를 거듭제곱급수로 정의해버린 경우입니다. <br>
+
+    $e^{x}$의 미분을 모르는 상태에서 테일러급수로 만들 수는 없으므로, 정말 정의를 저렇게 하는 경우에 한합니다. <br>
+
+    또, 이 경우에는 거듭제곱급수가 항별로 미분 가능한지까지도 판단해야합니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

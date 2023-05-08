@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> p급수 판정법 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> $p$급수 판정법 </div>
+    
+    <hr>
+      
+    <p>
+      
+    $p$급수 판정법 ($p$-series Test) 은 다음과 같습니다. <br>
+      
+    <blockquote>
+        1. 급수 $$ \sum_{n = 1}^{\infty} \frac{1}{n^{p}} $$ 가 수렴한다. <br>
+        
+        2. $p > 1$이다. <br>
+
+        두 명제는 <b>동치</b>이다. <br>
+    </blockquote>
+
+    두 명제가 동치라는 것은 같은 말을 하고 있다는 뜻입니다. <br>
+
+    즉, $\sum_{n = 1}^{\infty} \frac{1}{n^{p}}$은 $p > 1$이면 수렴하고, $p \leq 1$이면 발산합니다. <br>
+
+    <details><summary> $p$급수 판정법 증명 </summary>
+    
+        <p>
+
+            $\int_{1}^{\infty} \frac{1}{x^{p}} \, dx$ 값은 $p > 1$이면 $\frac{1}{p - 1}$값으로 수렴한다. 또한, $\frac{1}{x^{p}}$는 $p > 1$이면 단조감소한다. <br>
+
+            따라서, <a href="/Post/Post01000/00435.html"> 적분 판정법 </a>에 따라 $\sum_{n = 1}^{\infty} \frac{1}{n^{p}}$는 $p > 1$이면 수렴한다. <br>
+                
+        </p>
+    
+    </details> <!-- p급수 판정법 증명 -->
+
+    정확한 값을 내놓는 함수로는 <a href="/Post/Post01000/00120.html"> 리만 제타함수 </a>가 있습니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

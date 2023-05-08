@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 지수분포 </title>
+    <title> 역함수의 미분법 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,31 +19,29 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 지수분포 </div>
+    <div id = "postTitle"> 역함수의 미분법 </div>
     
     <hr>
       
     <p>
       
-    모수가 $\lambda$인 지수분포 (Exponential Distribution) 는 다음의 확률밀도함수를 갖습니다. <br>
+    함수 $f(x)$의 역함수 $g(x)$를 미분한 공식은 다음과 같습니다. <br>
       
     <blockquote>
-        $f(x) = \lambda e^{-\lambda x}$, $x > 0$
+        $$ g '(x) = \frac{1}{f '(g(x))} $$
     </blockquote>
 
-    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
-
-    지수분포의 평균은 $E[X] = \frac{1}{\lambda}$, 분산은 $V[X] = \frac{1}{\lambda^{2}}$입니다. <br>
-
-    <details><summary> <del> 지수분포의 평균과 분산 증명 </del> </summary>
+    <details><summary> 역함수의 미분법 공식 증명 </summary>
     
         <p>
+
+            역함수의 정의에 따라 $f(g(x)) = x$가 성립하고, <a href="/Post/Post01000/00385.html"> 미분의 연쇄법칙 </a>에 따라 $f'(g(x)) g'(x) = 1$이다. 따라서 $g '(x) = \frac{1}{f '(g(x))}$ 이다. <br>
                 
         </p>
     
-    </details> <!-- 지수분포의 평균과 분산 증명 -->
-    
-    <a href="/Post/Post01000/00026.html"> 포아송분포 </a>와도 관련이 있습니다. <br>
+    </details> <!-- 몫의 미분법 공식 증명 -->
+
+    깔끔한 증명이지만 g(x)의 미분가능성은 약간 의문으로 남을 수 있는데, 그럴 때는 그냥 <a href="/Post/Post01000/00433.html"> 도함수 </a>의 정의로 구할 수 있습니다. <br>
       
     </p>
       
