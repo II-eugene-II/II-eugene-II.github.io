@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 변수분리형 미분방정식 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 변수분리형 미분방정식 </div>
+    
+    <hr>
+      
+    <p>
+      
+    (1계 미분방정식에서의) 변수분리형 미분방정식 (Separable ODEs) 은 다음과 같은 미분방정식입니다. <br>
+      
+    <blockquote>
+        $$ \frac{dy}{dx} = g(x)h(y) $$ 
+    </blockquote>
+
+    다음 모양과도 같습니다. <br>
+      
+    <blockquote>
+        $$ p(x) \, dx = q(y) \, dy $$ 
+    </blockquote>
+
+    $P'(x) = p(x)$, $Q'(y) = q(y)$라 하면, 해당 미분방정식의 해는 $P(x) + C = Q(y)$꼴이 됩니다. ($C$는 적분상수) <br>
+
+    다음과 같은 간단한 예시를 들 수 있습니다. <br>
+      
+    <blockquote>
+        예시 1 <br>
+
+        $$ \frac{dy}{dx} = y $$ <br>
+
+        Solution : $y = e^{x + C}$ <br>
+
+        <details><summary> 예시 1 풀이과정 </summary>
+    
+            <p>
+
+                $\frac{1}{y} dy = dx$로 쓸 수 있고, 양 변에 적분 기호를 씌워주면 $\int \frac{1}{y} dy = \int 1 dx$이다. <br>
+
+                각각 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>의 정의와 다항함수의 적분을 통해 $\ln y = x + C$라 할 수 있고, 따라서 $e^{\ln y} = e^{x + C}$에서 $y = e^{x + C}$이다. <br>
+                    
+            </p>
+        
+        </details> <!-- 예시 1 풀이과정 -->
+    </blockquote>
+
+    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a> 입니다. <br>
+
+    <a href="/Post/Post01000/00035.html"> 로지스틱 함수 </a>는 $\frac{dy}{dx} = y (1 - y)$의 해입니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
