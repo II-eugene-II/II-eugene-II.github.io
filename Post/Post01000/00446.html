@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 프로트 소수 </title>
+    <title> 산술의 기본정리 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -11,30 +11,34 @@
 </head>
 
 <body>
-    <div id = "wrap">  
-    <div class = "container">
+    <div id = 'wrap'>  
+    <div class="container">
         <header>
             <script type="text/javascript" src="/headerWrite.js"></script>
         </header>
     </div>
     <section>
     
-    <div id = "postTitle"> 프로트 소수 </div>
-    
+    <div id = "postTitle"> 산술의 기본정리 </div>
+      
     <hr>
       
     <p>
-      
-    프로트 소수 (Proth Prime) 의 정의는 다음과 같습니다. <br>
+    
+    산술의 기본정리 (Fundamental Theorem of Arithmetic) 는 다음과 같습니다. <br>
       
     <blockquote>
-        <a href="/Post/Post01000/00142.html"> 프로트 수 </a> $P$ 에 대하여, $P$가 <a href="/Post/Post01000/00342.html"> 소수 </a>이면 <b>프로트 소수</b>라고 한다.
+        <a href="/Post/Post01000/00342.html"> 소수 </a>집합 $p \in \mathbb{P}$에 대하여, $1$보다 큰 정수 $n$이
+        $$
+        n = \prod_{p} p^{n_{p}} \left( n_{p} \geq 0, n_{p} \in \mathbb{Z} \right)
+        $$
+        일 때, $\left\{ n_{p} \right\}$는 유일하다.
     </blockquote>
-      
-    즉, 프로트 수 중에서도 소수인 수를 <b>프로트 소수</b>라고 합니다. <br>
 
-    프로트 소수를 판정하는 <a href="/Post/Post01000/00011.html"> 프로트의 정리 </a>도 존재합니다.
-      
+    다른 말로 하면 $n$의 소인수분해 결과는 유일하다는 이야기가 됩니다. <br>
+
+    $1$을 소수로 치면 소인수분해가 유일하지 않게 되기 때문에, $1$은 소수로 치지 않습니다. <br>
+
     </p>
       
     </section>
@@ -45,9 +49,9 @@
     <footer>
         <script type="text/javascript" src="/footerWrite.js"></script>
     </footer>
-      
-    </div> <!-- wrap -->
     
+    </div> <!-- wrap -->
+  
     <script type="text/javascript" src="/LaTexWrite.js"></script>
 
 </body>

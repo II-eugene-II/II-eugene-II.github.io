@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 1계 선형 제차 미분방정식 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 1계 선형 제차 미분방정식 </div>
+    
+    <hr>
+      
+    <p>
+      
+    1계 선형 제차 미분방정식 (First Order Linear Homogeneous Differential Equations) 은 다음과 같은 미분방정식입니다. <br>
+      
+    <blockquote>
+        $$ \frac{dy}{dx} + p(x) y = 0 $$
+    </blockquote>
+
+    이는 <a href="/Post/Post01000/00437.html"> 변수분리형 미분방정식 </a> 이므로, $e^{-\int p(x)dx}$ 꼴의 해를 가집니다. ($e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a>) <br>
+
+    <details><summary> 풀이과정 </summary>
+
+        <p>
+
+            $\frac{1}{y} dy = - p(x) dx$로 쓸 수 있고, 양 변에 적분 기호를 씌워주면 $\int \frac{1}{y} dy = \int - p(x) dx$이다. <br>
+
+            <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>의 정의를 통해 $\ln y = \int - p(x) dx$라 할 수 있고, 따라서 $e^{\ln y} = e^{\int - p(x) dx}$에서 $$ y = e^{- \int p(x) dx} $$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 풀이과정 -->
+
+    <a href="/Post/Post01000/00441.html"> 1계 선형 미분방정식 </a> 의 일종입니다. <br>
+
+    <hr>
+
+    Homogeneous라는 말을 동차로 표기하는 경우도 있고 제차로 표기하는 경우도 있으나, Zill의 공학수학과 Kreyszig 공업수학 모두 번역으로 "제차"를 채택하여 제차로 표기합니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
