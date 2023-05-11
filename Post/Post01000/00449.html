@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 쿨렌 수 </title>
+    <title> 레퓨닛 수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,27 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 쿨렌 수 </div>
+    <div id = "postTitle"> 레퓨닛 수 </div>
     
     <hr>
       
     <p>
       
-    쿨렌 수 (Cullen Number) $C_{n}$의 정의는 다음과 같습니다. <br>
+    레퓨닛 수 (Repunit) $R_{n}^{(b)}$의 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        $C_{n} = n \times 2^{n} + 1$
+        $b$진법에서 $1$을 $n$개 나열한 수
     </blockquote>
 
-    즉, <a href="/Post/Post01000/00179.html"> 우달 수 </a> 에서 $1$의 부호가 바뀐 꼴이 쿨렌 수 입니다. <br>
+    수식으로 나타내면 다음과 같습니다. <br>
+      
+    <blockquote>
+        $$
+        R_{n}^{(b)} = 1 + b + b^{2} + \cdots + b^{n - 1} = \sum_{k = 0}^{n - 1} b^{k} = \frac{b^{n} - 1}{b - 1}
+        $$
+    </blockquote>
 
-    쿨렌 수는 <a href="/Post/Post01000/00142.html"> 프로트 수 </a> 이므로, <a href="/Post/Post01000/00011.html"> 프로트의 정리 </a>로 소수판별을 할 수 있습니다. <br>
-    
-    $n$이 홀수가 아니라고 해도 $n = 2^{k} m$이라 하면 $C_{n} = m \times 2^{n + k} + 1$이 되어서 프로트 수로 만들 수 있습니다. <br>
-
-    현재까지 쿨렌 수 중에서 <a href="/Post/Post01000/00342.html"> 소수 </a>로 알려진 것은 16개입니다. <br>
+    $2$진법에서 레퓨닛 수 $R_{n}^{(2)}$는 $R_{n}^{(2)} = \frac{2^{n} - 1}{2 - 1} = 2^{n} - 1$이므로, <a href="/Post/Post01000/00347.html"> 메르센 수 </a> $M_{n}$과 동치입니다. <br>
       
     </p>
       

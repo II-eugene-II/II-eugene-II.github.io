@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 쿨렌 수 </title>
+    <title> n계도함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,21 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 쿨렌 수 </div>
+    <div id = "postTitle"> $n$계도함수 </div>
     
     <hr>
       
     <p>
-      
-    쿨렌 수 (Cullen Number) $C_{n}$의 정의는 다음과 같습니다. <br>
+    
+    어떤 함수 $f(x)$의 $n$계도함수 / 고계도함수 (N-th Order Derivative of $f$ / Higher Derivative of $f$ ) $f^{(n)}(x)$ 는 다음과 같이 정의합니다. <br>
       
     <blockquote>
-        $C_{n} = n \times 2^{n} + 1$
+        $$ f^{(n)}(x) = \lim_{h \to 0} \frac{f^{(n - 1)}(x + h) - f^{(n - 1)}(x)}{h} = {\operatorname{d}^{n}\over\operatorname{d}\!x^{n}} f(x) $$
     </blockquote>
 
-    즉, <a href="/Post/Post01000/00179.html"> 우달 수 </a> 에서 $1$의 부호가 바뀐 꼴이 쿨렌 수 입니다. <br>
+    $f^{(1)}(x)$는 $f(x)$의 <a href="/Post/Post01000/00433.html"> 도함수 </a> 입니다. <br>
 
-    쿨렌 수는 <a href="/Post/Post01000/00142.html"> 프로트 수 </a> 이므로, <a href="/Post/Post01000/00011.html"> 프로트의 정리 </a>로 소수판별을 할 수 있습니다. <br>
-    
-    $n$이 홀수가 아니라고 해도 $n = 2^{k} m$이라 하면 $C_{n} = m \times 2^{n + k} + 1$이 되어서 프로트 수로 만들 수 있습니다. <br>
-
-    현재까지 쿨렌 수 중에서 <a href="/Post/Post01000/00342.html"> 소수 </a>로 알려진 것은 16개입니다. <br>
+    세번 미분한 함수는 $f'''(x)$로도 쓰지만, 100번 미분한 함수를 원한다고 해서 프라임을 100번 쓸 수는 없으니, $f^{(n)}(x)$로 축약해서 표기합니다. <br>
       
     </p>
       

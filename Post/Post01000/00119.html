@@ -31,7 +31,7 @@
     
     <br> <script src="https://gist.github.com/II-eugene-II/6a6cde826eaac8cb43dbfb0caf22e5a9.js"></script> <br>
 
-    파이썬의 기본 자료형인 복소수에 대해서도 당연히 연산을 해줍니다. 단, 허수단위는 j를 사용하셔야 합니다. <a href="https://www.wolframalpha.com/input?i=%283+%2B+3i%29%5E%284+%2B+4i%29"> wolframalpha에서의 $(3 + 3i)^{4 + 4i}$ 계산 결과 </a> <br>
+    파이썬의 기본 자료형인 복소수에 대해서도 당연히 연산을 해줍니다. 단, <a href="/Post/Post01000/00333.html"> 허수 단위 $i$ </a> 대신 j를 사용하셔야 합니다. <a href="https://www.wolframalpha.com/input?i=%283+%2B+3i%29%5E%284+%2B+4i%29"> wolframalpha에서의 $(3 + 3i)^{4 + 4i}$ 계산 결과 </a> <br>
 
     <br> <script src="https://gist.github.com/II-eugene-II/a679919a9f5508de0127b89c8e2f5bec.js"></script> <br>
 
@@ -55,13 +55,15 @@
 
     사실 b에도 음의 정수를 넣을 수 있습니다. 특히, -1을 넣을 수 있습니다. <br>
 
-    $a^{-1} \pmod{c}$는 아시다시피 법 $c$에서의 $a$의 모듈려 곱셈 역원입니다. <br>
+    $a^{-1} \pmod{c}$는 아시다시피 법 $c$에서의 $a$의 <a href="/Post/Post01000/00448.html"> 모듈러 곱셈 역원 </a>입니다. <br>
 
     즉, pow(a, -1, c)는 $a m \equiv 1 \pmod{c}$인 $0 \leq m < c$값을 찾아 출력합니다. <br> 
 
     다른 언어에서 이거 구하려면 확장된 유클리드 호제법 등으로 구해야 하지만 파이썬은 무려 <b>그냥</b> 내장함수로 있는 셈입니다. <br>
 
     <br> <script src="https://gist.github.com/II-eugene-II/f6739fe4782c206cb2cf9766efb91a62.js"></script> <br>
+
+    pow(a, -b, c)는 모듈러 곱셈 역원의 b제곱을 c로 나눈 나머지를 출력합니다. 즉, $a^{-b} \equiv {\left( a^{-1} \right)}^{b} \pmod{c}$ 값 입니다. <br>
       
     </p>
       

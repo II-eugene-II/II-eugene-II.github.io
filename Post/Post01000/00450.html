@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 멱평균 </title>
+    <title> 분할수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,27 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 멱평균 </div>
+    <div id = "postTitle"> 분할수 </div>
       
     <hr>
       
     <p>
       
-    $n$개의 수 $a_{1}$, $a_{2}$, $a_{3}$, ..., $a_{n}$의 멱평균 (Power Mean) $P$은 다음과 같이 정의합니다. <br>
+    분할수 (Partition Number) $P(n)$은 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        양의 정수 $n$을 순서를 고려하지 않고 $1$개 이상의 양의 정수의 합으로 표시하는 방법의 수
+    </blockquote>
+    
+    근사 공식이 알려져있는데, 다음과 같습니다. <br>
       
     <blockquote>
         $$
-        P = {\left( \frac{{a_{1}}^{p} + {a_{2}}^{p} + \cdots + {a_{n}}^{p}}{n} \right)}^{\frac{1}{p}}
+        p(n) \sim \frac{1}{4 n \sqrt{3}} e^{\left( \pi \sqrt{\frac{2n}{3}}\right)} = \frac{1}{4 n \sqrt{3}} \exp\left( \pi \sqrt{\frac{2n}{3}} \right)
         $$
     </blockquote>
 
-    일반적으로 실생활에서 사용하는 "평균"은 <a href="/Post/Post01000/00286.html"> 산술 평균 </a>입니다. <br> <br>
-
-    <hr>
-
-    거듭제곱 평균이라고 쓸까 하다가, 멱급수는 그래도 <a href="/Post/Post01000/00452.html"> 거듭제곱급수 </a> 로 말이 바뀌는 편인듯 싶으나 멱평균은 거의 그런 기미가 보이지 않아 그냥 멱평균으로 표기합니다. <br>
+    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a>, $\pi$는 <a href="/Post/Post01000/00186.html"> 원주율 $\pi$ </a>, $\exp(f(x))$는 $e^{f(x)}$를 나타냅니다. <br>
 
     </p>
       
