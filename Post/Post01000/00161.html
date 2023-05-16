@@ -42,13 +42,13 @@
     또, 다음이 성립합니다. <br>
       
     <blockquote>
-        모든 <a href="/Post/Post01000/00342.html"> 소수 </a>의 집합 $\mathbb{P}$에서
+        모든 <a href="/Post/Post01000/00342.html"> 소수 </a>의 집합 $p \in \mathbb{P}$에서
         $$ 
-        n = \prod_{p \in \mathbb{P}} p^{n_{p}} \, \left( n_{p} \geq 0 \right)
+        n = \prod_{p} p^{n_{p}} \, \left( n_{p} \geq 0 \right)
         $$
         이라 하면, 
         $$
-        \sigma(n) = \prod_{p \in \mathbb{P}} \frac{p^{n_{p} + 1}}{p - 1}
+        \sigma(n) = \prod_{p} \frac{p^{n_{p} + 1}}{p - 1}
         $$
         이다.
     </blockquote> 
@@ -58,6 +58,14 @@
     하한이 있으면 상한도 있어야 하는데, $n > 2$이면 $\sigma(n) < e^{\gamma} n \ln{\ln{n}} + \frac{0.6483 n}{\ln{\ln{n}}}$ 이라는 사실이 알려져있습니다. $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a>, $\gamma$는 <a href="/Post/Post01000/00093.html"> 오일러-마스케로니 상수 </a>, $\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a> 입니다. <br>
 
     $n > 5040$일 때, $\sigma(n) < e^{\gamma} n \ln{\ln{n}}$이면 정말 뜬금없이 <a href="/Post/Post01000/00275.html"> 리만 가설 </a>이 참이 되는데, 이를 <a href="/Post/Post01000/00394.html"> 로빈 부등식 </a>이라 합니다. <br>
+
+    또 특수한 성질로는 다음이 성립합니다. <br>
+      
+    <blockquote>
+        $$ \tau(n) = n^{4} \sigma(n) - 24 \sum_{i = 1}^{n - 1} i^{2} (35 i^{2} - 52 i n + 18 n^{2}) \sigma(i) \sigma(n - i) $$
+    </blockquote>
+
+    $\tau(n)$은 <a href="/Post/Post01000/00418.html"> 라마누잔 타우 함수 </a> 입니다. <br>
 
     </p>
       

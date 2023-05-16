@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 02577번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 02577번 - 숫자의 개수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/02577"> 백준 02577번 문제 링크 </a> <br>
+        문제 이름 : 숫자의 개수 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 사칙연산 <br>
+        solved.ac 등급 : Bronze II (2023/05/16 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오. <br>
+        
+        예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 A, 둘째 줄에 B, 셋째 줄에 C가 주어진다. A, B, C는 모두 100보다 크거나 같고, 1,000보다 작은 자연수이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에는 A × B × C의 결과에 0 이 몇 번 쓰였는지 출력한다. 마찬가지로 둘째 줄부터 열 번째 줄까지 A × B × C의 결과에 1부터 9까지의 숫자가 각각 몇 번 쓰였는지 차례로 한 줄에 하나씩 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    우선 기본적으로 한 줄에 하나의 정수가 있고, 이 세 수를 다 곱해야 합니다. <br>
+
+    각 자릿수가 무엇인지 세주기 위해 세 수의 곱을 문자열로 변환시켜주면 편한데, 이 과정에서 str(정수형 변수)를 하면 변환이 됩니다. <br>
+
+    예를 들어, str(100) == "100"입니다. <br>
+
+    그리고나면, 각각의 자리에 0이 몇개인지, 1이 몇개인지 세어주기 위해 <a href="/Post/Post01000/00465.html"> 파이썬 count 함수 </a> 를 사용해줍니다. <br>
+
+    0의 개수, 1의 개수가 필요하므로, for num in "0123456789": 를 사용해주면 num = "0"부터 "1", "2", ...를 할당하게 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/4739d3d1eee7595e2ea6cd21b5d28254.js"></script> <br>
+
+    마땅하게 정수형을 문자열로 바꾸는 방법이 없는 언어에서는 대체로 다음과 같이 푸는 듯 합니다. <br>
+    
+    10칸짜리 배열을 만들어서, 예를 들어 A, B, C를 다 곱한 ABC가 ABC = 1234567이라 하면 (실제로 가능한지는 잠시 미뤄줍시다.) 10으로 나눈 나머지가 7이므로, 배열의 인덱스 7에 + 1을 해줍니다. <br>
+
+    그 이후, ABC를 10으로 나눈 몫인 123456만 취해서, 또 10으로 나눈 나머지가 6이므로 6번 인덱스에 1을 추가해주고...같은 과정을 ABC가 0이 될 때까지 반복해주는 방법으로 푸는 듯 합니다. <br>
+
+    </p>
+    
+    <hr>
+    
+    <p>
+
+    이 문제는 <a href="/Post/Post01000/00043.html"> solved.ac Class 1 </a>에 수록된 문제입니다. <br>
+
+    다른 문제도 같이 풀어보시는걸 추천드립니다. <br>
+  
+    <details> <summary> Class 1 문제 모음 </summary>
+
+        <p>
+
+            <script type="text/javascript" src="/subJs/Class_min01.js"></script>
+
+        </p>
+
+    </details>
+    
+    -번째 푼 문제 (2022/--/--) <br>
+    
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

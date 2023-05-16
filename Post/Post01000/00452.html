@@ -33,7 +33,23 @@
 
     $f(x) = \sum\limits_{n = 0}^{\infty} a_{n} (x - x_{0})^{n}$으로 표기하는 경우도 있지만 어차피 $X = x - x_{0}$으로 치환하면 같은 이야기입니다. <br>
 
-    $x = r$에서 수렴하면, $|x| < r$인 모든 실수 $x$에 대해서도 수렴합니다. 이 중 최대의 $r$을 수렴반지름이라고 부릅니다. ($|x|$는 <a href="/Post/Post01000/00388.html"> 절댓값 함수 </a>) <br>
+    $x = r$에서 수렴하면, $|x| < |r|$인 모든 실수 $x$에 대해서도 절대수렴합니다. 이 중 최대의 $r$을 수렴반지름이라고 부릅니다. ($|x|$는 <a href="/Post/Post01000/00388.html"> 절댓값 함수 </a>) <br>
+
+    <details><summary> 수렴성 증명 </summary>
+    
+        <p>
+
+            수열 $a_{n} r^{n}$에 대하여 $\sum\limits_{n = 0}^{\infty} a_{n} r^{n}$이 수렴하면 $a_{n} r^{n}$은 유계이고, 따라서 모든 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$에 대해 $|a_{n} r^{n}| \leq M$이 되게 하는 양의 실수 $M$이 존재한다. <br>
+
+            $|x| < |r|$이면 $$ |a_{n} x^{n}| = |a_{n} r^{n}| {\left| \frac{x}{r} \right|}^{n} \leq M {\left| \frac{x}{r} \right|}^{n} $$ 이 성립한다. <br>
+
+            이때, $\sum_{n = 0}^{\infty} M {\left| \frac{x}{r} \right|}^{n}$은 $\left| \frac{x}{r} \right| < 1$인 등비급수이므로 수렴한다. <br>
+
+            비교 판정법에 따라 $$ \sum_{n = 0}^{\infty} a_{n} x^{n} $$ 는 수렴한다. <br>
+                
+        </p>
+    
+    </details> <!-- 수렴성 증명 -->
 
     <a href="/Post/Post01000/00184.html"> 사인함수 </a>를 $\sin x = \sum_{n = 0}^{\infty} \frac{{(-1)}^{n}}{(2n + 1)!} x^{2n + 1}$ 같이 거듭제곱급수 꼴로 표기할 수 있습니다. <br>
 

@@ -96,7 +96,7 @@ document.write(`
     <td class = "tdPost"> 숫자의 개수 </td>
     <td class = "tdPost" style="background-color:rgb(181, 93, 10, 0.2); color: rgb(181, 93, 10); font-weight: 600"> Bronze II </td>
     <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00466.html"> 숫자의 개수 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(181, 93, 10, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02675"> 02675번 </a> </td>
@@ -152,7 +152,7 @@ document.write(`
     <td class = "tdPost"> 음계 </td>
     <td class = "tdPost" style="background-color:rgb(181, 93, 10, 0.2); color: rgb(181, 93, 10); font-weight: 600"> Bronze II </td>
     <td class = "tdPost"> ★★★ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00426.html"> 음계 해설 </a> </td>
 </tr>
 <tr style = "background-color:rgb(181, 93, 10, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/03052"> 03052번 </a> </td>
