@@ -25,10 +25,10 @@
       
     <p>
     
-    야코비 기호(Jacobi Symbol)의 정의는 다음과 같습니다. <br>
+    야코비 기호(Jacobi Symbol) $\Bigg( \frac{a}{n} \Bigg)$의 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        홀수 $n$이 $n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$으로 소인수분해 될 때,
+        홀수 $n$이 $n = {p_{1}}^{\alpha_1} {p_{2}}^{\alpha_2} \cdots {p_{k}}^{\alpha_k}$으로 소인수분해 될 때,
         $$
         \Bigg( \frac{a}{n} \Bigg) = \left( \frac{a}{p_1} \right)^{\alpha_1} \left( \frac{a}{p_2} \right)^{\alpha_2} \cdots \left(\frac{a}{p_k}\right)^{\alpha_k}
         $$
@@ -41,23 +41,27 @@
     
     야코비 기호는 다음과 같은 성질이 성립합니다. <br>
 
-    1. $\Bigg(\frac{1}{n}\Bigg) = 1$ <br>
+    0. $\gcd(a, b)$는 <a href="/Post/Post01000/00155.html"> 최대공약수 </a> 표기 <br>
 
-    2. $\Bigg(\frac{-1}{n}\Bigg) = {(-1)}^{\frac{n - 1}{2}}$ <br>
+    1. $\Bigg(\dfrac{1}{n}\Bigg) = 1$ <br>
 
-    3. $\Bigg(\frac{2}{n}\Bigg) = {(-1)}^{\frac{n^{2} - 1}{8}}$ <br>
+    2. $\Bigg(\dfrac{-1}{n}\Bigg) = {(-1)}^{\frac{n - 1}{2}}$ <br>
 
-    4. $\gcd(a, n) = \gcd(b, n) = 1$이면, $\Bigg(\frac{ab}{n}\Bigg) = \Bigg(\frac{a}{n}\Bigg) \Bigg(\frac{b}{n}\Bigg)$ <br>
+    3. $\Bigg(\dfrac{2}{n}\Bigg) = {(-1)}^{\frac{n^{2} - 1}{8}}$ <br>
 
-    5. $\gcd(a, n) = \gcd(b, n) = 1$이고, $a \equiv b \pmod{n}$이면, $\Bigg(\frac{ab}{n}\Bigg) = \Bigg(\frac{a}{n}\Bigg) \Bigg(\frac{b}{n}\Bigg)$ <br>
+    4. $\gcd(a, n) = \gcd(b, n) = 1$이면, $\Bigg(\dfrac{ab}{n}\Bigg) = \Bigg(\dfrac{a}{n}\Bigg) \Bigg(\dfrac{b}{n}\Bigg)$ <br>
 
-    6. $\gcd(m, n) = 1$이면, $\Bigg(\frac{m}{n}\Bigg) \Bigg(\frac{n}{m}\Bigg) = {(-1)}^{\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)}$ (우변의 $\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)$는 그냥 괄호) / 야코비 기호에서의 이차상호법칙 <br>
+    5. $\gcd(a, n) = \gcd(b, n) = 1$이고, $a \equiv b \pmod{n}$이면, $\Bigg(\dfrac{ab}{n}\Bigg) = \Bigg(\dfrac{a}{n}\Bigg) \Bigg(\dfrac{b}{n}\Bigg)$ <br>
+
+    6. $\gcd(m, n) = 1$이면, $\Bigg(\dfrac{m}{n}\Bigg) \Bigg(\dfrac{n}{m}\Bigg) = {(-1)}^{\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)}$ (우변의 $\left(\frac{m - 1}{2}\right)\left(\frac{n - 1}{2}\right)$는 그냥 괄호) / 야코비 기호에서의 이차상호법칙 <br>
 
     야코비 기호를 일반화한 크로네커 기호가 존재합니다. <br>
 
-    위 성질들을 기반으로 야코비 기호를 구하는 코드를 만들면 다음과 같습니다. <br>
+    위 성질들을 기반으로 야코비 기호를 구하는 파이썬 코드를 만들면 다음과 같습니다. <br>
 
-    <script src="https://gist.github.com/II-eugene-II/1cad9cb7024e37e8b00bdabbc2faa01f.js"></script>
+    <script src="https://gist.github.com/II-eugene-II/1cad9cb7024e37e8b00bdabbc2faa01f.js"></script> <br>
+
+    pow는 <a href="/Post/Post01000/00119.html"> 파이썬 pow 함수 </a> 입니다. <br>
 
     </p>
       
