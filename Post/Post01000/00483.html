@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 07600번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 07600번 - 문자가 몇갤까 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/07600"> 백준 07600번 문제 링크 </a> <br>
+        문제 이름 : 문자가 몇갤까 <br>
+        주 언어 : Python <br>
+        태그 : 구현 / 문자열 <br>
+        solved.ac 등급 : Bronze II (2023/05/19 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        "The quick brown fox jumped over the lazy dogs." <br>
+        
+        이 문장은 모든 알파벳이 적어도 한 번은 나오는 문장으로 유명하다. 즉 26개의 서로 다른 문자를 갖고 있는 것이다. <br>
+        
+        각 케이스마다 문장에서 공백, 숫자, 특수 문자를 제외하고 얼마나 다양한 알파벳이 나왔는지를 구하면 된다. 대소문자는 하나의 문자로 처리한다. ex) 'A' == 'a' <br>
+        
+        <h4> 입력 : </h4>
+        
+        입력은 250자를 넘지 않는 문장이 주어진다. <br>
+        
+        각 문장은 적어도 하나의 공백이 아닌 문자를 포함한다. (알파벳이 아닐 수 있다) <br>
+        
+        마지막 줄에는 '#'이 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        각 줄마다 출몰한 알파벳의 개수를 출력하면 된다. <br>
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    대소문자 구분을 하지 않으므로, 그냥 싹 다 대문자로 만들어버리고 생각해도 괜찮습니다. <br>
+
+    파이썬에서는 <a href="/Post/Post01000/00475.html"> 파이썬 upper 함수 </a> 를 통해 문자열을 전부 대문자로 만들 수 있습니다. 특수 문자들은 그냥 무시합니다. 예를 들어 "AbcD +_".upper() == "ABCD +_" 입니다. <br>
+
+    "A"부터 "Z"까지 일일이 문자열에 있으면 1씩 추가해서, 추가된 값을 출력해주면 됩니다. <br>
+
+    입력된 문자가 "#"이 아닐때까지 계속 해야하므로 언제 끝날지 모를 때 쓰는 while 문이 적당합니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/8057f831f4711cb5c9b11d2d386769f1.js"></script> <br>
+
+    마치 그냥 숫자만 쓰는 반복문처럼 for apb in "ABCDEFGHIJKLMNOPQRSTUVWXYZ": 를 써주면 A부터 Z까지 하나씩 apb = "A", apb = "B"...를 사용해줍니다. <br>
+
+    apb in S는 정말 말 그대로 S에 apb이 있는지 물어보는 것입니다. <br>
+
+    이렇게 문자열을 다루지 못하는 경우에는 아스키코드로 변환시켜서 a와 A가 들어갈 칸, b가 B가 들어갈 칸...같은 배열을 만들어서, 있었다면 해당 칸을 1로 만들어서 개수를 셀 수 있습니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
