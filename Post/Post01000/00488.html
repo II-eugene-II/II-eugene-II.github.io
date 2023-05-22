@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 파이썬 map 함수 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 파이썬 map 함수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    파이썬 map 함수는 파이썬의 기본 내장함수로, map(함수, 리스트나 튜플 등의 반복 가능한 자료형)꼴로 사용합니다. <br>
+
+    반복 가능한 자료형 (iterable) 에서 특정 함수를 계속 반복한 결과를 뱉는 것으로 볼 수 있는데, 예를 들면 어떤 수를 두 배로 만드는 함수 def double(x): return 2 * x가 있다고 하면, list(map(double, [1, 2, 3, 4, 5])) == [2, 4, 6, 8, 10]이 되는 꼴입니다.
+    
+    <br> <script src="https://gist.github.com/II-eugene-II/a62d93a6bed6fc0747938dfd56b36944.js"></script>
+
+    list(map(int, input().split())) 같이 입력을 받는다면, input() 으로 받은 문자열이 "1 2 3 4 5" 같은 상태라면, split() 함수로 공백을 기준으로 나누어져 ["1", "2", "3", "4", "5"] 상태의 리스트가 되고, 이를 int 함수로 반복 적용한 상태의 리스트로 [1, 2, 3, 4, 5]가 됩니다. <br>
+
+    map 함수를 거쳐서 나올 문자들의 개수를 정확히 알고 있다면 list 함수를 거치지 않고도 A, B, C, D, E = map(int, "1 2 3 4 5".split())같이 사용할 수도 있습니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

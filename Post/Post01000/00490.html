@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 15964번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 15964번 - 이상한 기호 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/15964"> 백준 15964번 문제 링크 </a> <br>
+        문제 이름 : 이상한 기호 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 사칙연산 <br>
+        solved.ac 등급 : Bronze V (새싹) (2023/05/22 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        부산일과학고등학교의 효진이는 수학의 귀재이다. 어떤 문제라도 보면 1분 내에 풀어버린다는 학교의 전설이 내려올 정도였는데, 이런 킹ㅡ갓 효진에게도 고민이 생겼다. 대부분의 문제에서 반복되는 연산이 있었기 때문이다! 이 연산은 너무 길어서 종이에 풀던 효진이는 너무 고통스러워서, 자신이 새로 연산자를 만들기로 했다. <br>
+        
+        연산자의 기호는 ＠으로, A＠B = (A+B)×(A-B)으로 정의내리기로 했다. <br>
+        
+        하지만, 효진이는 막상 큰 숫자가 들어오자 계산하기 너무 귀찮아졌다. <br>
+        
+        효진이를 도와 정수 A, B가 주어지면 A＠B를 계산하는 프로그램을 만들어주자! <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 A, B가 주어진다. (1 ≤ A, B ≤ 100,000) <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 A＠B의 결과를 출력한다. <br>
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    A, B를 잘 입력 받아서 (A + B) * (A - B)의 값을 출력하면 되는 문제입니다. <br>
+
+    <a href="/Post/Post01000/00488.html"> 파이썬 map 함수 </a>를 이용하여 A, B = map(int, input().split()) 두 수를 입력받을 수 있습니다. <br>
+
+    그 이후 연산은 <a href="/Post/Post01000/00199.html"> 백준 01000번 - A+B </a>, <a href="/Post/Post01000/00202.html"> 백준 01001번 - A-B </a>, <a href="/Post/Post01000/00208.html"> 백준 10998번 - A×B </a> 를 한꺼번에 푼다는 마음을 하시면 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/2ba3f8f512733af7e71e3278df55f4e6.js"></script> <br>
+
+    식 정리를 하셔서 $(A + B) \times (A - B) = A^{2} - B^{2}$임을 이용하여 print(A * A - B * B)로 할 수도 있습니다. <br>
+
+    계산 과정에서 int 범위를 넘을 수 있으니 C, C++ 등에서는 long long을 쓰셔야 합니다. (결과가 음수일 수도 있으니 unsigned는 쓰시면 안됩니다.) <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

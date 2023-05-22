@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 유계 </title>
+    <title> 수학적 귀납법 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,25 +19,25 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 유계 </div>
+    <div id = "postTitle"> 수학적 귀납법 </div>
       
     <hr>
       
     <p>
       
-    다음과 같은 경우를 유계 (Bounded) 라고 합니다. <br>
+    수학적 귀납법은 다음과 같습니다. <br>
       
     <blockquote>
-        집합 $S$의 모든 원소 $s \in S$에 대해 <br>
-
-        1. $s \leq u$인 $u$가 존재하면, 집합 $S$는 <b>위로 유계</b> (Bounded Above) 라고 하고, $u$는 $A$의 상계 (Upper Bound) 라 한다. <br>
-
-        2. $l \leq s$인 $l$가 존재하면, 집합 $S$는 <b>아래로 유계</b> (Bounded Below) 라고 하고, $l$은 $A$의 히계 (Lower Bound) 라 한다. <br>
+        $\mathbb{N}$의 부분집합 $S$가 $1 \in S$이고, 임의의 $n \in S$에 대하여 $n^{+} \in S$이면 ($n + 1 \in S$이면) $\mathbb{N} \subset S$이다. <br>
+        
+        (즉, $S = \mathbb{N}$) <br>
     </blockquote>
 
-    일반적으로 $S$의 원소, $u$, $l$은 <a href="/Post/Post01000/00460.html"> 실수 </a> 집합 $\mathbb{R}$에서 이야기 하는 경우가 많습니다. <br>
+    $\mathbb{N}$은 <a href="/Post/Post01000/00458.html"> 자연수 </a> 집합 표기 입니다. <br>
 
-    상계 (Upper Bound) 와 상한 (Supremum) 은 다른 개념입니다. 상계 중의 최소인 상계를 상한이라 합니다. <br>
+    통상적으로 명제 $P(n)$이 참인 $n$의 집합을 $S$로 잡고, 수학적 귀납법을 사용합니다. <br>
+    
+    명제 $P(n)$이 $1$부터 $k$까지는 성립하지 않고 $k + 1$ 이상에서만 성립하더라도 $Q(n) = P(n + k)$로 평행이동 시키면 $Q(n)$이 성립하는게 자연수 집합 전체임을 알 수 있습니다. <br>
       
     </p>
       

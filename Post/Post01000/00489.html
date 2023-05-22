@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 10807번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 10807번 - 개수 세기 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/10807"> 백준 10807번 문제 링크 </a> <br>
+        문제 이름 : 개수 세기 <br>
+        주 언어 : Python <br>
+        태그 : 구현 <br>
+        solved.ac 등급 : Bronze V (새싹) (2023/05/22 확인)
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        총 N개의 정수가 주어졌을 때, 정수 v가 몇 개인지 구하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 정수의 개수 N(1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 정수가 공백으로 구분되어져있다. 셋째 줄에는 찾으려고 하는 정수 v가 주어진다. 입력으로 주어지는 정수와 v는 -100보다 크거나 같으며, 100보다 작거나 같다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 입력으로 주어진 N개의 정수 중에 v가 몇 개인지 출력한다. <br>
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    파이썬에서는 <a href="/Post/Post01000/00465.html"> 파이썬 count 함수 </a>를 이용하여 특정 리스트의 특정 원소의 개수를 세어줄 수 있습니다. <br>
+
+    <a href="/Post/Post01000/00488.html"> 파이썬 map 함수 </a>를 이용하여 list(map(int, input().split())) 같은 꼴로 두 번째 줄의 입력을 리스트로 만들어 줄 수 있습니다. <br>
+
+    int 함수는 문자열을 정수형으로 변환시키는 함수로, int("123") == 123 같은 꼴입니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/f585e1d4d3194d0b3b23f66007a497cc.js"></script> <br>
+
+    count 함수를 쓰기 싫다면 리스트에서 원소 하나하나씩 if문으로 대조해보면서 v 와 같은 것의 개수를 세는 방법도 있습니다. (맨 처음에 cnt = 0으로 선언 후 L의 어떤 원소가 v와 같을 때마다 cnt += 1) 해주기 <br>
+
+    기본적으로 v가 먼저 입력되는 것이 아니라 L이 먼저 입력 되므로, 파이썬이 아닌 언어에서도 되도록이면 배열을 다루는 법을 알아야 합니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

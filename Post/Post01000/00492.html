@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 코딩 도구 상자 (ToolBox / Snippet) </title>
+    <title> 라플라스 변환 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,26 +19,30 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 코딩 도구 상자 (ToolBox / Snippet) </div>
+    <div id = "postTitle"> 라플라스 변환 </div>
     
     <hr>
       
     <p>
-        
-    소수판별법 (python) <a href="/Post/Post01000/00010.html"> PS에 사용중인 소수판별법 (밀러 라빈 + 프로트) </a> <br>
     
-    <a href="/Post/Post01000/00139.html"> 기초적인 소인수분해 </a> <br>
+    라플라스 변환은 다음과 같은 적분 변환 $\mathscr{L}$을 일컫는 말입니다. <br>
+      
+    <blockquote>
+        $$
+        \mathscr{L}(f(t)) = \int_{0}^{\infty} e^{-st} f(t) \, dt = F(s)
+        $$
+    </blockquote>
 
-    <a href="/Post/Post01000/00138.html"> 오일러 토션트 함수 </a> <br>
+    $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
 
-    약수의 개수 (<a href="/Post/Post01000/00162.html"> 약수의 개수 함수 </a>) <br>
+    이렇게 되면 $f$의 라플라스 변환이 $F$라고 할 수 있습니다. <br>
 
-    약수의 합 (<a href="/Post/Post01000/00161.html"> 약수의 합 함수 </a>) <br>
+    여러가지 함수들의 라플라스 변환 결과를 모아둔 <a href="/Post/Post01000/00031.html"> 라플라스 변환-역변환 표 </a> 가 있습니다. <br>
 
-    에라토스테네스의 체 <a href="/Post/Post01000/00105.html"> 에라토스테네스의 체 </a> <br>
-        
+    비슷한 적분 변환등으로는 멜린 변환 등이 존재합니다. <br>
+      
     </p>
-
+      
     </section>
     <aside>
         <script type="text/javascript" src="/asideWrite.js"></script>
