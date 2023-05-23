@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 10569번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 10569번 - 다면체 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/10569"> 백준 10569번 문제 링크 </a> <br>
+        문제 이름 : 다면체 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 기하학 / 사칙연산 / 오일러 지표 (χ=v-e+f) <br>
+        solved.ac 등급 : Bronze III (2023/05/23 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+
+        <p style="text-align: center;"><img alt="" src="https://www.acmicpc.net/upload/images2/poly.png"></p>
+
+        수학자가 구를 깎아서 볼록다면체를 만들었다. 이 수학자는 임의의 볼록다면체에 대해 (꼭짓점의 수) - (모서리의 수) + (면의 수) = 2가 성립한다는 것을 알고 있다. 그래서 구를 깎는 게 취미인 이 사람은 꼭짓점, 모서리와 면의 수를 기록할 때 꼭짓점과 모서리의 수만 세고 면의 수는 세지 않는다. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 번째 줄에 1 이상 100 이하의 자연수 T가 주어진다. <br>
+        
+        다음 T개의 줄에 4 이상 100 이하의 자연수 V와 E가 공백을 사이에 두고 주어진다. V와 E는 각각 꼭짓점의 개수와 모서리의 개수이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        각 V와 E에 대해 볼록다면체의 면의 수를 한 줄에 하나씩 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    면의 수를 F라 하면, V - E + F = 2가 성립하는데, F를 출력해야 하므로 식을 잘 이항해주면 F = 2 - V + E 가 됩니다. <br>
+
+    for문으로 T번동안 2 - V + E를 계산해서 출력해주면 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/8e5d31ecc3d85a1c5bc09646907ed000.js"></script> <br>
+
+    두 정수의 입력은 가볍게 <a href="/Post/Post01000/00488.html"> 파이썬 map 함수 </a> 를 이용해줄 수 있습니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
