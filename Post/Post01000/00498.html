@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 백준 15733번 해설 </title>
+    <title> 백준 16170번 해설 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,18 +19,18 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 백준 15733번 - 나는 누구인가 </div>
+    <div id = "postTitle"> 백준 16170번 - 오늘의 날짜는? </div>
     
     <hr>
       
     <p>
       
     <blockquote>
-        <a href="https://www.acmicpc.net/problem/15733"> 백준 15733번 문제 링크 </a> <br>
-        문제 이름 : 나는 누구인가 <br>
+        <a href="https://www.acmicpc.net/problem/16170"> 백준 16170번 문제 링크 </a> <br>
+        문제 이름 : 오늘의 날짜는? <br>
         주 언어 : Text <br>
         태그 : 구현 <br>
-        solved.ac 등급 : Bronze V (2022/11/22 확인) <br>
+        solved.ac 등급 : Bronze V (2023/05/24 확인) <br>
     </blockquote>
       
     </p>
@@ -45,15 +45,21 @@
         
         <h4> 문제 : </h4>
         
-        당신은 지금 코딩을 하고있다. 그럼 당신은 어떤 사람인가. <br>
+        2018 SCAL-MOOKJA에 출전하기로 한 무근이와 인서는 대회 준비를 위해 같이 모여 문제를 풀기로 했다. <br>
+        
+        그런데 어느 날, 일어나서 날짜를 확인해 보니 무근이와 인서의 시계가 서로 다른 날짜를 가리키고 있었다. 두 사람이 정확한 날짜에 모일 수 있도록 문제를 푸는 지금 시각이 UTC+0(세계 표준시)을 기준으로 무슨 날짜인지 출력해 주는 프로그램을 작성하자. <br>
+        
+        만약 서울에서 확인한 시각이 2018년 9월 29일 오후 2시 정각이라면 UTC+0 기준의 시각은 2018년 9월 29일 오전 5시 정각이다. <br>
+        
+        Fri Sep 29 05:00:00 UTC 2018 <br>
         
         <h4> 입력 : </h4>
         
-        입력은 없다. <br>
+        이 문제는 입력이 없다. <br>
         
         <h4> 출력 : </h4>
         
-        “I'm Sexy”를 출력한다. <br> 
+        지금 시각을 UTC+0(세계 표준시)을 기준으로 나타냈을 때의 연도, 월, 일을 한 줄에 하나씩 순서대로 출력한다. <br> 
     
         </p>
     
@@ -65,11 +71,19 @@
         
     <p>
         
-    언어 Text로 I'm Sexy 를 제출합니다. <br>
+    <a href="/Post/Post01000/00486.html"> 백준 10699번 - 오늘 날짜 </a> 처럼 갑자기 무슨 북한마냥 시간대를 바꿔서 뭔가 꼬이지 않는 이상 쉽게 풀 수 있습니다. <br>
 
-    <script src="https://gist.github.com/II-eugene-II/3904c8c1d1b790d7f93e581804577f00.js"></script> <br>
+    세계 표준시를 기준으로 연, 월, 일을 출력합니다. 예를 들어, 서울에서의 날짜가 2023년 05월 24일 오전 8시라면 세계 표준시는 2023년 05월 23일 오후 11시 같은 식입니다. <br>
+    
+    한국에 있다는 가정 하에 오전 9시가 지났다면 컴퓨터 우하단이나 휴대폰 상단에 있는 오늘 날짜를 그대로 언어 Text로 제출 할 수 있습니다. <br>
 
-    사실 타자만 타닥타닥 치고 있는 그런 모습이라면 영 섹시하지는 않을 듯 합니다. <br>
+    오전 9시가 지나지 않았다면 전날의 날짜를 출력해주면 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/3cbe89f68684ea57ee7ae3774fac65c2.js"></script> <br>
+
+    세계 시간대가 요즘은 잘 뜨기 때문에 외국에 나가있더라도 크게 문제 될 것은 없습니다. <br>
+
+    파이썬에서는 datetime 모듈로 오늘 시간을 알 수 있습니다. <br>
         
     </p>
         

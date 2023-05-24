@@ -83,11 +83,11 @@
 
     라는 공식을 발견했습니다. <br>
 
-    $\left\{{p\atop k}\right\}$은 제 2종 스털링 수이고, $(n + 1)_{k + 1}$은 $(n + 1)$부터 $(n - k + 1)$까지 연속된 $k + 1$개의 정수의 곱(하강계승)입니다. <br>
+    $\left\{{p\atop k}\right\}$은 제 2종 스털링 수이고, $(n + 1)_{k + 1}$은 $(n + 1)$부터 $(n - k + 1)$까지 연속된 $k + 1$개의 정수의 곱 (<a href="/Post/Post01000/00366.html"> 하강계승 </a>) 입니다. <br>
 
     제 2종 스털링수는 $\left\{{n+1\atop k}\right\} = k \left\{{ n \atop k }\right\} + \left\{{n\atop k-1}\right\}$, $\left\{{ 0 \atop 0 }\right\} = 1$, $\left\{{ n \atop 0 }\right\} = \left\{{ 0 \atop n }\right\} = 0$, $\left\{{ n \atop n }\right\} = \left\{{ n \atop 1 }\right\} = 1$이라는 재귀공식으로 제 2종 스털링 수의 dp를 만들 수 있습니다. <br>
 
-    $\left\{{p\atop k}\right\}{(n + 1)_{k + 1}}$가 정수이고, 거기에 $k + 1$의 $10^9 + 7$인 모듈러 역수인 ${(k + 1)}^{10^{9} + 5} \pmod{10^{9} + 7}$을 곱해주는 형식으로 <br>
+    $\left\{{p\atop k}\right\}{(n + 1)_{k + 1}}$가 정수이고, 거기에 <a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a> 에 따른 $k + 1$의 mod $10^9 + 7$ <a href="/Post/Post01000/00448.html"> 모듈러 곱셈 역원 </a>인 ${(k + 1)}^{10^{9} + 5} \pmod{10^{9} + 7}$을 곱해주는 형식으로 <br>
 
     $$ \sum_{k=0}^p \left\{{p\atop k}\right\}{(n + 1)_{k + 1}}{(k + 1)}^{10^{9} + 5} \mod\left(10^9+7\right) $$
 
