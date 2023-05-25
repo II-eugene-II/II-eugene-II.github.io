@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 22193번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 22193번 - Multiply </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/22193"> 백준 22193번 문제 링크 </a> <br>
+        문제 이름 : Multiply <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 / 임의 정밀도 & 큰 수 연산 <br>
+        solved.ac 등급 : Bronze V (2023/05/25 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+        
+        <h4> 문제 : </h4>
+        
+        Write a program that computes a product of two non-negative integers A and B. The integers are represented in decimal notation and have N and M digits, respectively. <br>
+
+        (축약 & 번역) A와 B가 주어지는데, A와 B의 곱을 구하세요. <br>
+        
+        <h4> 입력 : </h4>
+        
+        The first line contains the lengths N and M, separated by a space. A is given on the second and B on the third line. The numbers will not have leading zeros. <br>
+
+        (축약 & 번역) 첫 줄에는 A의 길이와 B의 길이, 두 번째 줄에는 A, 세 번째 줄에는 B가 주어집니다. A, B의 길이는 최대 50000입니다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        Output the product of A and B without leading zeros. <br> 
+
+        (축약 & 번역) A와 B의 곱을 구하세요. <br>
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    (해당 글은 파이썬으로 풀 경우를 상정한 경우입니다. C나 C++ 계열인 경우 풀이가 아득해집니다.) <br>
+
+    <a href="/Post/Post01000/00350.html"> 백준 13277번 - 큰 수 곱셈 </a> 처럼 풀 수 있습니다. <br>
+
+    파이썬에서 int 형의 길이는 그닥 중요하지 않으니 첫 줄은 무시하고, 두 번째 줄의 A와 세 번째 줄의 B를 곱해줍니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/f1d5461bc588002a55515f896d41af47.js"></script> <br>
+
+    그냥 input() 이라고만 쓰면 첫 줄의 A의 길이와 B의 길이는 입력되어서 사라집니다. <br>
+
+    C, C++ 같은 BigInt가 안되는 언어들은...그런 언어에서는 이 문제는 브론즈 문제가 아닙니다. <br>
+
+    15576번, 22289번 같은 문제들이 그런 언어들로 두 수를 곱하는 문제인데, 다른걸 아무것도 안하는데 오직 곱셈만으로 <b>플레티넘 I</b> 이라는 난이도입니다. <br>
+
+    궁금하신 분들은 FFT 곱셈 같은 키워드를 검색해보시기 바랍니다. <br>
+
+    이 문제는 30만이나 100만까지의 길이는 가지 않고 5만에서 멈추니 카라추바 곱셈으로도 가능할 수 있습니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

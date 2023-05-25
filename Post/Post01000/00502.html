@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 완전 미분방정식 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 완전 미분방정식 </div>
+    
+    <hr>
+      
+    <p>
+      
+    완전 미분방정식 (Exact Differential Equation) 은 다음과 같은 미분방정식입니다. <br>
+      
+    <blockquote>
+        $M(x, y) dx + N(x, y) dy$가 어떤 함수 $f(x, y)$의 미분이면, 
+        $$
+        M(x, y) dx + N(x, y) dy = 0
+        $$
+        을 <b>완전 미분방정식</b> 이라 하고, $M(x, y) dx + N(x, y) dy$는 <b>완전 미분</b> (Exact Differential)이라 한다. <br>
+    </blockquote>
+
+    꼭 같이 따라다니는 개념으로, 완전 미분인지를 판별하는 것이 있습니다. <br>
+      
+    <blockquote>
+        $M(x, y) dx + N(x, y) dy$이 완전 미분이면
+        $$
+        \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+        $$
+        가 성립한다. (역도 성립한다. 즉, 필요충분조건이다.) <br>
+    </blockquote>
+
+    복잡하게 써놓았지만 함수 $M$을 $y$에 대해 미분하고 함수 $N$을 $x$에 대해 미분한 것이 동일하다면 $M(x, y) dx + N(x, y) dy$가 완전 미분이라는 뜻입니다. <br>
+
+    완전 미분인지 판단 되면, 함수 $f$를 $x$에 대해 미분한 것이 $M(x, y)$이므로, $M$을 $x$에 대해 적분하고 적당한 함수 $g(y)$를 더해줘서 $f$를 $y$에 대해 미분한 것이 $N$이 되게끔 해줍니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

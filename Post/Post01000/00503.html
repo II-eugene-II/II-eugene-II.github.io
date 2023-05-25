@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 베르누이 미분방정식 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 베르누이 미분방정식 </div>
+    
+    <hr>
+      
+    <p>
+      
+    베르누이 미분방정식 (Bernoulli Differential Equation) 은 다음과 같은 미분방정식입니다. <br>
+      
+    <blockquote>
+        $$
+        \frac{dy}{dx} + p(x) y = q(x) y^{n}
+        $$
+    </blockquote>
+
+    $n$은 $0$, $1$이 아닌 임의의 <a href="/Post/Post01000/00460.html"> 실수 </a> 입니다. <br>
+
+    사실 $0$, $1$이어도 되는데, $n = 0$이면 $\frac{dy}{dx} + p(x) y = q(x)$ 여서 <a href="/Post/Post01000/00443.html"> 1계 선형 비제차 미분방정식 </a>이 되고, $n = 1$이면 $\frac{dy}{dx} + p(x) y = q(x) y$ 에서 $\frac{dy}{dx} + (p(x) - q(x)) y = 0$ 에서 $f(x) = p(x) - q(x)$로 치환하면 <a href="/Post/Post01000/00442.html"> 1계 선형 제차 미분방정식 </a>가 되어 쉽게 풀 수 있습니다. <br>
+
+    $n$이 $0$, $1$이 아니면 $u = y^{1 - n}$으로 치환해서 풀 수 있습니다. <br>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
