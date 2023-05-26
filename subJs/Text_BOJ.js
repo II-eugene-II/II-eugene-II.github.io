@@ -21,6 +21,7 @@ document.write(`
 <a href="/Post/Post01000/00498.html"> 백준 16170번 - 오늘의 날짜는? </a> <br>
 <a href="/Post/Post01000/00222.html"> 백준 17295번 - 엔드게임 스포일러 </a> <br>
 <a href="/Post/Post01000/00506.html"> 백준 20094번 - Sudoku 1 </a> <br>
+<a href="/Post/Post01000/00511.html"> 백준 22221번 - Table 1 </a> <br>
 <a href="/Post/Post01000/00233.html"> 백준 23234번 - The World Responds </a> <br>
 <a href="/Post/Post01000/00234.html"> 백준 24900번 - 한별 찍기 </a> <br>
 <a href="/Post/Post01000/00349.html"> 백준 25311번 - UCPC에서 가장 쉬운 문제 번호는? </a> <br>

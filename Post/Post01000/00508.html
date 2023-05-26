@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="UTF-8">
-    <title> 파이썬 ord 함수 </title>
+    <title> 파이썬 chr 함수 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google tag (gtag.js) -->
@@ -19,33 +19,27 @@
     </div>
     <section>
     
-    <div id = "postTitle"> 파이썬 ord 함수 </div>
+    <div id = "postTitle"> 파이썬 chr 함수 </div>
     
     <hr>
       
     <p>
       
-    파이썬 ord 함수는 파이썬의 기본 내장함수로, 하나의 문자가 주어지면 그 문자에 해당하는 유니코드(UTF-8) 값 (정수) 를 return 합니다. <br>
+    파이썬 chr 함수는 파이썬의 기본 내장함수로, 하나의 정수가 주어지면 그 유니코드 값에 해당하는 문자열을 return 합니다. <br>
     
-    <br> <script src="https://gist.github.com/II-eugene-II/e94022f5c444f39fbdd7fdbb22516beb.js"></script>
+    <br> <script src="https://gist.github.com/II-eugene-II/20e79ae2afce5cc3d27b522cce6332a8.js"></script>
 
     아스키 코드 값에서 A가 65, B가 66, C가 67... a는 97, b는 98, c는 99...같이 나가기 때문에 위와 같은 결과가 나오게 됩니다. <br>
 
     한글도 유니코드에 들어있기 때문에 다음과 같은 결과값이 나옵니다. <br>
 
-    <br> <script src="https://gist.github.com/II-eugene-II/376785c276957064331b2a2094e54f5c.js"></script>
+    <br> <script src="https://gist.github.com/II-eugene-II/0446df9570990489e3e38dbf5a2a4e12.js"></script>
 
-    한자도 유니코드에 들어가 있습니다. <br>
+    32번이 공백이고, 0번부터 31번까지는 컴퓨터용 특수 문자이기 때문에 딱히 0부터 31 사이의 수를 chr 함수에 넣으셔도 재미는 없을 수 있습니다. <br>
 
-    <br> <script src="https://gist.github.com/II-eugene-II/df1febed78f70e2c62a7530b50562e86.js"></script>
+    유니코드에 할당된 문자의 수가 총 1117111개 ($16^5 + 16^4 - 1$) 이기 때문에, 1117112 이상의 수를 넣어도 에러가 납니다. 중간중간에 아직 할당되지 않은 빈칸들도 있기때문에 0부터 1117111 사이의 수를 넣어도 에러가 날 수 있습니다. <br>
 
-    이 외에도 키보드로 칠 수 있는 어지간한 특수문자 또한 다 있다고 생각하시면 됩니다. <br>
-
-    <br> <script src="https://gist.github.com/II-eugene-II/cf1da11d8bc7bf92200b090a8d434eae.js"></script>
-
-    눈에 보이는건 두 글자지만 실제로는 줄바꿈 명령어 한 글자이므로 ord("\n") == 10 입니다. <br>
-
-    <a href="/Post/Post01000/00508.html"> 파이썬 chr 함수 </a> 와 ord 함수는 일종의 역함수 관계입니다. <br>
+    <a href="/Post/Post01000/00380.html"> 파이썬 ord 함수 </a>와 chr 함수는 일종의 역함수 관계라고 할 수 있습니다. <br>
       
     </p>
       
