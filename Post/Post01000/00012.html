@@ -40,7 +40,7 @@
     이 정리만 해도 꽤나 강력한데, 여기서 더 발전 시킬 수 있습니다.
       
     <blockquote>
-        $d$가 3의 배수가 아닌 프로트 수 $N = d \times 2^{s} + 1$에 대하여,
+        $d$가 3의 배수가 아닌 $3$보다 큰 프로트 수 $N = d \times 2^{s} + 1$에 대하여,
         $$
         3^{\frac{N - 1}{2}} \equiv -1 \pmod{N}
         $$
@@ -57,17 +57,51 @@
         이면 $N$은 소수이고, 그 외의 경우는 합성수이다.
     </blockquote>
 
-    <details><summary> <del> 발전된 프로트의 정리 증명 </del> </summary>
+    <details><summary> 발전된 프로트의 정리 증명 </summary>
     
         <p>
 
-            3과 이차잉여의 관계 / 프로트의 정리를 참으로 받아들이고 합치기
+            $3$보다 큰 $N$이 소수이면 <a href="/Post/Post01000/00055.html"> 르장드르 기호 </a> $\left(\frac{3}{N}\right)$에 대해 <a href="/Post/Post01000/00310.html"> 오일러의 규준 </a>에 의해 $\left(\frac{3}{N}\right) \equiv 3^{\frac{N - 1}{2}} \pmod{N}$ 이다. <br>
+
+            <a href="/Post/Post01000/00299.html"> 이차 상호 법칙 </a>에 의해 $\left( \frac{3}{N} \right) \left( \frac{N}{3} \right) = (-1)^{\frac{(3 - 1) (N - 1)}{4}}$ 인데, $(-1)^{\frac{N - 1}{2}}$ 값을 계산하면 된다. <br>
+
+            <details><summary> 식 계산 </summary>
+            
+                <p>
+        
+                    $N = d \times 2^{s} + 1$에서, $(-1)^{\frac{N - 1}{2}} = (-1)^{\frac{d \times 2^{s}}{2}}$ 이다. <br>
+
+                    $d$가 홀수이고, 프로트 수의 정의에 의해서 $d < 2^{s}$이므로, $s = 1$인 프로트 수는 오직 $1 \times 2^{1} + 1 = 3$이다. 애초에 이차 상호법칙은 서로 다른 두 소수에 대해서만 성립하므로 이 부분은 무시할 수 있다. <br>
+
+                    $3$이 아닌 프로트 수는 모두 $s \geq 2$이므로, $(-1)^{\frac{d \times 2^{s}}{2}}$에서 $(-1)^{d \times 2^{s - 1}}$이고, $1 = (-1)^{2}$에서 $(-1)^{d \times 2^{s - 1}} = 1^{d \times 2^{s - 2}}$이다. <br>
+
+                    $s \geq 2$에서 $d \times 2^{s - 2}$는 정수이므로, $(-1)^{\frac{N - 1}{2}}$ 값은 $1$이 된다. <br>
+                        
+                </p>
+            
+            </details> <!-- 식 계산 -->
+
+            $(-1)^{\frac{N - 1}{2}} = 1$에서, $\left( \frac{3}{N} \right) = \left( \frac{N}{3} \right)$이다. <br>
+
+            이때, $d$가 $3$의 배수가 아니라는 전제조건에 유의하면서, $d \times 2^{s}$가 $3$의 배수이려면 $2^{s}$가 $3$의 배수여야하는데 당연히 불가능하다. <br>
+
+            따라서 $d \times 2^{s}$는 $3$의 배수가 될 수 없고, $d \times 2^{s} \not\equiv 0 \pmod{3}$에서 $N = d \times 2^{s} + 1 \not\equiv 1 \pmod{3}$이다. <br>
+
+            또, $N$은 $3$보다 큰 소수라고 했으니 $3$의 배수일 수 없으므로, $N = d \times 2^{s} + 1 \not\equiv 0 \pmod{3}$이고, 따라서 $N \pmod{3}$ 로 가능한 것은 $2 \pmod{3}$ 뿐이다. <br>
+
+            따라서, $\left( \frac{N}{3} \right) =  \left( \frac{2}{3} \right)$이고, $\left( \frac{2}{3} \right) = -1$이다. <br> <br>
+
+            오일러의 규준에 의해 $-1 = \left( \frac{2}{3} \right) = \left(\frac{3}{N}\right) \equiv 3^{\frac{N - 1}{2}} \pmod{N}$ 이므로, "$d$가 $3$의 배수가 아닌 $3$보다 큰 프로트 수 $N$이 소수이면 -> $3^{\frac{N - 1}{2}} \equiv -1 \pmod{N}$" 이다. <br> <br>
+
+            "$d$가 $3$의 배수가 아닌 $3$보다 큰 프로트 수 $N$이 합성수인데 -> $3^{\frac{N - 1}{2}} \equiv -1 \pmod{N}$"이다 라는 문장은 불가능하다. <a href="/Post/Post01000/00011.html"> 프로트의 정리 </a> 에 의해 $a^{\frac{N - 1}{2}} \equiv -1 \pmod{N}$ 인 $a$가 존재하면 무조건 소수이기 때문이다. <br>
                 
         </p>
     
     </details> <!-- 발전된 프로트의 정리 증명 -->
+
+    $d$가 5의 배수가 아닌 경우로 확장된 경우에도 비슷하게 증명할 수 있습니다. $N \equiv 4 \pmod{5}$일 때도 비슷하게 할 수 있으나 계산해봐야 할 $a$의 값이 굉장히 복잡해집니다. <br>
       
-    <a href="/Post/Post01000/00054.html"> 이차잉여 </a>와 오일러의 규준, 가우스의 <a href="/Post/Post01000/00299.html"> 이차 상호 법칙 </a>에 의해 이를 증명할 수 있습니다. <a href="/Post/Post01000/00056.html"> 페펭 소수판별법 </a>이 이를 이용합니다. <br>
+    <a href="/Post/Post01000/00054.html"> 이차잉여 </a>와 오일러의 규준, 가우스의 <a href="/Post/Post01000/00299.html"> 이차 상호 법칙 </a>에 의해 이를 증명할 수 있습니다. <a href="/Post/Post01000/00348.html"> 페르마 수 </a> 를 소수 판별하는 <a href="/Post/Post01000/00056.html"> 페펭 소수판별법 </a>이 이를 이용합니다. <br>
 
     홀수 $s$가 <a href="/Post/Post01000/00175.html"> 시에르핀스키 수 </a> 인지 판정할 때도 사용할 수 있습니다. <br>
       
