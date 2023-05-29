@@ -41,17 +41,17 @@
     
         <p>
             
-            $n$의 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 값 $n!$은 <a href="/Post/Post01000/00113.html"> $p$진 값매김 </a> $\nu_p (n)$를 이용하여 <br>
+            $n$의 <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 값 $n!$은 <a href="/Post/Post01000/00113.html"> $p$진 값매김 </a> $\nu_{p} (n)$를 이용하여 <br>
 
-            $$ n! = \prod_{p \leq n} p^{\nu_p (n!)} $$ <br>
+            $$ n! = \prod_{p \leq n} p^{\nu_{p} (n!)} $$ <br>
 
             로 표기할 수 있다. 양 변에 자연로그를 씌우면 <br>
             
-            $$ \ln{n!} = \sum_{p \leq n} \nu_p (n!) \ln{p} $$ <br>
+            $$ \ln{n!} = \sum_{p \leq n} \nu_{p} (n!) \ln{p} $$ <br>
 
-            이다. 이때, <a href="/Post/Post01000/00114.html"> 르장드르 공식 </a>에 의해 $\frac{n}{p}-1 \leq \nu_p (n!) \leq \frac{n}{p - 1}$ 이므로
+            이다. 이때, <a href="/Post/Post01000/00114.html"> 르장드르 공식 </a>에 의해 $\frac{n}{p} - 1 \leq \nu_{p} (n!) \leq \frac{n}{p - 1}$ 이므로
             
-            $$ \sum_{p \leq n} \ln{p} \left( \frac{n}{p} - 1 \right) \leq \ln{n!} = \sum_{p \leq n} \nu_p (n) \ln{p} \leq \sum_{p \leq n} \frac{n}{p-1} \ln{p} $$ <br>
+            $$ \sum_{p \leq n} \ln{p} \left( \frac{n}{p} - 1 \right) \leq \ln{n!} = \sum_{p \leq n} \nu_{p} (n) \ln{p} \leq \sum_{p \leq n} \frac{n}{p-1} \ln{p} $$ <br>
 
             임을 알 수 있다. <br>
 
@@ -63,11 +63,11 @@
                     
                     이때, <a href="/Post/Post01000/00096.html"> 제 1종 체비셰프 함수 </a> $\vartheta(x)$에 대하여 $\sum_{p \leq n} \ln{p} = \vartheta(n)$이고, $e^{\vartheta(n)} < 4^{n}$에서 $\vartheta(n) < 2n \ln{2}$이므로 <br>
                     
-                    $$ n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2\ln2)n < n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - \sum_{p \leq n} \ln{p} \leq \ln{n!} $$ <br>
+                    $$ n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2 \ln2)n < n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - \sum_{p \leq n} \ln{p} \leq \ln{n!} $$ <br>
                     
-                    이다. $n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2\ln2)n < \ln{n!}$의 양 변을 $n$으로 나누면 <br>
+                    이다. $n \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2 \ln2)n < \ln{n!}$의 양 변을 $n$으로 나누면 <br>
             
-                    $$ \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2\ln2) < \frac{\ln{n!}}{n} $$ <br>
+                    $$ \sum_{p \leq n} \left( \frac{\ln{p}}{p} \right) - (2 \ln2) < \frac{\ln{n!}}{n} $$ <br>
 
                     이 된다. 이때, $\ln{n!} = \sum^{n}_{k = 1} \ln{k} < \int^{n + 1}_{1} \ln{x} dx$ (좌표평면에 그려보면 알 수 있습니다.) 이므로, 로그함수의 적분에서 $\int^{n + 1}_{1} \ln{x} dx = (n + 1) (\ln{(n + 1)} - 1) + 1$이다. <br>
 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 03135번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 03135번 - 라디오 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/03135"> 백준 03135번 문제 링크 </a> <br>
+        문제 이름 : 라디오 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 그리디 알고리즘 <br>
+        solved.ac 등급 : Silven V (2023/05/29 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        준하는 라디오 수집광으로 신제품의 라디오가 나올때마다 흥분을 금치 못한다고 한다. <br>
+        
+        최근 준하가 구입한 라디오는 매우 하이테크 한데, 그 라디오에는 다음과 같은 버튼이 있다. <br>
+        
+        - 첫 번째 버튼은 주파수를 1MHz 증가시킨다. <br>
+        
+        - 두 번째 버튼은 주파수를 1MHz 감소시킨다. <br>
+        
+        - 나머지 N개의 버튼은 즐겨찾기 기능으로, 미리 지정된 주파수로 이동한다. <br>
+        
+        준하는 몸이 안좋아 하루에 손가락을 몇 번 움직이지 못하기 때문에 우리의 도움이 필요하다. <br>
+        
+        현재 주파수 A와 듣고싶은 주파수 B가 주어질 때, <br>
+        
+        주파수 A에서 B로 갈 때 눌러야 하는 가장 적은 버튼수를 구해주자. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫 줄엔 정수 A와 B가 주어진다 (1 ≤ A, B < 1000, A ≠ B). <br>
+        
+        다음 줄엔 정수 N이 주어진다 (1 ≤ N ≤ 5). <br>
+        
+        다음 N개의 줄엔 미리 지정되어 있는 주파수가 주어진다 (주파수는 1000 보다 작다). <br>
+        
+        <h4> 출력 : </h4>
+        
+        주파수 A에서 B로 갈 때 눌러야 하는 버튼수의 최솟값을 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    1번, 2번 버튼만 있다고 치면 주파수 X에서 주파수 Y로 가려면, 최소 $|X - Y|$번의 주파수 조작이 있어야 합니다. ($|x|$는 <a href="/Post/Post01000/00388.html"> 절댓값 함수 </a>) <br>
+
+    따라서 다음과 같은 경우의 수가 있습니다. <br>
+
+    1. 1번 버튼이나 2번 버튼만을 이용해 주파수 A에서 B로 간다 -> 답은 $|A - B|$ <br>
+
+    2. 주파수 A에서 미리 즐겨찾기 되어있는 주파수 C로 가서 B로 간다 -> 답은 $1 + |C - B|$ (즐겨찾기 버튼을 누르는 그 1번까지 계산) <br>
+    
+    따라서 두 가지 경우의 수 중에서 가장 짧은 것을 출력해주면 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/c7388e99a30eed997ef038d79f54a139.js"></script> <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

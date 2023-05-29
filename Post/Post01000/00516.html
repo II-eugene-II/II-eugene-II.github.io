@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 03059번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 03059번 - 등장하지 않는 문자의 합 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/03059"> 백준 03059번 문제 링크 </a> <br>
+        문제 이름 : 등장하지 않는 문자의 합 <br>
+        주 언어 : Python <br>
+        태그 : 구현 / 문자열 <br>
+        solved.ac 등급 : Bronze III (2023/05/29 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        알파벳 대문자로 구성되어있는 문자열 S가 주어졌을 때, S에 등장하지 않는 알파벳 대문자의 아스키 코드 값의 합을 구하는 프로그램을 작성하시오. <br>
+        
+        문자열 S가 “ABCDEFGHIJKLMNOPQRSTUVW” 일 때, S에 등장하지 않는 알파벳 대문자는 X, Y, Z이다. X의 아스키 코드 값은 88, Y는 89, Z는 90이므로 이 아스키 코드 값의 합은 267이다. <br>
+        
+        알파벳 대문자의 아스키 코드 값은 다음과 같다. <br>
+
+        (문제 본문 표 참고) / (A:65, B:66, ... Y:89, Z:90) <br>
+        
+        <h4> 입력 : </h4>
+        
+        입력은 T개의 테스트 데이터로 구성된다. 입력의 첫 번째 줄에는 입력 데이터의 수를 나타내는 정수 T가 주어진다. 각 테스트 데이터는 한 줄로 구성되어 있고, 문자열 S가 주어진다. S는 알파벳 대문자로만 구성되어 있고, 최대 1000글자이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        각 테스트 데이터에 대해, 입력으로 주어진 문자열 S에 등장하지 않는 알파벳 대문자의 아스키 코드 값의 합을 한 줄에 하나씩 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+        
+    파이썬에서 아스키코드를 건드리는 방법은 <a href="/Post/Post01000/00380.html"> 파이썬 ord 함수 </a> 를 써서 ord("A") == 65 같이 쓰는 방법이 있습니다. <br>
+
+    ABCDE...에서 하나하나 뽑아서 문자열 S에 해당 알파벳이 없으면 알파벳의 아스키코드를 계속 더해줍니다. <br>
+
+    문자열 S에 "A" 가 있는지 따져보려면 if "A" not in S: ... 같이 쓸 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/555872c5a7df8a1c5d9051f761bda112.js"></script> <br>
+
+    for문 부분에는 range(n, m, k)만 들어올 수 있는 것이 아니라 문자열이나 리스트도 들어올 수 있습니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 03062번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 03062번 - 수 뒤집기 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/03062"> 백준 03062번 문제 링크 </a> <br>
+        문제 이름 : 수 뒤집기 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 구현 / 문자열 / 사칙연산 <br>
+        solved.ac 등급 : Bronze II (2023/05/29 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+        
+        수 124를 뒤집으면 421이 되고 이 두 수를 합하면 545가 된다. 124와 같이 원래 수와 뒤집은 수를 합한 수가 좌우 대칭이 되는지 테스트 하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        입력의 첫 줄에는 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄에 하나의 정수 N(10 ≤ N ≤ 100000)이 주어진다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        각 테스트 케이스에 대해서 원래 수와 뒤집은 수를 합한 수가 좌우 대칭이 되면 YES를 아니면 NO를 한 줄에 하나씩 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    우선 수 X가 있으면 그 수를 뒤집은 수를 만들어야합니다. <br>
+
+    문자열 상태로 들어오므로, X = input()으로 아직 정수로 만들지는 않은 상태로, 문자열 슬라이싱을 이용해서 SUM = int(X) + int(X[::-1]) 같이 쓰면 X와 X을 뒤집은 수의 합을 구할 수 있습니다. <br>
+
+    SUM이 뒤집어도 똑같은지 확인하기 위해서 다시 문자열로 바꿔줘야 합니다. (물론 정수상태로도 확인할 수 있기는 하지만 조금 더 복잡합니다.) 따라서 S = str(SUM)으로 둡니다. <br>
+
+    이제 다시 문자열 슬라이싱을 이용해 S == S[::-1]이라면 YES, 아니면 NO를 출력해줍니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/4cf46b5b6f6e377ffca2da33a6ebf8b7.js"></script> <br>
+
+    range() 함수처럼 S[::-1]을 하면 맨 뒤에서부터 역순으로 쓴 문자열이 됩니다. <br>
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

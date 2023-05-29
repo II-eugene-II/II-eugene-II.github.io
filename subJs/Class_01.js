@@ -257,7 +257,7 @@ document.write(`
     <td class = "tdPost"> 숫자의 합 </td>
     <td class = "tdPost" style="background-color:rgb(165, 79, 0, 0.2); color: rgb(165, 79, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/2.svg" alt="Bronze IV"> Bronze IV </td>
     <td class = "tdPost"> ★★★ </td>
-    <td class = "tdPost"> - </td>
+    <td class = "tdPost"> <a href="/Post/Post01000/00520.html"> 숫자의 합 해설 </a> </td>
 </tr>
 </table>
 `)

@@ -28,7 +28,11 @@
     유클리드 호제법 (유클리드 알고리즘 / Euclidean Algorithm) 은 다음과 같습니다. <br>
       
     <blockquote>
-        두 양의 <a href="/Post/Post01000/00459.html"> 정수 </a> $a$, $b$ ($a \geq b$), $a = bq + r$ ($0 \leq r < b$)인 정수 $q$, $r$에 대하여 $$ \gcd(a, b) = \gcd(b, r) $$ 이다. ($\gcd(b, 0) = b$)
+        두 양의 <a href="/Post/Post01000/00459.html"> 정수 </a> $a$, $b$ ($a \geq b$), $a = bq + r$ ($0 \leq r < b$)인 정수 $q$, $r$에 대하여
+        $$
+        \gcd(a, b) = \gcd(b, r)
+        $$
+        이다. ($\gcd(a, 0) = a$)
     </blockquote>
 
     $\gcd(a, b)$는 <a href="/Post/Post01000/00155.html"> 최대공약수 </a> 입니다. <br>
@@ -39,7 +43,7 @@
     
         <p>
 
-            $g_{1} = \gcd(a, b)$, $g_{2} = \gcd(b, r)$이라 하면, 최대공약수의 성질에 의해 $g_{1} | a$, $g_{1} | b$이다. <br>
+            $g_{1} = \gcd(a, b)$, $g_{2} = \gcd(b, r)$이라 하면, 최대공약수의 성질에 의해 $g_{1} \mid a$, $g_{1} \mid b$이다. <br>
 
             $a = bq + r$에서, $a$도 $g_{1}$의 배수, $bq$도 $g_{1}$의 배수 ($b$가 $g_{1}$의 배수이므로) 이다. 따라서 $r$도 $g_{1}$의 배수이다. (-> $g_{1} | r$) <br>
 
