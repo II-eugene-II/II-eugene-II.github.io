@@ -4,9 +4,9 @@ rand = Math.floor(Math.random() * maxPost) + 1
 
 rand = rand.toString()
 
-document.write(`a<br>s<br>i<br>d<br>e<br>160<br>
-<a href="/index.html"> Main Page </a> <br>
-<a href="https://github.com/II-eugene-II/II-eugene-II.github.io"> Github Repo </a> <br>`);
+document.write(`<br><br>
+<a href="/index.html"> Main Page </a> <br> <br> <br>
+<a href="https://github.com/II-eugene-II/II-eugene-II.github.io"> Github Repo </a> <br> <br> <br>`);
 document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> <br> <br>");
 
 document.write(`<input id="whatPage" placeholder="이동할 페이지 입력"  type="text"> <br>
