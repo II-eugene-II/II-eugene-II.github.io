@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 10039번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 10039번 - 평균 점수 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/10039"> 백준 10039번 문제 링크 </a> <br>
+        문제 이름 : 평균 점수 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 <br>
+        solved.ac 등급 : Bronze IV (2023/05/31 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+
+        상현이가 가르치는 아이폰 앱 개발 수업의 수강생은 원섭, 세희, 상근, 숭, 강수이다. <br>
+        
+        어제 이 수업의 기말고사가 있었고, 상현이는 지금 학생들의 기말고사 시험지를 채점하고 있다. 기말고사 점수가 40점 이상인 학생들은 그 점수 그대로 자신의 성적이 된다. 하지만, 40점 미만인 학생들은 보충학습을 듣는 조건을 수락하면 40점을 받게 된다. 보충학습은 거부할 수 없기 때문에, 40점 미만인 학생들은 항상 40점을 받게 된다. <br>
+        
+        학생 5명의 점수가 주어졌을 때, 평균 점수를 구하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        입력은 총 5줄로 이루어져 있고, 원섭이의 점수, 세희의 점수, 상근이의 점수, 숭이의 점수, 강수의 점수가 순서대로 주어진다. <br>
+        
+        점수는 모두 0점 이상, 100점 이하인 5의 배수이다. 따라서, 평균 점수는 항상 정수이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 학생 5명의 평균 점수를 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    점수가 $X$라 하면, $X \leq 40$이면 $40$점이 "진짜 점수"가 되고, $X > 40$이면 $X$점이 "진짜 점수"가 됩니다. <br> 
+        
+    max() 함수를 이용하여 max(X, 40)이라 할 수 있고, 이는 애초에 score = max(int(input()), 40) 같은 식으로 입력을 받아주면 가능합니다. <br>
+
+    모든 점수의 합을 구하고 5로 나눠주면 되므로, 5번 max(int(input()), 40)을 더해주면 됩니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/6381916e28c54c3220890aadadb17d22.js"></script> <br>
+
+    리스트 컨프리헨션과 <a href="/Post/Post01000/00415.html"> 파이썬 sum 함수 </a> 를 이용하면 print(sum([max(int(input()), 40) for _ in range(5)])) 로 한 줄로 풀 수도 있습니다. <br>
+        
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
