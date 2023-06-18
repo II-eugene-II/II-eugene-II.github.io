@@ -28,7 +28,9 @@
     리만 제타함수 (Riemann Zeta Function) $\zeta(s)$ $(\Re(s) > 1)$의 기본 정의는 다음과 같습니다. <br>
       
     <blockquote>
-        $$ \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^{s}} $$
+        $$
+        \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^{s}}
+        $$
     </blockquote>
 
     이 정의가 $s > 1$인 <a href="/Post/Post01000/00460.html"> 실수 </a> $s$에 대해서 수렴한다는 것은 <a href="/Post/Post01000/00436.html"> $p$급수 판정법 </a> 에 의해 보일 수 있습니다. <br>
@@ -36,7 +38,9 @@
     다음과 같은 <a href="/Post/Post01000/00342.html"> 소수 </a>와 관련된 무한곱으로 정의할 수도 있습니다. <br>
       
     <blockquote>
-        $$ \zeta(s) = \prod_{p} \frac{1}{1 - {p}^{-s}} $$
+        $$
+        \zeta(s) = \prod_{p} \frac{1}{1 - {p}^{-s}}
+        $$
     </blockquote>
 
     모든 소수 $p$에 대하여 $\frac{1}{1 - p^{-s}}$를 곱한 값입니다. <br>
@@ -44,18 +48,32 @@
     이를 이용하여 다음과 같은 확장 또한 할 수 있습니다. <br>
       
     <blockquote>
-        $$ \zeta(s) = s \int_{2}^{\infty} \frac{\pi(x)}{x (x^{s} - 1)} dx $$
+        $$
+        \ln \zeta(s) = s \int_{2}^{\infty} \frac{\pi(x)}{x (x^{s} - 1)} dx
+        $$
     </blockquote>
     
-    이때, $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다. <br>
+    이때, $\ln x$는 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>, $\pi(x)$는 <a href="/Post/Post01000/00039.html"> 소수 계량 함수 </a> 입니다. <br>
 
     <a href="/Post/Post01000/00028.html"> 감마함수 </a> $\Gamma(s)$를 통한 확장 또한 할 수 있습니다. <br>
       
     <blockquote>
-        $$ \zeta(s) = \frac{1}{\Gamma(s)} \int_{0}^{\infty} \frac{t^{s - 1}}{e^t - 1} dt $$
+        $$
+        \zeta(s) = \frac{1}{\Gamma(s)} \int_{0}^{\infty} \frac{t^{s - 1}}{e^t - 1} dt
+        $$
     </blockquote>
 
     $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 e </a> 입니다. <br>
+
+    제타함수의 역수로는 다음과 같은 공식이 성립합니다. $(\Re(s) > 1)$ <br>
+      
+    <blockquote>
+        $$
+        \frac{1}{\zeta(s)} = \sum_{n = 1}^{\infty} \frac{\mu(n)}{n^{s}}
+        $$
+    </blockquote>
+
+    $\mu(n)$은 <a href="/Post/Post01000/00151.html"> 뫼비우스 함수 </a> 입니다. <br>
 
     리만 제타 함수에서 $s = 2$인 경우의 함수값 $\zeta(2)$는 다소 황당하게도 $\frac{\pi^{2}}{6}$입니다. $\pi$가 <a href="/Post/Post01000/00186.html"> 원주율 $\pi$ </a> 가 맞습니다. (<a href="/Post/Post01000/00505.html"> 바젤 문제 </a>) <br>
 

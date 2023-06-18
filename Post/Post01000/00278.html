@@ -35,6 +35,60 @@
     
     $\binom{n}{k}$는 <a href="/Post/Post01000/00030.html"> 이항계수 </a> 입니다. <br>
 
+    <details><summary> 이항 정리 증명 </summary>
+    
+        <p>
+
+            $n = 0$인 경우에는 $\sum_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum_{k = 0}^{0} \binom{0}{k} {x}^{-k} {y}^{k} = \binom{0}{0} {x}^{0} {y}^{0} = 1$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{0} = 1$로, 좌변과 우변이 동일하다. <br>
+
+            $n = 1$인 경우에는 $\sum_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum_{k = 0}^{1} \binom{1}{k} {x}^{1 - k} {y}^{k} = \binom{1}{0} {x}^{1} {y}^{0} + \binom{1}{1} {x}^{0} {y}^{1} = x + y$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{1} = x + y$로, 좌변과 우변이 동일하다. <br>
+
+            이제 어떤 $n$에 대해 ${(x + y)}^{n} = \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$이 성립한다고 가정하면, 먼저 ${(x + y)}^{n + 1} = (x + y) {(x + y)}^{n} = (x + y) \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$이다. <br>
+
+            $(x + y) \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$를 식정리 해주면 $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k + 1}$이다. <br>
+
+            <details><summary> $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k}$ 식 정리 </summary>
+            
+                <p>
+        
+                    $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k}$ 식에서 $k = 0$일 때만 따져본다면, 즉, $$ \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 0}^{0} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 1}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} $$ 으로 분리한다면 $\binom{n}{0} {x}^{n + 1 - 0} {y}^{0} = x^{n + 1}$이므로, $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} = x^{n + 1} + \sum\limits_{k = 1}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k}$ 로 쓸 수 있다. <br>
+                        
+                </p>
+            
+            </details> <!-- 식 정리 1 -->
+
+            <details><summary> $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k + 1}$ 식 정리 </summary>
+            
+                <p>
+        
+                    $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k + 1}$ 식에서 편의상 $K = k + 1$로 치환 하면 $\sum\limits_{K = 1}^{n + 1} \binom{n}{K - 1} {x}^{n + 1 - K} {y}^{K}$ 이 되고, 다시 $k = K$로 써주면 $\sum\limits_{k = 1}^{n + 1} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k}$ 이다. <br>
+
+                    $\sum\limits_{k = 1}^{n + 1} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k}$ 식을 $k = n + 1$일 때의 항만 따지면 $\binom{n}{n} {x}^{0} {y}^{n + 1} = y^{n + 1}$로 쓸 수 있다. 따라서 $\sum\limits_{k = 1}^{n + 1} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k} = y^{n + 1} + \sum\limits_{k = 1}^{n} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k}$ 로 분리해서 쓸 수 있다. <br>
+                        
+                </p>
+            
+            </details> <!-- 식 정리 2 -->
+
+            식 정리 결과로 나온 두 식을 더해주면 $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k + 1} = x^{n + 1} + y^{n + 1} + \sum\limits_{k = 1}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 1}^{n} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k}$ 이 된다. <br>
+
+            $\sum\limits_{k = 1}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 1}^{n} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 1}^{n} \left\{ \binom{n}{k} + \binom{n}{k - 1} \right\} {x}^{n + 1 - k} {y}^{k}$이라 할 수 있다. <br>
+            
+            이항계수의 항등식에서 $\binom{n}{k}+\binom{n}{k - 1} = \binom{n + 1}{k}$이므로, $\sum\limits_{k = 1}^{n} \left\{ \binom{n}{k} + \binom{n}{k - 1} \right\} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 1}^{n} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$이다. <br>
+
+            $\binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$ 식에 $k = 0$을 대입하면 $\binom{n + 1}{0} {x}^{n + 1 - 0} {y}^{0} = x^{n + 1}$이므로, $x^{n + 1} + \sum\limits_{k = 1}^{n} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 0}^{n} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$ 이라 할 수 있다. <br>
+
+            $\binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$ 식에 $k = n + 1$을 대입하면 $\binom{n + 1}{n + 1} {x}^{n + 1 - (n + 1)} {y}^{n + 1} = y^{n + 1}$이므로, $y^{n + 1} + \sum\limits_{k = 0}^{n} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 0}^{n + 1} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$ 이라 할 수 있다. <br>
+
+            따라서 $x^{n + 1} + y^{n + 1} + \sum\limits_{k = 1}^{n} \binom{n}{k} {x}^{n + 1 - k} {y}^{k} + \sum\limits_{k = 1}^{n} \binom{n}{k - 1} {x}^{n + 1 - k} {y}^{k} = \sum\limits_{k = 0}^{n + 1} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$이다. <br>
+
+            따라서 ${(x + y)}^{n + 1} = \sum\limits_{k = 0}^{n + 1} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$이다. <br>
+
+            어떤 $n$에 대해서 ${(x + y)}^{n} = \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$이 성립할 때 ${(x + y)}^{n + 1} = \sum\limits_{k = 0}^{n + 1} \binom{n + 1}{k} {x}^{n + 1 - k} {y}^{k}$이 성립하므로, <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a>에 의해 ${(x + y)}^{n} = \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$ 는 $0$ 이상의 <a href="/Post/Post01000/00459.html"> 정수 </a> 전체에서 성립한다. <br>
+                
+        </p>
+    
+    </details> <!-- 이항 정리 증명 -->
+
     이항정리의 따름정리로는 다음이 있습니다. <br>
       
     <blockquote>
