@@ -4,7 +4,7 @@ rand = Math.floor(Math.random() * maxPost) + 1
 
 rand = rand.toString()
 
-document.write(`<br><br>
+document.write(`<br>
 <a href="/index.html"> Main Page </a> <br> <br> 
 <a href="https://github.com/II-eugene-II/II-eugene-II.github.io"> Github Repo </a> <br> <br>`);
 document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> <br> <br>");
