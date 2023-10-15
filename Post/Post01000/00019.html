@@ -491,13 +491,28 @@
 
             $$ T_{n} + T_{n + 1} = \frac{\phi^{n} + \phi^{n + 1} - {\left(- \frac{1}{\phi}\right)}^{n} - {\left(- \frac{1}{\phi}\right)}^{n + 1}}{\sqrt{5}} $$에서, $$ T_{n} + T_{n + 1} = \frac{\phi^{n} (1 + \phi) - {\left(- \frac{1}{\phi}\right)}^{n} \left( 1 - \frac{1}{\phi} \right)}{\sqrt{5}} $$ 이고, $\phi + 1 = {\phi}^2$, $1 - \frac{1}{\phi} = \frac{1}{{\phi}^2} = {\left( -\frac{1}{\phi} \right)}^{2}$에서 $$ \frac{\phi^{n} (1 + \phi) - {\left(- \frac{1}{\phi}\right)}^{n} \left( 1 - \frac{1}{\phi} \right)}{\sqrt{5}} = \frac{\phi^{n} \phi^{2} - {\left(- \frac{1}{\phi}\right)}^{n} {\left( -\frac{1}{\phi} \right)}^{2}}{\sqrt{5}} = \frac{\phi^{n + 2} - {\left(- \frac{1}{\phi}\right)}^{n + 2}}{\sqrt{5}} = T_{n + 2} $$ 이다. <br>
 
-            따라서 $T_{n} + T_{n + 1} = T_{n + 2}$이고, $T_{0} = 0$, $T_{1} = 1$ (이 둘은 직접 계산할 수 있다.) , $T_{n} + T_{n + 1} = T_{n + 2}$에서 모든 양의 정수 $n$에 대해 $T_{n} = F_{n}$ 이다. <br>
+            따라서 $T_{n} + T_{n + 1} = T_{n + 2}$이고, $T_{0} = 0$, $T_{1} = 1$, $T_{n} + T_{n + 1} = T_{n + 2}$에서 모든 양의 정수 $n$에 대해 $T_{n} = F_{n}$ 이다. <br>
+
+            ($T_{0} = 0$, $T_{1} = 1$, 이 둘은 직접 손으로 계산할 수 있다.) <br>
                 
         </p>
     
     </details> <!-- 1번 성질 증명 -->
 
-    2. 모든 양의 정수 $n$에 대하여 다음을 만족한다. (피보나치 수의 행렬곱표현) $$ \left[ \begin{matrix} F_{n+1} & F_{n} \\ F_{n} & F_{n-1} \\ \end{matrix} \right] = \left[ \begin{matrix} 1 & 1 \\ 1 & 0 \\ \end{matrix} \right]^{n} $$
+    2. 모든 양의 정수 $n$에 대하여 다음을 만족한다. (피보나치 수의 행렬곱표현)
+      
+    $$
+    
+    \left[ \begin{matrix}
+        F_{n+1} & F_{n} \\
+        F_{n} & F_{n-1} \\
+    \end{matrix} \right]
+    =
+    \left[ \begin{matrix}
+        1 & 1 \\ 1 & 0 \\
+    \end{matrix} \right]^{n}
+    
+    $$
 
     <details><summary> 2번 성질 증명 </summary>
     
