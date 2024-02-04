@@ -85,7 +85,7 @@
                 <a href="/Post/Post01000/00102.html"> 주요 소수 리스트 </a>
             </li>
             <li>
-                <label for = "isPrime"> 계산할 수 : </label> 
+                <label for = "isPrime"> 계산할 수 (N) : </label> 
                 <input id = "isPrime" type = "text">
             </li>
             <li>
@@ -121,6 +121,7 @@
             
 			if (isMRPrimeNumber(N) === false) { document.querySelector('#showResult').innerHTML = N + "은 합성수 입니다."; }
             else { document.querySelector('#showResult').innerHTML = N + "은 소수 입니다."; }
+document.querySelector('#showNearPrimeResult').innerHTML = "";
 
             var t1 = performance.now();
             var t2 = (t1 - t0) / 1000;
