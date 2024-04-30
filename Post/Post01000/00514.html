@@ -53,7 +53,7 @@
 
     <hr>
 
-    1. 사인 / 코사인 <br>
+    1. <a href="/Post/Post01000/00184.html"> 사인함수 </a> / <a href="/Post/Post01000/00185.html"> 코사인함수 </a> <br>
 
     <br> <script src="https://gist.github.com/II-eugene-II/1fe777844a09428d180ae82ed8bc9f1d.js"></script> <br>
 
@@ -65,21 +65,27 @@
 
     만약 $2\pi$로 나눈 나머지에 대해서만 구하는 부분을 제거한다면 sin(1000000) 정도 넣으면 절댓값이 1을 넘어버리는 진귀한 풍경을 볼 수 있습니다. <br>
 
-    탄젠트 함수는? 사인함수를 코사인함수로 나눠줍니다. <br>
+    <a href="/Post/Post01000/00227.html"> 탄젠트함수 </a>는? 사인함수를 코사인함수로 나눠줍니다. <br>
 
-    탄젠트 함수를 테일러 급수로 구하려면 베르누이 수 라는것을 계산해야하는데, 이거 계산할 시간에 그냥 사인 코사인 계산해서 사인 / 코사인을 return 하는게 훨씬 더 빠릅니다. <br>
+    탄젠트 함수를 테일러 급수로 구하려면 <a href="/Post/Post01000/00181.html"> 베르누이 수 </a> 라는것을 계산해야하는데, 이거 계산할 시간에 그냥 사인 코사인 계산해서 사인 / 코사인을 return 하는게 훨씬 더 빠릅니다. <br>
     
     <br>
 
     <hr>
 
-    2. 아크탄젠트 <br>
+    2. <a href="/Post/Post01000/00313.html"> 아크탄젠트함수 </a> <br>
 
-    역함수는 사인, 코사인, 탄젠트 함수를 이용해서 이분탐색으로 찾아줄 수도 있겠지만 그냥 넣으면 바로 답을 뱉어주는 코드를 원할 수 있습니다. <br>
+    탄젠트 함수의 역함수인 아크탄젠트 함수는 사인, 코사인, 탄젠트 함수를 이용해서 이분탐색으로 찾아줄 수도 있겠지만 그냥 넣으면 바로 답을 뱉어주는 코드를 원할 수 있습니다. <br>
 
-    $\arctan x = \sum_{n = 0}^{\infty} \frac{{(-1)}^{n} x^{2n + 1}}{2n + 1} \quad (|x| \leq 1)$인 것과 다음과 같은 아크 탄젠트 함수의 항등식을 이용해줍니다. <br>
-
-    $x > 0$이면 $\arctan(x) + \arctan\left(\frac{1}{x}\right) = \frac{\pi}{2}$, $x < 0$이면 $\arctan(x) + \arctan\left(\frac{1}{x}\right) = -\frac{\pi}{2}$ 입니다. <br>
+    다음과 같은 3개의 항등식을 이용해줍니다. <br>
+      
+    <blockquote>
+        1. $\arctan x = \sum_{n = 0}^{\infty} \frac{{(-1)}^{n} x^{2n + 1}}{2n + 1} \quad (|x| \leq 1)$ <br>
+      
+        2. $x > 0$이면 $\arctan(x) + \arctan\left(\frac{1}{x}\right) = \frac{\pi}{2}$ <br>
+      
+        3. $x < 0$이면 $\arctan(x) + \arctan\left(\frac{1}{x}\right) = -\frac{\pi}{2}$
+    </blockquote>
 
     <br> <script src="https://gist.github.com/II-eugene-II/0cccf4c3c12bb445b1d9d1c6df8b0526.js"></script> <br>
 
