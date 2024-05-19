@@ -49,17 +49,19 @@
       
     <blockquote>
         $$
-        \ln x = \lim_{n \to \infty} n \left( {x}^{\frac{1}{n}} - 1 \right)
+        \ln x = \lim_{n \to \infty} 2^n \left( {x}^{\frac{1}{2^n}} - 1 \right)
         $$
     </blockquote>
 
-    <details><summary> <del> 해당 표현의 존재성 증명 </del> </summary>
+    <details><summary> 해당 표현의 존재성 증명 </summary>
     
         <p>
+            
+            증명의 스케치 <br>
 
-            $f(k, x) = k \left( {x}^{\frac{1}{k}} - 1 \right)$가 k일 때 존재하고, k + 1이면 작아지고, f(k, x) + f(k, y) = f(k, xy) 보이기 <br>
-
-            $f(n, x) = n \left( {x}^{\frac{1}{n}} - 1 \right)$에서 $y = {x}^{\frac{1}{2n}}$이라 하면 $y^{2} = {x}^{\frac{1}{n}}$이고, $
+            $f(n, x) = 2^n \left( {x}^{\frac{1}{2^n}} - 1 \right)$라 하고, $f(n, x)$를 $n$에 대한 수열로 봄. <br>
+            
+            $f(n, x)$가 단조 감소하고 하계가 있다는걸 보이고 단조 수렴 정리에 따라 수렴하는 걸 보이기.
                 
         </p>
     
