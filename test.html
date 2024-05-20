@@ -64,7 +64,8 @@
         function showRandomPage()
         {	
             let pageArray = [`<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>`, `<a href="/Post/Post01000/00004.html"> 윌슨의 정리 </a> <br>`, `<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a>`]
-            var t0 = Math.floor(Math.random() * 3) + 1; // 시작할 시간
+            var t0 = Math.floor(Math.random() * 3); // 시작할 시간
+	    console.log(t0);
             document.querySelector('#showRandom').innerHTML = pageArray[t0];
         }
     </script>
