@@ -65,7 +65,9 @@
     랜덤 실험 <br>
     LaTeX 이미지화 <br>
 
-      <div id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div>
+      <div id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
+
+      <div id="showT"></div>
 
 
 
@@ -81,7 +83,9 @@
 	    t -= 1;
 	    if (t == 0) { document.querySelector('#showRandom').innerHTML = pageArray[t0]; t = 5}
 	    document.querySelector('#showCount').innerHTML = t;
+			document.querySelector('#showCount').innerHTML = "";
 	    MathJax.Hub.Config({tex2jax: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] }});
+	        for (let i = 0; i < 17; i++) {document.querySelector('#showCount').innerHTML += pageArray[i];}
         }
     </script>
 	<script type="text/javascript" src="/LaTexWrite.js"></script>
