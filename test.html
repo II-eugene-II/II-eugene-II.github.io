@@ -43,8 +43,10 @@
 	  
   
 <div class = "test" > <a href="/Post/Post01000/00001.html">&nbsp; test1 &nbsp;</a> <br>
-	  <div class = "test2" > <a href="/Post/Post01000/00001.html">&nbsp; test2 &nbsp;</a> </div>
+	  <div class = "test2" > <a href="test.html">&nbsp; test2 &nbsp;</a> </div>
 	  </div>
+
+      <div class = "showRandom">  </div>
   
   </div>
   <!-- <footer id = "footer"></footer> -->
@@ -53,5 +55,15 @@
     </footer>
   
   </div> <!-- wrap -->
+
+
+    <script>
+        function showRandomPage()
+        {	
+            let pageArray = [`<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>`, `<a href="/Post/Post01000/00004.html"> 윌슨의 정리 </a> <br>`, `<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a>`]
+            var t0 = Math.floor(Math.random() * 3) + 1; // 시작할 시간
+            document.querySelector('#showRandom').innerHTML = pageArray[t0];
+        }
+    </script>
 </body>
 </html>
