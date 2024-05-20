@@ -74,15 +74,16 @@
 
 
     <script>
-	var t = 5;
+        var t = 5;
         setInterval(showRandomPage, 1000)
         function showRandomPage()
         {	
-            let pageArray = [`<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a> <br>` , `<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>` , `<a href="/Post/Post01000/00019.html"> 피보나치 수열 <img src="https://latex.codecogs.com/svg.latex?F_{n}"/> </a> <br>` , `<a href="/Post/Post01000/00029.html"> 팩토리얼 <img src="https://latex.codecogs.com/svg.latex?n!"/> </a> <br>` , `<a href="/Post/Post01000/00083.html"> 소수 정리 </a> <br>` , `<a href="/Post/Post01000/00094.html"> 자연로그의 밑 <img src="https://latex.codecogs.com/svg.latex?e"/> </a> <br>` , `<a href="/Post/Post01000/00120.html"> 리만 제타함수 <img src="https://latex.codecogs.com/svg.latex?\\zeta(s)"/> </a> <br>` , `<a href="/Post/Post01000/00183.html"> 자연로그함수 <img src="https://latex.codecogs.com/svg.latex?\\ln&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00184.html"> 사인함수 <img src="https://latex.codecogs.com/svg.latex?\\sin&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00186.html"> 원주율 <img src="https://latex.codecogs.com/svg.latex?\\pi"/> </a> <br>` , `<a href="/Post/Post01000/00228.html"> 미적분학의 기본정리 1 </a> <br>` , `<a href="/Post/Post01000/00278.html"> 이항정리 </a> <br>` , `<a href="/Post/Post01000/00446.html"> 산술의 기본정리 </a> <br>` , `<a href="/Post/Post01000/00452.html"> 거듭제곱급수 </a> <br>` , `<a href="/Post/Post01000/00458.html"> 자연수 <img src="https://latex.codecogs.com/svg.image?\\mathbb{N}" title="\mathbb{N}" /> </a> <br>` , `<a href="/Post/Post01000/00460.html"> 실수 <img src="https://latex.codecogs.com/svg.latex?\\mathbb{Z}"/> </a> <br>` , `<a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> <br>` , `<a href="/Post/Post01000/00492.html"> 라플라스 변환 </a> <br>`]	    var t0 = Math.floor(Math.random() * 18);
-	    console.log(t0);
-	    t -= 1;
-	    if (t == 0) { document.querySelector('#showRandom').innerHTML = pageArray[t0]; t = 5}
-	    document.querySelector('#showCount').innerHTML = t;
+            let pageArray = [`<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a> <br>` , `<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>` , `<a href="/Post/Post01000/00019.html"> 피보나치 수열 <img src="https://latex.codecogs.com/svg.latex?F_{n}"/> </a> <br>` , `<a href="/Post/Post01000/00029.html"> 팩토리얼 <img src="https://latex.codecogs.com/svg.latex?n!"/> </a> <br>` , `<a href="/Post/Post01000/00083.html"> 소수 정리 </a> <br>` , `<a href="/Post/Post01000/00094.html"> 자연로그의 밑 <img src="https://latex.codecogs.com/svg.latex?e"/> </a> <br>` , `<a href="/Post/Post01000/00120.html"> 리만 제타함수 <img src="https://latex.codecogs.com/svg.latex?\\zeta(s)"/> </a> <br>` , `<a href="/Post/Post01000/00183.html"> 자연로그함수 <img src="https://latex.codecogs.com/svg.latex?\\ln&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00184.html"> 사인함수 <img src="https://latex.codecogs.com/svg.latex?\\sin&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00186.html"> 원주율 <img src="https://latex.codecogs.com/svg.latex?\\pi"/> </a> <br>` , `<a href="/Post/Post01000/00228.html"> 미적분학의 기본정리 1 </a> <br>` , `<a href="/Post/Post01000/00278.html"> 이항정리 </a> <br>` , `<a href="/Post/Post01000/00446.html"> 산술의 기본정리 </a> <br>` , `<a href="/Post/Post01000/00452.html"> 거듭제곱급수 </a> <br>` , `<a href="/Post/Post01000/00458.html"> 자연수 <img src="https://latex.codecogs.com/svg.image?\\mathbb{N}" title="\mathbb{N}" /> </a> <br>` , `<a href="/Post/Post01000/00460.html"> 실수 <img src="https://latex.codecogs.com/svg.latex?\\mathbb{Z}"/> </a> <br>` , `<a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> <br>` , `<a href="/Post/Post01000/00492.html"> 라플라스 변환 </a> <br>`];
+            var t0 = Math.floor(Math.random() * 18);
+            console.log(t0);
+            t -= 1;
+            if (t == 0) { document.querySelector('#showRandom').innerHTML = pageArray[t0]; t = 5}
+            document.querySelector('#showCount').innerHTML = t;
         }
     </script>
 	<script type="text/javascript" src="/LaTexWrite.js"></script>
