@@ -23,6 +23,13 @@
   .test2 {
 	  transform: scaleX(-1) scaleY(-1);
 	  }
+	  .pageName {
+     color: #fff;
+     animation: pageNameChange 6s infinite;
+} @keyframes pageNameChange{
+    50% {
+        color: #888;
+    }
   @keyframes rotate_image{
     100% {
         transform: rotate(360deg);
@@ -63,9 +70,10 @@
 	  </div> <br>
 
     랜덤 실험 <br>
-    LaTeX 이미지화 F2 <br>
+    LaTeX 이미지화 <br>
+    글자색 변화 실험 <br>
 
-      <div style="" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
+      <div class="pageName" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
 
       <div id="showT"></div>
 
