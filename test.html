@@ -23,15 +23,16 @@
   .test2 {
 	  transform: scaleX(-1) scaleY(-1);
 	  }
-	  .pageName {
-     color: #fff;
-     animation: pageNameChange 1s infinite;
+	  .pageName a{
+     color: #000;
+     border-bottom: solid 2px #00be82;
+     border-top: solid 2px #00be82;
+     animation: pageNameChange 2s infinite;
 } @keyframes pageNameChange{
     50% {
-        color: #888;
-    }
-    99% {
-        color: #fff;
+    color: #00be82;
+    border-bottom: solid 2px #00be82;
+    border-top: solid 2px #00be82;
     }
   @keyframes rotate_image{
     100% {
@@ -60,7 +61,7 @@
 
     랜덤 실험 <br>
     LaTeX 이미지화 <br>
-    글자색 변화 실험 2 <br>
+    글자색 변화 실험 F <br>
 
       <div class="pageName" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
 
