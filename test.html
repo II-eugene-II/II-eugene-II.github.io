@@ -28,6 +28,20 @@
         transform: rotate(360deg);
     }
 }
+	  a:hover {
+          color: #fff;
+          transition: 0.35s;
+      }
+      a:hover:before {
+          opacity: 0;
+          transform: scale(0, 1);
+          transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+      }
+      a:hover:after {
+          opacity: 1;
+          transform: scale(1, 1);
+          transition: transform 0.2s ease-in-out 0.25s;
+          }
   </style>
   
 </head>
@@ -39,6 +53,7 @@
     <p>test</p>
   </header>
   <div>
+  a태그 디자인 실험
   회전 실험 <br>
 	  
   
