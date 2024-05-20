@@ -48,7 +48,7 @@
 
     랜덤 실험 2
 
-      <div id="showRandom">  </div>
+      <div id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div>
   
   </div>
   <!-- <footer id = "footer"></footer> -->
@@ -60,13 +60,16 @@
 
 
     <script>
-        setInterval(showRandomPage, 5000)
+	var t = 5;
+        setInterval(showRandomPage, 1000)
         function showRandomPage()
         {	
             let pageArray = [`<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>`, `<a href="/Post/Post01000/00004.html"> 윌슨의 정리 </a> <br>`, `<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a>`]
             var t0 = Math.floor(Math.random() * 3); // 시작할 시간
 	    console.log(t0);
-            document.querySelector('#showRandom').innerHTML = pageArray[t0];
+	    t -= 1;
+	    if (t == 0) { document.querySelector('#showRandom').innerHTML = pageArray[t0]; t = 5}
+	    document.querySelector('#showCount').innerHTML = t;
         }
     </script>
 </body>
