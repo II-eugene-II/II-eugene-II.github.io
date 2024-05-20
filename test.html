@@ -25,30 +25,19 @@
 	  }
 	  .pageName {
      color: #fff;
-     animation: pageNameChange 6s infinite;
+     animation: pageNameChange 1s infinite;
 } @keyframes pageNameChange{
     50% {
         color: #888;
+    }
+    99% {
+        color: #fff;
     }
   @keyframes rotate_image{
     100% {
         transform: rotate(360deg);
     }
 }
-	  a:hover {
-          color: #333;
-          transition: 0.35s;
-      }
-      a:hover:before {
-          opacity: 0;
-          transform: scale(0, 1);
-          transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
-      }
-      a:hover:after {
-          opacity: 1;
-          transform: scale(1, 1);
-          transition: transform 0.2s ease-in-out 0.25s;
-          }
   </style>
   
 </head>
@@ -71,7 +60,7 @@
 
     랜덤 실험 <br>
     LaTeX 이미지화 <br>
-    글자색 변화 실험 <br>
+    글자색 변화 실험 2 <br>
 
       <div class="pageName" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
 
