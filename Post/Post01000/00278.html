@@ -39,9 +39,9 @@
     
         <p>
 
-            $n = 0$인 경우에는 $\sum_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum_{k = 0}^{0} \binom{0}{k} {x}^{-k} {y}^{k} = \binom{0}{0} {x}^{0} {y}^{0} = 1$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{0} = 1$로, 좌변과 우변이 동일하다. <br>
+            $n = 0$인 경우에는 $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum\limits_{k = 0}^{0} \binom{0}{k} {x}^{-k} {y}^{k} = \binom{0}{0} {x}^{0} {y}^{0} = 1$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{0} = 1$로, 좌변과 우변이 동일하다. <br>
 
-            $n = 1$인 경우에는 $\sum_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum_{k = 0}^{1} \binom{1}{k} {x}^{1 - k} {y}^{k} = \binom{1}{0} {x}^{1} {y}^{0} + \binom{1}{1} {x}^{0} {y}^{1} = x + y$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{1} = x + y$로, 좌변과 우변이 동일하다. <br>
+            $n = 1$인 경우에는 $\sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k} = \sum\limits_{k = 0}^{1} \binom{1}{k} {x}^{1 - k} {y}^{k} = \binom{1}{0} {x}^{1} {y}^{0} + \binom{1}{1} {x}^{0} {y}^{1} = x + y$이고, 좌변도 ${(x + y)}^{n} = {(x + y)}^{1} = x + y$로, 좌변과 우변이 동일하다. <br>
 
             이제 어떤 $n$에 대해 ${(x + y)}^{n} = \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$이 성립한다고 가정하면, 먼저 ${(x + y)}^{n + 1} = (x + y) {(x + y)}^{n} = (x + y) \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$이다. <br>
 
@@ -93,7 +93,7 @@
       
     <blockquote>
         $$
-        2^{n} = \sum_{k = 0}^{n} \binom{n}{k}
+        \sum_{k = 0}^{n} \binom{n}{k} = 2^{n}
         $$
     </blockquote>
 
