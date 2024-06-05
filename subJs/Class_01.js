@@ -35,26 +35,12 @@ document.write(`
     <td class = "tdPost"> ☆☆☆ </td>
     <td class = "tdPost"> <a href="/Post/Post01000/00327.html"> 단어의 개수 해설 </a> </td>
 </tr>
-<tr style = "background-color:rgb(198, 119, 57, 0.1)">
-    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01157"> 01157번 </a> </td>
-    <td class = "tdPost"> 단어 공부 </td>
-    <td class = "tdPost" style="background-color:rgb(198, 119, 57, 0.2); color: rgb(198, 119, 57); font-weight: 600"> <img src="https://static.solved.ac/tier_small/5.svg" alt="Bronze I"> Bronze I </td>
-    <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
-</tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01330"> 01330번 </a> </td>
     <td class = "tdPost"> 두 수 비교하기 </td>
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ☆☆☆ </td>
     <td class = "tdPost"> <a href="/Post/Post01000/00384.html"> 두 수 비교하기 해설 </a> </td>
-</tr>
-<tr style = "background-color:rgb(198, 119, 57, 0.1)">
-    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/01546"> 01546번 </a> </td>
-    <td class = "tdPost"> 평균 </td>
-    <td class = "tdPost" style="background-color:rgb(198, 119, 57, 0.2); color: rgb(198, 119, 57); font-weight: 600"> <img src="https://static.solved.ac/tier_small/5.svg" alt="Bronze I"> Bronze I </td>
-    <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
 </tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02438"> 02438번 </a> </td>
@@ -119,13 +105,6 @@ document.write(`
     <td class = "tdPost"> ☆☆☆ </td>
     <td class = "tdPost"> <a href="/Post/Post01000/00117.html"> N 찍기 해설 </a> </td>
 </tr>
-<tr style = "background-color:rgb(173, 86, 0, 0.1)">
-    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02742"> 02742번 </a> </td>
-    <td class = "tdPost"> 기찍 N </td>
-    <td class = "tdPost" style="background-color:rgb(173, 86, 0, 0.2); color: rgb(173, 86, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/3.svg" alt="Bronze III"> Bronze III </td>
-    <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> <a href="/Post/Post01000/00118.html"> 기찍 N 해설 </a> </td>
-</tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02753"> 02753번 </a> </td>
     <td class = "tdPost"> 윤년 </td>
@@ -137,13 +116,6 @@ document.write(`
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02884"> 02884번 </a> </td>
     <td class = "tdPost"> 알람 시계 </td>
     <td class = "tdPost" style="background-color:rgb(173, 86, 0, 0.2); color: rgb(173, 86, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/3.svg" alt="Bronze III"> Bronze III </td>
-    <td class = "tdPost"> ☆☆☆ </td>
-    <td class = "tdPost"> - </td>
-</tr>
-<tr style = "background-color:rgb(181, 93, 10, 0.1)">
-    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/02908"> 02908번 </a> </td>
-    <td class = "tdPost"> 상수 </td>
-    <td class = "tdPost" style="background-color:rgb(181, 93, 10, 0.2); color: rgb(181, 93, 10); font-weight: 600"> <img src="https://static.solved.ac/tier_small/4.svg" alt="Bronze II"> Bronze II </td>
     <td class = "tdPost"> ☆☆☆ </td>
     <td class = "tdPost"> - </td>
 </tr>
@@ -188,6 +160,13 @@ document.write(`
     <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
     <td class = "tdPost"> ☆☆☆ </td>
     <td class = "tdPost"> <a href="/Post/Post01000/00271.html"> 개 해설 </a> </td>
+</tr>
+<tr style = "background-color:rgb(173, 86, 0, 0.1)">
+    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/10250"> 10250번 </a> </td>
+    <td class = "tdPost"> ACM 호텔 </td>
+    <td class = "tdPost" style="background-color:rgb(173, 86, 0, 0.2); color: rgb(173, 86, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/3.svg" alt="Bronze III"> Bronze III </td>
+    <td class = "tdPost"> ☆☆☆ </td>
+    <td class = "tdPost"> - </td>
 </tr>
 <tr style = "background-color:rgb(157, 73, 0, 0.1)">
     <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/10809"> 10809번 </a> </td>
@@ -258,6 +237,27 @@ document.write(`
     <td class = "tdPost" style="background-color:rgb(165, 79, 0, 0.2); color: rgb(165, 79, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/2.svg" alt="Bronze IV"> Bronze IV </td>
     <td class = "tdPost"> ★★★ </td>
     <td class = "tdPost"> <a href="/Post/Post01000/00520.html"> 숫자의 합 해설 </a> </td>
+</tr>
+<tr style = "background-color:rgb(157, 73, 0, 0.1)">
+    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/25083"> 25083번 </a> </td>
+    <td class = "tdPost"> 새싹 </td>
+    <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
+    <td class = "tdPost"> ★★★ </td>
+    <td class = "tdPost"> - </td>
+</tr>
+<tr style = "background-color:rgb(157, 73, 0, 0.1)">
+    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/27866"> 27866번 </a> </td>
+    <td class = "tdPost"> 문자와 문자열 </td>
+    <td class = "tdPost" style="background-color:rgb(157, 73, 0, 0.2); color: rgb(157, 73, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/1.svg" alt="Bronze V"> Bronze V </td>
+    <td class = "tdPost"> ★★★ </td>
+    <td class = "tdPost"> - </td>
+</tr>
+<tr style = "background-color:rgb(165, 79, 0, 0.1)">
+    <td class = "tdPost"> <a href="https://www.acmicpc.net/problem/31403"> 31403번 </a> </td>
+    <td class = "tdPost"> $A + B - C$ </td>
+    <td class = "tdPost" style="background-color:rgb(165, 79, 0, 0.2); color: rgb(165, 79, 0); font-weight: 600"> <img src="https://static.solved.ac/tier_small/2.svg" alt="Bronze IV"> Bronze IV </td>
+    <td class = "tdPost"> ★★★ </td>
+    <td class = "tdPost"> - </td>
 </tr>
 </table>
 `)
