@@ -6,7 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color:#F4F4F4;
+    background-color: #F4F4F4; /* hr:after { background-color: #F4F4F4; } 과 연동되어야 함 */
     /*font-family: Helvetica, sans-serif;*/
 }
 
@@ -67,7 +67,7 @@ hr:after {
     display : inline-block;
     position: relative;
     top: -18px;
-    background-color: #F4F4F4;
+    background-color: #F4F4F4;  /* html, body { background-color: #F4F4F4; } 과 연동되어야 함 */
     padding: 0 10px;
 }
 
@@ -164,61 +164,61 @@ aside {
 } 
 
 @media (max-width: 1023px) {
-
-section{
+    
+    section {
     /* background-color: #F8F8FF; */
     width: calc(100% - 1rem);
     padding: 20px 0px 20px 0px;
     margin-left: auto; margin-right: auto;
     float: none;
-}
-
-aside {
-    text-align: center;
-    width: 150px;
-    height: 550px;
-    margin: 0px 0px 0px 0px;
-    margin-left: auto; margin-right: auto;
-    padding: 20px 20px 20px 20px;
-    float: none;
-    background: whitesmoke;
-} 
+    }
+    
+    aside {
+        text-align: center;
+        width: 150px;
+        height: 550px;
+        margin: 0px 0px 0px 0px;
+        margin-left: auto; margin-right: auto;
+        padding: 20px 20px 20px 20px;
+        float: none;
+        background: whitesmoke;
+    } 
 
 }
 
 @media (max-width: 767px) {
-
-section{
-    /* background-color: #F8F8FF; */
-    width: calc(100% - 1rem);
-    padding: 20px 10px 20px 10px;
-    float: none;
-}
-
-aside {
-    text-align: center;
-    width: calc(100% - 40px - 1rem);
-    height: 450px;
-    margin: 20px 20px 20px 20px;
-    padding: 0px 0px 0px 0px;
-    float: none;
-    background: whitesmoke;
-} 
-
-details {
-    margin: 8px;
-    padding: 5px;
-    border: 7px double #aaaaaa;
-    border-radius: 4px;
-}
-
-header {
-    padding: 10px 10px 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    background-color: gainsboro;
-    border-bottom: 2px solid darkgray;
-}
+    
+    section {
+        /* background-color: #F8F8FF; */
+        width: calc(100% - 1rem);
+        padding: 20px 10px 20px 10px;
+        float: none;
+    }
+    
+    aside {
+        text-align: center;
+        width: calc(100% - 40px - 1rem);
+        height: 450px;
+        margin: 20px 20px 20px 20px;
+        padding: 0px 0px 0px 0px;
+        float: none;
+        background: whitesmoke;
+    } 
+    
+    details {
+        margin: 8px;
+        padding: 5px;
+        border: 7px double #aaaaaa;
+        border-radius: 4px;
+    }
+    
+    header {
+        padding: 10px 10px 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: gainsboro;
+        border-bottom: 2px solid darkgray;
+    }
 
 }
 
@@ -235,13 +235,13 @@ footer {
 }
 
 .container {
-    width:100%;
-    margin:0
+    width: 100%;
+    margin: 0
     auto;
 }
 
 .header-ull {
-    list-style:none;
+    list-style: none;
 }
 
 .header-item{
