@@ -15,14 +15,14 @@ html, body {
 
 a {
     height: 20px;
-    border-bottom: dashed 2px #8181F7; /*Aqua*/
+    border-bottom: dashed 2px #118811; /*Aqua*/
     /*border: 4px double #aaaaaa;*/
     margin: 2px 0px 2px 0px;
     padding: 2px 0px 2px 0px;
     display: inline-block;
     text-decoration: none;
-    /*color: #8181F7;*/
-    color: #5555dd;
+    /*color: #8181F7; #118811;*/
+    color: #118811;
 }
 
 table {
