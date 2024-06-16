@@ -1,6 +1,8 @@
 maxPost = 530
 
-rand = Math.floor(Math.random() * maxPost) + 1
+rand = -1
+
+while (rand in [-1, 201, 300, 301, 400, 401, 500, 501]) { rand = Math.floor(Math.random() * maxPost) + 1; }
 
 rand = rand.toString()
 
