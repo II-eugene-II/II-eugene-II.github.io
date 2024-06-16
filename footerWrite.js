@@ -1,6 +1,10 @@
 maxPost = 530
 
-rand = Math.floor(Math.random() * maxPost) + 1
+const arr = [-1, 201, 300, 301, 400, 401, 500, 501];
+
+var rand = -1;
+
+while (arr.includes(rand)) { rand = Math.floor(Math.random() * maxPost) + 1; }
 
 rand = rand.toString()
 
