@@ -84,6 +84,7 @@ blockquote {
     padding-top: 15px;
     border-left: 15px solid #ccd1d8;
     border-right: 3px solid #aab2bc;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 header {
