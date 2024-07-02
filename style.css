@@ -8,6 +8,7 @@ html, body {
     height: 100%;
     background-color: #F4F4F4; /* hr:after { background-color: #F4F4F4; } 과 연동되어야 함 */
     /*font-family: Helvetica, sans-serif;*/
+    padding-top: 75px;
 }
 
 /*Helvetica, '맑은 고딕', 'malgun gothic', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', sans-serif; 
@@ -82,17 +83,27 @@ blockquote {
     padding-right: 20px;
     padding-bottom: 15px;
     padding-top: 15px;
+    margin-top: 15px;
+    margin-bottom: 45px;
     border-left: 15px solid #ccd1d8;
     border-right: 3px solid #aab2bc;
     box-shadow: 0 8px 16px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);
 }
 
 header {
-    padding: 10px 35px 10px 35px;
+    padding: 0px 0px 5px 0px;
     display: flex;
     justify-content: space-between;
-    background-color: gainsboro;
-    border-bottom: 2px solid darkgray;
+    background-color: rgba(220,220,220, 0.95); /* gainsboro;  */
+    border-bottom: 5px solid darkgray;
+    position: fixed;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+    z-index: 5;
+    text-align: center;
+    box-shadow: 0 32px 32px rgba(169,169,169,0.2), 0 8px 8px rgba(169,169,169,0.1);
 }
 
 /*
@@ -219,7 +230,6 @@ aside {
         display: flex;
         justify-content: space-between;
         background-color: gainsboro;
-        border-bottom: 2px solid darkgray;
     }
 
 }
@@ -244,11 +254,21 @@ footer {
 
 .header-ull {
     list-style: none;
+    text-align: center;
 }
 
 .header-item{
-    float: left;
-    text-align: center;
-    margin-right: 10px;
-    font-weight: 100;
+    float: center;
+    margin-right: 25%;
+    /* font-weight: 100; */
 }
+
+.highlighter-html{
+    background-image: linear-gradient(to right, #B4FBFF, #b1d2e5);
+    border-right: 2px solid #a3c1d2;
+    transform: skewX(330deg); /* 진짜 형광펜처럼 기울이려 하는데 작동하지 않음 */
+    -webkit-transform: skewX(330deg);
+    -ms-transform: skewX(330deg); 
+}
+
+/* LaTeX 튀어나오는 현상을 방지하기 위해 나중에는 긴 LaTeX을 본문 대신 blockquote, details 태그 안에만 넣고 가로 스크롤바를 넣기 */
