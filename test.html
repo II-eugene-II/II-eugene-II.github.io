@@ -44,6 +44,7 @@
                 }
             }
         a {color: #118811; text-decoration: none; border-bottom: dashed 2px #d1d1d1;}
+        .sort{ width: 60px; height: 60px; border: 2px solid black; display : flex; justify-content : center; align-items : center;}
   </style>
   
 </head>
@@ -60,34 +61,143 @@
   회전 실험 <br>
 	  
   
-<div class = "test" > <a href="/Post/Post01000/00001.html">&nbsp; test1 &nbsp;</a> <br>
+    <div class = "test" > <a href="/Post/Post01000/00001.html">&nbsp; test1 &nbsp;</a> <br>
 	  <div class = "test2" > <a href="test2.html">&nbsp; test2 &nbsp;</a> </div>
 	  </div> <br>
 
     랜덤 실험 <br>
     LaTeX 이미지화 <br>
     a태그 색감 시험 최종 <br>
+    정렬 실험 <br>
+    
+    <div class="pageName" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
+    
+    <div id="showT"></div>
 
-      <div class="pageName" id="showRandom"> <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br> </div> <div id="showCount"> 5 </div> <br>
+    <div style="display: flex; justify-content: space-around;">
+        <div id="sortDiv1" class="sort">1</div> <div id="sortDiv2" class="sort">2</div> <div id="sortDiv3" class="sort">3</div> <div id="sortDiv4" class="sort">4</div> <div id="sortDiv5" class="sort">5</div> <div id="sortDiv6" class="sort">6</div> <div id="sortDiv7" class="sort">7</div> <div id="sortDiv8" class="sort">8</div>
+    </div>
 
-      <div id="showT"></div>
+    <br> <br>
 
+    <div id="minElement" style="width: 60px; height: 60px; border: 2px solid black;"></div>
 
+    <div id="tmpElement" style="width: 60px; height: 60px; border: 2px solid black;">tmp</div>
+
+    <div id="sanghwang" style="width: 200px; height: 60px; border: 2px solid black;"></div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
 
 
     <script>
         var t = 5;
-        setInterval(showRandomPage, 1000)
+        setInterval(showRandomPage, 1000)
         function showRandomPage()
         {	
             let pageArray = [`<a href="/Post/Post01000/00005.html"> 페르마의 소정리 </a> <br>` , `<a href="/Post/Post01000/00006.html"> 밀러-라빈 소수 판별법 </a> <br>` , `<a href="/Post/Post01000/00019.html"> 피보나치 수열 <img src="https://latex.codecogs.com/svg.latex?F_{n}"/> </a> <br>` , `<a href="/Post/Post01000/00029.html"> 팩토리얼 <img src="https://latex.codecogs.com/svg.latex?n!"/> </a> <br>` , `<a href="/Post/Post01000/00083.html"> 소수 정리 </a> <br>` , `<a href="/Post/Post01000/00094.html"> 자연로그의 밑 <img src="https://latex.codecogs.com/svg.latex?e"/> </a> <br>` , `<a href="/Post/Post01000/00120.html"> 리만 제타함수 <img src="https://latex.codecogs.com/svg.latex?\\zeta(s)"/> </a> <br>` , `<a href="/Post/Post01000/00183.html"> 자연로그함수 <img src="https://latex.codecogs.com/svg.latex?\\ln&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00184.html"> 사인함수 <img src="https://latex.codecogs.com/svg.latex?\\sin&space;x"/> </a> <br>` , `<a href="/Post/Post01000/00186.html"> 원주율 <img src="https://latex.codecogs.com/svg.latex?\\pi"/> </a> <br>` , `<a href="/Post/Post01000/00228.html"> 미적분학의 기본정리 1 </a> <br>` , `<a href="/Post/Post01000/00278.html"> 이항정리 </a> <br>` , `<a href="/Post/Post01000/00446.html"> 산술의 기본정리 </a> <br>` , `<a href="/Post/Post01000/00452.html"> 거듭제곱급수 </a> <br>` , `<a href="/Post/Post01000/00458.html"> 자연수 <img src="https://latex.codecogs.com/svg.image?\\mathbb{N}" title="\mathbb{N}" /> </a> <br>` , `<a href="/Post/Post01000/00460.html"> 실수 <img src="https://latex.codecogs.com/svg.latex?\\mathbb{Z}"/> </a> <br>` , `<a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> <br>` , `<a href="/Post/Post01000/00492.html"> 라플라스 변환 </a> <br>`];
             var t0 = Math.floor(Math.random() * 18);
-            console.log(t0);
+            // console.log(t0);
             t -= 1;
             if (t == 0) { document.querySelector('#showRandom').innerHTML = pageArray[t0]; t = 5}
             document.querySelector('#showCount').innerHTML = t;
         }
     </script>
+        
+    <script>
+        let S = [1, 2, 3, 4, 5, 6, 7, 8];
+        shuffle(S);
+        for (let i = 0; i < 8; i++) {
+            document.querySelector('#sortDiv' + (i + 1).toString()).innerHTML = S[i];
+        }
+        console.log(S);
+        let nowsort = -1;
+        let tamsek = -1;
+        let min = 10;
+        let nowsorting = 0;
+        let ind = -1;
+        let tmp = 0;
+        let huoosik = 0;
+        setInterval(showSort, 1000)
+        function showSort() {
+            if (tamsek != 7)
+            {
+                tamsek++;
+                document.querySelector('#sortDiv' + (tamsek + 1).toString()).style.backgroundColor = "pink";
+                for (let i = nowsort + 1; i < 8; i++) {
+                    if (i != tamsek) {document.querySelector('#sortDiv' + (i + 1).toString()).style.backgroundColor = "white";}
+                }
+                if (min > document.querySelector('#sortDiv' + (tamsek + 1).toString()).innerHTML) {
+                    min = document.querySelector('#sortDiv' + (tamsek + 1).toString()).innerHTML;
+                    document.querySelector('#minElement').innerHTML = min.toString() + " (" + tamsek.toString() + ")";
+                    ind = tamsek;
+                }
+            } else {
+                // document.querySelector('#sortDiv1').innerHTML = Math.floor(Math.random() * 18);
+                if (nowsorting == 0) {
+                    nowsorting += 1;
+                    tmp = min;
+                    document.querySelector('#tmpElement').innerHTML = tmp;
+                    document.querySelector('#sanghwang').innerHTML = "tmp에 최솟값 저장";
+                } else if (nowsorting == 1) {
+                    S[ind] = S[nowsort + 1];
+                    document.querySelector('#sortDiv' + (ind + 1).toString()).innerHTML = S[ind];
+                    nowsorting += 1;
+                    document.querySelector('#sanghwang').innerHTML = ind.toString() + "번째에 " + (nowsort + 1).toString() + "번째 저장";
+                } else if (nowsorting == 2) {
+                    S[nowsort + 1] = tmp;
+                    nowsorting += 1;
+                    console.log('#sortDiv' + (nowsort + 2).toString())
+                    document.querySelector('#sortDiv' + (nowsort + 2).toString()).innerHTML = tmp;
+                    document.querySelector('#sanghwang').innerHTML = (nowsort + 1).toString() + "번째에 tmp 저장";
+                } else if (nowsorting == 3) {
+                    document.querySelector('#tmpElement').innerHTML = "tmp";
+                    nowsort++;
+                    tamsek = nowsort;
+                    min = 10;
+                    nowsorting = 0;
+                    if (nowsort == 6) {nowsorting = 5}
+                    document.querySelector('#sanghwang').innerHTML = "";
+                    document.querySelector('#sortDiv' + (nowsort + 1).toString()).style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ')';
+                }
+            }
+            if (nowsort == 6) {
+                console.log("정렬 종료");
+                huoosik = 1;
+                nowsort = 7;
+                document.querySelector('#sortDiv' + (8).toString()).style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ')';
+            }
+            if (huoosik > 0) {
+                document.querySelector('#sortDiv' + (8).toString()).style.backgroundColor = 'rgb(' + 200 + ',' + 200 + ',' + 200 + ')';
+                if (huoosik == 5) {
+                    shuffle(S);
+                    for (let i = 0; i < 8; i++) {
+                        document.querySelector('#sortDiv' + (i + 1).toString()).innerHTML = S[i];
+                    }
+                    nowsort = -1;
+                    tamsek = -1;
+                    min = 10;
+                    nowsorting = 0;
+                    ind = -1;
+                    tmp = 0;
+                    console.log(S);
+                    huoosik = 0;
+                    for (let i = 0; i < 8; i++) {
+                        document.querySelector('#sortDiv' + (i + 1).toString()).style.backgroundColor = "white";
+                    }
+                    document.querySelector('#sanghwang').innerHTML = "";
+                } else { huoosik++; document.querySelector('#sanghwang').innerHTML = 5 - huoosik;}
+            }
+        }
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    </script>
+
 	<script type="text/javascript" src="/LaTexWrite.js"></script>
 	  
   </div>
