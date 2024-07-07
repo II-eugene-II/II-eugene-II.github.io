@@ -37,11 +37,29 @@
       
     미분과 적분이 서로의 역연산 관계라는 것을 밝히는 정리입니다. <br>
 
-    <details><summary> <del> 미적분학의 기본정리 1 증명 </del> </summary>
+    <details><summary> 미적분학의 기본정리 1 증명 </summary>
     
         <p>
 
-            적분의 평균값 정리 이용해주기
+            증명의 스케치 - 적분의 평균값 정리 이용해주기 <br>
+
+            구간 $[a, b]$ 내의 $[x, x + h]$ 라는 구간에서 함수 $f(x)$는 연속이므로, 적분의 평균값 정리에 의해 
+            
+            $$ \frac{1}{h} \int\limits_{x}^{x + h} f(t)\, dt\, = f(c) \, (x < c < x + h) $$
+
+            인 실수 $c$가 존재한다. <br>
+
+            $h \to 0$으로 하면 조임 정리에서 $c \to x$이고, 따라서
+                
+            $$ \lim\limits_{h \to 0} \frac{1}{h} \int\limits_{x}^{x + h} f(t)\, dt\, = f(x) $$
+
+            이다. <br>
+
+            또, $$ F(x + h) - F(x) &= \int_{a}^{x + h} f(t)\, dt\, - \int_{a}^{x} f(t)\, dt\,
+                                   &= \int_{a}^{x + h} f(t)\, dt\, + \int_{x}^{a} f(t)\, dt\,
+                                   &= \int_{x}^{x + h} f(t)\, dt\, $$
+
+            이므로, $$ \lim\limits_{h \to 0} \frac{1}{h} \int\limits_{x}^{x + h} f(t)\, dt\, = f(x) $$ 에서 $$ \lim\limits_{h \to 0} \frac{F(x + h) - F(x)}{h} = f(x) $$ 이므로, <a href="/Post/Post01000/00433.html"> 도함수 </a>의 정의에 의해 $F'(x) = f(x)$이다. <br>
                 
         </p>
     
