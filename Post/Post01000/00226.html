@@ -29,7 +29,9 @@
       
     <blockquote>
         $$
-        \sin(x + y) = \sin x \cos y + \cos x \sin y \\
+        \sin(x + y) = \sin x \cos y + \cos x \sin y
+        \\
+        \\
         \cos(x + y) = \cos x \cos y - \sin x \sin y
         $$
     </blockquote>
@@ -40,9 +42,21 @@
     
         <p>
 
-            $$ f(x) = \sin(x + c) - \sin x \cos c - \cos x \sin c \\ g(x) = \cos(x + c) - \cos x \cos c + \sin x \sin c $$ <br>
+            전제 조건 1. $\sin(x) = \sum\limits_{n = 0}^{\infty} \frac{{(-1)}^{n}}{(2n + 1)!} x^{2n + 1}$, $\cos(x) = \sum\limits_{n = 0}^{\infty} \frac{{(-1)}^{n}}{(2n)!} x^{2n}$ 로 <b>정의</b> 한다. <br>
 
-            $x$에 대해 미분하면 ... 후에 $f^2 + g^2 = 0$ 보이기, 그 식을 만족하면 $f = g = 0$을 만족하는 것도 보이기 <br>
+            전제 조건 2. 전제 조건 1의 멱급수 정의에 따라 $\sin x$의 미분은 $\cos x$, $\cos x$의 미분은 $- \sin x$ 이다. <br>
+
+            두 함수 $f(x)$, $g(x)$를 어떤 임의의 상수 $c$에 대해 <br>
+
+            $$ f(x) = \sin(x + c) - \sin x \cos c - \cos x \sin c \\ g(x) = \cos(x + c) - \cos x \cos c + \sin x \sin c $$
+
+            로 둔다. 두 함수를 미분하면 <br>
+
+            $$ f'(x) = \cos(x + c) - \cos x \cos c + \sin x \sin c \\ g'(x) = - \sin(x + c) + \sin x \cos c + \cos x \sin c $$
+
+            이다. 
+
+            <!-- $x$에 대해 미분하면 ... 후에 $f^2 + g^2 = 0$ 보이기, 그 식을 만족하면 $f = g = 0$을 만족하는 것도 보이기 --> <br>
                 
         </p>
     
