@@ -16,8 +16,9 @@ html, body {
 
 a {
     height: 20px;
-    border-bottom: dashed 2px #d1d1d1; /*Aqua*/
+    border-bottom: 4px double #bbbbbb; /*Aqua*/
     /*border: 4px double #aaaaaa;*/
+    /*border-bottom: 2px solid #d1d1d1;*/
     margin: 2px 0px 2px 0px;
     padding: 2px 0px 4px 0px;
     display: inline-block;
@@ -123,11 +124,11 @@ header a {
 #goPage2 {
     width: 70%;
     margin: 7px;
-    color: #3A83BB;
-    padding: 5px;
+    color: #000000; /* #3A83BB */
+    padding: 5px; 
     border-style: solid;
     border-width: 2px;
-    border-color: #3A83BB;
+    border-color: #000000;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -135,11 +136,11 @@ header a {
 #goPage {
     width: 70%;
     margin: 7px;
-    color: #3A83BB;
+    color: #000000;
     padding: 5px;
     border-style: solid;
     border-width: 2px;
-    border-color: #3A83BB;
+    border-color: #000000;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -151,7 +152,7 @@ header a {
     padding: 5px;
     border-style: solid;
     border-width: 2px;
-    border-color: #3A83BB;
+    border-color: #000000;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
     font-size: small;
@@ -176,11 +177,15 @@ aside {
     width: 150px;
     height: 650px;
     margin: 30px 20px 20px 0px;
-    border: 7px double #aaaaaa;
+    border: 7px double #000000; /* aaaaaa */
     float: right;
-    background: #EBF5FF;
+    background: #ffffff;
     box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22);
-} 
+}
+
+aside a{
+    color: #000000;
+}
 
 @media (max-width: 1023px) {
     
@@ -200,7 +205,6 @@ aside {
         margin-left: auto; margin-right: auto;
         padding: 20px 20px 20px 20px;
         float: none;
-        background: whitesmoke;
     } 
 
 }
@@ -221,7 +225,6 @@ aside {
         margin: 20px 20px 20px 20px;
         padding: 0px 0px 0px 0px;
         float: none;
-        background: whitesmoke;
     } 
     
     details {
