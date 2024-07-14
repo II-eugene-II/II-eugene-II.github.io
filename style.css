@@ -108,7 +108,7 @@ header {
 
 header a {
     color: #000000;
-    border-bottom: dashed 2px #000000;
+    border-bottom: double 2px #000000;
 }
 
 /*
