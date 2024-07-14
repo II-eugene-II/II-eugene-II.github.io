@@ -1,4 +1,4 @@
-maxPost = 530
+maxPost = 531
 
 var arr = [-1, 201, 300, 301, 400, 401, 500, 501];
 
@@ -9,7 +9,9 @@ while (arr.includes(rand)) { rand = Math.floor(Math.random() * maxPost) + 1; }
 rand = rand.toString()
 
 document.write(`
+<br>
 II-eugene-II note <br>
+<br>
 `)
 
 document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> ");
