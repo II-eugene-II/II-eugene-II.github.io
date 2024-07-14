@@ -14,7 +14,7 @@ II-eugene-II Note <br>
 <br>
 `)
 
-document.write(`<a href="/Post/Post01000/` + rand.padStart(5, "0") + `.html"> Random Page </a> `);
+document.write(`<a href="/Post/Post01000/` + rand.padStart(5, "0") + `.html"> Random Page </a> <span style="font-size: 8px;"> ` + rand + ` </span> `);
 
 document.write(`
 <nav>
