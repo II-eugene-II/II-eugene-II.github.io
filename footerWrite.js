@@ -10,11 +10,11 @@ rand = rand.toString()
 
 document.write(`
 <br>
-II-eugene-II note <br>
+II-eugene-II Note <br>
 <br>
 `)
 
-document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> ");
+document.write(`<a href="/Post/Post01000/` + rand.padStart(5, "0") + `.html"> Random Page </a> `);
 
 document.write(`
 <nav>
