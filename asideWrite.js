@@ -1,4 +1,4 @@
-maxPost = 530;
+maxPost = 531;
 
 var arr = [-1, 201, 300, 301, 400, 401, 500, 501];
 
@@ -8,13 +8,24 @@ while (arr.includes(rand)) { rand = Math.floor(Math.random() * maxPost) + 1; }
 
 rand = rand.toString()
 
-document.write(`<br>
-<a href="/index.html"> Main Page </a> <br> <br> <br>`);
-document.write("<a href=\"/Post/Post01000/" + rand.padStart(5, "0") + ".html\"> Random Page </a> <br> <br>");
+document.write(`
+<br>
+<a href="/index.html"> Main Page </a>
+<br>
+<br>
+<br>
+`);
 
-document.write(`<input id="whatPage" placeholder="이동할 페이지 입력"  type="text"> <br>
-<button id="goPage" onclick="givePage()"> 페이지 이동 </button> <br>
-<div id="showGoPage"></div> <br>`);
+document.write(`<a href="/Post/Post01000/` + rand.padStart(5, "0") + `.html"> Random Page </a> <span style="font-size: 8px;"> ` + rand + ` </span> <br> <br>`);
+
+document.write(`
+<input id="whatPage" placeholder="이동할 페이지 입력" type="text">
+<br>
+<button id="goPage" onclick="givePage()"> 페이지 이동 </button>
+<br>
+<div id="showGoPage"></div>
+<br>
+`);
 
 function givePage()
 {
