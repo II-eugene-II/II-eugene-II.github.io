@@ -178,9 +178,13 @@ aside {
     height: 650px;
     margin: 30px 20px 20px 0px;
     border: 7px double #000000; /* aaaaaa */
+    border-radius: 15px;
     float: right;
     background: #ffffff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
+    background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #aaaaaa, white, #aaaaaa, white, #aaaaaa);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
 aside a{
