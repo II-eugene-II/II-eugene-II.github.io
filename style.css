@@ -79,7 +79,7 @@ del {
 
 blockquote {
     /*background-color: Ghostwhite;*/
-    background-color: rgb(240 250 240 / 50%); /* 240 240 255 */
+    background-color: #eaeaeaea; /* 240 240 255 */ /* rgb(240 250 240 / 50%) */
     padding-left: 30px;
     padding-right: 20px;
     padding-bottom: 15px;
@@ -95,7 +95,7 @@ header {
     padding: 0px 0px 5px 0px;
     display: flex;
     justify-content: space-between;
-    background-color: rgba(220,220,220, 0.95); /* gainsboro;  */
+    background-color: rgba(220, 220, 220, 0.95); /* gainsboro;  */
     border-bottom: 5px solid darkgray;
     position: fixed;
     top: 0;
@@ -104,7 +104,7 @@ header {
     right: 0;
     z-index: 5;
     text-align: center;
-    box-shadow: 0 32px 32px rgba(169,169,169,0.2), 0 8px 8px rgba(169,169,169,0.1);
+    box-shadow: 0 32px 32px rgba(169, 169, 169, 0.2), 0 8px 8px rgba(169, 169, 169, 0.1);
     font-weight: 600;
 }
 
