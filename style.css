@@ -91,6 +91,13 @@ blockquote {
     box-shadow: 0 8px 16px rgba(0,0,0,0.25), 0 4px 8px rgba(0,0,0,0.22);
 }
 
+.legalpad {
+    background-color: yellow;
+    border-left: 6px solid #F5E4B0;
+    border-right: 3px solid #fbe6a2;
+    background-image: repeating-linear-gradient(#fff1c4, #fff1c4 18px, #CED09F 20px);
+}
+
 header {
     padding: 0px 0px 5px 0px;
     display: flex;
