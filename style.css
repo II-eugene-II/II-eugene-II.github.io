@@ -59,16 +59,19 @@ td {
 
 hr {
     border: none;
-    border-top: 1px solid gray;
+    border-top: 3px double gray;
     text-align: center;
     overflow: visible;
+    box-shadow: 0 10px 10px -10px #dddddd inset;
+    /* border-image: linear-gradient(to right, black, #cacaca,black);
+    border-image-slice: 1; */
 }
 
 hr:after {
-    content: " ⋆ ◇ ⋆ ";
+    content: "▼ ◈ ▼"; /* https://www.toptal.com/designers/htmlarrows/symbols/  \2654 */
     display : inline-block;
     position: relative;
-    top: -18px;
+    top: -16px;
     background-color: #F4F4F4;  /* html, body { background-color: #F4F4F4; } 과 연동되어야 함 */
     padding: 0 10px;
 }
@@ -298,3 +301,23 @@ footer a {
 }
 
 /* LaTeX 튀어나오는 현상을 방지하기 위해 나중에는 긴 LaTeX을 본문 대신 blockquote, details 태그 안에만 넣고 가로 스크롤바를 넣기 */
+
+/* 구 버전
+
+hr {
+    border: none;
+    border-top: 1px solid gray;
+    text-align: center;
+    overflow: visible;
+}
+
+hr:after {
+    content: " ⋆ ◇ ⋆ ";
+    display : inline-block;
+    position: relative;
+    top: -18px;
+    background-color: #F4F4F4;  /* html, body { background-color: #F4F4F4; } 과 연동되어야 함
+    padding: 0 10px;
+}
+
+*/
