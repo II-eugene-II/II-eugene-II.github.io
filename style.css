@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
 * {
     line-height: 185%;
 }
@@ -8,7 +10,7 @@ html, body {
     height: 100%;
     background-color: #F4F4F4; /* hr:after { background-color: #F4F4F4; } 과 연동되어야 함 */
     padding-top: 75px;
-    /*font-family: Helvetica, sans-serif;*/
+    font-family: "Noto Sans KR";
 }
 
 /*Helvetica, '맑은 고딕', 'malgun gothic', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', sans-serif; 
@@ -68,7 +70,7 @@ hr {
 }
 
 hr:after {
-    content: "▼ ◈ ▼"; /* https://www.toptal.com/designers/htmlarrows/symbols/  \2654 */
+    content: "▾ ◈ ▾"; /* https://www.toptal.com/designers/htmlarrows/symbols/  \2654 */
     display : inline-block;
     position: relative;
     top: -16px;
@@ -319,5 +321,11 @@ hr:after {
     background-color: #F4F4F4;  /* html, body { background-color: #F4F4F4; } 과 연동되어야 함
     padding: 0 10px;
 }
+
+*/
+
+/*
+
+기존엔 후보만 나열하고 폰트 설정이 없었음
 
 */
