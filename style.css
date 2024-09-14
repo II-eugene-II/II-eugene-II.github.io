@@ -203,6 +203,14 @@ aside a{
     color: #000000;
 }
 
+code {
+    font-family: Consolas;
+}
+
+pre {
+    font-family: Consolas;
+}
+
 @media (max-width: 1023px) {
     
     section {
