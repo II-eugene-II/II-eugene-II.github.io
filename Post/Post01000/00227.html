@@ -35,6 +35,52 @@
       
     $\sin{x}$는 <a href="/Post/Post01000/00184.html"> 사인함수 </a>이고, $\cos{x}$는 <a href="/Post/Post01000/00185.html"> 코사인함수 </a> 입니다. <br>
 
+    탄젠트함수의 <a href="/Post/Post01000/00433.html"> 미분 </a>은 다음과 같습니다. <br>
+      
+    <blockquote>
+        $$
+        \frac{{\rm d}}{{\rm d}x} \tan x = \sec^2 x
+        $$
+    </blockquote>
+
+    $\sec x$는 <a href="/Post/Post01000/00241.html"> 시컨트함수 </a> 입니다. <br>
+
+    <a href="/Post/Post01000/00339.html"> 삼각함수 항등식 </a> $\sec^2 x = 1 + \tan^2 x$를 이용해 다음과 같이 쓸 수 있습니다. <br>
+      
+    <blockquote>
+        $$
+        \frac{{\rm d}}{{\rm d}x} \tan x = 1 + \tan^2 x
+        $$
+    </blockquote>
+
+    <details><summary> 탄젠트함수 미분 증명 </summary>
+    
+        <p>
+
+            기본 전제조건 - $\frac{{\rm d}}{{\rm d}x} \sin x = \cos x$, $\frac{{\rm d}}{{\rm d}x} \cos x = - \sin x$ 임을 알고 있어야 함. <br>
+
+            <a href="/Post/Post01000/00024.html"> 몫의 미분법 </a> 이용 <br>
+
+            $$
+
+            \frac{{\rm d}}{{\rm d}x} \tan x = \frac{{\rm d}}{{\rm d}x} \frac{\sin{x}}{\cos{x}} = \frac{\cos x \times \cos x - (-\sin x) \times \sin x}{\cos^2 x} = \frac{\cos^2 x + \sin^2 x}{\cos^2 x}
+
+            $$
+
+            <a href="/Post/Post01000/00339.html"> 삼각함수 항등식 </a> $\sin^2 x + \cos^2 x = 1$ 에서 $\frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x}$이므로,
+
+            $$
+
+            \frac{{\rm d}}{{\rm d}x} \tan x = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x
+
+            $$
+
+            이다. <br>
+                
+        </p>
+    
+    </details> <!-- 탄젠트함수 미분 증명 -->
+
     탄젠트함수의 <a href="/Post/Post01000/00453.html"> 테일러 급수 </a> 표현에 <a href="/Post/Post01000/00181.html"> 베르누이 수 </a> $B_{n}$이 사용됩니다. <br>
       
     <blockquote>

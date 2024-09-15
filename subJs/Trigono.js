@@ -1,4 +1,7 @@
 document.write(`
+
+<a href="/Post/Post01000/00339.html"> 삼각함수 항등식 </a>
+
 <details> <summary> 기초 삼각함수 </summary>
         
     <p>
