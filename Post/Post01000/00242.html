@@ -42,6 +42,50 @@
     코탄젠트함수의 멱급수 표현에 <a href="/Post/Post01000/00181.html"> 베르누이 수 </a>가 사용됩니다. <br>
 
     코탄젠트함수의 역함수로 <a href="/Post/Post01000/00316.html"> 아크코탄젠트함수 </a> 가 있습니다. <br>
+      
+    <blockquote>
+        코탄젠트함수의 미분
+        $$
+        \frac{{\rm d}}{{\rm d}x} \cot x = -\csc^2 x
+        $$
+    </blockquote>
+
+    <details><summary> 코탄젠트함수 미분 증명 </summary>
+    
+        <p>
+
+            기본 전제조건 - $\frac{{\rm d}}{{\rm d}x} \sin x = \cos x$, $\frac{{\rm d}}{{\rm d}x} \cos x = - \sin x$ 임을 알고 있어야 함. <br>
+
+            <a href="/Post/Post01000/00024.html"> 몫의 미분법 </a> 이용 <br>
+
+            $$
+
+            \frac{{\rm d}}{{\rm d}x} \cot x = \frac{{\rm d}}{{\rm d}x} \frac{\cos{x}}{\sin{x}} = \frac{-\sin x \times \sin x - cos x \times \cos x}{\sin^2 x} = -\frac{\sin^2 x + \cos^2 x}{\sin^2 x}
+
+            $$
+
+            <a href="/Post/Post01000/00339.html"> 삼각함수 항등식 </a> $\sin^2 x + \cos^2 x = 1$ 에서 $-\frac{\sin^2 x + \cos^2 x}{\sin^2 x} = -\frac{1}{\sin^2 x}$이므로,
+
+            $$
+
+            \frac{{\rm d}}{{\rm d}x} \cot x = -\frac{\sin^2 x + \cos^2 x}{\sin^2 x} = -\frac{1}{\sin^2 x} = -\csc^2 x
+
+            $$
+
+            이다. <br>
+                
+        </p>
+    
+    </details> <!-- 코탄젠트함수 미분 증명 -->
+
+    <a href="/Post/Post01000/00339.html"> 삼각함수 항등식 </a> $1 + \cot^2 x = \csc^2 x$으로 다음과 같이 쓸 수 있습니다. <br>
+      
+    <blockquote>
+        코탄젠트함수의 미분
+        $$
+        \frac{{\rm d}}{{\rm d}x} \cot x = -(1 + \cot^2 x)
+        $$
+    </blockquote>
 
     </p>
         
