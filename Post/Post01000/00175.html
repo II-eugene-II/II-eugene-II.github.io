@@ -31,11 +31,11 @@
         모든 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$에 대하여, $k \times 2^{n} + 1$가 합성수가 되도록 하는 홀수 $k$을 <b>시에르핀스키 수</b>라고 한다.
     </blockquote>
       
-    현재까지 알려진 시에르핀스키 수 중 가장 작은 것은 78557입니다. <br>
+    현재까지 알려진 시에르핀스키 수 중 가장 작은 것은 $78557$입니다. <br>
 
-    시에르핀스키 수 후보로는 21181, 22699, 24737, 55459, 67607이 있습니다. <br>
+    시에르핀스키 수 후보로는 $21181$, $22699$, $24737$, $55459$, $67607$이 있습니다. <br>
 
-    원래 78557보다 작은 시에르핀스키 수 후보가 17개 있었는데, Seventeen of Bust 프로젝트로 많이 줄였습니다. <br>
+    원래 $78557$보다 작은 시에르핀스키 수 후보가 17개 있었는데, Seventeen of Bust 프로젝트로 많이 줄였습니다. <br>
 
     최근에는 $10223 \times 2^{31172165} + 1$이 <a href="/Post/Post01000/00342.html"> 소수 </a>임이 밝혀지면서 후보 $10223$이 사라졌습니다. <br>
 
@@ -44,9 +44,106 @@
     이와 닮은 꼴의 수로 <a href="/Post/Post01000/00176.html"> 리젤 수 </a>가 있는데, 만약 시에르핀스키 수이면서 리젤 수이면 <a href="/Post/Post01000/00177.html"> 브라이어 수 </a> 라고 합니다. <br>
       
     <blockquote>
-        정리 1.
-        모든 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$에 대하여, $78557 \times 2^{n} + 1$은 합성수이다.
+        정리 1. <br>
+        
+        모든 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$에 대하여, $78557 \times 2^{n} + 1$은 합성수이다. <br>
+
+        따라서, $78557$은 <b>시에르핀스키 수</b> 이다. <br>
     </blockquote>
+
+    <details><summary> 정리 1 증명 </summary>
+    
+        <p>
+            1. $2^{n} \pmod{p}$의 주기성 <br>
+            
+            $2^{0} \equiv 1 \pmod{p}$은 자명하고, <a href="/Post/Post01000/00005.html"> <b>페르마의 소정리</b> </a>에 의해 $2^{p - 1} \equiv 1 \pmod{p}$ 이다. <br>
+            
+            따라서 $2^{1} \equiv 2^{p - 1 + 1} \pmod{p}$, $2^{2} \equiv 2^{p - 1 + 2} \pmod{p}$, ... $2^{k} \equiv 2^{p - 1 + k} \pmod{p}$ 이고, $2^{n} \pmod{p}$은 $p - 1$의 주기를 가진다. <br>
+            
+            (최소 주기가 아닐 수도 있다. $2^{3} \equiv 1 \pmod{7}$) <br> <br>
+
+            2. $X \equiv Y \pmod{n}$ 이면 $aX + c \equiv aY + c \pmod{n}$ (자명함) <br> <br>
+
+            A. $78557 \times 2^{0} + 1 \equiv 0 \pmod{3}$에서 $n \equiv 0 \pmod{2}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{3}$ (1, 2번 성질에 의해 $78557 \times 2^{n} + 1 \equiv 0 \pmod{3}$의 주기가 $2$) <br> <br>
+
+            B. $78557 \times 2^{1} + 1 \equiv 0 \pmod{5}$에서 $n \equiv 1 \pmod{4}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{5}$ <br> <br>
+            
+            C. $78557 \times 2^{1} + 1 \equiv 0 \pmod{7}$에서 $n \equiv 1 \pmod{6}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{7}$ <br> <br>
+            
+            D. $78557 \times 2^{11} + 1 \equiv 0 \pmod{13}$에서 $n \equiv 11 \pmod{12}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{13}$ <br> <br>
+            
+            E. $78557 \times 2^{15} + 1 \equiv 0 \pmod{19}$에서 $n \equiv 15 \pmod{18}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{19}$ <br> <br>
+            
+            F. $78557 \times 2^{27} + 1 \equiv 0 \pmod{37}$에서 $n \equiv 27 \pmod{36}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{37}$ <br> <br>
+            
+            G - 1. $78557 \times 2^{3} + 1 \equiv 0 \pmod{73}$에서 $n \equiv 3 \pmod{72}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{73}$ <br> <br>
+            
+            G - 2. $78557 \times 2^{39} + 1 \equiv 0 \pmod{73}$에서 $n \equiv 39 \pmod{72}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{73}$ <br> <br>
+
+            G. $n \equiv 3 \pmod{72}$, $n \equiv 39 \pmod{72}$이면 $n \equiv 3 \pmod{36}$, $n \equiv 3 \pmod{36}$이면 $78557 \times 2^{n} + 1 \equiv 0 \pmod{73}$ <br> <br>
+
+            다음은 $n = 36m + k (0 \leq k < 36)$이라 할 때, $k$의 값에 따른 표이다. ($k = 3$일 때 G이므로, "G"의 $n \equiv 3 \pmod{36}$ 의 경우에 해당된다는 뜻) <br>
+      
+            <table style="margin-left: auto; margin-right: auto; text-align: center">
+                <tr>
+                    <td class = "tdPost"> 0 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 1 <br> B C </td>
+                    <td class = "tdPost"> 2 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 3 <br> &emsp;G&emsp; </td>
+                    <td class = "tdPost"> 4 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 5 <br> &emsp;B&emsp; </td>
+                </tr>
+                <tr>
+                    <td class = "tdPost"> 6 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 7 <br> &emsp;C&emsp; </td>
+                    <td class = "tdPost"> 8 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 9 <br> &emsp;B&emsp; </td>
+                    <td class = "tdPost"> 10 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 11 <br> &emsp;D&emsp; </td>
+                </tr>
+                <tr>
+                    <td class = "tdPost"> 12 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 13 <br> B C </td>
+                    <td class = "tdPost"> 14 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 15 <br> &emsp;E&emsp; </td>
+                    <td class = "tdPost"> 16 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 17 <br> &emsp;B&emsp; </td>
+                </tr>
+                <tr>
+                    <td class = "tdPost"> 18 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 19 <br> &emsp;C&emsp; </td>
+                    <td class = "tdPost"> 20 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 21 <br> &emsp;B&emsp; </td>
+                    <td class = "tdPost"> 22 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 23 <br> &emsp;D&emsp; </td>
+                </tr>
+                <tr>
+                    <td class = "tdPost"> 24 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 25 <br> B C </td>
+                    <td class = "tdPost"> 26 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 27 <br> &emsp;F&emsp; </td>
+                    <td class = "tdPost"> 28 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 29 <br> &emsp;B&emsp; </td>
+                </tr>
+                <tr>
+                    <td class = "tdPost"> 30 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 31 <br> &emsp;C&emsp; </td>
+                    <td class = "tdPost"> 32 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 33 <br> B E </td>
+                    <td class = "tdPost"> 34 <br> &emsp;A&emsp; </td>
+                    <td class = "tdPost"> 35 <br> &emsp;D&emsp; </td>
+                </tr>
+            </table>
+
+            <br>
+            
+            모든 자연수 $n$에 대하여 $78557 \times 2^{0} + 1$은 집합 $P = \left\{ 3, 5, 7, 13, 19, 37, 73 \right\}$ 의 원소 중 하나로 나누어떨어진다. <br>
+
+            +) 집합 $P$는 Covering Set 이라 한다. <br>
+                
+        </p>
+    
+    </details> <!-- 정리 1 증명 -->
       
     </p>
       
