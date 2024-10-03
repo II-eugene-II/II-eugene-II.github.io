@@ -10,7 +10,8 @@ html, body {
     height: 100%;
     background-color: #F4F4F4; /* hr:after { background-color: #F4F4F4; } 과 연동되어야 함 */
     padding-top: 75px;
-    font-family: "Noto Sans KR";
+    /* font-family: "Noto Sans KR"; LaTeX에 악영향 */
+    font-family: Helvetica;
 }
 
 /*Helvetica, '맑은 고딕', 'malgun gothic', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', sans-serif; 

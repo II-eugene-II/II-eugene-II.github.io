@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 이산 푸리에 변환 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 이산 푸리에 변환 </div>
+      
+    <hr>
+      
+    <p>
+      
+    이산 푸리에 변환 (Discrete Fourier Transform, DFT) 은 길이가 $T$인 복소수열 $\{a_{n}\}$ 을 변환해 복소수열 $\{A_{n}\}$ 을 만드는 연산입니다. <br>
+    
+    <blockquote>
+        $$
+        A_{n} = \sum_{k = 0}^{T - 1} e^{i \frac{- 2 \pi k n}{T}} a_{k} = \sum_{k = 0}^{T - 1} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) - i \sin\left( \frac{2 \pi k n}{T} \right) \right\} a_{k}
+        $$
+    </blockquote>
+
+    $i$는 <a href="/Post/Post01000/00333.html"> 허수 단위 $i$ </a>, $\pi$는 <a href="/Post/Post01000/00186.html"> 원주율 $\pi$ </a>, $\cos x$는 <a href="/Post/Post01000/00185.html"> 코사인함수 </a>, $\sin x$는 <a href="/Post/Post01000/00184.html"> 사인함수 </a> 입니다. <br>
+
+    이산 푸리에 역변환 (Inverse Discrete Fourier Transform, IDFT) 도 마찬가지로 정의되는데, 이는 복소수열 $\{A_{n}\}$을 다시 복소수열 $\{a_{n}\}$로 변환 시키는 연산입니다. <br>
+    
+    <blockquote>
+        $$
+        a_{n} = \frac{1}{T} \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} = \frac{1}{T} \sum_{k = 0}^{T - 1} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) + i \sin\left( \frac{2 \pi k n}{T} \right) \right\} A_{k}
+        $$
+    </blockquote>
+
+    <details><summary> 역변환 증명 </summary>
+    
+        <p>
+
+            $\{A_{n}\}$의 정의인 $A_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{- 2 \pi k n}{T}} a_{k}$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 를 계산해보면 된다. <br>
+
+            $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right)$ <br>
+
+            $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right)$ <br>
+
+            여기서 조금 어지럽고 현란한 이중 시그마 연산을 해주면 <br>
+
+            $\sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} = \sum\limits_{m = 0}^{T - 1} \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) = \sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$ <br>
+
+            따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$의 연산만 해주면 된다. <br>
+
+            $n = m$이면 $n - m = 0$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} = \sum\limits_{k = 0}^{T - 1} e^{0} = T$이다. <br>
+
+            $n \not= m$이면 등비수열의 합 공식 $\sum\limits_{k = 0}^{T - 1} a^k = \frac{a^T - 1}{a - 1}$ 에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} = \sum\limits_{k = 0}^{T - 1} \left(e^{i \frac{2 \pi (n - m)}{T}}\right)^k = \frac{\left(e^{i \frac{2 \pi (n - m)}{T}}\right)^{T} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1} = \frac{e^{i 2 \pi (n - m)} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1}$이다. <br>
+
+            $T$값에 관계없이 두 정수 $n$, $m$에서 $n - m$은 정수이고, 임의의 정수 $q$에 대해 $e^{i 2\pi q} = 1$이므로 $\frac{e^{i 2 \pi (n - m)} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1} = 0$이다. <br>
+
+            따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$에서 $\left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)$의 값은 $n = m$일 때만 $T$의 값을 가지므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right) = T a_{n}$이라 할 수 있다. <br>
+
+            따라서, $T a_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 역변환 증명 -->
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
