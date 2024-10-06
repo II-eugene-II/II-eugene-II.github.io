@@ -25,7 +25,7 @@
       
     <p>
       
-    이산 푸리에 변환 (Discrete Fourier Transform, DFT) 은 길이가 $T$인 복소수열 $\{a_{n}\}$ 을 변환해 복소수열 $\{A_{n}\}$ 을 만드는 연산입니다. <br>
+    이산 푸리에 변환 (Discrete Fourier Transform, DFT) 은 주기가 $T$인 복소수열 $\{a_{n}\}$ 을 변환해 복소수열 $\{A_{n}\}$ 을 만드는 연산입니다. <br>
     
     <blockquote>
         $$
@@ -72,6 +72,147 @@
         </p>
     
     </details> <!-- 역변환 증명 -->
+
+    <hr>
+    
+    <blockquote>
+        이산 푸리에 변환의 <b>합성곱 (Convolution)</b>
+        $$
+        c_{n} = \sum_{k = 0}^{T - 1} a_{k} b_{n - k}
+        $$
+        이면
+        $$
+        C_{n} = A_{n} B_{n}
+        $$
+        이다.
+    </blockquote>
+
+    수열 $\{b_{n}\}$의 주기가 $T$이므로, $c_{n}$의 정의중 $b_{n - k}$에서 $n - k$가 음수일 때는 $b_{0} = b_{T}$, $b_{-1} = b_{T - 1}$...로 생각하면 됩니다. ($b_{(n - k) \pmod{T}}$)
+
+    <details open><summary> 합성곱 증명 </summary>
+    
+        <p>
+
+            $$
+            \begin{align}
+            C_{n} & = \sum_{k = 0}^{T - 1} c_{k} e^{i \frac{- 2 \pi k n}{T}} \tag{1} \\ 
+                  & = \sum_{k = 0}^{T - 1} \left(\sum_{m = 0}^{T - 1} a_{m} b_{k - m}\right) e^{i \frac{- 2 \pi k n}{T}} \tag{2} \\
+                  & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} e^{i \frac{- 2 \pi (m) n}{T}} \tag{3} \\
+                  & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} e^{i \frac{- 2 \pi (m) n}{T}} \tag{4} \\
+                  & = \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} \sum_{k = 0}^{T - 1} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} \tag{5}\\
+                  & = \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} B_{n} \tag{6}\\
+                  & = B_{n} \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} \tag{7}\\
+                  & = A_{n} B_{n} \tag{8}
+            \end{align}
+            $$
+            
+            $(1)$번식 증명 : 이산 푸리에 변환의 정의 <br>
+            
+            $(1) \to (2)$ 증명 : 수열 $\{c_{n}\}$의 정의 <br>
+            
+            $(2) \to (3)$ 증명 : 지수법칙 사용, $e^{i \frac{-2 \pi k n}{T}} = e^{i \frac{-2 \pi (k-m) n}{T}} \times e^{i \frac{-2 \pi (m) n}{T}}$ <br>
+
+            $(3) \to (4)$ 증명 : 합 순서 변경 <br>
+
+            $(4) \to (5)$ 증명 : 합 순서 변경 후 $k$와 관계 없는 항인 $a_{m} e^{i \frac{- 2 \pi (m) n}{T}}$ 항을 옮겨줌 <br>
+
+            $(6) \to (7)$ 증명 : $m$과 관계 없는 항인 $B_{n}$ 항을 옮겨줌 <br>
+
+            $(7) \to (8)$ 증명 : 이산 푸리에 변환의 정의에 의해 $A_{n} = \sum\limits_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}}$ <br>
+
+            <details open><summary> $(5) \to (6)$ 증명 </summary>
+            
+                <p>
+
+                    $e^{i \frac{-2\pi x n}{T}} = \operatorname{Expi}(x)$ 라 하면, $\operatorname{Expi}(x + T) = \operatorname{Expi}(x)$ 라는 것을 알 수 있다. <br>
+        
+                    또, $\{b_{n}\}$은 주기가 $T$이므로, $b_{n + T} = b_{n}$이다. <br>
+
+                    따라서, $b_{n} \operatorname{Expi}(n) = \mathbb{B}_{n}$ 이라 하면, $\mathbb{B}_{n + T} = \mathbb{B}_{n}$이다. <br>
+
+                    $\sum\limits_{k = 0}^{T - 1} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}}$ 에서 $K = k - m$으로 치환하면 $\sum\limits_{k = -m}^{T - 1 - m} b_{K} e^{i \frac{- 2 \pi K n}{T}} = \sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K}$임을 알 수 있다. <br>
+
+                    $\mathbb{B}_{n}$의 주기성에서 $\mathbb{B}_{-m} = \mathbb{B}_{-m + T}$임을 알 수 있다. <br>
+                    
+                    따라서 $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} = \sum\limits_{k = -m + 1}^{T - m} \mathbb{B}_{K}$이고, 마찬가지로 $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} = \sum\limits_{k = -m + 1}^{T - m} \mathbb{B}_{K} = \sum\limits_{k = -m + 2}^{T - m + 1} \mathbb{B}_{K} = \cdots$ 이므로, $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} = \sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K}$ 임을 알 수 있다. <br>
+
+                    $\mathbb{B}_{K}$의 정의에서 $\sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K} = \sum\limits_{k = 0}^{T - 1} b_{K} e^{i \frac{- 2 \pi K n}{T}}$이고, 이산 푸리에 변환의 정의에 의해 $B_{n} = \sum\limits_{k = 0}^{T - 1} b_{K} e^{i \frac{- 2 \pi K n}{T}}$이다. <br>
+                        
+                </p>
+            
+            </details> <!-- $(5) \to (6)$ 증명 -->
+                
+        </p>
+    
+    </details> <!-- 합성곱 증명 -->
+
+    <!-- <details open><summary> 합성곱 증명 (삽질의 흔적) </summary>
+    
+        <p>
+
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} a_{k} b_{l} e^{i \frac{- 2 \pi (k + l) n }{T}}$$ <br>
+
+            $K := k + l$만큼 평행이동? <br>
+
+            순서 변환시 <br>
+
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} e^{i \frac{- 2 \pi (k + l) n }{T}} a_{k} b_{l} $$ <br>
+
+            $R:= k + l$로 치환해보기 <br>
+
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} e^{i \frac{- 2 \pi R n }{T}} a_{k} b_{l} $$ <br>
+
+            $R$을 중심으로 두 인덱스 값 $k$, $l$의 합이 $R$인 경우에 $e^{i \frac{- 2 \pi R n }{T}} a_{k} b_{l}$의 값을 구한다고 생각하면 OK <br>
+
+            $l = R - k$로 치환하면 <br>
+            
+            $$\sum_{R = 0}^{2T - 2} \left(\sum_{k = 0}^{R}e^{i \frac{- 2 \pi R n }{T}} a_{k} b_{R - k} \right)$$
+            
+            $$\sum_{R = 0}^{2T - 2} e^{i \frac{- 2 \pi R n }{T}} \left(\sum_{k = 0}^{R} a_{k} b_{R - k} \right)$$
+            
+            $$\sum_{R = 0}^{2T - 2} e^{i \frac{- 2 \pi R n }{T}} c_{R}$$
+
+            <hr>
+            
+            $$C_{n} = \sum_{k = 0}^{T - 1} c_{k} e^{i \frac{- 2 \pi k n}{T}} = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi k n}{T}}$$ <br>
+            
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} a_{k} b_{l} e^{i \frac{- 2 \pi (k + l) n }{T}}$$
+
+            $R = k + l$로 치환? $l = R - k$ <br>
+
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} a_{k} b_{R - k} e^{i \frac{- 2 \pi R n }{T}}$$
+
+            두번째 시그마 범위가 중점 <br>
+
+            $l = R - k$에서 $R - k = 0$에서 $R - k = T - 1$까지 더하니 $R = k$에서 $R = T - 1 + k$까지 더하는 셈 <br>
+
+            $k = R - l$ 로 치환해야하나? 아니 이러지 말고
+
+            $$C_{n} = \sum_{k = 0}^{T - 1}\sum_{l = 0}^{T - 1} a_{k} b_{R - k} e^{i \frac{- 2 \pi R n }{T}} = \sum_{k = 0}^{T - 1} a_{k} \left(\sum_{l = 0}^{T - 1}  b_{R - k} e^{i \frac{- 2 \pi R n }{T}} \right)$$
+
+            $C_{n} = A_{n}B_{n}$에서 시작함, $c_{n}$을 증명해야 <br>
+
+            아예 $c_{n}$에서 시작해야? <br>
+
+            $$C_{n} = \sum_{k = 0}^{T - 1} c_{k} e^{i \frac{- 2 \pi k n}{T}} = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi k n}{T}} = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} e^{i \frac{- 2 \pi (m) n}{T}}$$
+
+            합 순서 변경 <br>
+
+            $$\sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} a_{m} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} e^{i \frac{- 2 \pi (m) n}{T}} = \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} \sum_{k = 0}^{T - 1}  b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} $$
+
+            이때, $e^{i \frac{-2\pi x n}{T}} = \operatorname{Expi}(x)$로 임시 정의해주면 $\operatorname{Expi}(x + T) = \operatorname{Expi}(x)$라는 것을 알 수 있다. <br>
+
+            $k - m = K$ 라고 치환하면 $\sum\limits_{k = -m}^{T - 1 - m} b_{K} e^{i \frac{- 2 \pi K n}{T}}$ 이라 할 수 있다. 편의상 $b_{K} e^{i \frac{- 2 \pi K n}{T}} = \mathbb{B}_{K}$라 하자. <br>
+            
+            $b_{k - m} = b_{k - m + T}$, $\operatorname{Expi}(x + T) = \operatorname{Expi}(x)$인 것을 생각해보면 임의의 정수 $k$에 대해 $\mathbb{B}_{k} = \mathbb{B}_{k + T}$임을 알 수 있다. $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K}$에서 $\mathbb{B}_{-m} = \mathbb{B}_{-m + T}$이므로, $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} = \sum\limits_{k = -m + 1}^{T - m} \mathbb{B}_{K}$이고, 마찬가지 과정으로 임의의 정수 $n$에 대해 $\sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K} = \sum\limits_{k = n}^{T - 1 + n} \mathbb{B}_{K}$ 임을 알 수 있다. <br>
+
+            따라서 $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} = \sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K} = \sum\limits_{k = 0}^{T - 1} b_{K} e^{i \frac{- 2 \pi K n}{T}}$에서, 이산 푸리에 변환의 정의에서 $\sum\limits_{k = 0}^{T - 1} b_{K} e^{i \frac{- 2 \pi K n}{T}} = B_{n}$이다. <br>
+
+            따라서 $\sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} \sum_{k = 0}^{T - 1} b_{k - m} e^{i \frac{- 2 \pi (k - m) n}{T}} = \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi (m) n}{T}} \sum_{K = 0}^{T - 1} b_{K} e^{i \frac{- 2 \pi (K) n}{T}} = A_{n} B_{n}$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 합성곱 증명 -->
 
     </p>
       
