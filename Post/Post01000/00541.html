@@ -43,31 +43,38 @@
         $$
     </blockquote>
 
-    <details><summary> 역변환 증명 </summary>
+    <details open><summary> 역변환 증명 </summary>
     
         <p>
 
             $\{A_{n}\}$의 정의인 $A_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{- 2 \pi k n}{T}} a_{k}$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 를 계산해보면 된다. <br>
 
-            $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right)$ <br>
+            어떤 수열 $\alpha_{n}$을 $\alpha_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이라 하자. <br>
 
-            $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right)$ <br>
+            $$
+            \begin{align}
+            \alpha_{n} & = \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} \\
+                       & = \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \\
+                       & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \\
+                       & = \sum_{m = 0}^{T - 1} \left( \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) \\
+                       & = \sum_{m = 0}^{T - 1} \left( a_{m} \times \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)
+            \end{align}
+            $$
 
-            여기서 조금 어지럽고 현란한 이중 시그마 연산을 해주면 <br>
+            이제 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$의 연산만 해주면 된다. <br>
 
-            $\sum\limits_{k = 0}^{T - 1} \left( \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) = \sum\limits_{k = 0}^{T - 1} \sum\limits_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} = \sum\limits_{m = 0}^{T - 1} \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) = \sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$ <br>
-
-            따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$의 연산만 해주면 된다. <br>
-
-            $n = m$이면 $n - m = 0$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} = \sum\limits_{k = 0}^{T - 1} e^{0} = T$이다. <br>
+            $n = m$이면 $n - m = 0$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} = \sum\limits_{k = 0}^{T - 1} e^{0} = \sum\limits_{k = 0}^{T - 1} 1 = T$이다. <br>
 
             $n \not= m$이면 등비수열의 합 공식 $\sum\limits_{k = 0}^{T - 1} a^k = \frac{a^T - 1}{a - 1}$ 에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} = \sum\limits_{k = 0}^{T - 1} \left(e^{i \frac{2 \pi (n - m)}{T}}\right)^k = \frac{\left(e^{i \frac{2 \pi (n - m)}{T}}\right)^{T} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1} = \frac{e^{i 2 \pi (n - m)} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1}$이다. <br>
 
             $T$값에 관계없이 두 정수 $n$, $m$에서 $n - m$은 정수이고, 임의의 정수 $q$에 대해 $e^{i 2\pi q} = 1$이므로 $\frac{e^{i 2 \pi (n - m)} - 1}{e^{i \frac{2 \pi (n - m)}{T}} - 1} = 0$이다. <br>
 
-            따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$에서 $\left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)$의 값은 $n = m$일 때만 $T$의 값을 가지므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right) = T a_{n}$이라 할 수 있다. <br>
+            따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$에서 $\left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)$의 값은 $n = m$일 때만 $T$의 값을 가지므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right) = \sum\limits_{m = 0}^{T - 1} \left( a_{m} \times T \times \left[ n = m \right] \right) = T a_{n} = \alpha_{n}$이라 할 수 있다. ($\left[ P \right]$ 는 <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>) <br>
 
-            따라서, $T a_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이다. <br>
+            따라서, $T a_{n} = \alpha_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이다. <br>
                 
         </p>
     
@@ -114,7 +121,7 @@
 
             $(3) \to (4)$ 증명 : 합 순서 변경 <br>
 
-            $(4) \to (5)$ 증명 : 합 순서 변경 후 $k$와 관계 없는 항인 $a_{m} e^{i \frac{- 2 \pi (m) n}{T}}$ 항을 옮겨줌 <br>
+            $(4) \to (5)$ 증명 : $k$와 관계 없는 항인 $a_{m} e^{i \frac{- 2 \pi (m) n}{T}}$ 항을 옮겨줌 <br>
 
             $(6) \to (7)$ 증명 : $m$과 관계 없는 항인 $B_{n}$ 항을 옮겨줌 <br>
 
