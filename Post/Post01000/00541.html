@@ -29,7 +29,7 @@
     
     <blockquote>
         $$
-        A_{n} = \sum_{k = 0}^{T - 1} e^{i \frac{- 2 \pi k n}{T}} a_{k} = \sum_{k = 0}^{T - 1} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) - i \sin\left( \frac{2 \pi k n}{T} \right) \right\} a_{k}
+        A_{n} = \sum_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} = \sum_{k = 0}^{T - 1} a_{k} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) - i \sin\left( \frac{2 \pi k n}{T} \right) \right\}
         $$
     </blockquote>
 
@@ -39,27 +39,27 @@
     
     <blockquote>
         $$
-        a_{n} = \frac{1}{T} \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} = \frac{1}{T} \sum_{k = 0}^{T - 1} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) + i \sin\left( \frac{2 \pi k n}{T} \right) \right\} A_{k}
+        a_{n} = \frac{1}{T} \sum_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}} = \frac{1}{T} \sum_{k = 0}^{T - 1} A_{k} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) + i \sin\left( \frac{2 \pi k n}{T} \right) \right\}
         $$
     </blockquote>
 
-    <details open><summary> 역변환 증명 </summary>
+    <details><summary> 역변환 증명 </summary>
     
         <p>
 
-            $\{A_{n}\}$의 정의인 $A_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{- 2 \pi k n}{T}} a_{k}$에서 $\sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 를 계산해보면 된다. <br>
+            $\{A_{n}\}$의 정의인 $A_{n} = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$에서 $\sum\limits_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}}$ 를 계산해보면 된다. <br>
 
-            어떤 수열 $\alpha_{n}$을 $\alpha_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이라 하자. <br>
+            어떤 수열 $\alpha_{n}$을 $\alpha_{n} = \sum\limits_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}}$ 이라 하자. <br>
 
             $$
             \begin{align}
-            \alpha_{n} & = \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k} \\
-                       & = \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum_{m = 0}^{T - 1} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) \\
-                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} e^{i \frac{- 2 \pi m k}{T}} a_{m} \right) \\
-                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) \\
-                       & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \\
-                       & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \\
-                       & = \sum_{m = 0}^{T - 1} \left( \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} a_{m} \right) \\
+            \alpha_{n} & = \sum_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}} \\
+                       & = \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} \left( \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{- 2 \pi m k}{T}} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{2 \pi k n}{T}} e^{i \frac{- 2 \pi m k}{T}} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{2 \pi k (n - m)}{T}} \right) \\
+                       & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} e^{i \frac{2 \pi k (n - m)}{T}} \\
+                       & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} a_{m} e^{i \frac{2 \pi k (n - m)}{T}} \\
+                       & = \sum_{m = 0}^{T - 1} \left( \sum_{k = 0}^{T - 1} a_{m} e^{i \frac{2 \pi k (n - m)}{T}} \right) \\
                        & = \sum_{m = 0}^{T - 1} \left( a_{m} \times \sum_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)
             \end{align}
             $$
@@ -74,7 +74,7 @@
 
             따라서 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right)$에서 $\left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right)$의 값은 $n = m$일 때만 $T$의 값을 가지므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k (n - m)}{T}} \right) \right) = \sum\limits_{m = 0}^{T - 1} \left( a_{m} \times T \times \left[ n = m \right] \right) = T a_{n} = \alpha_{n}$이라 할 수 있다. ($\left[ P \right]$ 는 <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>) <br>
 
-            따라서, $T a_{n} = \alpha_{n} = \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} e^{i \frac{2 \pi k n}{T}} A_{k}$ 이다. <br>
+            따라서, $T a_{n} = \alpha_{n} = \sum\limits_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}}$ 이다. <br>
                 
         </p>
     
