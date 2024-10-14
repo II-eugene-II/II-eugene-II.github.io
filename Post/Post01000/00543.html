@@ -197,6 +197,118 @@
         <p>
             조금 더 빠른 FFT를 해봅시다. <br>
         
+            재귀는 기본적으로 느리다는 것이 알려져있으므로, 재귀를 쓰지 않는 법을 찾아봅니다. <br>
+
+            예를 들어, 우리는 길이가 $16$인 리스트 $a = [a_0, a_1, \cdots, a_{14}, a_{15}]$를 FFT한 결과인 $A = [A_0, A_1, \cdots, A_{14}, A_{15}]$를 얻고 싶습니다. <br>
+
+            위의 재귀 방법에서는 $FFT([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), FFT([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])$를 구해야 합니다. (앞으로 $FFT(list)$를 $\mathcal{F}(list)$ 라고 표현하겠습니다.) <br>
+
+            그런데 애초에 그냥
+            
+            $$
+            \underset{1}{\alpha} = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])]
+            $$
+            
+            라는 리스트가 있었다면 어땠을까요? <br>
+
+            $0 \leq k < 8$인 모든 정수 $k$에 대해
+            
+            $$
+            \begin{align}
+            A[k]     & = \underset{1}{\alpha}[k] + e^{i \frac{-2 \pi k}{16}} \underset{1}{\alpha}[k + 8] \\
+            A[k + 8] & = \underset{1}{\alpha}[k] - e^{i \frac{-2 \pi k}{16}} \underset{1}{\alpha}[k + 8]
+            \end{align}
+            $$
+
+            로 간단하게 구할 수 있었을 겁니다. <br>
+
+            $\underset{1}{\alpha}$ 리스트를 간단히 구하려면 어떤 리스트가 있어야 할까요?
+            
+            $$
+            \underset{2}{\alpha} = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])]
+            $$
+
+            라는 리스트가 있었더라면 모든 $j = 0, 8$과 $0 \leq k < 4$인 정수 $k$에 대하여
+            
+            $$
+            \begin{align}
+            \underset{1}{\alpha}[j + k]     & = \underset{2}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{8}} \underset{2}{\alpha}[j + k + 4] \\
+            \underset{1}{\alpha}[j + k + 4] & = \underset{2}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{8}} \underset{2}{\alpha}[j + k + 4]
+            \end{align}
+            $$
+
+            로 계산할 수 있었을 것입니다. <br>
+
+            이제 감이 오셨을 겁니다. $\underset{2}{\alpha}$를 구하려면
+            
+            $$
+            \underset{3}{\alpha} = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])]
+            $$
+
+            이 필요했을 겁니다. 계산식은 모든 $j = 0, 4, 8, 12$와 $0 \leq k < 2$인 정수 $k$에 대하여 
+            
+            $$
+            \begin{align}
+            \underset{2}{\alpha}[j + k]     & = \underset{3}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{4}} \underset{3}{\alpha}[j + k + 2] \\
+            \underset{2}{\alpha}[j + k + 2] & = \underset{3}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{4}} \underset{3}{\alpha}[j + k + 2]
+            \end{align}
+            $$
+
+            로 계산할 수 있었을 것입니다. <br>
+            
+            $\underset{3}{\alpha}$를 구하려면 
+            
+            $$
+            \underset{4}{\alpha} = [\mathcal{F}([a_0]), \mathcal{F}([a_8]), \mathcal{F}([a_4]), ... \mathcal{F}([a_{15}])]
+            $$
+
+            가 필요한데, FFT의 정의에서 길이가 1인 리스트 [x]의 FFT 결과는 $\mathcal{F}([x]) = x$임을 알 수 있으니,
+            
+            $$
+            \underset{4}{\alpha} = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
+            $$
+
+            임을 알 수 있습니다. <br>
+
+            필요한 리스트를 보자면
+            
+            $$
+            \begin{align}
+            A & = [A_0, A_1, A_2, A_3, A_4, A_5, A_6, A_7, A_8, A_9, A_{10}, A_{11}, A_{12}, A_{13}, A_{14}, A_{15}] \\
+            & \Uparrow \\
+            \underset{1}{\alpha} & = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])] \\
+            & \Uparrow \\
+            \underset{2}{\alpha} & = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])] \\
+            & \Uparrow \\
+            \underset{3}{\alpha} & = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])] \\
+            & \Uparrow \\
+            \underset{4}{\alpha} & = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
+            \end{align}
+            $$
+
+            입니다. 즉, <b>어떻게든</b> $\underset{4}{\alpha}$ 리스트를 만들어낸다면 되는 것입니다. <br>
+
+            리스트 $a$만을 가지고, $\underset{4}{\alpha}$라는 리스트를 어떻게 만들 수 있을까요? <br>
+
+            $\underset{4}{\alpha}$ 내의 수열의 인덱스를 전부 4자리수의 2진법으로 표기해보겠습니다. <br>
+
+            $$
+            \underset{4}{\alpha} = [a_{0000}, a_{1000}, a_{0100}, a_{1100}, a_{0010}, a_{1010}, a_{0110}, a_{1110}, a_{0001}, a_{1001}, a_{0101}, a_{1101}, a_{0011}, a_{1011}, a_{0111}, a_{1111}]
+            $$
+
+            이제 $\beta$라는 수열을 정의해보겠습니다. $\underset{4}{\alpha}$의 $i$번째 원소의 2진법 인덱스를 <b>뒤집은</b> 것을 $i_{rev}$라 할 때, $\beta[i] = a_{i_{rev}}$ 입니다. <br>
+
+            예를 들어, $i = 3$이면 $\underset{4}{\alpha}[3] = a_{1100}$이고, $i_{rev}$는 $1100$을 뒤집은 $0011$이므로, $\beta[3] = a_{0011}$입니다. <br>
+                
+        </p>
+    
+    </details> <!-- 존재성 증명 -->
+
+    <!-- <details><summary> <del> 비재귀 FFT </del> </summary>
+    
+        <p>
+            조금 더 빠른 FFT를 해봅시다. <br>
+        
             우리가 even 이라는 리스트와 odd라는 리스트를 FFT를 거쳐줍니다. <br>
         
             길이가 8인 수열이었다면 FFT([a0, a2, a4, a6])을 해줘야 하는 건데, 이 과정에서 FFT([a0, a4])와 FFT([a2, a6])이 필요한 셈입니다. <br>
