@@ -192,7 +192,7 @@
 
     <hr>
 
-    <details open><summary> <del> 비재귀 FFT </del> </summary>
+    <details open><summary> 비재귀 FFT </summary>
     
         <p>
             조금 더 빠른 FFT를 해봅시다. <br>
@@ -206,7 +206,7 @@
             그런데 애초에 그냥
             
             $$
-            \underset{1}{\alpha} = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])]
+            \underset{0}{\alpha} = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])]
             $$
             
             라는 리스트가 있었다면 어땠을까요? <br>
@@ -215,57 +215,57 @@
             
             $$
             \begin{align}
-            A[k]     & = \underset{1}{\alpha}[k] + e^{i \frac{-2 \pi k}{16}} \underset{1}{\alpha}[k + 8] \\
-            A[k + 8] & = \underset{1}{\alpha}[k] - e^{i \frac{-2 \pi k}{16}} \underset{1}{\alpha}[k + 8]
+            A[k]     & = \underset{0}{\alpha}[k] + e^{i \frac{-2 \pi k}{16}} \underset{0}{\alpha}[k + 8] \\
+            A[k + 8] & = \underset{0}{\alpha}[k] - e^{i \frac{-2 \pi k}{16}} \underset{0}{\alpha}[k + 8]
             \end{align}
             $$
 
             로 간단하게 구할 수 있었을 겁니다. <br>
 
-            $\underset{1}{\alpha}$ 리스트를 간단히 구하려면 어떤 리스트가 있어야 할까요?
+            $\underset{0}{\alpha}$ 리스트를 간단히 구하려면 어떤 리스트가 있어야 할까요?
             
             $$
-            \underset{2}{\alpha} = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])]
+            \underset{1}{\alpha} = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])]
             $$
 
             라는 리스트가 있었더라면 모든 $j = 0, 8$과 $0 \leq k < 4$인 정수 $k$에 대하여
             
             $$
             \begin{align}
-            \underset{1}{\alpha}[j + k]     & = \underset{2}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{8}} \underset{2}{\alpha}[j + k + 4] \\
-            \underset{1}{\alpha}[j + k + 4] & = \underset{2}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{8}} \underset{2}{\alpha}[j + k + 4]
+            \underset{0}{\alpha}[j + k]     & = \underset{1}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{8}} \underset{1}{\alpha}[j + k + 4] \\
+            \underset{0}{\alpha}[j + k + 4] & = \underset{1}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{8}} \underset{1}{\alpha}[j + k + 4]
             \end{align}
             $$
 
             로 계산할 수 있었을 것입니다. <br>
 
-            이제 감이 오셨을 겁니다. $\underset{2}{\alpha}$를 구하려면
+            이제 감이 오셨을 겁니다. $\underset{1}{\alpha}$를 구하려면
             
             $$
-            \underset{3}{\alpha} = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])]
+            \underset{2}{\alpha} = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])]
             $$
 
             이 필요했을 겁니다. 계산식은 모든 $j = 0, 4, 8, 12$와 $0 \leq k < 2$인 정수 $k$에 대하여 
             
             $$
             \begin{align}
-            \underset{2}{\alpha}[j + k]     & = \underset{3}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{4}} \underset{3}{\alpha}[j + k + 2] \\
-            \underset{2}{\alpha}[j + k + 2] & = \underset{3}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{4}} \underset{3}{\alpha}[j + k + 2]
+            \underset{1}{\alpha}[j + k]     & = \underset{2}{\alpha}[j + k] + e^{i \frac{-2 \pi k}{4}} \underset{2}{\alpha}[j + k + 2] \\
+            \underset{1}{\alpha}[j + k + 2] & = \underset{2}{\alpha}[j + k] - e^{i \frac{-2 \pi k}{4}} \underset{2}{\alpha}[j + k + 2]
             \end{align}
             $$
 
             로 계산할 수 있었을 것입니다. <br>
             
-            $\underset{3}{\alpha}$를 구하려면 
+            $\underset{2}{\alpha}$를 구하려면 
             
             $$
-            \underset{4}{\alpha} = [\mathcal{F}([a_0]), \mathcal{F}([a_8]), \mathcal{F}([a_4]), ... \mathcal{F}([a_{15}])]
+            \underset{3}{\alpha} = [\mathcal{F}([a_0]), \mathcal{F}([a_8]), \mathcal{F}([a_4]), ... \mathcal{F}([a_{15}])]
             $$
 
             가 필요한데, FFT의 정의에서 길이가 1인 리스트 [x]의 FFT 결과는 $\mathcal{F}([x]) = x$임을 알 수 있으니,
             
             $$
-            \underset{4}{\alpha} = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
+            \underset{3}{\alpha} = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
             $$
 
             임을 알 수 있습니다. <br>
@@ -276,87 +276,103 @@
             \begin{align}
             A & = [A_0, A_1, A_2, A_3, A_4, A_5, A_6, A_7, A_8, A_9, A_{10}, A_{11}, A_{12}, A_{13}, A_{14}, A_{15}] \\
             & \Uparrow \\
-            \underset{1}{\alpha} & = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])] \\
+            \underset{0}{\alpha} & = [\mathcal{F}([a_0, a_2, a_4, a_6, a_8, a_{10}, a_{12}, a_{14}]), \mathcal{F}([a_1, a_3, a_5, a_7, a_9, a_{11}, a_{13}, a_{15}])] \\
             & \Uparrow \\
-            \underset{2}{\alpha} & = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])] \\
+            \underset{1}{\alpha} & = [\mathcal{F}([a_0, a_4, a_8, a_{12}]), \mathcal{F}([a_2, a_6, a_{10}, a_{14}]), \mathcal{F}([a_1, a_5, a_9, a_{13}]), \mathcal{F}([a_3, a_7, a_{11}, a_{15}])] \\
             & \Uparrow \\
-            \underset{3}{\alpha} & = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])] \\
+            \underset{2}{\alpha} & = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \mathcal{F}([a_6, a_{14}]), \mathcal{F}([a_1, a_9]), \mathcal{F}([a_5, a_{13}]), \mathcal{F}([a_3, a_{11}]), \mathcal{F}([a_7, a_{15}])] \\
             & \Uparrow \\
-            \underset{4}{\alpha} & = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
+            \underset{3}{\alpha} & = [a_0, a_8, a_4, a_{12}, a_2, a_{10}, a_6, a_{14}, a_1, a_9, a_5, a_{13}, a_3, a_{11}, a_7, a_{15}]
             \end{align}
             $$
 
-            입니다. 즉, <b>어떻게든</b> $\underset{4}{\alpha}$ 리스트를 만들어낸다면 되는 것입니다. <br>
+            입니다. 즉, <b>어떻게든</b> $\underset{3}{\alpha}$ 리스트를 만들어낸다면 되는 것입니다. <br>
 
-            리스트 $a$만을 가지고, $\underset{4}{\alpha}$라는 리스트를 어떻게 만들 수 있을까요? <br>
+            리스트 $a$만을 가지고, $\underset{3}{\alpha}$라는 리스트를 어떻게 만들 수 있을까요? <br>
 
-            $\underset{4}{\alpha}$ 내의 수열의 인덱스를 전부 4자리수의 2진법으로 표기해보겠습니다. <br>
-
-            $$
-            \underset{4}{\alpha} = [a_{0000}, a_{1000}, a_{0100}, a_{1100}, a_{0010}, a_{1010}, a_{0110}, a_{1110}, a_{0001}, a_{1001}, a_{0101}, a_{1101}, a_{0011}, a_{1011}, a_{0111}, a_{1111}]
-            $$
-
-            이제 $\beta$라는 수열을 정의해보겠습니다. $\underset{4}{\alpha}$의 $i$번째 원소의 2진법 인덱스를 <b>뒤집은</b> 것을 $i_{rev}$라 할 때, $\beta[i] = a_{i_{rev}}$ 입니다. <br>
-
-            예를 들어, $i = 3$이면 $\underset{4}{\alpha}[3] = a_{1100}$이고, $i_{rev}$는 $1100$을 뒤집은 $0011$이므로, $\beta[3] = a_{0011}$입니다. <br>
-
-            이제 $\beta$를 일일이 적어본다면...
+            $\underset{3}{\alpha}$ 내의 수열의 인덱스를 전부 4자리수의 2진법으로 표기해보겠습니다. <br>
 
             $$
-            \beta = [a_{0000}, a_{0001}, a_{0010}, a_{0011}, a_{0100}, a_{0101}, a_{0110}, a_{0111}, a_{1000}, a_{1001}, a_{1010}, a_{1011}, a_{1100}, a_{1101}, a_{1110}, a_{1111}]
+            \underset{3}{\alpha} = [a_{0000}, a_{1000}, a_{0100}, a_{1100}, a_{0010}, a_{1010}, a_{0110}, a_{1110}, a_{0001}, a_{1001}, a_{0101}, a_{1101}, a_{0011}, a_{1011}, a_{0111}, a_{1111}]
+            $$
+
+            이제 $\lambda$라는 수열을 정의해보겠습니다. $\underset{3}{\alpha}$의 $i$번째 원소의 2진법 인덱스를 <b>뒤집은</b> 것을 $i_{rev}$라 할 때, $\lambda[i] = a_{i_{rev}}$ 입니다. <br>
+
+            예를 들어, $i = 3$이면 $\underset{3}{\alpha}[3] = a_{1100}$이고, $i_{rev}$는 $1100$을 뒤집은 $0011$이므로, $\lambda[3] = a_{0011}$입니다. <br>
+
+            이제 $\lambda$를 일일이 적어본다면...
+
+            $$
+            \lambda = [a_{0000}, a_{0001}, a_{0010}, a_{0011}, a_{0100}, a_{0101}, a_{0110}, a_{0111}, a_{1000}, a_{1001}, a_{1010}, a_{1011}, a_{1100}, a_{1101}, a_{1110}, a_{1111}]
             $$
 
             2진법 표기를 다시 10진법으로 바꿔보겠습니다.
 
             $$
-            \beta = [a_{0}, a_{1}, a_{2}, a_{3}, a_{4}, a_{5}, a_{6}, a_{7}, a_{8}, a_{9}, a_{10}, a_{11}, a_{12}, a_{13}, a_{14}, a_{15}]
+            \lambda = [a_{0}, a_{1}, a_{2}, a_{3}, a_{4}, a_{5}, a_{6}, a_{7}, a_{8}, a_{9}, a_{10}, a_{11}, a_{12}, a_{13}, a_{14}, a_{15}]
             $$
 
             !!! <br>
 
-            $\beta = a$와 <b>완전히 동일</b>합니다. <br> 
+            $\lambda$는 $a$와 <b>완전히 동일</b>합니다. <br> 
 
             어째서 이런 일이 생길까요? <br>
 
-            <details open><summary> <del> Bit Reversal 과정 증명 </del> </summary>
+            <details open><summary> Bit Reversal 과정 증명 </summary>
             
                 <p>
-                    길이가 $T$인 리스트를 FFT <br>
+                    길이가 $T$인 리스트 $a$를 FFT한 결과물 $A$ ($A = \mathcal{F}(a)$) <br>
 
-                    index의 이진 길이는 $\lg T = L$ <br>
+                    $\lg T = L$으로 표기 <br>
 
-                    각 인덱스를 차례대로 $b_{1}, b_{2}, \cdots , b_{\lg T}$ 로 표기 <br>
+                    $[p, q)$는 반닫힌 구간 ($c$가 구간 $[p, q)$에 있다 == $p \leq c < q$) <br>
 
-                    <details open><summary> <del> 예시 </del> </summary>
+                    $0 \leq k < T$인 모든 정수 $k$에 대하여 $a$의 $k$번째 값인 $a_{k}$ <br>
+                    
+                    인덱스인 $k$를 이진 길이 $L$로 나타낸 것을 $b_{0}, b_{1}, \cdots , b_{L - 2}, b_{L - 1}$ 로 표기 ($k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$) <br>
+
+                    $k_{rev}$를 $k_{rev} = b_{0}b_{1}\cdots b_{N - 2}b_{N - 1} = \sum\limits_{n = 0}^{L - 1} b_{L - 1 - n} 2^{n}$라고 함 <br>
+
+                    $\beta$는 $\beta[k_{rev}] = a_{k}$ 인 리스트 <br>
+
+                    임의의 리스트 $\mathcal{A}_{k} = [t_{0}, t_{1}, t_{2}, t_{3}, \cdots]$ 에 대하여 ${\mathcal{A}_{k}}_{even} = [t_{0}, t_{2}, t_{4}, \cdots]$, ${\mathcal{A}_{k}}_{odd} = [t_{1}, t_{3}, t_{5}, \cdots]$ 라고 정의한다. <br>
+
+                    $\underset{-1}{\alpha} = [\mathcal{F}(a)]$이라고 정의 <br>
+                    
+                    $0 \leq n < L$인 정수 $n$에 대하여 $\underset{n - 1}{\alpha} = [\mathcal{F}(\mathcal{A}_{0}), \mathcal{F}(\mathcal{A}_{1}), \cdots , \mathcal{F}(\mathcal{A}_{2^{n}})]$이라 할 때, $\underset{n}{\alpha} = [\mathcal{F}({\mathcal{A}_{0}}_{even}), \mathcal{F}({\mathcal{A}_{0}}_{odd}), \mathcal{F}({\mathcal{A}_{1}}_{even}), \mathcal{F}({\mathcal{A}_{1}}_{odd}), \cdots , \mathcal{F}({\mathcal{A}_{2^{n}}}_{even}), \mathcal{F}({\mathcal{A}_{2^{n}}}_{odd})]$이라 한다. <br>
+
+                    증명해야할 것은 $\underset{L - 1}{\alpha} = \beta$이다. <br>
+
+                    <details><summary> <del> 예시 </del> </summary>
                     
                         <p>
-                            ex) 길이가 $2^5$이면 $a_{11} = a_{01101} = a_{b_{5}b_{4}b_{3}b_{2}b_{1}}$에서 $b_{5} = 0, b_{4} = 1, b_{3} = 1, b_{2} = 0, b_{1} = 1$ <br> <br>
+                            ex) 길이가 $2^5$이면 $a_{11} = a_{01101} = a_{b_{4}b_{3}b_{2}b_{1}b_{0}}$에서 $b_{4} = 0, b_{3} = 1, b_{2} = 1, b_{1} = 0, b_{0} = 1$ <br> <br>
         
-                            $b_{1} = 1$이므로, 구간 $[0, 2^5)$에서 홀수번째 이므로 odd 리스트 (즉, 오른쪽) 으로 이동하게 될 것이므로 $\underset{1}{\alpha}$에서는 $[2^4, 2^5)$로 이동하게 된다. <br>
+                            $b_{0} = 1$이므로, 구간 $[0, 2^5)$에서 홀수번째 이므로 odd 리스트 (즉, 오른쪽) 으로 이동하게 될 것이므로 $\underset{0}{\alpha}$에서는 $[2^4, 2^5)$로 이동하게 된다. <br>
         
                             즉, $\beta$에서의 인덱스도 $\beta[1\times\times\times\times]$이 될 것이다. <br>
                             
                             ($[2^4, 2^5)$ 구간에 있으므로 2진법에서 $2^4$의 자리수는 무조건 $1$이 된다.) <br> <br>
         
-                            $b_{2} = 0$이므로, 구간 $[2^4, 2^5)$에서 짝수번째 이므로 even 리스트로 (즉, 왼쪽) 으로 이동하게 될 것이므로, $\underset{2}{\alpha}$에서는 $[2^4, 2^5 - 2^3) = [2^4, 2^4 + 2^3)$로 이동하게 된다. <br>
+                            $b_{1} = 0$이므로, 구간 $[2^4, 2^5)$에서 짝수번째 이므로 even 리스트로 (즉, 왼쪽) 으로 이동하게 될 것이므로, $\underset{1}{\alpha}$에서는 $[2^4, 2^5 - 2^3) = [2^4, 2^4 + 2^3)$로 이동하게 된다. <br>
         
                             즉, $\beta$에서의 인덱스도 $\beta[1 0 \times\times\times]$이 될 것이다. <br>
                             
                             ($[2^4, 2^4 + 2^3)$ 구간에 있으므로 2진법에서 $2^3$의 자리수는 무조건 $0$이 된다.) <br> <br>
         
-                            $b_{3} = 1$이므로, 구간 $[2^4, 2^4 + 2^3)$에서 홀수번째 이므로 odd 리스트로 (즉, 오른쪽) 으로 이동하게 될 것이므로, $\underset{2}{\alpha}$에서는 $[2^4 + 2^2, 2^5 - 2^3) = [2^4 + 2^2, 2^4 + 2^3)$로 이동하게 된다. <br>
+                            $b_{2} = 1$이므로, 구간 $[2^4, 2^4 + 2^3)$에서 홀수번째 이므로 odd 리스트로 (즉, 오른쪽) 으로 이동하게 될 것이므로, $\underset{2}{\alpha}$에서는 $[2^4 + 2^2, 2^5 - 2^3) = [2^4 + 2^2, 2^4 + 2^3)$로 이동하게 된다. <br>
         
                             즉, $\beta$에서의 인덱스도 $\beta[1 0 1\times\times]$이 될 것이다. <br>
                             
                             ($[2^4 + 2^2, 2^4 + 2^3)$ 구간에 있으므로 2진법에서 $2^2$의 자리수는 무조건 $1$이 된다.) <br> <br>
         
-                            $b_{4} = 1$이므로, 구간 $[2^4 + 2^2, 2^4 + 2^3)$에서 홀수번째 이므로 odd 리스트로 (즉, 오른쪽) 으로 이동하게 될 것이므로, $\underset{2}{\alpha}$에서는 $[2^4 + 2^2 + 2^1, 2^5 - 2^3) = [2^4 + 2^2 + 2^1, 2^4 + 2^3)$로 이동하게 된다. <br>
+                            $b_{3} = 1$이므로, 구간 $[2^4 + 2^2, 2^4 + 2^3)$에서 홀수번째 이므로 odd 리스트로 (즉, 오른쪽) 으로 이동하게 될 것이므로, $\underset{3}{\alpha}$에서는 $[2^4 + 2^2 + 2^1, 2^5 - 2^3) = [2^4 + 2^2 + 2^1, 2^4 + 2^3)$로 이동하게 된다. <br>
         
                             즉, $\beta$에서의 인덱스도 $\beta[1 0 1 1\times]$이 될 것이다. <br>
                             
                             ($[2^4 + 2^2 + 2^1, 2^4 + 2^3)$ 구간에 있으므로 2진법에서 $2^1$의 자리수는 무조건 $1$이 된다.) <br> <br>
         
-                            $b_{5} = 0$이므로, 구간 $[2^4 + 2^2 + 2^1, 2^4 + 2^3)$에서 짝수번째 이므로 even 리스트로 (즉, 왼쪽) 으로 이동하게 될 것이므로, $\underset{2}{\alpha}$에서는 $[2^4 + 2^2 + 2^1, 2^5 - 2^3 - 2^0) = [2^4 + 2^2 + 2^1, 2^4 + 2^2 + 2^1 + 2^0)$로 이동하게 된다. <br>
+                            $b_{4} = 0$이므로, 구간 $[2^4 + 2^2 + 2^1, 2^4 + 2^3)$에서 짝수번째 이므로 even 리스트로 (즉, 왼쪽) 으로 이동하게 될 것이므로, $\underset{4}{\alpha}$에서는 $[2^4 + 2^2 + 2^1, 2^5 - 2^3 - 2^0) = [2^4 + 2^2 + 2^1, 2^4 + 2^2 + 2^1 + 2^0)$로 이동하게 된다. <br>
         
                             즉, $\beta$에서의 인덱스도 $\beta[1 0 1 1 0]$이 될 것이다. <br>
                             
@@ -366,59 +382,97 @@
                     
                     </details> <!-- 예시 -->
 
-                    $\underset{n}{\alpha}$에서 $b_{n} = 0$이면 원래 인덱스에서 앞으로 위치하게 될 것, $b_{n} = 1$이면 뒤로 위치하게 될 것 <br>
+                    표기법 1. "$a_{k} = \underset{n}{\alpha}[j]$" 라는 표기는 $\underset{n}{\alpha}$을 풀어썼을 때 "$a$의 원소의 재배열" 중 $j$번째라는 것을 뜻한다. <br>
 
-                    길이가 $T$이면 먼저 구간 $[0, T)$에서 시작 <br>
+                    ex) $L = 4$ 일 때, $\underset{2}{\alpha} = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \cdots]$ 에서 $a_{2} = \underset{2}{\alpha}[4]$, $a_{12} = \underset{2}{\alpha}[3]$ 이다. <br>
 
-                    $b_{1} = 0$이면 $[0 + 2^{L - 1}, T)$, $b_{1} = 1$이면 $[0, 2^{L} - 2^{L - 1})$ <br>
+                    표기법 2. $a_{k}$가 $\underset{n}{\alpha}$에서 존재할 수 있을 구간을 $\mathcal{L}_{n} = [p_n, q_n)$이라 한다. ($\mathcal{L}_{-1} = [0, 2^L) = [0, T)$) <br>
+                    
+                    표기법 3. $q_n - p_n = r_n$이라 하자. <br>
 
-                    이 전 구간이 $[p, q)$였다면 $b_{2} = 0$이면 구간 $[p + 2^{L - 2}, q)$로, $b_{2} = 1$ 이면 $[p, q - 2^{L - 2})$ 이다. <br>
+                    만약 $a_{k}$가 구간 $\mathcal{L}_{n}$에서 짝수 번째라면 $\mathcal{L}_{n + 1}$에서도 even이 모인 부분 (즉, 더 작은 쪽)에 있을 것이므로, $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{r_n}{2})$이고, 홀수 번째라면 $\mathcal{L}_{n + 1} = [p_n + \frac{r_n}{2}, q_n)$이다. <br> <br>
 
-                    이는 최종적으로 수렴 <br>
-
-                    표기법 A. $T$는 수열 전체의 길이, $L = \lg T$, $[p, q)$는 반닫힌 구간 ($c$가 구간 $[p, q)$에 있다 == $p \leq c < q$) <br>
-
-                    표기법 B. $a$는 FFT를 해야할 리스트, $A$는 FFT 이후의 리스트, $\underset{n}{\alpha}$는 $\underset{n - 1}{\alpha}$을 재귀 없이 계산하기 위해 필요한 $a$의 $n$번째 재배열 ($\underset{0}{\alpha} = A$) <br>
-
-                    표기법 1. $a_{k}$가 $\underset{n}{\alpha}$에서 있어야 할 구간을 $\mathcal{L}_{n} = [p_n, q_n)$이라 하고, $q_n - p_n = r_n$이라 하자. ($\mathcal{L}_{0} = [0, 2^L) = [0, T)$) <br>
-
-                    만약 $a_{k}$가 구간 $\mathcal{L}_{n}$에서 짝수 번째라면 $\mathcal{L}_{n + 1}$에서도 even이 모인 부분 (즉, 더 작은 쪽)에 있을 것이므로, $\mathcal{L}_{n + 1} = [p_n + \frac{r_n}{2}, q_n)$이고, 홀수 번째라면 $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{r_n}{2})$이다. <br> <br>
-
-                    보조정리 1. $r_{L} = 1$ <br>
+                    보조정리 1. $r_{L - 1} = 1$ <br>
 
                     <details open><summary> 보조정리 1 증명 </summary>
                     
                         <p>
                             $\mathcal{L}_{n} = [p_n, q_n)$에서 $\mathcal{L}_{n + 1} = [p_n + \frac{q_n - p_n}{2}, q_n)$ 이거나 $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{q_n - p_n}{2})$이고, 어떤 경우에도 $r_{n + 1} = \frac{q_n - p_n}{2}$이므로, $r_n$의 정의에서 $r_{n + 1} = \frac{r_n}{2}$이다. 따라서 $r_{n} = \frac{r_0}{2^n}$임을 알 수 있다. <br>
 
-                            $r_{0} = 2^L$이므로, $r_{L} = \frac{r_0}{2^L} = \frac{2^L}{2^L} = 1$ 이다. ($r_{k} = 2^{L - k}$임도 알 수 있다.)
+                            $r_{0} = 2^{L - 1}$이므로, $r_{L - 1} = \frac{r_0}{2^{L - 1}} = \frac{2^{L - 1}}{2^{L - 1}} = 1$ 이다. <br>
+                            
+                            ($0 \leq k< L$인 모든 정수 $k$에 대하여 $r_{k} = 2^{L - k - 1}$임도 알 수 있다.)
                         </p>
                     
                     </details> <!-- 보조정리 1 증명 -->
 
-                    보조정리 2. 모든 $a_{k}$에 대해서 $\underset{L}{\alpha}$ 에서의 위치는 $p_{L}$이다. <br>
+                    보조정리 2. $0 \leq k < T$인 모든 정수 $k$에 대해서 $\underset{L - 1}{\alpha}$ 에서 $a_{k}$의 위치는 $p_{L - 1}$이다. <br>
 
                     <details open><summary> 보조정리 2 증명 </summary>
                     
                         <p>
-                            $a_{k}$가 $\underset{L}{\alpha}$ 에서 있을 구간은 $\mathcal{L}_{L} = [p_L, q_L)$인데, 보조정리 1에서 $q_L - p_L = 1$이다. 따라서 $p_L + 1 = q_L$이다. <br>
+                            $a_{k}$가 $\underset{L - 1}{\alpha}$ 에서 있을 구간은 $\mathcal{L}_{L - 1} = [p_{L - 1}, q_{L - 1})$인데, 보조정리 1에서 $q_{L - 1} - p_{L - 1} = 1$이다. 따라서 $p_{L - 1} + 1 = q_{L - 1}$이다. <br>
 
-                            $a_k$가 $p_L \leq x < q_L$인 정수 $x$에 대하여 $\underset{L}{\alpha}$에서 $x$번째에 있을 수 있는데, $p_L \leq x < q_L$ 에서 $p_L \leq x < p_L + 1$이고, 이를 만족시키는 정수 $x$는 $p_L$밖에 없다.
+                            $a_k$가 $p_{L - 1} \leq x < q_{L - 1}$인 정수 $x$에 대하여 $\underset{L - 1}{\alpha}$에서 $x$번째에 있을 수 있는데, $p_{L - 1} \leq x < q_{L - 1}$ 에서 $p_{L - 1} \leq x < p_{L - 1} + 1$이고, 이를 만족시키는 정수 $x$는 $p_{L - 1}$밖에 없다.
                         </p>
                     
                     </details> <!-- 보조정리 2 증명 -->
 
-                    보조정리 3. $a_{k}$의 이진법 표기 $a_{k} = a_{b_{L}b_{L - 1} \cdots b_{2}b_{1}}$에 대하여, $p_{L} = \sum\limits_{n = 1}^{L} (1 - b_{n}) \times 2^{L - n}$
+                    보조정리 3. $a_{k}$의 이진법 표기 $a_{k} = a_{b_{L - 1}b_{L - 2} \cdots b_{1}b_{0}}$에 대하여, $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$
 
                     <details open><summary> 보조정리 3 증명 </summary>
                     
                         <p>
                             만약 $a_{k}$가 구간 $\mathcal{L}_{n}$에서 짝수 번째라면 $\mathcal{L}_{n + 1}$에서 $\mathcal{L}_{n + 1} = [p_n + \frac{r_n}{2}, q_n)$이고, 홀수 번째라면 $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{r_n}{2})$이다. <br>
 
-                            $\mathcal{L}_{n}$에서 짝수번째 이려면 $b_{n + 1} = 0$이어야 하고, $b_{n + 1} = 0$이면 $p_n = p_{n + 1}$이고, $b_{n + 1} = 1$ 이면 $p_n + \frac{r_n}{2} = p_{n} + \frac{2^{L - n}}{2} = p_{n} + 2^{L - n - 1} = p_{n + 1}$
+                            $b_{n} = 0$이면 $\mathcal{L}_{n - 1}$에서 짝수번째이고, 따라서 $b_{n} = 0$이면 $p_{n - 1} = p_{n}$이고, $b_{n} = 1$ 이면 $p_{n - 1} + \frac{r_{n - 1}}{2} = p_{n - 1} + \frac{2^{L - n}}{2} = p_{n - 1} + 2^{L - n - 1} = p_{n}$ <br>
+
+                            $p_{-1} = 0$ 이고 $\mathcal{P}_{n} = p_{n} - p_{n - 1}$이라 두면 $p_{k} = \sum\limits_{n = 0}^{k} \mathcal{P}_{n}$ 에서 $0 \leq n < L$인 모든 정수 $n$에 대해 $b_{n} = 1$이어야 $\mathcal{P}_{n} = 2^{L - n - 1}$이고, $b_{n} = 0$이면 $\mathcal{P}_{n} = 0$이므로, $\mathcal{P}_{n} = \left[b_{n} = 1\right] \times 2^{L - n - 1} = b_{n} \times 2^{L - n - 1}$이라 할 수 있다. <br>
+                            
+                            따라서 $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} \left[b_{n} = 1\right] \times 2^{L - n - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$ 이다. ($\left[ P \right]$는 <a href="/Post/Post01000/00196.html"> 아이버슨 괄호 </a>)
                         </p>
                     
                     </details> <!-- 보조정리 3 증명 -->
+
+                    보조정리 4. $0 \leq k < T$인 모든 정수 $k$에 대하여 $a_{k} = a_{b_{L - 1}b_{L - 2} \cdots b_{1}b_{0}}$일 때, $p_{L - 1} = b_{0}b_{1} \cdots b_{L - 2}b_{L - 1}$이다. <br>
+
+                    <details open><summary> 보조정리 4 증명 </summary>
+                    
+                        <p>
+                            보조정리 3에서 $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$ 이다. <br>
+        
+                            $b_{0}b_{1} \cdots b_{L - 2}b_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{L - 1 - n} \times 2^{n}$ <br>
+
+                            $N = L - 1 - n$으로 치환하면 $\sum\limits_{N = L - 1}^{0} b_{N} \times 2^{L - N - 1} = \sum\limits_{N = 0}^{L - 1} b_{N} \times 2^{L - N - 1}$ <br>
+
+                            $\sum$에서 $N, n$은 더미변수 이므로 $N$을 $n$이라 써도 상관이 없으므로 $b_{0}b_{1} \cdots b_{L - 2}b_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$ 이고, 이는 $p_{L - 1}$과 같다. <br>
+                        </p>
+                    
+                    </details> <!-- 보조정리 4 증명 -->
+
+                    <blockquote>
+                        Bit Reversal 정리 <br>
+
+                        $\beta[k_{rev}] = a_{k}$ 인 리스트 $\beta$에 대하여, $$ \underset{L - 1}{\alpha} = \beta $$
+                    </blockquote>
+
+                    <details open><summary> Bit Reversal 정리 증명 </summary>
+                    
+                        <p>
+                            보조정리 2에서 $0 \leq k < T$인 모든 정수 $k$에 대해서 $\underset{L - 1}{\alpha}$ 에서 $a_{k}$의 위치는 $p_{L - 1}$이다. <br>
+
+                            보조정리 4에서 $p_{L - 1} = b_{0}b_{1} \cdots b_{L - 2}b_{L - 1} = k_{rev}$이다. <br>
+                            
+                            따라서 $0 \leq k < T$인 모든 정수 $k$에 대해서 $a_{k} = \underset{L - 1}{\alpha}[p_{L - 1}] = \underset{L - 1}{\alpha}[k_{rev}]$이다. <br>
+
+                            또, ${k_{rev}}_{rev} = k$이므로, $\underset{L - 1}{\alpha}[k] = a_{k_{rev}}$라고 할 수 있다. <br>
+                            
+                            표기법 1에서 $\underset{L - 1}{\alpha} = [\mathcal{F}([a_{0_{rev}}]), \mathcal{F}([a_{1_{rev}}]), \mathcal{F}([a_{2_{rev}}]), \cdots]$ 임을 알 수 있고, $\mathcal{F}([x]) = x$에서 $\underset{L - 1}{\alpha} = [a_{0_{rev}}, a_{1_{rev}}, a_{2_{rev}}, \cdots]$ 임을 알 수 있다. <br>
+                            
+                            또, $\beta$의 정의 $\beta[k_{rev}] = a_{k}$에서 $\beta[k] = a_{k_{rev}}$이므로, $\underset{L - 1}{\alpha} = \beta$임을 알 수 있다. <br>
+                        </p>
+                    
+                    </details> <!-- Bit Reversal 정리 증명 -->
                         
                 </p>
             
