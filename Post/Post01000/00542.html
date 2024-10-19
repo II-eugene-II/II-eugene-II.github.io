@@ -28,7 +28,7 @@
     다음 정리를 이용하여 $n + 1$개의 점을 지나는 다항식을 찾는 것을 다항식 보간 (Polynomial interpolation) 이라고 합니다. <br>
       
     <blockquote>
-        $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$ 을 지나는 $n$차 다항식
+        $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$ 을 지나는 $n$차 (이하의) 다항식
         $$
         p(x) = \sum_{i = 0}^{n} a_{i} x^{i} = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n
         $$
@@ -56,7 +56,7 @@
 
             좌변의 큰 행렬은 방데르몽드 행렬이고 $i \not= j$이면 $x_{i} \not= x_{j}$이므로 역행렬이 존재한다. <br>
             
-            따라서 $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$ 을 지나는 $n$차 다항식
+            따라서 $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$ 을 지나는 $n$차 (이하의) 다항식
             $$
             p(x) = \sum_{i = 0}^{n} a_{i} x^{i} = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n
             $$
@@ -70,13 +70,15 @@
     
         <p>
 
-            두 함수 $p(x)$, $g(x)$가 모두 $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$을 지나는 $n$차 다항식이라고 하자. <br>
+            두 함수 $p(x)$, $g(x)$가 모두 $n + 1$개의 점 $\left( x_0, y_0 \right)$, $\left( x_1, y_1 \right)$, $\left( x_2, y_2 \right)$, $\cdots$, $\left( x_n, y_n \right)$을 지나는 $n$차 (이하의) 다항식이라고 하자. <br>
 
             $0 \leq k \leq n$인 정수 $k$에 대해 $p(x_{k}) = q(x_{k})$에서 다항식 $p(x) - q(x)$는 $n + 1$개의 근 $x_{0}$, $x_{1}$, $\cdots$, $x_{n}$을 갖는다. <br>
 
             이때, 두 $n$차 다항식의 차는 최대 $n$차임을 알 수 있는데, $n$차 다항식 $(n \geq 1)$ 은 최대 $n$개의 근을 갖는다는 사실이 인수정리를 통해서 (혹은 대수학의 기본정리를 통해서) 알려져있다. <br>
 
-            따라서 $p(x) - q(x)$는 상수함수임을 알 수 있고, $p(x) - q(x) = 0$의 근이 존재하므로 $p(x) - q(x)$는 $0$인 상수함수이다. <br>
+            그런데 $p(x) - q(x)$는 $n$차 (이하의) 다항식인데 근이 $n + 1$개 있으므로, 상수함수임을 알 수 있고, $p(x) - q(x) = 0$의 근이 존재하므로 $p(x) - q(x)$는 $0$인 상수함수이다. <br>
+
+            $p(x) - q(x) = 0$에서 $p(x) = q(x)$이다. <br>
                 
         </p>
     

@@ -44,7 +44,7 @@
     
     다항식 $f_{a}(x)$를 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$로 정의한다면, $f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right) = \sum\limits_{k = 0}^{T - 1} a_{k} {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{k} = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} = A_{n}$입니다. <br>
     
-    즉, $A_{n} = f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)$으로 볼 수 있습니다. 그리고 $T - 1$차 다항식 $f_{a}(x)$에 대해 값 $T$개를 알고 있으므로, <a href="/Post/Post01000/00542.html"> 다항식 보간 </a> 에 따라 $0 \leq n < T$인 $n$에 대해 $f\left(e^{i \frac{-2 \pi n}{T}}\right) = A_{n}$인 다항식 $f(x)$는 $f_{a}(x)$가 유일합니다. <br>
+    즉, $A_{n} = f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)$으로 볼 수 있습니다. 그리고 $T - 1$차 다항식 $f_{a}(x)$에 대해 값 $T$개를 알고 있으므로, <a href="/Post/Post01000/00542.html"> 다항식 보간 </a> 에 따라 $0 \leq n < T$인 $n$에 대해 $f\left(e^{i \frac{-2 \pi n}{T}}\right) = A_{n}$인 $T - 1$차 이하의 다항식 $f(x)$는 $f_{a}(x)$가 유일합니다. <br>
 
     그리고 쿨리-튜키 알고리즘 (Cooley-Tukey Algorithm) 은 "$A_{n}$을 각자 구하는 것" 보다 "다항식 $f_{a}(x)$에서 $x = e^{i \frac{- 2 \pi n}{T}}$에서의 함수값<b>들</b>"을 더 빠르게 구하는 방법입니다. <br>
 
@@ -52,7 +52,13 @@
 
     <b> 쿨리-튜키 알고리즘 (Cooley-Tukey Algorithm) </b> <br>
 
-    분할 정복의 아이디어를 가져옵니다. 계속 다항식 하나를 두 다항식으로 쪼개는 과정을 거치므로 편의상 $T = 2^t$ ($t$는 자연수) 라고 해줍니다. (2의 거듭제곱 꼴이 아니라면 하단에서의 과정을 거칩니다.) <br>
+    분할 정복의 아이디어를 가져옵니다. <br>
+
+    목표는 리스트 $a = [a_0, a_1, \cdots, a_{T - 1}]$에 대하여 리스트 $A = \left[ f_{a}\left(e^{i \frac{- 2 \pi 0}{T}}\right), f_{a}\left(e^{i \frac{- 2 \pi 1}{T}}\right), \cdots, f_{a}\left(e^{i \frac{- 2 \pi (T - 1)}{T}}\right) \right]$을 구하는 것입니다. ($f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$) <br>
+    
+    먼저, 다항식의 길이가 $1$인 경우 (즉, $T = 1$, $a = [a_0]$ 인 경우) 에는 $f_{a}(x) = a_0$인 상수함수이므로, 리스트 $A$는 $A = [A_{0}] = [f_{a}\left(e^{i \frac{- 2 \pi 0}{1}}\right)] = [f_{a}(0)] = [a_{0}]$ 입니다. <br>
+    
+    다항식의 길이가 $1$보다 큰 경우에는 다항식 하나를 두 다항식으로 쪼개보겠습니다. 편의상 $T = 2^t$ ($t$는 자연수) 라고 해줍니다. (2의 거듭제곱 꼴이 아니라면 하단에서의 과정을 거칩니다.) <br>
     
     다항식 $f_{a}(x)$는 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k} = \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k} x^{2k} + x \left( \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k + 1} x^{2k} \right)$ 로 쪼갤 수 있습니다. <br>
 
@@ -86,16 +92,16 @@
 
     $$
     \begin{align}
-    f_{a}(e^{i \frac{- 2 \pi n}{T}})  & = f_{a\_even}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) + e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) \\
+    f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)  & = f_{a\_even}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) + e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) \\
                                       & = f_{a\_even}\left( e^{i \frac{- 2 \pi n}{T/2}} \right) + e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( e^{i \frac{- 2 \pi n}{T/2}} \right) \\
-    f_{a}(-e^{i \frac{- 2 \pi n}{T}}) = f_{a}(e^{i \frac{- 2 \pi \left(n + \frac{T}{2} \right)}{T}}) & = f_{a\_even}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) - e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) \\
+    f_{a}\left(-e^{i \frac{- 2 \pi n}{T}}\right) = f_{a}\left(e^{i \frac{- 2 \pi \left(n + \frac{T}{2} \right)}{T}}\right) & = f_{a\_even}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) - e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} \right) \\
                                       &= f_{a\_even}\left( e^{i \frac{- 2 \pi n}{T/2}} \right) - e^{i \frac{- 2 \pi n}{T}} f_{a\_odd}\left( e^{i \frac{- 2 \pi n}{T/2}} \right)
     \end{align}
     $$
 
-    $0 \leq n < \frac{T}{2}$ 인 모든 $n$에 대해 $f_{a\_even}\left( e^{i \frac{- 2 \pi n}{T/2}} \right) , f_{a\_odd}\left( e^{i \frac{- 2 \pi n}{T/2}} \right)$을 구해야 합니다. <br>
+    이므로, $0 \leq n < \frac{T}{2}$ 인 모든 $n$에 대해 $f_{a\_even}\left( e^{i \frac{- 2 \pi n}{T/2}} \right) , f_{a\_odd}\left( e^{i \frac{- 2 \pi n}{T/2}} \right)$ 값을 구하면 $0 \leq n < T$인 모든 $n$에 대해 $f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)$ 값을 구할 수 있게 됩니다. <br>
 
-    이때, $f_{a\_even}(x)$, $f_{a\_odd}(x)$도 그저 $\frac{T}{2}$차 다항식일 뿐이므로, $0 \leq n < \frac{T}{2}$ 인 모든 $n$에 대해
+    이때, $f_{a\_even}(x)$, $f_{a\_odd}(x)$도 그저 $\frac{T}{2} - 1$차 다항식일 뿐이므로, $0 \leq n < \frac{T}{2}$ 인 모든 $n$에 대해
     
     $$
     \begin{align}
@@ -103,7 +109,9 @@
     \end{align}
     $$
     
-    값을 구하려면 $0 \leq n < \frac{T}{4}$ 인 모든 $n$에 대해
+    값을 구해 각각 $T - 1$개의 함수값을 구하면 $f_{a\_even}(x)$, $f_{a\_odd}(x)$ 이 각각 유일하게 정해집니다. <br>
+    
+    이 값들을 구하려면 $0 \leq n < \frac{T}{4}$ 인 모든 $n$에 대해
     
     $$
     \begin{align}
@@ -113,21 +121,19 @@
     
     의 값을 구해주면 됩니다. <br>
     
-    그리고 이를 재귀적으로 계속 반복해서 길이가 $1$이 되면 간단히 처리해줍니다. <br>
-    
-    길이가 $1$인 수열 $a_{n}$은 DFT의 정의에 따라 $A_{0} = \sum\limits_{k = 0}^{0} a_{k} e^{i \frac{- 2 \pi k 0}{1}} = a_0$이므로, 재귀를 멈추고 $A_0$을 반환하면 됩니다. <br>
+    그리고 이를 재귀적으로 계속 반복해서 길이가 $1$이 되면 위의 "다항식의 길이가 $1$인 경우" 처럼 간단히 처리해줍니다. <br>
 
     <hr>
 
-    Python으로 FFT 함수를 생각해볼 수 있습니다. <br> <br>
+    Python을 이용해 FFT 함수를 코드로 생각해볼 수 있습니다. <br> <br>
 
-    먼저 입력으로 길이 $T$의 List인 $a = [a_0, a_1, a_2, ..., a_{T - 1}]$가 주어집니다. <br>
+    먼저 입력으로 길이 $T$의 List인 $a = \left[a_0, a_1, a_2, ..., a_{T - 1}\right]$가 주어집니다. <br>
     
-    출력으로는 길이 $T$의 List인 $A = [A_0, A_1, A_2, ..., A_{T - 1}] = [f_{a}\left({w_{T}}^{0}\right), f_{a}\left({w_{T}}^{1}\right), f_{a}\left({w_{T}}^{2}\right), \cdots, f_{a}\left({w_{T}}^{T - 1}\right)]$을 return 해야합니다. 여기서 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$입니다. <br> <br>
+    ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$라 할 때, 출력으로는 길이 $T$의 List인 $A = \left[A_0, A_1, A_2, ..., A_{T - 1}\right] = \left[f_{a}\left({w_{T}}^{0}\right), f_{a}\left({w_{T}}^{1}\right), f_{a}\left({w_{T}}^{2}\right), \cdots, f_{a}\left({w_{T}}^{T - 1}\right)\right]$을 return 해야합니다. 여기서 위에서 보인 것처럼 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$입니다. <br> <br>
     
-    0. 만약 길이가 $1$이면 $A_{0} = a_{0}$을 return 합니다. (재귀 종료 조건) <br> <br>
+    0. 만약 길이가 $1$이면 $A = \left[A_{0}\right] = \left[a_{0}\right]$을 return 합니다. (재귀 종료 조건) <br> <br>
 
-    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$라 합니다. 이때, 두 성질 ${w_{T}}^{n} = -{w_{T}}^{n + \frac{T}{2}}$, ${\left({w_{T}}^{n}\right)}^2 = {w_{\frac{T}{2}}}^{n}$ 이 성립합니다. <br> <br>
+    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$로 정의하면, 두 성질 ${w_{T}}^{n} = -{w_{T}}^{n + \frac{T}{2}}$, ${\left({w_{T}}^{n}\right)}^2 = {w_{\frac{T}{2}}}^{n}$ 이 성립합니다. <br> <br>
 
     2. $0 \leq n < T$인 모든 정수 $n$에 대하여 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$의 값을 구해야 합니다. <br> <br>
 
@@ -135,64 +141,65 @@
 
     2 - 2. 다항식 $f_{a\_odd}(x)$의 계수는 Python에서 $a[1::2]$라고 쓸 수 있고, 마찬가지로 $f_{a\_even}(x)$의 계수는 $a[0::2]$ ( == $a[::2]$ ) 입니다. <br> <br>
     
-    2 - 3. $f_{a\_odd}\left({\left({w_{T}}^{n}\right)}^2\right) = f_{a\_odd}\left({w_{\frac{T}{2}}}^{n}\right)$에서 $a\_odd = \left[f_{a\_odd}\left({w_{\frac{T}{2}}}^{0}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{1}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{2}\right), \cdots , f_{a\_odd}\left({w_{\frac{T}{2}}}^{\frac{T}{2} - 1}\right) \right]$이라 하면, $a\_odd = FFT(a[1::2])$입니다. <br> <br>
+    2 - 3. $f_{a\_odd}\left({\left({w_{T}}^{n}\right)}^2\right) = f_{a\_odd}\left({w_{\frac{T}{2}}}^{n}\right)$에서 $a\_odd\_list = \left[f_{a\_odd}\left({w_{\frac{T}{2}}}^{0}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{1}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{2}\right), \cdots , f_{a\_odd}\left({w_{\frac{T}{2}}}^{\frac{T}{2} - 1}\right) \right]$이라 하면, $a\_odd\_list = FFT(a[1::2])$입니다. <br> <br>
     
-    2 - 4. $f_{a\_even}\left({\left({w_{T}}^{n}\right)}^2\right) = f_{a\_even}\left({w_{\frac{T}{2}}}^{n}\right)$에서 $a\_even = \left[f_{a\_even}\left({w_{\frac{T}{2}}}^{0}\right), f_{a\_even}\left({w_{\frac{T}{2}}}^{1}\right), f_{a\_even}\left({w_{\frac{T}{2}}}^{2}\right), \cdots , f_{a\_even}\left({w_{\frac{T}{2}}}^{\frac{T}{2} - 1}\right)\right]$이라 하면, $a\_even = FFT(a[0::2])$입니다. <br> <br>
+    2 - 4. $f_{a\_even}\left({\left({w_{T}}^{n}\right)}^2\right) = f_{a\_even}\left({w_{\frac{T}{2}}}^{n}\right)$에서 $a\_even\_list = \left[f_{a\_even}\left({w_{\frac{T}{2}}}^{0}\right), f_{a\_even}\left({w_{\frac{T}{2}}}^{1}\right), f_{a\_even}\left({w_{\frac{T}{2}}}^{2}\right), \cdots , f_{a\_even}\left({w_{\frac{T}{2}}}^{\frac{T}{2} - 1}\right)\right]$이라 하면, $a\_even\_list = FFT(a[0::2])$입니다. <br> <br>
 
     3. 
     $$
-    A[n] =
-    \begin{cases}
-    a\_odd[n] + {w_{T}}^{n} \times a\_even[n]& n < \frac{T}{2} \\
-    a\_odd[n - \frac{T}{2}] - {w_{T}}^{n - \frac{T}{2}} \times a\_even[n - \frac{T}{2}] & n \geq \frac{T}{2}
-    \end{cases}
+    \begin{align}
+    A[n] & = a\_odd[n] + {w_{T}}^{n} \times a\_even[n] \\
+    A\left[n + \frac{T}{2}\right] & = a\_odd[n] - {w_{T}}^{n} \times a\_even[n]
+    \end{align}
     $$
 
     으로 A를 구할 수 있습니다. <br>
 
-    오히려 말로 풀어쓰니 복잡해지는 것 같은데, python 코드로 나타내면 다음과 같습니다. <br>
+    오히려 말로 풀어쓰니 복잡해지는 것 같은데, python 코드로 나타내면 짧고 간단하게 다음과 같습니다. <br>
 
     <pre>
         import math
         
-        def fft(a): # a는 길이가 2^t 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A
-        T = len(a)
-        if T == 1: return a
-        w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))
-        even, odd = fft(a[0::2]), fft(a[1::2])
-        A = [0 for _ in range(T)]
-        T_half = T // 2
-        for i in range(T_half):
-            A[i]          = even[i] + (w ** i) * odd[i]
-            A[i + T_half] = even[i] - (w ** i) * odd[i]
-        return A
+        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A
+            T = len(a)
+            if T == 1: return a
+            w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))
+            even, odd = fft(a[0::2]), fft(a[1::2])
+            A = [0 for _ in range(T)]
+            T_half = T // 2
+            for i in range(T_half):
+                A[i]          = even[i] + (w ** i) * odd[i]
+                A[i + T_half] = even[i] - (w ** i) * odd[i] # i | T_half 로 표기해도 가능
+            return A
     </pre>
 
-    하단 반복문에서 언제나 i < T_half 이고, T가 2의 거듭제곱꼴이므로 T_half도 2의 거듭제곱꼴이므로, or 연산자 | 를 써서 "i | T_half == i + T_half" 라고 할 수 있습니다. (덧셈 연산자보다 비트 연산자가 훨씬 빠릅니다.) <br>
+    하단 반복문에서 언제나 <code>i < T_half</code> 이고, T가 2의 거듭제곱꼴이므로 <code>T_half</code>도 2의 거듭제곱꼴이므로, or 연산자 | 를 써서 "<code>i | T_half == i + T_half</code>" 라고 할 수 있습니다. (덧셈 연산자보다 비트 연산자가 더 빠릅니다.) <br>
 
     IFFT 과정도 이와 비슷하게 쓸 수 있습니다. <br>
 
     <pre>
         import math
         
-        def IFFT(A): # A는 길이가 2^t 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a
-        T = len(A)
-        if T == 1: return A
-        w = complex(math.cos(math.pi * 2 / T), math.sin(math.pi * 2 / T))
-        even, odd = IFFT(a[0::2]), IFFT(a[1::2])
-        a = [0 for _ in range(T)]
-        T_half = T // 2
-        for i in range(T_half):
-            a[i]          = (even[i] + (w ** i) * odd[i]) / 2
-            a[i + T_half] = (even[i] - (w ** i) * odd[i]) / 2
-        return a
+        def IFFT(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a
+            T = len(A)
+            if T == 1: return A
+            w = complex(math.cos(math.pi * 2 / T), math.sin(math.pi * 2 / T))
+            even, odd = IFFT(A[0::2]), IFFT(A[1::2])
+            a = [0 for _ in range(T)]
+            T_half = T // 2
+            for i in range(T_half):
+                a[i]          = (even[i] + (w ** i) * odd[i]) / 2
+                a[i + T_half] = (even[i] - (w ** i) * odd[i]) / 2 # i | T_half 로 표기해도 가능
+            return a
     </pre>
 
-    /2를 $\lg T$번 하므로 $2^{\lg T} = T$에서 T만큼 나눠짐을 알 수 있습니다. (이런 계산이 싫다면 IFFT (2 나눔 없이) 계산 후 함수 밖에서 일일이 T로 나눠주는 방법이 있겠습니다.)
+    <code>(even[i] + (w ** i) * odd[i]) / 2</code> 같이 2로 나눠주는 과정을 $\lg T$번 (재귀 횟수가 $\lg T$) 하므로 $2^{\lg T} = T$에서 총 T만큼 나눠짐을 알 수 있습니다. (이런 계산이 싫다면 2 나눔 없이 IFFT 계산 후 함수 밖에서 일일이 T로 나눠주는 방법이 있겠습니다.)
 
     <hr>
 
-    <details open><summary> 비재귀 FFT </summary>
+    재귀하지 않고 FFT를 하는 방법이 있으나, 재귀 FFT보다 더 복잡하니 이해하기 힘든 경우에는 비재귀 FFT는 blackbox 처럼 쓸 수도 있겠습니다. <br>
+
+    <details><summary> 비재귀 FFT 과정 </summary>
     
         <p>
             조금 더 빠른 FFT를 해봅시다. <br>
@@ -473,6 +480,26 @@
                         </p>
                     
                     </details> <!-- Bit Reversal 정리 증명 -->
+
+                    이제 $a$를 재배열한 리스트 $\beta$를 만들 차례입니다. <br>
+
+                    $0 \leq k < T$인 모든 정수 $k$에 대하여 $k_{rev}$를 계산해서, $b[k_{rev}] = a_{k}$가 되게 만들어주면 됩니다. <br>
+
+                    길이가 $\lg T = L$인 이진법 표기를 뒤집는 코드는 어떻게 짜야할까요? <br>
+
+                    $k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$라 하면, $k_{rev} = b_{0}b_{1}\cdots b_{N - 2}b_{N - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{L - 1 - n}$이므로, 다음과 같은 과정을 거칠 수 있습니다. <br>
+
+                    1. $K = 0$으로 둔다. <br>
+
+                    2. $0 \leq n < L$인 모든 정수 $n$에 대하여 $b_{n} = 1$이면 $K += 2^{L - 1 - n}$ 을 한다. <br>
+
+                    어떤 정수 $k$에 대하여 $n$번째 비트 ($b_{n}$) 를 확인하는 방법은 비트 연산자 and (&) 를 써서 <code>k & (1 << n)</code> 의 값이 $2^{n}$이면 $b_{n} = 1$이고, 값이 $0$이면 $b_{n} = 0$입니다. <br>
+
+                    $K += 2^{L - 1 - n}$을 해줘도 좋지만, 마찬가지로 비트 연산자 or (|) 를 써서 <code>K |= 1 << (L - 1 - n)</code> 으로 해줄 수 있습니다. <br>
+
+                    ($K$에 $2^{L - 1 - n}$ 성분이 없으니 $K$와 $2^{L - 1 - n}$를 or 연산 해주면 $K$에 $2^{L - 1 - n}$이 더해지는 효과, 반대로 성분이 있었다면 $2^{L - 1 - n}$이 빼지는 효과가 있었을 것) <br>
+
+                    그런데 이때, $k_{rev} = K$라 하면, $K_{rev} = k$이므로, 단순히 모든 $k$에 대해 리스트 $a$ 자체에서 $k$번째 원소를 $a_{k_{rev}}$로 바꾸고, $k_{rev}$번째 원소를 $a_{k}$로 바꾸면 되겠습니다. <br>
                         
                 </p>
             
@@ -480,7 +507,58 @@
                 
         </p>
     
-    </details> <!-- 존재성 증명 -->
+    </details> <!-- 비재귀 FFT 과정 -->
+
+    <pre>
+        import math
+        
+        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
+            T = len(a)
+            if T == 1: return a
+            L = T.bit_length() - 1
+            for p in range(1, T):
+                q = 0
+                for i in range(L):
+                    if (p & (1 << i)): q |= 1 << (L - 1 - i)
+                if p < q: a[p], a[q] = a[q], a[p]
+            I = 1
+            while (I < T):
+                w = complex(math.cos(math.pi / I), -math.sin(math.pi / I))
+                for j in range(0, T, I << 1):
+                    W = 1
+                    for k in range(I):
+                        even = a[j + k]
+                        odd  = a[j + k + I]
+                        a[j + k]     = even + W * odd
+                        a[j + k + I] = even - W * odd # j + k == j | k, j + k + I == j | k | I
+                        W *= w
+                I *= 2
+            return a
+        
+        def ifft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 A, 재귀 없음
+            T = len(a)
+            if T == 1: return a
+            L = T.bit_length() - 1
+            for p in range(1, T):
+                q = 0
+                for i in range(L):
+                    if (p & (1 << i)): q |= 1 << (L - 1 - i)
+                if p < q: a[p], a[q] = a[q], a[p]
+            I = 1
+            while (I < T):
+                w = complex(math.cos(math.pi / I), math.sin(math.pi / I))
+                for j in range(0, T, I << 1):
+                    W = 1
+                    for k in range(I):
+                        even = a[j + k]
+                        odd  = a[j + k + I]
+                        a[j + k]     = even + W * odd
+                        a[j + k + I] = even - W * odd # j + k == j | k, j + k + I == j | k | I
+                        W *= w
+                I *= 2
+            for i in range(T): a[i] /= T
+            return a
+    </pre>
 
     <!-- <details><summary> <del> 비재귀 FFT </del> </summary>
     
