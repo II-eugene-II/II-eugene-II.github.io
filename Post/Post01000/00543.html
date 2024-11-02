@@ -40,7 +40,7 @@
         $$
     </blockquote>
 
-    합 $\sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$을 다른 관점에서 볼 수 있습니다. <br>
+    합 $\sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$ 을 조금은 다른 관점에서 볼 수 있습니다. <br>
     
     다항식 $f_{a}(x)$를 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$로 정의한다면, $f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right) = \sum\limits_{k = 0}^{T - 1} a_{k} {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{k} = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} = A_{n}$입니다. <br>
     
@@ -56,7 +56,7 @@
 
     목표는 리스트 $a = [a_0, a_1, \cdots, a_{T - 1}]$에 대하여 리스트 $A = \left[ f_{a}\left(e^{i \frac{- 2 \pi 0}{T}}\right), f_{a}\left(e^{i \frac{- 2 \pi 1}{T}}\right), \cdots, f_{a}\left(e^{i \frac{- 2 \pi (T - 1)}{T}}\right) \right]$을 구하는 것입니다. ($f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$) <br>
     
-    먼저, 다항식의 길이가 $1$인 경우 (즉, $T = 1$, $a = [a_0]$ 인 경우) 에는 $f_{a}(x) = a_0$인 상수함수이므로, 리스트 $A$는 $A = [A_{0}] = [f_{a}\left(e^{i \frac{- 2 \pi 0}{1}}\right)] = [f_{a}(0)] = [a_{0}]$ 입니다. <br>
+    먼저, 다항식의 길이가 $1$인 경우 (즉, $T = 1$, $a = [a_0]$ 인 경우) 에는 $f_{a}(x) = a_0$인 상수함수이므로, 리스트 $A$는 $A = [A_{0}] = \left[f_{a}\left(e^{i \frac{- 2 \pi 0}{1}}\right)\right] = \left[f_{a}(0)\right] = [a_{0}]$ 입니다. <br>
     
     다항식의 길이가 $1$보다 큰 경우에는 다항식 하나를 두 다항식으로 쪼개보겠습니다. 편의상 $T = 2^t$ ($t$는 자연수) 라고 해줍니다. (2의 거듭제곱 꼴이 아니라면 하단에서의 과정을 거칩니다.) <br>
     
@@ -109,9 +109,9 @@
     \end{align}
     $$
     
-    값을 구해 각각 $T - 1$개의 함수값을 구하면 $f_{a\_even}(x)$, $f_{a\_odd}(x)$ 이 각각 유일하게 정해집니다. <br>
+    값을 구해 각각 $T - 1$개의 함수값을 구하면 $\frac{T}{2} - 1$차 다항식 $f_{a\_even}(x)$, $f_{a\_odd}(x)$ 이 각각 유일하게 정해집니다. <br>
     
-    이 값들을 구하려면 $0 \leq n < \frac{T}{4}$ 인 모든 $n$에 대해
+    이 값들을 구하려면 위에서 했던 것처럼 $0 \leq n < \frac{T}{4}$ 인 모든 $n$에 대해
     
     $$
     \begin{align}
@@ -127,19 +127,19 @@
 
     Python을 이용해 FFT 함수를 코드로 생각해볼 수 있습니다. <br> <br>
 
-    먼저 입력으로 길이 $T$의 List인 $a = \left[a_0, a_1, a_2, ..., a_{T - 1}\right]$가 주어집니다. <br>
+    먼저 입력으로 길이 $T = 2^L$의 List인 $a = \left[a_0, a_1, a_2, ..., a_{T - 1}\right]$가 주어집니다. <br>
     
     ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$라 할 때, 출력으로는 길이 $T$의 List인 $A = \left[A_0, A_1, A_2, ..., A_{T - 1}\right] = \left[f_{a}\left({w_{T}}^{0}\right), f_{a}\left({w_{T}}^{1}\right), f_{a}\left({w_{T}}^{2}\right), \cdots, f_{a}\left({w_{T}}^{T - 1}\right)\right]$을 return 해야합니다. 여기서 위에서 보인 것처럼 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$입니다. <br> <br>
     
     0. 만약 길이가 $1$이면 $A = \left[A_{0}\right] = \left[a_{0}\right]$을 return 합니다. (재귀 종료 조건) <br> <br>
 
-    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$로 정의하면, 두 성질 ${w_{T}}^{n} = -{w_{T}}^{n + \frac{T}{2}}$, ${\left({w_{T}}^{n}\right)}^2 = {w_{\frac{T}{2}}}^{n}$ 이 성립합니다. <br> <br>
+    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$로 정의합니다. ${w_{T}}$는 두 성질 ${w_{T}}^{n} = -{w_{T}}^{n + \frac{T}{2}}$, ${\left({w_{T}}^{n}\right)}^2 = {w_{\frac{T}{2}}}^{n}$ 이 성립합니다. <br> <br>
 
     2. $0 \leq n < T$인 모든 정수 $n$에 대하여 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$의 값을 구해야 합니다. <br> <br>
 
     2 - 1. $0 \leq n < \frac{T}{2}$인 모든 정수 $n$에 대하여 길이가 $\frac{T}{2}$인 다항식 $f_{a\_odd}(x)$, $f_{a\_even}(x)$에 대하여 $f_{a\_odd}\left({\left({w_{T}}^{n}\right)}^2\right)$, $f_{a\_even}\left({\left({w_{T}}^{n}\right)}^2\right)$의 값을 구합니다. 구한 값으로 $f_{a}\left({w_{T}}^{n}\right), f_{a}\left({w_{T}}^{n + \frac{T}{2}}\right)$ 두 값을 한 번에 알 수 있습니다. <br> <br>
 
-    2 - 2. 다항식 $f_{a\_odd}(x)$의 계수는 Python에서 $a[1::2]$라고 쓸 수 있고, 마찬가지로 $f_{a\_even}(x)$의 계수는 $a[0::2]$ ( == $a[::2]$ ) 입니다. <br> <br>
+    2 - 2. 다항식 $f_{a\_odd}(x)$의 계수는 Python에서 <code>a[1::2]</code>라고 쓸 수 있고, 마찬가지로 $f_{a\_even}(x)$의 계수는 <code>a[0::2]</code> ( <code>== a[::2]</code> ) 입니다. <br> <br>
     
     2 - 3. $f_{a\_odd}\left({\left({w_{T}}^{n}\right)}^2\right) = f_{a\_odd}\left({w_{\frac{T}{2}}}^{n}\right)$에서 $a\_odd\_list = \left[f_{a\_odd}\left({w_{\frac{T}{2}}}^{0}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{1}\right), f_{a\_odd}\left({w_{\frac{T}{2}}}^{2}\right), \cdots , f_{a\_odd}\left({w_{\frac{T}{2}}}^{\frac{T}{2} - 1}\right) \right]$이라 하면, $a\_odd\_list = FFT(a[1::2])$입니다. <br> <br>
     
@@ -155,7 +155,7 @@
 
     으로 A를 구할 수 있습니다. <br>
 
-    오히려 말로 풀어쓰니 복잡해지는 것 같은데, python 코드로 나타내면 짧고 간단하게 다음과 같습니다. <br>
+    오히려 말로 풀어쓰니 복잡해지는 것 같은데, python 코드로 나타내면 생각보다 짧고 간단하게 다음과 같습니다. <br>
 
     <pre>
         import math
@@ -172,6 +172,8 @@
                 A[i + T_half] = even[i] - (w ** i) * odd[i] # i | T_half 로 표기해도 가능
             return A
     </pre>
+
+    파이썬에서는 복소수가 기본 자료형이고, <code>w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))</code> 는 $w = e^{i \frac{- 2 \pi}{T}} = \cos\left( \frac{2 \pi}{T} \right) - i \sin\left( \frac{2 \pi}{T} \right)$ 과 동일합니다. <br>
 
     하단 반복문에서 언제나 <code>i < T_half</code> 이고, T가 2의 거듭제곱꼴이므로 <code>T_half</code>도 2의 거듭제곱꼴이므로, or 연산자 | 를 써서 "<code>i | T_half == i + T_half</code>" 라고 할 수 있습니다. (덧셈 연산자보다 비트 연산자가 더 빠릅니다.) <br>
 
@@ -193,7 +195,33 @@
             return a
     </pre>
 
-    <code>(even[i] + (w ** i) * odd[i]) / 2</code> 같이 2로 나눠주는 과정을 $\lg T$번 (재귀 횟수가 $\lg T$) 하므로 $2^{\lg T} = T$에서 총 T만큼 나눠짐을 알 수 있습니다. (이런 계산이 싫다면 2 나눔 없이 IFFT 계산 후 함수 밖에서 일일이 T로 나눠주는 방법이 있겠습니다.)
+    <code>(even[i] + (w ** i) * odd[i]) / 2</code> 같이 2로 나눠주는 과정을 $\lg T$번 (재귀 횟수가 $\lg T$) 하므로 $2^{\lg T} = T$에서 총 T만큼 나눠짐을 알 수 있습니다. (이런 계산이 싫다면 2 나눔 없이 IFFT 계산 후 함수 밖에서 일일이 T로 나눠주는 방법이 있겠습니다.) <br>
+
+    FFT 함수와 IFFT 함수가 굉장히 닮은 만큼, 아예 한 함수로 합쳐버리는 경우도 존재합니다. <br>
+
+    <pre>
+        import math
+        
+        def fft(a, rev): # a는 길이가 2^L 꼴인 리스트, rev = True 이면 IFFT 기능 하기
+            T = len(a)
+            if T == 1: return a
+            if rev: w = complex(math.cos(math.pi * 2 / T),  math.sin(math.pi * 2 / T))
+            else:   w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))
+            even, odd = fft(a[0::2], rev), fft(a[1::2], rev)
+            A = [0 for _ in range(T)]
+            T_half = T // 2
+            if rev:
+                for i in range(T_half):
+                    A[i]          = (even[i] + (w ** i) * odd[i]) / 2
+                    A[i + T_half] = (even[i] - (w ** i) * odd[i]) / 2
+            else:
+                for i in range(T_half):
+                    A[i]          = even[i] + (w ** i) * odd[i]
+                    A[i + T_half] = even[i] - (w ** i) * odd[i]
+            return A
+    </pre>
+
+    개인적으로는 별로 제 취향은 아닙니다. 다만 이렇게 정의하면 FFT 함수와 IFFT 함수를 한꺼번에 코드 수정을 할 수 있어 관리하기 편하다는 장점이 있습니다. <br>
 
     <hr>
 
@@ -325,32 +353,11 @@
 
             어째서 이런 일이 생길까요? <br>
 
-            <details open><summary> Bit Reversal 과정 증명 </summary>
+            <details><summary> Bit Reversal 과정 증명 </summary>
             
                 <p>
-                    길이가 $T$인 리스트 $a$를 FFT한 결과물 $A$ ($A = \mathcal{F}(a)$) <br>
 
-                    $\lg T = L$으로 표기 <br>
-
-                    $[p, q)$는 반닫힌 구간 ($c$가 구간 $[p, q)$에 있다 == $p \leq c < q$) <br>
-
-                    $0 \leq k < T$인 모든 정수 $k$에 대하여 $a$의 $k$번째 값인 $a_{k}$ <br>
-                    
-                    인덱스인 $k$를 이진 길이 $L$로 나타낸 것을 $b_{0}, b_{1}, \cdots , b_{L - 2}, b_{L - 1}$ 로 표기 ($k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$) <br>
-
-                    $k_{rev}$를 $k_{rev} = b_{0}b_{1}\cdots b_{N - 2}b_{N - 1} = \sum\limits_{n = 0}^{L - 1} b_{L - 1 - n} 2^{n}$라고 함 <br>
-
-                    $\beta$는 $\beta[k_{rev}] = a_{k}$ 인 리스트 <br>
-
-                    임의의 리스트 $\mathcal{A}_{k} = [t_{0}, t_{1}, t_{2}, t_{3}, \cdots]$ 에 대하여 ${\mathcal{A}_{k}}_{even} = [t_{0}, t_{2}, t_{4}, \cdots]$, ${\mathcal{A}_{k}}_{odd} = [t_{1}, t_{3}, t_{5}, \cdots]$ 라고 정의한다. <br>
-
-                    $\underset{-1}{\alpha} = [\mathcal{F}(a)]$이라고 정의 <br>
-                    
-                    $0 \leq n < L$인 정수 $n$에 대하여 $\underset{n - 1}{\alpha} = [\mathcal{F}(\mathcal{A}_{0}), \mathcal{F}(\mathcal{A}_{1}), \cdots , \mathcal{F}(\mathcal{A}_{2^{n}})]$이라 할 때, $\underset{n}{\alpha} = [\mathcal{F}({\mathcal{A}_{0}}_{even}), \mathcal{F}({\mathcal{A}_{0}}_{odd}), \mathcal{F}({\mathcal{A}_{1}}_{even}), \mathcal{F}({\mathcal{A}_{1}}_{odd}), \cdots , \mathcal{F}({\mathcal{A}_{2^{n}}}_{even}), \mathcal{F}({\mathcal{A}_{2^{n}}}_{odd})]$이라 한다. <br>
-
-                    증명해야할 것은 $\underset{L - 1}{\alpha} = \beta$이다. <br>
-
-                    <details><summary> <del> 예시 </del> </summary>
+                    <details><summary> Bit Reversal 과정 예시 </summary>
                     
                         <p>
                             ex) 길이가 $2^5$이면 $a_{11} = a_{01101} = a_{b_{4}b_{3}b_{2}b_{1}b_{0}}$에서 $b_{4} = 0, b_{3} = 1, b_{2} = 1, b_{1} = 0, b_{0} = 1$ <br> <br>
@@ -389,19 +396,47 @@
                     
                     </details> <!-- 예시 -->
 
-                    표기법 1. "$a_{k} = \underset{n}{\alpha}[j]$" 라는 표기는 $\underset{n}{\alpha}$을 풀어썼을 때 "$a$의 원소의 재배열" 중 $j$번째라는 것을 뜻한다. <br>
+                    $A$는 길이가 $T$인 리스트 $a$를 FFT한 결과물이다. (즉, $A = \mathcal{F}(a)$) <br>
+
+                    $L$은 $L = \lg T$이다. <br>
+
+                    $[p, q)$는 반닫힌 구간 표기이다. ("$c$가 구간 $[p, q)$에 있다" == $p \leq c < q$) <br>
+
+                    $0 \leq k < T$인 모든 정수 $k$에 대하여 $a$의 $k$번째 값은 $a[k]$, $a_{k}$ 두 가지로 표기하고 두 가지는 동일하다. <br>
+                    
+                    인덱스인 $k$의 이진 길이 $L$로 나타낸 것을 $b_{L - 1}, b_{L - 2}, \cdots , b_{1}, b_{0}$ 로 표기 (즉, $b_{n}$은 $k$의 $n$번째 비트, $k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$) <br>
+
+                    $k_{rev}$를 $k_{rev} = b_{0}b_{1}\cdots b_{L - 2}b_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{L - 1 - n} 2^{n}$라고 함 <br>
+
+                    $\beta$는 $\beta[k_{rev}] = a_{k}$ 인 리스트 <br>
+
+                    임의의 리스트 $\mathcal{A}_{k} = [t_{0}, t_{1}, t_{2}, t_{3}, \cdots]$ 에 대하여 ${\mathcal{A}_{k}}_{even} = [t_{0}, t_{2}, t_{4}, \cdots]$, ${\mathcal{A}_{k}}_{odd} = [t_{1}, t_{3}, t_{5}, \cdots]$ 라고 정의한다. <br>
+
+                    $\underset{-1}{\alpha} = [\mathcal{F}(a)]$이라고 정의 <br>
+                    
+                    $0 \leq n < L$인 정수 $n$에 대하여 $\underset{n - 1}{\alpha} = [\mathcal{F}(\mathcal{A}_{0}), \mathcal{F}(\mathcal{A}_{1}), \cdots , \mathcal{F}(\mathcal{A}_{2^{n}})]$이라 할 때, $\underset{n}{\alpha} = [\mathcal{F}({\mathcal{A}_{0}}_{even}), \mathcal{F}({\mathcal{A}_{0}}_{odd}), \mathcal{F}({\mathcal{A}_{1}}_{even}), \mathcal{F}({\mathcal{A}_{1}}_{odd}), \cdots , \mathcal{F}({\mathcal{A}_{2^{n}}}_{even}), \mathcal{F}({\mathcal{A}_{2^{n}}}_{odd})]$이라 한다. <br>
+
+                    이제 다음과 같은 정리를 증명하면 된다. <br>
+
+                    <blockquote>
+                        Bit Reversal 정리 <br>
+
+                        $\beta[k_{rev}] = a_{k}$ 인 리스트 $\beta$에 대하여, $$ \underset{L - 1}{\alpha} = \beta $$
+                    </blockquote>
+
+                    표기법 1. "$a_{k} = \underset{n}{\alpha}[j]$" 라는 표기는 $a$의 $k$번째 원소가 $\underset{n}{\alpha}$을 풀어썼을 때 $j$번째라는 것을 뜻한다. <br>
 
                     ex) $L = 4$ 일 때, $\underset{2}{\alpha} = [\mathcal{F}([a_0, a_8]), \mathcal{F}([a_4, a_{12}]), \mathcal{F}([a_2, a_{10}]), \cdots]$ 에서 $a_{2} = \underset{2}{\alpha}[4]$, $a_{12} = \underset{2}{\alpha}[3]$ 이다. <br>
 
                     표기법 2. $a_{k}$가 $\underset{n}{\alpha}$에서 존재할 수 있을 구간을 $\mathcal{L}_{n} = [p_n, q_n)$이라 한다. ($\mathcal{L}_{-1} = [0, 2^L) = [0, T)$) <br>
                     
-                    표기법 3. $q_n - p_n = r_n$이라 하자. <br>
+                    표기법 3. $q_n - p_n = r_n$이라 하자. <br> <br>
 
                     만약 $a_{k}$가 구간 $\mathcal{L}_{n}$에서 짝수 번째라면 $\mathcal{L}_{n + 1}$에서도 even이 모인 부분 (즉, 더 작은 쪽)에 있을 것이므로, $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{r_n}{2})$이고, 홀수 번째라면 $\mathcal{L}_{n + 1} = [p_n + \frac{r_n}{2}, q_n)$이다. <br> <br>
 
                     보조정리 1. $r_{L - 1} = 1$ <br>
 
-                    <details open><summary> 보조정리 1 증명 </summary>
+                    <details><summary> 보조정리 1 증명 </summary>
                     
                         <p>
                             $\mathcal{L}_{n} = [p_n, q_n)$에서 $\mathcal{L}_{n + 1} = [p_n + \frac{q_n - p_n}{2}, q_n)$ 이거나 $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{q_n - p_n}{2})$이고, 어떤 경우에도 $r_{n + 1} = \frac{q_n - p_n}{2}$이므로, $r_n$의 정의에서 $r_{n + 1} = \frac{r_n}{2}$이다. 따라서 $r_{n} = \frac{r_0}{2^n}$임을 알 수 있다. <br>
@@ -415,7 +450,7 @@
 
                     보조정리 2. $0 \leq k < T$인 모든 정수 $k$에 대해서 $\underset{L - 1}{\alpha}$ 에서 $a_{k}$의 위치는 $p_{L - 1}$이다. <br>
 
-                    <details open><summary> 보조정리 2 증명 </summary>
+                    <details><summary> 보조정리 2 증명 </summary>
                     
                         <p>
                             $a_{k}$가 $\underset{L - 1}{\alpha}$ 에서 있을 구간은 $\mathcal{L}_{L - 1} = [p_{L - 1}, q_{L - 1})$인데, 보조정리 1에서 $q_{L - 1} - p_{L - 1} = 1$이다. 따라서 $p_{L - 1} + 1 = q_{L - 1}$이다. <br>
@@ -425,9 +460,9 @@
                     
                     </details> <!-- 보조정리 2 증명 -->
 
-                    보조정리 3. $a_{k}$의 이진법 표기 $a_{k} = a_{b_{L - 1}b_{L - 2} \cdots b_{1}b_{0}}$에 대하여, $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$
+                    <b>보조정리 3</b>. $a_{k}$의 이진법 표기 $a_{k} = a_{b_{L - 1}b_{L - 2} \cdots b_{1}b_{0}}$에 대하여, $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$
 
-                    <details open><summary> 보조정리 3 증명 </summary>
+                    <details><summary> 보조정리 3 증명 </summary>
                     
                         <p>
                             만약 $a_{k}$가 구간 $\mathcal{L}_{n}$에서 짝수 번째라면 $\mathcal{L}_{n + 1}$에서 $\mathcal{L}_{n + 1} = [p_n + \frac{r_n}{2}, q_n)$이고, 홀수 번째라면 $\mathcal{L}_{n + 1} = [p_n, q_n - \frac{r_n}{2})$이다. <br>
@@ -443,7 +478,7 @@
 
                     보조정리 4. $0 \leq k < T$인 모든 정수 $k$에 대하여 $a_{k} = a_{b_{L - 1}b_{L - 2} \cdots b_{1}b_{0}}$일 때, $p_{L - 1} = b_{0}b_{1} \cdots b_{L - 2}b_{L - 1}$이다. <br>
 
-                    <details open><summary> 보조정리 4 증명 </summary>
+                    <details><summary> 보조정리 4 증명 </summary>
                     
                         <p>
                             보조정리 3에서 $p_{L - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} \times 2^{L - n - 1}$ 이다. <br>
@@ -463,7 +498,7 @@
                         $\beta[k_{rev}] = a_{k}$ 인 리스트 $\beta$에 대하여, $$ \underset{L - 1}{\alpha} = \beta $$
                     </blockquote>
 
-                    <details open><summary> Bit Reversal 정리 증명 </summary>
+                    <details><summary> Bit Reversal 정리 증명 </summary>
                     
                         <p>
                             보조정리 2에서 $0 \leq k < T$인 모든 정수 $k$에 대해서 $\underset{L - 1}{\alpha}$ 에서 $a_{k}$의 위치는 $p_{L - 1}$이다. <br>
@@ -474,9 +509,13 @@
 
                             또, ${k_{rev}}_{rev} = k$이므로, $\underset{L - 1}{\alpha}[k] = a_{k_{rev}}$라고 할 수 있다. <br>
                             
-                            표기법 1에서 $\underset{L - 1}{\alpha} = [\mathcal{F}([a_{0_{rev}}]), \mathcal{F}([a_{1_{rev}}]), \mathcal{F}([a_{2_{rev}}]), \cdots]$ 임을 알 수 있고, $\mathcal{F}([x]) = x$에서 $\underset{L - 1}{\alpha} = [a_{0_{rev}}, a_{1_{rev}}, a_{2_{rev}}, \cdots]$ 임을 알 수 있다. <br>
+                            표기법 1에서 $\underset{L - 1}{\alpha} = [\mathcal{F}([a_{0_{rev}}]), \mathcal{F}([a_{1_{rev}}]), \mathcal{F}([a_{2_{rev}}]), \cdots]$ 임을 알 수 있고, $\mathcal{F}([x]) = [x]$에서 $\underset{L - 1}{\alpha} = [[a_{0_{rev}}], [a_{1_{rev}}], [a_{2_{rev}}], \cdots]$ 임을 알 수 있다. <br>
                             
-                            또, $\beta$의 정의 $\beta[k_{rev}] = a_{k}$에서 $\beta[k] = a_{k_{rev}}$이므로, $\underset{L - 1}{\alpha} = \beta$임을 알 수 있다. <br>
+                            또, $\beta$의 정의 $\beta[k_{rev}] = a_{k}$에서 $\beta[k] = a_{k_{rev}}$이므로, $\underset{L - 1}{\alpha} = \beta$임을 알 수 있다. <br> <br>
+
+                            <hr> 
+
+                            사실 $\beta[k] = a_{k_{rev}}$이 아닌 $\beta[k] = [a_{k_{rev}}]$로 보는게 정확하지만, Bit Reversal을 거치고 $\beta[k] = a_{k_{rev}}$라고 정의한 리스트 $\beta$가 굉장히 유용한 성질을 가진다 라고 이해해주시면 감사하겠습니다. <br>
                         </p>
                     
                     </details> <!-- Bit Reversal 정리 증명 -->
@@ -487,19 +526,25 @@
 
                     길이가 $\lg T = L$인 이진법 표기를 뒤집는 코드는 어떻게 짜야할까요? <br>
 
-                    $k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$라 하면, $k_{rev} = b_{0}b_{1}\cdots b_{N - 2}b_{N - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{L - 1 - n}$이므로, 다음과 같은 과정을 거칠 수 있습니다. <br>
+                    1. $0 \leq k < T$인 모든 $k$에 대하여 $k = b_{L - 1}b_{L - 2}\cdots b_{1}b_{0} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{n}$라 하면, $k_{rev} = b_{0}b_{1}\cdots b_{N - 2}b_{N - 1} = \sum\limits_{n = 0}^{L - 1} b_{n} 2^{L - 1 - n}$이므로, 다음과 같은 과정을 거칠 수 있습니다. <br>
 
-                    1. $K = 0$으로 둔다. <br>
+                    1-1. $K = 0$으로 둔다. <br>
 
-                    2. $0 \leq n < L$인 모든 정수 $n$에 대하여 $b_{n} = 1$이면 $K += 2^{L - 1 - n}$ 을 한다. <br>
+                    1-2. $0 \leq n < L$인 모든 정수 $n$에 대하여 $b_{n} = 1$이면 $K$ <code>+=</code> $2^{L - 1 - n}$ 을 한다. <br>
 
-                    어떤 정수 $k$에 대하여 $n$번째 비트 ($b_{n}$) 를 확인하는 방법은 비트 연산자 and (&) 를 써서 <code>k & (1 << n)</code> 의 값이 $2^{n}$이면 $b_{n} = 1$이고, 값이 $0$이면 $b_{n} = 0$입니다. <br>
+                    1-3. 이 과정을 거치고 나면 $K = k_{rev}$입니다. <br>
+                    
+                    이때, $K_{rev} = k$이므로, 단순히 <code> a[k], a[K] = a[K], a[k] </code>로 바꾸면 안되고, $k < K$ (혹은 $k > K$)인 경우에만 <code> a[k], a[K] = a[K], a[k] </code> 으로 바꾸면 되겠습니다. <br>
 
-                    $K += 2^{L - 1 - n}$을 해줘도 좋지만, 마찬가지로 비트 연산자 or (|) 를 써서 <code>K |= 1 << (L - 1 - n)</code> 으로 해줄 수 있습니다. <br>
+                    $p = q_{rev}$라 하면, $k = p$일 때 <code> a[p], a[q] </code>가 교체되고, $k = q$일 때 또 다시 <code> a[p], a[q] </code> 가 교체되어서 결국 원래대로 돌아와버립니다. <br> <br> 
+
+                    어떤 정수 $k$에 대하여 $k$의 $n$번째 비트 $b_{n}$은 어떻게 확인할까요? <br>
+                    
+                    비트 연산자 and (&) 를 써서 <code>k & (1 << n)</code> 의 값이 $2^{n}$이면 $b_{n} = 1$이고, 값이 $0$이면 $b_{n} = 0$입니다. <br> <br>
+
+                    $K$ <code>+=</code> $2^{L - 1 - n}$을 해줘도 좋지만, 마찬가지로 비트 연산자 or (|) 를 써서 <code>K |= 1 << (L - 1 - n)</code> 으로 해줄 수 있습니다. <br>
 
                     ($K$에 $2^{L - 1 - n}$ 성분이 없으니 $K$와 $2^{L - 1 - n}$를 or 연산 해주면 $K$에 $2^{L - 1 - n}$이 더해지는 효과, 반대로 성분이 있었다면 $2^{L - 1 - n}$이 빼지는 효과가 있었을 것) <br>
-
-                    그런데 이때, $k_{rev} = K$라 하면, $K_{rev} = k$이므로, 단순히 모든 $k$에 대해 리스트 $a$ 자체에서 $k$번째 원소를 $a_{k_{rev}}$로 바꾸고, $k_{rev}$번째 원소를 $a_{k}$로 바꾸면 되겠습니다. <br>
                         
                 </p>
             
@@ -522,9 +567,9 @@
                     if (p & (1 << i)): q |= 1 << (L - 1 - i)
                 if p < q: a[p], a[q] = a[q], a[p]
             I = 1
-            while (I < T):
+            while (I < T): # I = 1, 2, 4, 8, ..., 2^{L - 1} 까지 반복
                 w = complex(math.cos(math.pi / I), -math.sin(math.pi / I))
-                for j in range(0, T, I << 1):
+                for j in range(0, T, I << 1): # 구간 [0, 2 * I), [2 * I, 4 * I), ... 를 DFT 해줌
                     W = 1
                     for k in range(I):
                         even = a[j + k]
@@ -559,6 +604,59 @@
             for i in range(T): a[i] /= T
             return a
     </pre>
+
+    <hr>
+
+    만약 길이가 $2$의 거듭제곱꼴이 아닌 리스트라면 어떨까요? <br>
+
+    푸리에 변환을 도구로 쓰는 경우가 아니라 정말로 그냥 정의에 맞춰서 $A_{n}$의 값을 구해야 할 때는 그냥 정의대로 푸는게 맞습니다. <br>
+
+    하지만 푸리에 변환을 도구로 쓰는 경우라면, 즉 <b>주객전도</b>가 되어서 그냥 수열 $\{a_{n}\}$으로 다항식 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$ 의 값들을 알기 위해서 푸리에 변환을 하는거라면 다음과 같은 과정을 거치면 됩니다. <br>
+
+    1. 수열 $\{a_{n}\}$의 길이가 $2$의 거듭제곱이 아닌 $T_{\times}$이다. <br>
+
+    2. $2^{L - 1} < T_{\times} < 2^{L}$이 되게 하는 어떤 정수 $L$이 존재한다. <br>
+
+    3. 다음과 같은 수열 $\left\{a^{'}_{n}\right\}$을 정의한다. <br>
+            
+    $$
+    a^{'}_{n}=
+    \begin{cases}
+    a_{n} & 0 \leq n < T_{\times} \\
+    0     & T_{\times} \leq n < 2^{L}
+    \end{cases}
+    $$
+
+    그리고 $\left\{a^{'}_{n}\right\}$를 FFT 해준다. <br>
+
+    이 결과값은 $f_{a^{'}}(x) = \sum\limits_{k = 0}^{2^{L} - 1} a^{'}_{k} x^{k}$ 의 값 $2^L$개입니다. <br>
+
+    하지만 $\left\{a^{'}_{n}\right\}$의 정의에서 $f_{a^{'}}(x) = \sum\limits_{k = 0}^{2^{L} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a^{'}_{k} x^{k} + \sum\limits_{k = T_{\times}}^{2^{L} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a_{k} x^{k} + \sum\limits_{k = T_{\times}}^{2^{L} - 1} 0 \times x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a_{k} x^{k} = f_{a}(x)$ 입니다. <br>
+
+    즉, $\left\{a^{'}_{n}\right\}$의 FFT로 얻은 결과값은 사실 다항식 $f_{a}(x)$의 값 $2^L$개 였습니다. <br>
+
+    그리고 $2^L$개의 점을 지나는 $2^L - 1$차 이하의 다항식은 $f_{a}(x)$ 뿐이므로, 푸리에 역변환 결과도 다항식 $f_{a}(x)$으로 잘 나올 것입니다. <br>
+
+    <hr>
+
+    이제 FFT의 활용을 해볼 차례입니다. <br>
+
+    사실 FFT는 합성곱 연산을 빠르게 하는데에 쓸 수 있습니다. <br>
+
+    <blockquote>
+        주기가 $T$인 수열 $\{a_{n}\}$, $\{b_{n}\}$에 대하여 $A_{n} = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$, $B_{n} = \sum\limits_{k = 0}^{T - 1} b_{k} e^{i \frac{- 2 \pi k n}{T}}$ 이라 하자. <br>
+
+        $$
+        c_{n} = \sum_{k = 0}^{T - 1} a_{k} b_{n - k}
+        $$
+        이면
+        $$
+        C_{n} = A_{n} B_{n}
+        $$
+        이다.
+    </blockquote>
+
+    주기가 $T$이므로, $b_{n - k}$라는 표기에서 $n - k$가 음수가 되면 $0 \leq K < T$이면서 $n - k \equiv K \pmod{T}$인 정수 $K$에 대하여 $b_{n - k} = b_{K}$라 생각해도 됩니다. ($b_{(n - k) \pmod{T}}$) <br>
 
     <!-- <details><summary> <del> 비재귀 FFT </del> </summary>
     
