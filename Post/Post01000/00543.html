@@ -639,7 +639,7 @@
 
     <hr>
 
-    이제 FFT의 활용을 해볼 차례입니다. <br>
+    이제 FFT를 철저히 도구로 활용을 해볼 차례입니다. <br>
 
     사실 FFT는 합성곱 연산을 빠르게 하는데에 쓸 수 있습니다. <br>
 
@@ -656,7 +656,202 @@
         이다.
     </blockquote>
 
-    주기가 $T$이므로, $b_{n - k}$라는 표기에서 $n - k$가 음수가 되면 $0 \leq K < T$이면서 $n - k \equiv K \pmod{T}$인 정수 $K$에 대하여 $b_{n - k} = b_{K}$라 생각해도 됩니다. ($b_{(n - k) \pmod{T}}$) <br>
+    주기가 $T$이므로, $b_{n - k}$라는 표기에서 $n - k$가 음수가 되면 $0 \leq K < T$이면서 $n - k \equiv K \pmod{T}$인 정수 $K$에 대하여 $b_{n - k} = b_{K}$라 생각해도 됩니다. ($b_{(n - k) \bmod T}$) <br>
+
+    위의 합성곱 표현을 다항식으로 생각해봅시다. <br>
+
+    <blockquote>
+        주기가 $T$인 수열 $\{a_{n}\}$, $\{b_{n}\}$에 대하여 $A_{n} = f_{a}\left(e^{i \frac{- 2 \pi k n}{T}}\right)$, $B_{n} = f_{b}\left(e^{i \frac{- 2 \pi k n}{T}}\right)$ 이라 하자. <br>
+
+        $$
+        c_{n} = \sum_{k = 0}^{T - 1} a_{k} b_{n - k}
+        $$
+        이면 $C_{n} = \sum\limits_{k = 0}^{T - 1} c_{k} e^{i \frac{- 2 \pi k n}{T}} = f_{c}\left(e^{i \frac{- 2 \pi k n}{T}}\right)$에 대하여
+        $$
+        C_{n} = A_{n} B_{n}
+        $$
+        이다.
+    </blockquote>
+
+    그리고 $C_{n}$을 푸리에 역변환 해주면 계수가 $c_{n} = \sum\limits_{k = 0}^{T - 1} a_{k} b_{n - k}$인 $T - 1$차 다항식 $f_{c_{\mathcal{F}}}(x)$를 얻을 수 있습니다. <br>
+
+    이제 다항식 연산을 생각해봅니다. <br>
+
+    <blockquote>
+        길이가 각각 $T_{a}$, $T_{b}$인 두 수열 $\{a_{n}\}$, $\{b_{n}\}$에 대하여 두 다항식
+        
+        $$
+        \begin{align}
+        f_{a}(x) &= a_{0} x^{0} + a_{1} x^{1} + \cdots + a_{T_{a} - 2} x^{T_{a} - 2} + a_{T_{a} - 1} x^{T_{a} - 1} \\
+        f_{b}(x) &= b_{0} x^{0} + b_{1} x^{1} + \cdots + b_{T_{b} - 2} x^{T_{b} - 2} + b_{T_{b} - 1} x^{T_{b} - 1}
+        \end{align}
+        $$
+
+        의 곱을 $f_{c_{\mathcal{P}}}(x)$라 하면,
+        
+        $$
+        \begin{align}
+        f_{c_{\mathcal{P}}}(x) = &\left( a_{0} b_{0} \right) x^{0} + \\
+                   &\left( a_{0} b_{1} + a_{1} b_{0} \right) x^{1} + \\
+                   &\left( a_{0} b_{2} + a_{1} b_{1} + a_{0} b_{2} \right) x^{1} + \cdots + \\
+                   &\left( a_{T_{a} - 2} b_{T_{b} - 1} + a_{T_{a} - 1} b_{T_{b} - 2} \right) x^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right) - 1} + \\
+                   &\left( a_{T_{a} - 1} b_{T_{b} - 1} \right) x^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right)} \\
+                 = &\sum_{n = 0}^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right)} \left( \sum_{k = 0}^{n} a_{k} b_{n - k} \right) x^{n}
+        \end{align}
+        $$
+
+        이다.
+    </blockquote>
+
+    모양새가 닮긴 했지만 바로 FFT를 활용하여 곱셈하기는 힘든 모습입니다. <br>
+
+    결과값부터가 굉장히 다른 모습입니다. FFT를 이용할 때는 애초에 똑같이 주가가 $T$인 수열($T - 1$차 다항식)이 결과값으로 나오지만, 다항식 곱셈에서는 $T_{a} + T_{b} - 2$차 다항식(길이가 $T_{a} + T_{b} - 1$인 수열)이 결과값으로 나오게 됩니다. <br>
+
+    두 다항식 $f_{a}(x) = 1 + 2x + 3x^2 + 4x^3$, $f_{b}(x) = 5 + 6x + 7x^2 + 8x^3$ 을 FFT 하고 $C_{n}$을 얻고, 이를 역변환한 $f_{c_{\mathcal{F}}}(x)$는 $f_{c_{\mathcal{F}}}(x) = 66 + 68x + 66x^2 + 60x^3$이지만, 실제로 두 다항식을 곱한 다항식은 $f_{c_{\mathcal{P}}}(x) = 5 + 16x + 34x^2 + 60x^3 + 61x^4 + 52x^5 + 32x^6$임을 알 수 있습니다. <br>
+
+    중간 계수도 다릅니다. FFT를 이용할 때는 계수가 $c_{n} = \sum\limits_{k = 0}^{T - 1} a_{k} b_{n - k}$ 이고, 곱셈에서의 계수는 $c_{n} = \sum\limits_{k = 0}^{n} a_{k} b_{n - k}$입니다. <br>
+    
+    곱셈에서의 계수는 $0$차항의 계수에서 $a_{0}b_{0}$만 남고, $a_{1}b_{-1} = a_{1}b_{3}$, $a_{2}b_{-2} = a_{2}b_{2}$, $a_{3}b_{-3} = a_{3}b_{1}$ 같은 잡다한 계수들은 사라진 상태입니다. <br>
+
+    FFT를 이용해서 다항식 곱셈을 하고 싶은데, 이러면 $b_{-1}$, $b_{-2}$, $b_{-3}$ 같은건 무시했으면 좋겠고... <br>
+    
+    더해도 무시되려면...덧셈에서의 항등원은 $0$이니까 $b_{-1} = 0$, $b_{-2} = 0$, $b_{-3} = 0$ 이었으면 좋겠고... <br>
+
+    다항식을 $f_{b}(x) = 5 + 6x + 7x^2 + 8x^3 + 0x^4 + 0x^5 + 0x^6 + 0x^7$로 봐도 크게 상관은 없으니...! <br>
+
+    <hr>
+
+    계수가 0인 항들을 만들어 내는 과정이 정당하다는 것을 증명하고, 이를 통해 FFT를 활용한 곱셈을 해보겠습니다. <br>
+
+    <details><summary> 표기법 </summary>
+    
+        <p>
+            두 수열 $\{a_{n}\}$, $\{b_{n}\}$의 길이가 각각 $T_{a}$, $T_{b}$이다. <br>
+            
+            $2^{L - 1} \leq T_{a} + T_{b} - 1 < 2^{L}$인 자연수 $L$에 대하여 $T_{ab} = 2^{L}$이라 정의한다. <br>
+            
+            두 수열 $\left\{a^{'}_{n}\right\}$, $\left\{b^{'}_{n}\right\}$를
+                
+            $$
+            a^{'}_{n} =
+            \begin{cases}
+            a_{n} & 0 \leq n < T_{a} \\
+            0     & T_{a} \leq n < T_{ab}
+            \end{cases}
+            \\
+            b^{'}_{n} =
+            \begin{cases}
+            b_{n} & 0 \leq n < T_{b} \\
+            0     & T_{b} \leq n < T_{ab}
+            \end{cases}
+            $$
+    
+            이라 정의한다. <br>
+            
+            $$
+            \begin{align}
+            A^{'}_{n} &= f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \\
+            B^{'}_{n} &= f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \\
+            C^{'}_{n} &= A^{'}_{n} B^{'}_{n} \\
+            c^{'}_{n} &= \frac{1}{T_{ab}} \sum\limits_{k = 0}^{T_{ab} - 1} C^{'}_{k} e^{i \frac{2 \pi k n}{T_{ab}}}
+            \end{align}
+            $$
+            이라 한다. <br>
+        </p>
+    
+    </details> <!-- 표기법 -->
+
+    <blockquote>
+        <b>FFT를 활용한 다항식 곱셈</b> <br>
+
+        다항식 $f_{c^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} c^{'}_{k} x^{k}$에 대하여,
+        
+        $$
+        f_{c^{'}}(x) = f_{a}(x) f_{b}(x)
+        $$
+
+        이다.
+    </blockquote>
+
+    <details><summary> FFT 다항식 곱셈 증명 </summary>
+    
+        <p>
+            $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지난다. ($f_{c^{'}}(x)$의 FFT 결과가 $C^{'}$이므로) <br>
+            
+            $f_{a^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{a} - 1} a_{k} x^{k} + \sum\limits_{k = T_{a}}^{T_{ab} - 1} 0 x^{k}$ 에서 $f_{a^{'}}(x) = f_{a}(x)$이고, 마찬가지로 $f_{b^{'}}(x) = f_{b}(x)$ 이다. <br>
+
+            다항식 $f_{a}(x) f_{b}(x)$도 $0 \leq n < T_{ab}$인 $T_{ab}$개의 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지나고, 서로 다른 점 $T_{ab}$개를 지나는 $T_{ab} - 1$차 이하의 다항식은 <a href="/Post/Post01000/00542.html"> 다항식 보간 </a>에 의해 유일하므로, $f_{c^{'}}(x) = f_{a}(x) f_{b}(x)$이다. <br>
+
+            <!-- $f_{a}(x) f_{b}(x) = f_{c}(x) = \sum\limits_{n = 0}^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right)} \left( \sum\limits_{k = 0}^{n} a_{k} b_{n - k} \right) x^{n}$라 하고, $f_{c^{'}}(x) = f_{c}(x)$임을 보이면 된다. <br>
+
+            푸리에 변환의 합성곱에서 $c^{'}_{n} = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k}$임을 알 수 있다. <br>
+            
+            먼저 $0 \leq n < T_{ab}$인 경우를 먼저 보면, $c^{'}_{n} = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k} = \sum\limits_{k = 0}^{n} a^{'}_{k} b^{'}_{n - k} + \sum\limits_{k = n + 1}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k}$ <br> -->
+        </p>
+    
+    </details> <!-- FFT 다항식 곱셈 증명 -->
+
+    FFT를 이용해 다항식을 곱하는 코드를 python으로 보이겠습니다. <br>
+
+    <pre>
+        import math
+        
+        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
+            # 생략
+            return a
+        
+        def ifft(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a, 재귀 없음
+            # 생략
+            return A
+        
+        def mult_prod(A, B): # A, B는 각각 다항식의 계수 리스트, C는 A, B를 다항식으로 보았을 때의 곱셈의 결과 리스트
+            Ta, Tb = len(A), len(B)
+            Tab = 1 << ((Ta + Tb - 1) - 1).bit_length()
+            A, B = fft(A + [0 for _ in range(Tab - Ta)]), fft(B + [0 for _ in range(Tab - Tb)])
+            return ifft([A[i] * B[i] for i in range(Tab)])
+    </pre>
+
+    <!-- <details><summary> 다른 결과 보기 </summary>
+    
+        <p>
+            $$
+            \begin{align}
+            A_{0} &= f_{a}\left(e^{i \frac{- 2 \pi k 0}{T}}\right) = f_{a}(1) = 10 \\
+            A_{1} &= f_{a}\left(e^{i \frac{- 2 \pi k 1}{T}}\right) = f_{a}(- i) = -2 + 2i \\
+            A_{2} &= f_{a}\left(e^{i \frac{- 2 \pi k 2}{T}}\right) = f_{a}(-1) = -2 \\
+            A_{3} &= f_{a}\left(e^{i \frac{- 2 \pi k 3}{T}}\right) = f_{a}(i) = -2 - 2i \\
+            B_{0} &= f_{b}\left(e^{i \frac{- 2 \pi k 0}{T}}\right) = f_{b}(1) = 26 \\
+            B_{1} &= f_{b}\left(e^{i \frac{- 2 \pi k 1}{T}}\right) = f_{b}(- i) = -2 + 2i \\
+            B_{2} &= f_{b}\left(e^{i \frac{- 2 \pi k 2}{T}}\right) = f_{b}(-1) = -2 \\
+            B_{3} &= f_{b}\left(e^{i \frac{- 2 \pi k 3}{T}}\right) = f_{b}(i) = -2 - 2i
+            \end{align}
+            $$
+            $$
+            \begin{align}
+            C_{0} &= A_{0} B_{0} = 260 \\
+            C_{1} &= A_{1} B_{1} = -8i \\
+            C_{2} &= A_{2} B_{2} = 4 \\
+            C_{3} &= A_{3} B_{3} = 8i
+            \end{align}
+            $$
+            $$
+            \begin{align}
+            c_{0} &= \frac{1}{4} \sum_{k = 0}^{T - 1} C_{k} e^{i \frac{2 \pi k 0}{T}} = 66 \\
+            c_{1} &= \frac{1}{4} \sum_{k = 0}^{T - 1} C_{k} e^{i \frac{2 \pi k 1}{T}} = 68 \\
+            c_{2} &= \frac{1}{4} \sum_{k = 0}^{T - 1} C_{k} e^{i \frac{2 \pi k 3}{T}} = 66 \\
+            c_{3} &= \frac{1}{4} \sum_{k = 0}^{T - 1} C_{k} e^{i \frac{2 \pi k 4}{T}} = 60 \\
+            \end{align}
+            $$
+            $f_{c_{FFT}}(x) = 66 + 68x + 66x^2 + 60x^3$
+            이는 사실 $f_{a}(x) = 1 + 2x + 3x^2 + 4x^3$, $f_{b}(x) = 5 + 6x + 7x^2 + 8x^3$
+            $f_{c_{prod}}(x) = 5 + 16x + 34x^2 + 60x^3 + 61x^4 + 52x^5 + 32x^6$
+            전혀 다른 결과가 나온 듯 합니다.
+            사실 $f_{c_{prod}}(x) = 5 + 16x + 34x^2 + 60x^3 + 61x^4 + 52x^5 + 32x^6$ 에서 x^4보다 큰 항은  <br>
+        </p>
+    
+    </details> <!-- 다른 결과 보기 -->
+
+    
 
     <!-- <details><summary> <del> 비재귀 FFT </del> </summary>
     
