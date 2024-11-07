@@ -629,7 +629,7 @@
 
     그리고 $\left\{a^{'}_{n}\right\}$를 FFT 해준다. <br>
 
-    이 결과값은 $f_{a^{'}}(x) = \sum\limits_{k = 0}^{2^{L} - 1} a^{'}_{k} x^{k}$ 의 값 $2^L$개입니다. <br>
+    이 결과값은 다항식 $f_{a^{'}}(x) = \sum\limits_{k = 0}^{2^{L} - 1} a^{'}_{k} x^{k}$ 의 값 $2^L$개입니다. <br>
 
     하지만 $\left\{a^{'}_{n}\right\}$의 정의에서 $f_{a^{'}}(x) = \sum\limits_{k = 0}^{2^{L} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a^{'}_{k} x^{k} + \sum\limits_{k = T_{\times}}^{2^{L} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a_{k} x^{k} + \sum\limits_{k = T_{\times}}^{2^{L} - 1} 0 \times x^{k} = \sum\limits_{k = 0}^{T_{\times} - 1} a_{k} x^{k} = f_{a}(x)$ 입니다. <br>
 
@@ -655,6 +655,8 @@
         $$
         이다.
     </blockquote>
+
+    증명은 <a href="/Post/Post01000/00541.html"> 이산 푸리에 변환의 합성곱 </a> 에서 볼 수 있습니다. <br> \
 
     주기가 $T$이므로, $b_{n - k}$라는 표기에서 $n - k$가 음수가 되면 $0 \leq K < T$이면서 $n - k \equiv K \pmod{T}$인 정수 $K$에 대하여 $b_{n - k} = b_{K}$라 생각해도 됩니다. ($b_{(n - k) \bmod T}$) <br>
 
@@ -776,7 +778,7 @@
     <details><summary> FFT 다항식 곱셈 증명 </summary>
     
         <p>
-            $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지난다. ($f_{c^{'}}(x)$의 FFT 결과가 $C^{'}$이므로) <br>
+            $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{c^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right) = \left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지난다. ($f_{c^{'}}(x)$의 FFT 결과가 $C^{'}$이므로) <br>
             
             $f_{a^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{a} - 1} a_{k} x^{k} + \sum\limits_{k = T_{a}}^{T_{ab} - 1} 0 x^{k}$ 에서 $f_{a^{'}}(x) = f_{a}(x)$이고, 마찬가지로 $f_{b^{'}}(x) = f_{b}(x)$ 이다. <br>
 
@@ -804,11 +806,31 @@
             # 생략
             return A
         
-        def mult_prod(A, B): # A, B는 각각 다항식의 계수 리스트, C는 A, B를 다항식으로 보았을 때의 곱셈의 결과 리스트
-            Ta, Tb = len(A), len(B)
-            Tab = 1 << ((Ta + Tb - 1) - 1).bit_length()
-            A, B = fft(A + [0 for _ in range(Tab - Ta)]), fft(B + [0 for _ in range(Tab - Tb)])
-            return ifft([A[i] * B[i] for i in range(Tab)])
+        def poly_mult(A, B): # A, B는 각각 다항식의 계수 리스트, C는 A, B를 다항식으로 보았을 때의 A * B의 결과 리스트
+            T_a, T_b = len(A), len(B)
+            T_ab = 1 << ((T_a + T_b - 1) - 1).bit_length()
+            A, B = fft(A + [0 for _ in range(T_ab - T_a)]), fft(B + [0 for _ in range(T_ab - T_b)])
+            return ifft([A[i] * B[i] for i in range(T_ab)])
+    </pre>
+
+    다항식 $A$에 대하여 $A^{2}$를 구하는 코드는 FFT를 한번만 해도 충분합니다. <br>
+
+    <pre>
+        import math
+        
+        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
+            # 생략
+            return a
+        
+        def ifft(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a, 재귀 없음
+            # 생략
+            return A
+        
+        def poly_sq(A): # A는 다항식의 계수 리스트, return 값은 A를 다항식으로 보았을 때의 A * A의 결과 리스트
+            T_a = len(A)
+            T_ab = 1 << ((2 * T_a - 1) - 1).bit_length()
+            A = fft(A + [0 for _ in range(T_ab - T_a)])
+            return ifft([A[i] * A[i] for i in range(T_ab)])
     </pre>
 
     <!-- <details><summary> 다른 결과 보기 </summary>
