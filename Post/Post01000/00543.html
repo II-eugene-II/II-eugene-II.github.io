@@ -157,21 +157,7 @@
 
     오히려 말로 풀어쓰니 복잡해지는 것 같은데, python 코드로 나타내면 생각보다 짧고 간단하게 다음과 같습니다. <br>
 
-    <pre>
-        import math
-        
-        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A
-            T = len(a)
-            if T == 1: return a
-            w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))
-            even, odd = fft(a[0::2]), fft(a[1::2])
-            A = [0 for _ in range(T)]
-            T_half = T // 2
-            for i in range(T_half):
-                A[i]          = even[i] + (w ** i) * odd[i]
-                A[i + T_half] = even[i] - (w ** i) * odd[i] # i | T_half 로 표기해도 가능
-            return A
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/facbd3b13388b8707a7b918f8a99b319.js"></script>
 
     파이썬에서는 복소수가 기본 자료형이고, <code>w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))</code> 는 $w = e^{i \frac{- 2 \pi}{T}} = \cos\left( \frac{2 \pi}{T} \right) - i \sin\left( \frac{2 \pi}{T} \right)$ 과 동일합니다. <br>
 
@@ -179,47 +165,13 @@
 
     IFFT 과정도 이와 비슷하게 쓸 수 있습니다. <br>
 
-    <pre>
-        import math
-        
-        def IFFT(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a
-            T = len(A)
-            if T == 1: return A
-            w = complex(math.cos(math.pi * 2 / T), math.sin(math.pi * 2 / T))
-            even, odd = IFFT(A[0::2]), IFFT(A[1::2])
-            a = [0 for _ in range(T)]
-            T_half = T // 2
-            for i in range(T_half):
-                a[i]          = (even[i] + (w ** i) * odd[i]) / 2
-                a[i + T_half] = (even[i] - (w ** i) * odd[i]) / 2 # i | T_half 로 표기해도 가능
-            return a
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/0cfbd401c2ad5269754c964e0a28f260.js"></script>
 
     <code>(even[i] + (w ** i) * odd[i]) / 2</code> 같이 2로 나눠주는 과정을 $\lg T$번 (재귀 횟수가 $\lg T$) 하므로 $2^{\lg T} = T$에서 총 T만큼 나눠짐을 알 수 있습니다. (이런 계산이 싫다면 2 나눔 없이 IFFT 계산 후 함수 밖에서 일일이 T로 나눠주는 방법이 있겠습니다.) <br>
 
     FFT 함수와 IFFT 함수가 굉장히 닮은 만큼, 아예 한 함수로 합쳐버리는 경우도 존재합니다. <br>
 
-    <pre>
-        import math
-        
-        def fft(a, rev): # a는 길이가 2^L 꼴인 리스트, rev = True 이면 IFFT 기능 하기
-            T = len(a)
-            if T == 1: return a
-            if rev: w = complex(math.cos(math.pi * 2 / T),  math.sin(math.pi * 2 / T))
-            else:   w = complex(math.cos(math.pi * 2 / T), -math.sin(math.pi * 2 / T))
-            even, odd = fft(a[0::2], rev), fft(a[1::2], rev)
-            A = [0 for _ in range(T)]
-            T_half = T // 2
-            if rev:
-                for i in range(T_half):
-                    A[i]          = (even[i] + (w ** i) * odd[i]) / 2
-                    A[i + T_half] = (even[i] - (w ** i) * odd[i]) / 2
-            else:
-                for i in range(T_half):
-                    A[i]          = even[i] + (w ** i) * odd[i]
-                    A[i + T_half] = even[i] - (w ** i) * odd[i]
-            return A
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/1e95e49340fda3f76438f5723f684ecc.js"></script>
 
     개인적으로는 별로 제 취향은 아닙니다. 다만 이렇게 정의하면 FFT 함수와 IFFT 함수를 한꺼번에 코드 수정을 할 수 있어 관리하기 편하다는 장점이 있습니다. <br>
 
@@ -554,56 +506,7 @@
     
     </details> <!-- 비재귀 FFT 과정 -->
 
-    <pre>
-        import math
-        
-        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
-            T = len(a)
-            if T == 1: return a
-            L = T.bit_length() - 1
-            for p in range(1, T):
-                q = 0
-                for i in range(L):
-                    if (p & (1 << i)): q |= 1 << (L - 1 - i)
-                if p < q: a[p], a[q] = a[q], a[p]
-            I = 1
-            while (I < T): # I = 1, 2, 4, 8, ..., 2^{L - 1} 까지 반복
-                w = complex(math.cos(math.pi / I), -math.sin(math.pi / I))
-                for j in range(0, T, I << 1): # 구간 [0, 2 * I), [2 * I, 4 * I), ... 를 DFT 해줌
-                    W = 1
-                    for k in range(I):
-                        even = a[j + k]
-                        odd  = a[j + k + I]
-                        a[j + k]     = even + W * odd
-                        a[j + k + I] = even - W * odd # j + k == j | k, j + k + I == j | k | I
-                        W *= w
-                I *= 2
-            return a
-        
-        def ifft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 A, 재귀 없음
-            T = len(a)
-            if T == 1: return a
-            L = T.bit_length() - 1
-            for p in range(1, T):
-                q = 0
-                for i in range(L):
-                    if (p & (1 << i)): q |= 1 << (L - 1 - i)
-                if p < q: a[p], a[q] = a[q], a[p]
-            I = 1
-            while (I < T):
-                w = complex(math.cos(math.pi / I), math.sin(math.pi / I))
-                for j in range(0, T, I << 1):
-                    W = 1
-                    for k in range(I):
-                        even = a[j + k]
-                        odd  = a[j + k + I]
-                        a[j + k]     = even + W * odd
-                        a[j + k + I] = even - W * odd # j + k == j | k, j + k + I == j | k | I
-                        W *= w
-                I *= 2
-            for i in range(T): a[i] /= T
-            return a
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/c5820dfe7c7fcb4ea00100546314fcaf.js"></script>
 
     <hr>
 
@@ -795,43 +698,11 @@
 
     FFT를 이용해 다항식을 곱하는 코드를 python으로 보이겠습니다. <br>
 
-    <pre>
-        import math
-        
-        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
-            # 생략
-            return a
-        
-        def ifft(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a, 재귀 없음
-            # 생략
-            return A
-        
-        def poly_mult(A, B): # A, B는 각각 다항식의 계수 리스트, C는 A, B를 다항식으로 보았을 때의 A * B의 결과 리스트
-            T_a, T_b = len(A), len(B)
-            T_ab = 1 << ((T_a + T_b - 1) - 1).bit_length()
-            A, B = fft(A + [0 for _ in range(T_ab - T_a)]), fft(B + [0 for _ in range(T_ab - T_b)])
-            return ifft([A[i] * B[i] for i in range(T_ab)])
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/8eb4038233685badc0663ea35529f471.js"></script>
 
     다항식 $A$에 대하여 $A^{2}$를 구하는 코드는 FFT를 한번만 해도 충분합니다. <br>
 
-    <pre>
-        import math
-        
-        def fft(a): # a는 길이가 2^L 꼴인 리스트, return 값은 DFT 이후의 결과 리스트 A, 재귀 없음
-            # 생략
-            return a
-        
-        def ifft(A): # A는 길이가 2^L 꼴인 리스트, return 값은 IDFT 이후의 결과 리스트 a, 재귀 없음
-            # 생략
-            return A
-        
-        def poly_sq(A): # A는 다항식의 계수 리스트, return 값은 A를 다항식으로 보았을 때의 A * A의 결과 리스트
-            T_a = len(A)
-            T_ab = 1 << ((2 * T_a - 1) - 1).bit_length()
-            A = fft(A + [0 for _ in range(T_ab - T_a)])
-            return ifft([A[i] * A[i] for i in range(T_ab)])
-    </pre>
+    <script src="https://gist.github.com/II-eugene-II/359883abe84342f02dacbef356e698ac.js"></script>
 
     <!-- <details><summary> 다른 결과 보기 </summary>
     
