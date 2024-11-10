@@ -33,7 +33,19 @@
 
     $\gcd(a, b)$는 <a href="/Post/Post01000/00155.html"> 최대공약수 </a> 입니다. <br>
 
-    $O(\sqrt{n})$에 구하는 방법이 알려져있습니다. $x = p \sqrt{n} + q$로 분할하는 느낌으로 풀 수 있습니다. ($O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 </a>) <br>
+    <hr>
+
+    이산로그를 $a = g^x \pmod{n}$를 $O(\sqrt{n})$에 구하는 방법이 알려져있습니다. ($O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 </a>) <br>
+
+    1. $m = \lceil\sqrt{n}\rceil$을 정의한다. <br>
+
+    2. 리스트 A = [$(a \times g^{-i}, i)$ for i in range(m)] 을 정의한다. <br>
+
+    3. 리스트 B = [$(g^{mj}, mj)$ for j in range$\left(\lceil \frac{n}{m} \rceil + 1\right)$] 을 정의한다. <br>
+
+    4. $A[i][0] = B[j][0]$이면, $\operatorname{ind}_{g} a = A[i][1] + B[j][1]$ 이다. <br>
+
+    $a \times g^{-i} \equiv g^{mj} \pmod{n}$이면 $a \equiv g^{mj + i} \pmod{n}$이므로 가능한 알고리즘 입니다. <br>
 
     </p>
       

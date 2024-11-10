@@ -39,13 +39,52 @@
 
     </p>
 
-    <p> <h3> 이항계수 관련 주요 특징들 </h3> </p>
+    <p> <h3> 이항계수 관련 주요 성질들 </h3> </p>
     
     <p>
     
-        0. 기본 전제 -> $\binom{n}{k} = \frac{n!}{k! (n - k)!}$ <br>
+        0. 기본 전제 / $\binom{n}{k} = \frac{n!}{k! (n - k)!}$ <br>
 
-        1. $\binom{n}{k} + \binom{n}{k - 1} = \binom{n + 1}{k}$ <br>
+        1. $\binom{n}{k} + \binom{n}{k + 1} = \binom{n + 1}{k + 1}$ <br>
+
+        <details><summary> 이항계수 성질 1 증명 </summary>
+        
+            <p>
+
+                $$
+                \begin{align}
+                \binom{n}{k} &= \frac{n!}{k! (n - k)!}\\
+                
+                \binom{n}{k + 1} &= \frac{n!}{(k + 1)! (n - k - 1)!}\\
+
+                \binom{n + 1}{k + 1} &= \frac{(n + 1)!}{(k + 1)! (n - k)!}
+                \end{align}
+                $$
+
+                $$
+                \begin{align}
+                \binom{n}{k} + \binom{n}{k + 1}
+                &= \frac{n!}{k! (n - k)!} + \frac{n!}{(k + 1)! (n - k - 1)!}\\
+
+                &= \frac{n! \color{red}{\times (k + 1)}}{\left(k! \color{red}{\times (k + 1)} \right) (n - k)!} + \frac{n! \color{red}{\times (n - k)}}{(k + 1)! \left( (n - k - 1)! \color{red}{\times (n - k)} \right)}\\
+
+                &= \frac{n! (k + 1)}{(k + 1)! (n - k)!} + \frac{n! (n - k)}{(k + 1)! (n - k)! }\\
+
+                &= \frac{n! (k + 1) + n! (n - k)}{(k + 1)! (n - k)!}\\
+
+                &= \frac{n! (k + 1 + n - k)}{(k + 1)! (n - k)!}\\
+
+                &= \frac{n! (n + 1)}{(k + 1)! (n - k)!}\\
+
+                &= \frac{(n + 1)!}{(k + 1)! (n - k)!}\\
+
+                &= \binom{n + 1}{k + 1}
+                \end{align}
+                $$
+                    
+            </p>
+        
+        </details> <!-- 이항계수 특징 1 증명 -->
         
         2. ${(x + y)}^{n} = \sum\limits_{k = 0}^{n} \binom{n}{k} {x}^{n - k} {y}^{k}$ (<a href="/Post/Post01000/00278.html"> 이항정리 </a>) <br>
 

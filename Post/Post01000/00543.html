@@ -28,13 +28,15 @@
     고속 푸리에 변환 (Fast Fourier Transform, FFT) 은 <a href="/Post/Post01000/00541.html"> 이산 푸리에 변환 </a> 을 빠르게 계산하는 방법입니다. <br>
       
     <blockquote>
-        주기가 $T$인 복소수열 $\{a_{n}\}$을 이산 푸리에 변환 (Discrete Fourier Transform, DFT) 한 복소수열 $\{A_{n}\}$
+        <b>이산 푸리에 변환 (Discrete Fourier Transform, DFT)</b> <br>
+
+        주기가 $T$인 복소수열 $\{a_{n}\}$을 DFT 한 복소수열 $\{A_{n}\}$
         $$
         A_{n} = \sum_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} = \sum_{k = 0}^{T - 1} a_{k} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) - i \sin\left( \frac{2 \pi k n}{T} \right) \right\}
         $$
-        <br>
+        <br> <b>이산 푸리에 역변환 (Inverse Discrete Fourier Transform, IDFT)</b> <br>
 
-        복소수열 $\{A_{n}\}$을 다시 $\{a_{n}\}$으로 변환시키기 위한 이산 푸리에 역변환 (Inverse Discrete Fourier Transform, IDFT) 과정 
+        복소수열 $\{A_{n}\}$을 다시 $\{a_{n}\}$으로 변환시키기 위한 IDFT 과정 
         $$
         a_{n} = \frac{1}{T} \sum_{k = 0}^{T - 1} A_{k} e^{i \frac{2 \pi k n}{T}} = \frac{1}{T} \sum_{k = 0}^{T - 1} A_{k} \left\{ \cos\left( \frac{2 \pi k n}{T} \right) + i \sin\left( \frac{2 \pi k n}{T} \right) \right\}
         $$
@@ -681,11 +683,23 @@
     <details><summary> FFT 다항식 곱셈 증명 </summary>
     
         <p>
-            $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{c^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right) = \left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지난다. ($f_{c^{'}}(x)$의 FFT 결과가 $C^{'}$이므로) <br>
+            다항식 $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점
+            
+            $$
+            \left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{c^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right) = \left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)
+            $$
+            
+            를 지난다. ($f_{c^{'}}(x)$의 FFT 결과가 $C^{'}$이므로) <br>
             
             $f_{a^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{a} - 1} a_{k} x^{k} + \sum\limits_{k = T_{a}}^{T_{ab} - 1} 0 x^{k}$ 에서 $f_{a^{'}}(x) = f_{a}(x)$이고, 마찬가지로 $f_{b^{'}}(x) = f_{b}(x)$ 이다. <br>
 
-            다항식 $f_{a}(x) f_{b}(x)$도 $0 \leq n < T_{ab}$인 $T_{ab}$개의 점 $\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)$를 지나고, 서로 다른 점 $T_{ab}$개를 지나는 $T_{ab} - 1$차 이하의 다항식은 <a href="/Post/Post01000/00542.html"> 다항식 보간 </a>에 의해 유일하므로, $f_{c^{'}}(x) = f_{a}(x) f_{b}(x)$이다. <br>
+            다항식 $f_{a}(x) f_{b}(x)$도 $0 \leq n < T_{ab}$인 $T_{ab}$개의 점
+            
+            $$
+            \left(e^{i \frac{- 2 \pi k n}{T_{ab}}}, f_{a^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) f_{b^{'}}\left(e^{i \frac{- 2 \pi k n}{T_{ab}}}\right) \right)
+            $$
+            
+            를 지나고, 서로 다른 점 $T_{ab}$개를 지나는 $T_{ab} - 1$차 이하의 다항식은 <a href="/Post/Post01000/00542.html"> 다항식 보간 </a>에 의해 유일하므로, $f_{c^{'}}(x) = f_{a}(x) f_{b}(x)$이다. <br>
 
             <!-- $f_{a}(x) f_{b}(x) = f_{c}(x) = \sum\limits_{n = 0}^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right)} \left( \sum\limits_{k = 0}^{n} a_{k} b_{n - k} \right) x^{n}$라 하고, $f_{c^{'}}(x) = f_{c}(x)$임을 보이면 된다. <br>
 

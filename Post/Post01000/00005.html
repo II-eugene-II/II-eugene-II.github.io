@@ -32,21 +32,14 @@
         2. 소수 $p$에 대하여 $p$와 $a$가 <b><a href="/Post/Post01000/00305.html"> 서로소 </a></b>이면 $a^{p - 1} \equiv 1 \pmod{p}$이다.
     </blockquote>
 
-    <a href="/Post/Post01000/00004.html"> 윌슨의 정리 </a>는 A면 B이고 B이면 A다 라는 필요충분조건이 성립하지만, 2번 명제는 아쉽게도 역이 성립하지 않습니다. <br>
-      
-    즉, 서로소인 두 자연수 $a$, $n$ 에 대해 $a^{n - 1} \equiv 1 \pmod{n}$ 이라고 $n$이 소수인 것은 아닙니다. <br>
-      
-    $a = 2$인 경우, 즉 $2^{n - 1} \equiv 1 \pmod{n}$ 인데도 합성수인 $n$을 특별히 <a href="/Post/Post01000/00008.html"> Poulet Number </a> 라고 부르고, 그 외에는 "$a$를 밑으로 하는 (페르마)유사소수" 라고 부릅니다. <br>
-      
-    합성수 $n$과 서로소인 <b>모든</b> $a$에 대해 $a^{n - 1} \equiv 1 \pmod{n}$ 를 만족하면, $n$을 <a href="/Post/Post01000/00168.html"> 카마이클 수 </a>라고 부릅니다.
-
     <details><summary> 페르마의 소정리 증명 </summary>
     
         <p>
-
-            증명의 스케치 <br>
-
-            보조정리 <a href="/Post/Post01000/00002.html"> (모듈러 연산 성질) </a> / $ab \equiv ac \pmod{p}$이고, $a$와 소수 $p$가 서로소이면 $b \equiv c \pmod{p}$ <br>
+      
+            <blockquote>
+                보조정리 <a href="/Post/Post01000/00002.html"> (모듈러 연산 성질) </a> <br>
+                $ab \equiv ac \pmod{p}$이고, $a$와 소수 $p$가 서로소이면 $b \equiv c \pmod{p}$이다.
+            </blockquote>
 
             $1$부터 $p - 1$까지의 수가 있는 집합 $S_{1} = \{ 1, 2, \cdots , p - 2, p - 1 \}$의 원소 각각에다가 $a$를 곱하면 $S_{2} = \{ 1a, 2a, \cdots , (p - 2)a, (p - 1)a \}$ 꼴이 된다. <br>
 
@@ -72,7 +65,17 @@
 
     <a href="/Post/Post01000/00006.html"> 밀러-라빈 소수판별법 </a> 같은 소수판별법등에 주로 쓰이는 정리입니다. <br>
 
+    <a href="/Post/Post01000/00004.html"> 윌슨의 정리 </a>는 A면 B이고 B이면 A다 라는 필요충분조건이 성립하지만, 2번 명제는 아쉽게도 역이 성립하지 않습니다. <br>
+      
+    즉, 서로소인 두 자연수 $a$, $n$ 에 대해 $a^{n - 1} \equiv 1 \pmod{n}$ 이라고 $n$이 소수인 것은 아닙니다. <br>
+      
+    $a = 2$인 경우, 즉 $2^{n - 1} \equiv 1 \pmod{n}$ 인데도 합성수인 $n$을 특별히 <a href="/Post/Post01000/00008.html"> Poulet Number </a> 라고 부르고, 그 외에는 "$a$를 밑으로 하는 (페르마)유사소수" 라고 부릅니다. <br>
+      
+    합성수 $n$과 서로소인 <b>모든</b> $a$에 대해 $a^{n - 1} \equiv 1 \pmod{n}$ 를 만족하면, $n$을 <a href="/Post/Post01000/00168.html"> 카마이클 수 </a>라고 부릅니다. <br>
+
     페르마의 소정리를 일반화한 <a href="/Post/Post01000/00152.html"> 오일러의 정리 </a>도 존재합니다. $p$가 소수가 아니어도 성립합니다. <br>
+
+    페르마의 소정리에 의해 법 $p$에서의 $a$의 <a href="/Post/Post01000/00448.html"> 모듈러 곱셈 역원 </a> 은 $a^{p - 2}$입니다. <br>
       
     </section>
     <aside>
