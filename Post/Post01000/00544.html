@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> FFT의 변형, NTT </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> FFT의 변형, NTT </div>
+      
+    <hr>
+      
+    <p>
+      
+    정수론적 변환 (Number Theoretic Transform, NTT) 은 <a href="/Post/Post01000/00543.html"> 고속 푸리에 변환 </a> 을 복소수가 아닌 정수 위에서 하는 연산입니다. <br>
+
+    주기가 $T$인 정수열 $\{a_{n}\}$을 다음과 같은 정수열 $\{A_{n}\}$으로 바꾸는 연산입니다. <br>
+    
+    소수 $p = d \times 2^s + 1$, $p$의 원시근 $w$, $g = w^{\frac{p - 1}{T}}$라 할 때, NTT 연산을 다음과 같이 정의합니다. <br>
+    
+    <blockquote>
+        <b>정수론적 변환 (Number Theoretic Transform, NTT)</b>
+        $$
+        A_{n} = \left(\sum_{k = 0}^{T - 1} a_{k} g^{kn}\right)\mod{p}
+        $$
+    </blockquote>
+
+    이산 푸리에 변환의 정의를 다시 보겠습니다. <br>
+    
+    이산 푸리에 변환 (Discrete Fourier Transform, DFT) 은 주기가 $T$인 복소수열 $\{a_{n}\}$ 을 변환해 복소수열 $\{A_{n}\}$ 을 만드는 연산입니다. <br>
+    
+    <blockquote>
+        $$
+        A_{n} = \sum_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}
+        $$
+    </blockquote>
+
+    고속 푸리에 변환에서 분할 정복을 할 때, 복소수의 여러 성질 중 다음 네 가지 성질
+    
+    $$
+    \begin{align}
+    e^{i \frac{- 2 \pi \left(k + \frac{T}{2}\right) n}{T}} & = -e^{i \frac{- 2 \pi k n}{T}} \\
+    {\left(e^{i \frac{- 2 \pi k n}{T}}\right)}^{2}         & = e^{i \frac{- 2 \pi k n}{T / 2}} \\
+    {\left(e^{i \frac{- 2 \pi k n}{T}}\right)}^{T}           & = 1 \\
+    e^{i \frac{- 2 \pi k}{T}}                            & \not= 1 \left(0 < k < T \right)
+    \end{align}
+    $$
+    
+    임을 이용해서 분할 정복을 할 수 있었습니다. <br>
+
+    하지만 컴퓨터의 실수 정확도에는 한계가 있으니, 이 모든걸 <b>정수 연산</b>으로 할 수 있다면 얼마나 좋을지 생각하게 됩니다. <br>
+
+    <hr>
+
+    $e^{i \frac{- 2 \pi}{T}}$을 다른 관점에서 보면, $1$의 $T$제곱근으로 볼 수 있습니다. <br>
+
+    정수 상에서 $1$의 $T$제곱근이 $T$개나 있진 않으니, 정수를 $p$로 나눈 나머지 묶음 (엄밀히 따지면 체 $\mathbb{Z}/p\mathbb{Z}$) 에서 생각해볼 수 있겠습니다. <br>
+
+    정수에서 $e^{i \frac{- 2 \pi}{T}}$ 와 비슷한 친구를 찾으려면.. <br>
+
+    우선 위 성질 중 3번째 성질은 페르마의 소정리와 얼핏 비슷합니다. <br>
+
+    <blockquote>
+        <a href="/Post/Post01000/00005.html"> <b>페르마의 소정리</b> </a> (Fermat’s little Theorem) <br>
+
+        <a href="/Post/Post01000/00342.html"> 소수 </a> $p$와 자연수 $a$가 <b><a href="/Post/Post01000/00305.html"> 서로소 </a></b>이면 $a^{p - 1} \equiv 1 \pmod{p}$ 이다.
+    </blockquote>
+
+    $a$가 4번째 성질을 만족시키려면 <a href="/Post/Post01000/00284.html"> 위수 </a>가 $p - 1$이면 된다는걸 알 수 있습니다. 따라서 $a$는 $p$의  <a href="/Post/Post01000/00302.html"> 원시근 </a>이어야 합니다. <br>
+
+    2번 성질에서 $T$를 $2$로 나눠주게 되는데, $T = p - 1$이라 하면 분할 정복을 위해선 $T = 2^L$꼴이어야 했으므로, $p = 2^L + 1$꼴이어야 합니다. 다만 이런 꼴의 소수 중 <a href="/Post/Post01000/00057.html"> 알려진 가장 큰 소수 </a> 가 $2^{16} + 1 = 65537$입니다. <br>
+
+    <hr>
+
+    조금 더 편하게 생각을 해서 꼭 $T = p - 1$일 필요는 없이 그냥 $p - 1$이 $2$로 굉장히 많이 나눠지기만 한다면 어떨까요? <br>
+
+    $p$의 원시근 $w$를 찾아서 $g = w^{\frac{p - 1}{T}}$라고 둔다면, $g$는 다음을 만족시킵니다. <br>
+    
+    $$
+    \begin{align}
+    g^{\left(k + \frac{T}{2}\right) n} & \equiv -g^{k n} \pmod{p} \\
+    g^{2}         & \equiv w^{\frac{p - 1}{T / 2}} \pmod{p} \\
+    g^{T}         & \equiv 1 \pmod{p} \\
+    g^{k}         & \not\equiv 1 \pmod{p} \left(0 < k < T \right)
+    \end{align}
+    $$
+
+    이렇게 $p - 1$이 $2$로 많이 나누어떨어지려면 $p = d \times 2^{s} + 1$꼴이면 되는데, 이런 소수를 <a href="/Post/Post01000/00146.html"> 프로트 소수 </a> 라고 합니다. <br>
+
+    이런 과정을 통해, NTT를 다음과 같이 정의하게 됩니다. <br>
+    
+    <blockquote>
+        <b>정수론적 변환 (Number Theoretic Transform, NTT)</b>
+        $$
+        A_{n} = \left(\sum_{k = 0}^{T - 1} a_{k} g^{kn}\right)\mod{p}
+        $$
+    </blockquote>
+    
+    이산 푸리에 역변환처럼 정의해도 되는지 보겠습니다. <br>
+    
+    <blockquote>
+        <b>정수론적 역변환 (Inverse Number Theoretic Transform, INTT)</b>
+        $$
+        \begin{align}
+        a_{n} & = \frac{1}{T} \sum_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p} \\
+              & = T^{-1} \sum_{k = 0}^{T - 1} A_{k} {\left(g^{-1}\right)}^{kn} \mod{p}
+        \end{align}
+        $$
+    </blockquote>
+
+    $a^{-1} \mod p$는 법 $p$에서의 $a$의 <a href="/Post/Post01000/00448.html"> 모듈러 곱셈 역원 </a> 입니다. <br>
+
+    <details open><summary> 역변환 정당성 증명 </summary>
+    
+        <p>
+
+            $\{A_{n}\}$의 정의인 $A_{n} = \left(\sum\limits_{k = 0}^{T - 1} a_{k} g^{kn}\right)\mod{p}$에서 $\sum\limits_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p}$ 를 계산해보면 된다. <br>
+
+            어떤 수열 $\alpha_{n}$을 $\alpha_{n} = \sum\limits_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p}$ 이라 하자. <br>
+
+            $$
+            \begin{align}
+            \alpha_{n} & = \sum_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p} \\
+                       & = \sum_{k = 0}^{T - 1} g^{-kn} A_{k} \mod{p} \\
+                       & = \sum_{k = 0}^{T - 1} g^{-kn} \left( \sum_{m = 0}^{T - 1} a_{m} g^{mk} \right) \mod{p} \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} a_{m} g^{-nk} g^{mk} \right) \mod{p} \\
+                       & = \sum_{k = 0}^{T - 1} \left( \sum_{m = 0}^{T - 1} a_{m} g^{(m - n)k} \right) \mod{p} \\
+                       & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} g^{(m - n)k} \mod{p} \\
+                       & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} a_{m} g^{(m - n)k} \mod{p} \\
+                       & = \sum_{m = 0}^{T - 1} \left( \sum_{k = 0}^{T - 1} a_{m} g^{(m - n)k} \right) \mod{p} \\
+                       & = \sum_{m = 0}^{T - 1} \left( a_{m} \times \sum_{k = 0}^{T - 1} g^{(m - n)k} \right) \mod{p} 
+            \end{align}
+            $$
+
+            이제 $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \left( \sum\limits_{k = 0}^{T - 1} g^{(m - 1) k} \right) \right) \mod{p}$의 연산만 해주면 된다. <br>
+
+            편의상 $g^{m - n} \mod{p} = G$라 하자. $G \not= 1$이라면 $\sum\limits_{k = 0}^{T - 1} g^{(m - n)k} \equiv \sum\limits_{k = 0}^{T - 1} G^{k} \equiv \frac{G^{T} - 1}{G - 1} \pmod{p}$이고, $G^{T} \equiv g^{(m - n) T} \equiv w^{\frac{p - 1}{T} (m - n) T} \equiv w^{(p - 1) (m - n)} \equiv 1^{m - n} \equiv 1 \pmod{p}$이므로, $G^{T} - 1 \equiv 0 \pmod{p} $이다. <br>
+
+            $G = 1$인 경우는 $m = n$인 경우이므로, $m = n$일 때는 $\sum\limits_{k = 0}^{T - 1} g^{(m - n)k} \equiv \sum\limits_{k = 0}^{T - 1} 1^{k} \equiv \sum\limits_{k = 0}^{T - 1} 1 \equiv T \pmod{p}$이다. <br>
+
+            $\sum\limits_{k = 0}^{T - 1} g^{(m - n)k}$ 을 통째로 $g_{m}$이라는 수열로 보면,
+            
+            $$
+            g_{n}=
+            \begin{cases}
+            T & m = n \\
+            0 & m \not= n
+            \end{cases}
+            $$
+            
+            이므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times \sum\limits_{k = 0}^{T - 1} g^{(m - n)k} \right) \mod{p} = \sum\limits_{m = 0}^{T - 1} \left( a_{m} \times g_{m} \right) \mod{p}$에서, $g_{m}$의 성질로 인해
+            
+            $$
+            a_{m} \times g_{m}=
+            \begin{cases}
+            Ta_{n} & m = n \\
+            0      & m \not= n
+            \end{cases}
+            $$
+            
+            이므로, $\sum\limits_{m = 0}^{T - 1} \left( a_{m} \times g_{m} \right) \mod{p} = T a_{n} \mod{p}$ 이다. <br>
+
+            따라서, $T a_{n} \mod{p} = \alpha_{n} \mod{p} = \sum\limits_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p}$에서 $a_{n} = \frac{1}{T} \sum\limits_{k = 0}^{T - 1} A_{k} g^{-kn} \mod{p}$ 이다. <br>
+                
+        </p>
+    
+    </details> <!-- 역변환 증명 -->
+
+    <hr>
+
+    복소수 연산 대신 정수 연산을 사용한 시점에선 이미 푸리에 변환은 단순한 합성곱 도구의 관점에서 보기 시작한 셈입니다. <br>
+
+    NTT 에서의 합성곱은 어떻게 해야할까요? 이산 푸리에 변환의 합성곱에서 힌트를 얻을 수 있습니다. <br>
+    
+    <blockquote>
+        이산 푸리에 변환의 <b>합성곱 (Convolution)</b>
+        $$
+        c_{n} = \sum_{k = 0}^{T - 1} a_{k} b_{n - k}
+        $$
+        이면
+        $$
+        C_{n} = A_{n} B_{n}
+        $$
+        이다.
+    </blockquote>
+
+    수열 $\{b_{n}\}$의 주기가 $T$이므로, $c_{n}$의 정의중 $b_{n - k}$에서 $n - k$가 음수일 때는 $b_{0} = b_{T}$, $b_{-1} = b_{T - 1}$...로 생각하면 됩니다. ($b_{(n - k) \pmod{T}}$)
+
+    NTT에서도 이와 똑같이 정의할 수 있습니다. <br>
+    
+    <blockquote>
+        NTT에서의 <b>합성곱 (Convolution)</b>
+        $$
+        c_{n} = \sum_{k = 0}^{T - 1} a_{k} b_{n - k}
+        $$
+        이면
+        $$
+        C_{n} = A_{n} B_{n}
+        $$
+        이다.
+    </blockquote>
+
+    NTT에서의 정당성도 한번 짚고 가겠습니다. <br>
+
+    <details open><summary> NTT에서의 합성곱 정당성 증명 </summary>
+    
+        <p>
+
+            $$
+            \begin{align}
+            C_{n} & = \sum_{k = 0}^{T - 1} c_{k} g^{kn} \mod{p} \tag{1} \\ 
+                  & = \sum_{k = 0}^{T - 1} \left(\sum_{m = 0}^{T - 1} a_{m} b_{k - m}\right) g^{kn} \mod{p} \tag{2} \\
+                  & = \sum_{k = 0}^{T - 1} \sum_{m = 0}^{T - 1} a_{m} b_{k - m} g^{(k - m)n} g^{mn} \mod{p} \tag{3} \\
+                  & = \sum_{m = 0}^{T - 1} \sum_{k = 0}^{T - 1} a_{m} b_{k - m} g^{(k - m)n} g^{mn} \mod{p} \tag{4} \\
+                  & = \sum_{m = 0}^{T - 1} a_{m} g^{mn} \sum_{k = 0}^{T - 1} b_{k - m} g^{(k - m)n} \mod{p} \tag{5}\\
+                  & = \sum_{m = 0}^{T - 1} a_{m} g^{mn} B_{n} \mod{p} \tag{6}\\
+                  & = B_{n} \sum_{m = 0}^{T - 1} a_{m} g^{mn} \mod{p} \tag{7}\\
+                  & = A_{n} B_{n} \mod{p} \tag{8}
+            \end{align}
+            $$
+            
+            $(1)$번식 증명 : NTT의 정의 <br>
+            
+            $(1) \to (2)$ 증명 : 수열 $\{c_{n}\}$의 정의 <br>
+            
+            $(2) \to (3)$ 증명 : 지수법칙 사용, $g^{kn} = g^{(k - m)n} g^{mn}$ <br>
+
+            $(3) \to (4)$ 증명 : 합 순서 변경 <br>
+
+            $(4) \to (5)$ 증명 : $k$와 관계 없는 항인 $a_{m} g^{mn}$ 항을 옮겨줌 <br>
+
+            $(6) \to (7)$ 증명 : $m$과 관계 없는 항인 $B_{n}$ 항을 옮겨줌 <br>
+
+            $(7) \to (8)$ 증명 : NTT의 정의에 의해 $A_{n} = \sum\limits_{m = 0}^{T - 1} a_{m} g^{mn} \mod{p}$ <br>
+
+            <details><summary> $(5) \to (6)$ 증명 </summary>
+            
+                <p>
+
+                    $g^{tn} = f(t)$ 라 하면, $f(t + T) \mod{p} = f(t) \mod{p}$ 라는 것을 알 수 있다. <br>
+        
+                    또, $\{b_{n}\}$은 주기가 $T$이므로, $b_{n + T} = b_{n}$이다. <br>
+
+                    따라서, $b_{n} f(n) = \mathbb{B}_{n}$ 이라 하면, $\mathbb{B}_{n + T} \mod{p} = \mathbb{B}_{n} \mod{p}$이다. <br>
+
+                    $\sum\limits_{k = 0}^{T - 1} b_{k - m} g^{(k - m)} \mod{p}$ 에서 $K = k - m$으로 치환하면 $\sum\limits_{k = -m}^{T - 1 - m} b_{K} g^{Kn} \mod{p} = \sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} \mod{p}$임을 알 수 있다. <br>
+
+                    $\mathbb{B}_{n} \mod{p}$의 주기성에서 $\mathbb{B}_{-m} \mod{p} = \mathbb{B}_{-m + T} \mod{p}$임을 알 수 있다. <br>
+                    
+                    따라서 $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} \mod{p} = \sum\limits_{k = -m + 1}^{T - m} \mathbb{B}_{K} \mod{p}$이고, 마찬가지로 $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} \mod{p} = \sum\limits_{k = -m + 1}^{T - m} \mathbb{B}_{K} \mod{p} = \sum\limits_{k = -m + 2}^{T - m + 1} \mathbb{B}_{K} \mod{p} = \cdots$ 이므로, $\sum\limits_{k = -m}^{T - 1 - m} \mathbb{B}_{K} \mod{p} = \sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K} \mod{p}$ 임을 알 수 있다. <br>
+
+                    $\mathbb{B}_{K}$의 정의에서 $\sum\limits_{k = 0}^{T - 1} \mathbb{B}_{K} \mod{p} = \sum\limits_{k = 0}^{T - 1} b_{K} g^{Kn} \mod{p}$이고, NTT의 정의에 의해 $B_{n} \mod{p} = \sum\limits_{k = 0}^{T - 1} b_{K} g^{Kn} \mod{p}$이다. <br>
+                        
+                </p>
+            
+            </details> <!-- $(5) \to (6)$ 증명 -->
+                
+        </p>
+    
+    </details> <!-- 합성곱 증명 -->
+
+    <hr>
+
+    <a href="/Post/Post01000/00543.html"> 고속 푸리에 변환 </a> 에서 했던 것처럼 다항식 $f$, $g$ (각 계수는 정수)의 길이가 2의 거듭제곱이 아니라면 늘려주면 됩니다.  <br>
+
+    계수가 0인 항들을 만들어 내는 과정이 정당하다는 것을 증명하고, 이를 통해 FFT를 활용한 곱셈을 해보겠습니다. <br>
+
+    <details><summary> 표기법 </summary>
+    
+        <p>
+            두 수열 $\{a_{n}\}$, $\{b_{n}\}$의 길이가 각각 $T_{a}$, $T_{b}$이다. <br>
+            
+            $2^{L - 1} \leq T_{a} + T_{b} - 1 < 2^{L}$인 자연수 $L$에 대하여 $T_{ab} = 2^{L}$이라 정의한다. <br>
+
+            $L \leq s$인 자연수 $s$에 대해 $d \times 2^s + 1$꼴의 소수를 찾아 $p = d \times 2^s + 1$이라 하고, $w$는 $p$의 원시근이라 한다. <br>
+
+            $g = w^{\frac{p - 1}{T_{ab}}}$라 하자. <br>
+            
+            두 수열 $\left\{a^{'}_{n}\right\}$, $\left\{b^{'}_{n}\right\}$를
+                
+            $$
+            a^{'}_{n} =
+            \begin{cases}
+            a_{n} & 0 \leq n < T_{a} \\
+            0     & T_{a} \leq n < T_{ab}
+            \end{cases}
+            \\
+            b^{'}_{n} =
+            \begin{cases}
+            b_{n} & 0 \leq n < T_{b} \\
+            0     & T_{b} \leq n < T_{ab}
+            \end{cases}
+            $$
+    
+            이라 정의한다. <br>
+            
+            $$
+            \begin{align}
+            A^{'}_{n} &= f_{a^{'}}\left(g^{n}\right) \\
+            B^{'}_{n} &= f_{b^{'}}\left(g^{n}\right) \\
+            C^{'}_{n} &= A^{'}_{n} B^{'}_{n} \\
+            c^{'}_{n} &= \frac{1}{T_{ab}} \sum\limits_{k = 0}^{T_{ab} - 1} C^{'}_{k} g^{k n} \mod{p}
+            \end{align}
+            $$
+            이라 한다. <br>
+        </p>
+    
+    </details> <!-- 표기법 -->
+
+    <blockquote>
+        <b>NTT를 활용한 다항식 곱셈</b> <br>
+
+        다항식 $f_{c^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} c^{'}_{k} x^{k} \mod{p}$에 대하여,
+        
+        $$
+        f_{c^{'}}(x) = f_{a}(x) f_{b}(x) \mod{p}
+        $$
+
+        이다.
+    </blockquote>
+
+    <details><summary> NTT 다항식 곱셈 증명 </summary>
+    
+        <p>
+            다항식 $f_{c^{'}}(x)$는 $0 \leq n < T_{ab}$인 $T_{ab}$개의 자연수 $n$에 대하여 점
+            
+            $$
+            \left(g^{kn} \mod{p}, f_{c^{'}}\left(g^{kn}\right) \mod{p} \right) = \left(g^{kn} \mod{p}, f_{a^{'}}\left(g^{kn}\right) f_{b^{'}}\left(g^{kn}\right) \mod{p} \right)
+            $$
+            
+            를 지난다. ($f_{c^{'}}(x)$의 NTT 결과가 $C^{'}$이므로) <br>
+            
+            $f_{a^{'}}(x) = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} x^{k} = \sum\limits_{k = 0}^{T_{a} - 1} a_{k} x^{k} + \sum\limits_{k = T_{a}}^{T_{ab} - 1} 0 x^{k}$ 에서 $f_{a^{'}}(x) = f_{a}(x)$이고, 마찬가지로 $f_{b^{'}}(x) = f_{b}(x)$ 이다. <br>
+
+            다항식 $f_{a}(x) f_{b}(x)$도 $0 \leq n < T_{ab}$인 $T_{ab}$개의 점
+            
+            $$
+            \left(g^{kn} \mod{p}, f_{a^{'}}\left(g^{kn}\right) f_{b^{'}}\left(g^{kn}\right) \mod{p} \right)
+            $$
+            
+            를 지나고, 서로 다른 점 $T_{ab}$개를 지나는 $T_{ab} - 1$차 이하의 다항식은 유한체 $\mathbb{Z}/p\mathbb{Z}$에서 유일하므로, $f_{c^{'}}(x) = f_{a}(x) f_{b}(x)$이다. <br>
+
+            <!-- $f_{a}(x) f_{b}(x) = f_{c}(x) = \sum\limits_{n = 0}^{\left( T_{a} - 1 \right) + \left( T_{b} - 1 \right)} \left( \sum\limits_{k = 0}^{n} a_{k} b_{n - k} \right) x^{n}$라 하고, $f_{c^{'}}(x) = f_{c}(x)$임을 보이면 된다. <br>
+
+            푸리에 변환의 합성곱에서 $c^{'}_{n} = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k}$임을 알 수 있다. <br>
+            
+            먼저 $0 \leq n < T_{ab}$인 경우를 먼저 보면, $c^{'}_{n} = \sum\limits_{k = 0}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k} = \sum\limits_{k = 0}^{n} a^{'}_{k} b^{'}_{n - k} + \sum\limits_{k = n + 1}^{T_{ab} - 1} a^{'}_{k} b^{'}_{n - k}$ <br> -->
+        </p>
+    
+    </details> <!-- FFT 다항식 곱셈 증명 -->
+
+    특히, $f_{c^{'}}(x)$의 각 계수가 $p$보다 작다면, $f_{a}(x)$와 $f_{b}(x)$를 곱한 다항식의 계수를 정확히 구할 수 있습니다. <br>
+
+    <hr>
+
+    이제 NTT에 적당한 소수 $p = d \times 2^s + 1$을 찾아볼 차례입니다. <br>
+
+    각 $16 \leq s < 64$마다 $p$가 소수가 되는 가장 작은 홀수 $d$와 그 원시근 $w$가 있습니다. <br>
+
+    <!--
+P = [[16, 1, 3], [17, 9, 19], [18, 3, 11], [19, 11, 3], [20, 7, 3], [21, 11, 3], [22, 25, 3], [23, 45, 7], [24, 45, 11], [25, 5, 3], [26, 7, 3], [27, 15, 31], [28, 13, 3], [29, 23, 5], [30, 3, 5], [31, 35, 3], [32, 43, 3], [33, 9, 7], [34, 75, 11], [35, 59, 3], [36, 3, 29], [37, 15, 7], [38, 15, 7], [39, 5, 3], [40, 27, 5], [41, 3, 5], [42, 9, 5], [43, 9, 5], [44, 15, 7], [45, 35, 3], [46, 19, 3], [47, 27, 5], [48, 15, 19], [49, 23, 3], [50, 7, 11], [51, 17, 3], [52, 7, 3], [53, 51, 5], [54, 49, 5], [55, 5, 11], [56, 27, 5], [57, 29, 3], [58, 99, 5], [59, 27, 5], [60, 31, 3], [61, 53, 3], [62, 105, 17], [63, 9, 11]]
+
+for PP in P:
+    p = PP[1] * (2 ** PP[0]) + 1
+    s = PP[0]
+    d = PP[1]
+    w = PP[2]
+    wdp = pow(w, d, p)
+    w_1 = pow(w, -1, p)
+    wdp_1 = pow(wdp, -1, p)
+    print('        <tr>')
+    print('            <td class = "tdPost"> $' + str(d) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(s) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(w) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(p) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(wdp) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(w_1) + '$ </td>')
+    print('            <td class = "tdPost"> $' + str(wdp_1) + '$ </td>')
+    print('        </tr>')    
+    -->
+      
+    <table style="margin-left: auto; margin-right: auto; text-align: center">
+        <tr>
+            <th scope="col"> $d$ </td>
+            <th scope="col"> $s$ </td>
+            <th scope="col"> $w$ </td>
+            <th scope="col"> $p$ </td>
+            <th scope="col"> $w^d \mod{p}$ </td>
+            <th scope="col"> $w^{-1} \mod{p}$ </td>
+            <th scope="col"> $w^{-d} \mod{p}$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $1$ </td>
+            <td class = "tdPost"> $16$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $65537$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $21846$ </td>
+            <td class = "tdPost"> $21846$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $1179649$ </td>
+            <td class = "tdPost"> $612074$ </td>
+            <td class = "tdPost"> $310434$ </td>
+            <td class = "tdPost"> $1093705$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $18$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $786433$ </td>
+            <td class = "tdPost"> $1331$ </td>
+            <td class = "tdPost"> $71494$ </td>
+            <td class = "tdPost"> $104582$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $5767169$ </td>
+            <td class = "tdPost"> $177147$ </td>
+            <td class = "tdPost"> $1922390$ </td>
+            <td class = "tdPost"> $5087924$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $20$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $7340033$ </td>
+            <td class = "tdPost"> $2187$ </td>
+            <td class = "tdPost"> $2446678$ </td>
+            <td class = "tdPost"> $4665133$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $21$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $23068673$ </td>
+            <td class = "tdPost"> $177147$ </td>
+            <td class = "tdPost"> $7689558$ </td>
+            <td class = "tdPost"> $17187657$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost"> $22$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $104857601$ </td>
+            <td class = "tdPost"> $39193363$ </td>
+            <td class = "tdPost"> $34952534$ </td>
+            <td class = "tdPost"> $96987805$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $377487361$ </td>
+            <td class = "tdPost"> $48510621$ </td>
+            <td class = "tdPost"> $53926766$ </td>
+            <td class = "tdPost"> $225915792$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost"> $24$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $754974721$ </td>
+            <td class = "tdPost"> $739831874$ </td>
+            <td class = "tdPost"> $617706590$ </td>
+            <td class = "tdPost"> $337633511$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $25$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $167772161$ </td>
+            <td class = "tdPost"> $243$ </td>
+            <td class = "tdPost"> $55924054$ </td>
+            <td class = "tdPost"> $114609789$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $26$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $469762049$ </td>
+            <td class = "tdPost"> $2187$ </td>
+            <td class = "tdPost"> $156587350$ </td>
+            <td class = "tdPost"> $410692747$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $2013265921$ </td>
+            <td class = "tdPost"> $440564289$ </td>
+            <td class = "tdPost"> $64944062$ </td>
+            <td class = "tdPost"> $1713844692$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $13$ </td>
+            <td class = "tdPost"> $28$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $3489660929$ </td>
+            <td class = "tdPost"> $1594323$ </td>
+            <td class = "tdPost"> $1163220310$ </td>
+            <td class = "tdPost"> $2734066009$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $12348030977$ </td>
+            <td class = "tdPost"> $4021541578$ </td>
+            <td class = "tdPost"> $4939212391$ </td>
+            <td class = "tdPost"> $5290438504$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $30$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $3221225473$ </td>
+            <td class = "tdPost"> $125$ </td>
+            <td class = "tdPost"> $1932735284$ </td>
+            <td class = "tdPost"> $2267742733$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $75161927681$ </td>
+            <td class = "tdPost"> $7938142057$ </td>
+            <td class = "tdPost"> $25053975894$ </td>
+            <td class = "tdPost"> $46246304432$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost"> $32$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $184683593729$ </td>
+            <td class = "tdPost"> $141405485920$ </td>
+            <td class = "tdPost"> $61561197910$ </td>
+            <td class = "tdPost"> $183418192969$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $33$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $77309411329$ </td>
+            <td class = "tdPost"> $40353607$ </td>
+            <td class = "tdPost"> $22088403237$ </td>
+            <td class = "tdPost"> $29404248714$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $75$ </td>
+            <td class = "tdPost"> $34$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $1288490188801$ </td>
+            <td class = "tdPost"> $1068548069718$ </td>
+            <td class = "tdPost"> $585677358546$ </td>
+            <td class = "tdPost"> $801409537127$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $2027224563713$ </td>
+            <td class = "tdPost"> $1609812002788$ </td>
+            <td class = "tdPost"> $675741521238$ </td>
+            <td class = "tdPost"> $378806922473$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $36$ </td>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $206158430209$ </td>
+            <td class = "tdPost"> $24389$ </td>
+            <td class = "tdPost"> $191940607436$ </td>
+            <td class = "tdPost"> $96566235053$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $37$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $2061584302081$ </td>
+            <td class = "tdPost"> $624392905781$ </td>
+            <td class = "tdPost"> $589024086309$ </td>
+            <td class = "tdPost"> $1425448486409$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $38$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $4123168604161$ </td>
+            <td class = "tdPost"> $624392905782$ </td>
+            <td class = "tdPost"> $2356096345235$ </td>
+            <td class = "tdPost"> $2412372849595$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $39$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $2748779069441$ </td>
+            <td class = "tdPost"> $243$ </td>
+            <td class = "tdPost"> $916259689814$ </td>
+            <td class = "tdPost"> $1504475786978$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $40$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $29686813949953$ </td>
+            <td class = "tdPost"> $21526276223809$ </td>
+            <td class = "tdPost"> $17812088369972$ </td>
+            <td class = "tdPost"> $18006105348939$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $41$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $6597069766657$ </td>
+            <td class = "tdPost"> $125$ </td>
+            <td class = "tdPost"> $2638827906663$ </td>
+            <td class = "tdPost"> $4327677766927$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $42$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $39582418599937$ </td>
+            <td class = "tdPost"> $1953125$ </td>
+            <td class = "tdPost"> $15832967439975$ </td>
+            <td class = "tdPost"> $4301541126489$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $43$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $79164837199873$ </td>
+            <td class = "tdPost"> $1953125$ </td>
+            <td class = "tdPost"> $47498902319924$ </td>
+            <td class = "tdPost"> $6933593367512$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $44$ </td>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $263882790666241$ </td>
+            <td class = "tdPost"> $4747561509943$ </td>
+            <td class = "tdPost"> $150790166094995$ </td>
+            <td class = "tdPost"> $239736939256064$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $35$ </td>
+            <td class = "tdPost"> $45$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $1231453023109121$ </td>
+            <td class = "tdPost"> $773424174634867$ </td>
+            <td class = "tdPost"> $410484341036374$ </td>
+            <td class = "tdPost"> $208286993116953$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $46$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $1337006139375617$ </td>
+            <td class = "tdPost"> $1162261467$ </td>
+            <td class = "tdPost"> $445668713125206$ </td>
+            <td class = "tdPost"> $336753105592489$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $47$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $3799912185593857$ </td>
+            <td class = "tdPost"> $2752713159868405$ </td>
+            <td class = "tdPost"> $1519964874237543$ </td>
+            <td class = "tdPost"> $269794701738915$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $15$ </td>
+            <td class = "tdPost"> $48$ </td>
+            <td class = "tdPost"> $19$ </td>
+            <td class = "tdPost"> $4222124650659841$ </td>
+            <td class = "tdPost"> $2588910752669904$ </td>
+            <td class = "tdPost"> $888868347507335$ </td>
+            <td class = "tdPost"> $1485469947503615$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $23$ </td>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $12947848928690177$ </td>
+            <td class = "tdPost"> $94143178827$ </td>
+            <td class = "tdPost"> $4315949642896726$ </td>
+            <td class = "tdPost"> $4460024686959799$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $50$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $7881299347898369$ </td>
+            <td class = "tdPost"> $19487171$ </td>
+            <td class = "tdPost"> $2865927035599407$ </td>
+            <td class = "tdPost"> $5559776568448599$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $51$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $38280596832649217$ </td>
+            <td class = "tdPost"> $129140163$ </td>
+            <td class = "tdPost"> $12760198944216406$ </td>
+            <td class = "tdPost"> $2832039383871320$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $7$ </td>
+            <td class = "tdPost"> $52$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $31525197391593473$ </td>
+            <td class = "tdPost"> $2187$ </td>
+            <td class = "tdPost"> $10508399130531158$ </td>
+            <td class = "tdPost"> $19950102053024859$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $51$ </td>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $459367161991790593$ </td>
+            <td class = "tdPost"> $80192803784321279$ </td>
+            <td class = "tdPost"> $275620297195074356$ </td>
+            <td class = "tdPost"> $307418753427180931$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $49$ </td>
+            <td class = "tdPost"> $54$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $882705526964617217$ </td>
+            <td class = "tdPost"> $714226840388367097$ </td>
+            <td class = "tdPost"> $353082210785846887$ </td>
+            <td class = "tdPost"> $508847234508336333$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $55$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $180143985094819841$ </td>
+            <td class = "tdPost"> $161051$ </td>
+            <td class = "tdPost"> $49130177753132684$ </td>
+            <td class = "tdPost"> $85639728600348284$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $56$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $1945555039024054273$ </td>
+            <td class = "tdPost"> $1613915479851665306$ </td>
+            <td class = "tdPost"> $1167333023414432564$ </td>
+            <td class = "tdPost"> $683686979196907739$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $29$ </td>
+            <td class = "tdPost"> $57$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $4179340454199820289$ </td>
+            <td class = "tdPost"> $68630377364883$ </td>
+            <td class = "tdPost"> $1393113484733273430$ </td>
+            <td class = "tdPost"> $182099332568824125$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $99$ </td>
+            <td class = "tdPost"> $58$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $28534807239019462657$ </td>
+            <td class = "tdPost"> $6555687501740266902$ </td>
+            <td class = "tdPost"> $11413922895607785063$ </td>
+            <td class = "tdPost"> $5914918732875247220$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $27$ </td>
+            <td class = "tdPost"> $59$ </td>
+            <td class = "tdPost"> $5$ </td>
+            <td class = "tdPost"> $15564440312192434177$ </td>
+            <td class = "tdPost"> $7450580596923828125$ </td>
+            <td class = "tdPost"> $6225776124876973671$ </td>
+            <td class = "tdPost"> $12567674493006399635$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $31$ </td>
+            <td class = "tdPost"> $60$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $35740566642812256257$ </td>
+            <td class = "tdPost"> $617673396283947$ </td>
+            <td class = "tdPost"> $11913522214270752086$ </td>
+            <td class = "tdPost"> $33189111067701702701$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $53$ </td>
+            <td class = "tdPost"> $61$ </td>
+            <td class = "tdPost"> $3$ </td>
+            <td class = "tdPost"> $122209679488325779457$ </td>
+            <td class = "tdPost"> $57242754621320239781$ </td>
+            <td class = "tdPost"> $40736559829441926486$ </td>
+            <td class = "tdPost"> $96774613726331518268$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $105$ </td>
+            <td class = "tdPost"> $62$ </td>
+            <td class = "tdPost"> $17$ </td>
+            <td class = "tdPost"> $484227031934875729921$ </td>
+            <td class = "tdPost"> $109604375319535751935$ </td>
+            <td class = "tdPost"> $398775202769897659935$ </td>
+            <td class = "tdPost"> $146863698306593179364$ </td>
+        </tr>
+        <tr>
+            <td class = "tdPost"> $9$ </td>
+            <td class = "tdPost"> $63$ </td>
+            <td class = "tdPost"> $11$ </td>
+            <td class = "tdPost"> $83010348331692982273$ </td>
+            <td class = "tdPost"> $2357947691$ </td>
+            <td class = "tdPost"> $22639185908643540620$ </td>
+            <td class = "tdPost"> $16222047528773592307$ </td>
+        </tr>
+    </table>
+
+    $998244353 = 119 \times 2^{23} + 1$도 자주 사용되는 소수입니다. <br>
+
+    파이썬으로 작성한 코드는 다음과 같습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/396a3d76a222e8622f1749e1b9d15653.js"></script>
+
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
