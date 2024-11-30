@@ -42,11 +42,31 @@
         $$
     </blockquote>
 
-    합 $\sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$ 을 조금은 다른 관점에서 볼 수 있습니다. <br>
+    합 $\sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}}$ 을 조금은 다른 관점인 <b>다항식의 함수값</b>으로 볼 수 있습니다. <br>
     
-    다항식 $f_{a}(x)$를 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$로 정의한다면, $f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right) = \sum\limits_{k = 0}^{T - 1} a_{k} {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{k} = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} = A_{n}$입니다. <br>
+    다항식 $f_{a}(x)$를 $a_{k}$가 $k$차 항의 계수인 다항식, 즉
     
-    즉, $A_{n} = f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)$으로 볼 수 있습니다. 그리고 $T - 1$차 다항식 $f_{a}(x)$에 대해 값 $T$개를 알고 있으므로, <a href="/Post/Post01000/00542.html"> 다항식 보간 </a> 에 따라 $0 \leq n < T$인 $n$에 대해 $f\left(e^{i \frac{-2 \pi n}{T}}\right) = A_{n}$인 $T - 1$차 이하의 다항식 $f(x)$는 $f_{a}(x)$가 유일합니다. <br>
+    $$
+    
+    f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}
+    
+    $$
+    
+    로 정의한다면,
+    
+    $$
+    \begin{align}
+    f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right) & = \sum\limits_{k = 0}^{T - 1} a_{k} {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{k} \\
+                                                & = \sum\limits_{k = 0}^{T - 1} a_{k} e^{i \frac{- 2 \pi k n}{T}} \\
+                                                & = A_{n}
+    \end{align}
+    $$입니다. <br>
+    
+    즉, $A_{n} = f_{a}\left(e^{i \frac{- 2 \pi n}{T}}\right)$으로 볼 수 있습니다. <br>
+
+    수열 $\{a_{n}\}$은 다항식의 계수, $\{A_{n}\}$은 다항식의 함수값이므로, DFT는 계수에서 함수값을 알아내는 과정이고, IDFT는 함수값에서 계수를 알아내는 과정으로 볼 수 있습니다. <br>
+    
+    <!-- IDFT한 다항식(의 계수들)은 과연 유일하려나 싶은데, $0 \leq n < T$인 $n$에 대해 $A_{n}$의 값을 알고 있다면 $T - 1$차 다항식 $f_{a}(x)$에 대해 값 $T$개를 알고 있는 셈이므로, <a href="/Post/Post01000/00542.html"> 다항식 보간 </a> 에 따라 $0 \leq n < T$인 $n$에 대해 $f\left(e^{i \frac{-2 \pi n}{T}}\right) = A_{n}$인 $T - 1$차 이하의 다항식 $f(x)$는 $f_{a}(x)$가 유일합니다. <br> (지금 필요한 내용인지 의문) -->
 
     그리고 쿨리-튜키 알고리즘 (Cooley-Tukey Algorithm) 은 "$A_{n}$을 각자 구하는 것" 보다 "다항식 $f_{a}(x)$에서 $x = e^{i \frac{- 2 \pi n}{T}}$에서의 함수값<b>들</b>"을 더 빠르게 구하는 방법입니다. <br>
 
@@ -56,13 +76,37 @@
 
     분할 정복의 아이디어를 가져옵니다. <br>
 
-    목표는 리스트 $a = [a_0, a_1, \cdots, a_{T - 1}]$에 대하여 리스트 $A = \left[ f_{a}\left(e^{i \frac{- 2 \pi 0}{T}}\right), f_{a}\left(e^{i \frac{- 2 \pi 1}{T}}\right), \cdots, f_{a}\left(e^{i \frac{- 2 \pi (T - 1)}{T}}\right) \right]$을 구하는 것입니다. ($f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$) <br>
+    목표는 리스트
     
-    먼저, 다항식의 길이가 $1$인 경우 (즉, $T = 1$, $a = [a_0]$ 인 경우) 에는 $f_{a}(x) = a_0$인 상수함수이므로, 리스트 $A$는 $A = [A_{0}] = \left[f_{a}\left(e^{i \frac{- 2 \pi 0}{1}}\right)\right] = \left[f_{a}(0)\right] = [a_{0}]$ 입니다. <br>
+    $$
+    a = [a_0, a_1, \cdots, a_{T - 1}]
+    $$
     
-    다항식의 길이가 $1$보다 큰 경우에는 다항식 하나를 두 다항식으로 쪼개보겠습니다. 편의상 $T = 2^t$ ($t$는 자연수) 라고 해줍니다. (2의 거듭제곱 꼴이 아니라면 하단에서의 과정을 거칩니다.) <br>
+    에 대하여 리스트
     
-    다항식 $f_{a}(x)$는 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k} = \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k} x^{2k} + x \left( \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k + 1} x^{2k} \right)$ 로 쪼갤 수 있습니다. <br>
+    $$
+    A = \left[ f_{a}\left(e^{i \frac{- 2 \pi 0}{T}}\right), f_{a}\left(e^{i \frac{- 2 \pi 1}{T}}\right), \cdots, f_{a}\left(e^{i \frac{- 2 \pi (T - 1)}{T}}\right) \right]
+    $$
+    
+    을 구하는 것입니다. (단, $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$) <br> <br>
+    
+    먼저, 다항식의 길이가 $1$인 경우 (즉, $T = 1$, $a = [a_0]$ 인 경우) 에는 $f_{a}(x) = a_0$인 상수함수이므로, 리스트 $A$는 $A = [A_{0}] = \left[f_{a}\left(e^{i \frac{- 2 \pi 0}{1}}\right)\right] = \left[f_{a}(0)\right] = [a_{0}]$ 입니다. <br> <br>
+    
+    다항식의 길이가 $1$보다 큰 경우에는 다항식 하나를 두 다항식으로 쪼개보겠습니다. <br>
+    
+    편의상 $T = 2^t$ ($t$는 자연수) 라고 해줍니다. ($T$가 $2$의 거듭제곱 꼴이 아닌 경우에는 어떤 과정을 거쳐야 하는지 아래에서 설명합니다.) <br>
+    
+    다항식 $f_{a}(x)$는
+    
+    $$
+    \begin{align}
+    f_{a}(x) & = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k} \\
+    & = \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k} x^{2k} + \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k + 1} x^{2k + 1} \\
+             & = \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k} x^{2k} + x \left( \sum\limits_{k = 0}^{\frac{T}{2} - 1} a_{2k + 1} x^{2k} \right)
+    \end{align}
+    $$
+    
+    로 홀수차항과 짝수차항의 합으로 쪼갤 수 있습니다. <br>
 
     편의상
 
@@ -73,13 +117,36 @@
     \end{align}
     $$
     
-    라 하면 $f_{a}(x) = f_{a\_even}\left(x^2\right) + x f_{a\_odd}\left(x^2\right)$임을 알 수 있습니다. <br>
+    이라 하면
+    
+    $$
+    f_{a}(x) = f_{a\_even}\left(x^2\right) + x f_{a\_odd}\left(x^2\right)
+    $$
+    
+    임을 알 수 있습니다. <br>
 
-    $f_{a}(x) = f_{a\_even}\left(x^2\right) + x f_{a\_odd}\left(x^2\right)$ 식에서 $x := -x$를 대입하면 $f_{a}(-x) = f_{a\_even}\left(x^2\right) - x f_{a\_odd}\left(x^2\right)$ 입니다. <br>
+    이 식에서 $x \Leftarrow -x$를 대입하면
+    
+    $$
+    f_{a}(-x) = f_{a\_even}\left(x^2\right) - x f_{a\_odd}\left(x^2\right)
+    $$
+    
+    입니다. <br>
 
-    따라서, 어떤 $x$에 대해 $f_{a\_even}\left(x^2\right), f_{a\_odd}\left(x^2\right)$의 값을 안다면 $f_{a}(x), f_{a}(-x)$의 값을 동시에 구할 수 있습니다. <br>
+    따라서, 어떤 $w$에 대해 $f_{a\_even}\left(w^2\right), f_{a\_odd}\left(w^2\right)$의 값을 알고 있다면 $f_{a}(w), f_{a}(-w)$의 값을 <b>동시에</b> 구할 수 있습니다. <br>
 
-    이를 복소수 $e^{i \frac{- 2 \pi n}{T}}$ 에 대해 생각하면, 우선 $e^{i \frac{- 2 \pi n}{T}} = - e^{i \frac{- 2 \pi \left(n + \frac{T}{2} \right)}{T}}$ 이고, ${\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} = e^{i \frac{- 2 \pi n}{T/2}}$입니다. <br>
+    <hr>
+
+    복소수 $e^{i \frac{- 2 \pi n}{T}}$ 에 대해 생각하면, 우선 두 성질
+    
+    $$
+    \begin{align}
+    e^{i \frac{- 2 \pi n}{T}} & = - e^{i \frac{- 2 \pi \left(n + \frac{T}{2} \right)}{T}} \\
+    {\left(e^{i \frac{- 2 \pi n}{T}}\right)}^{2} & = e^{i \frac{- 2 \pi n}{T/2}}
+    \end{align}
+    $$
+    
+    이 성립합니다. <br>
 
     또,
     
@@ -90,7 +157,7 @@
     \end{align}
     $$
 
-    에서, $x= e^{i \frac{- 2 \pi n}{T}}$ 대입시
+    에서, $x = e^{i \frac{- 2 \pi n}{T}}$ 대입시
 
     $$
     \begin{align}
@@ -111,7 +178,7 @@
     \end{align}
     $$
     
-    값을 구해 각각 $T - 1$개의 함수값을 구하면 $\frac{T}{2} - 1$차 다항식 $f_{a\_even}(x)$, $f_{a\_odd}(x)$ 이 각각 유일하게 정해집니다. <br>
+    값을 구해 각각 $\frac{T}{2}$개의 함수값을 구하면 $\frac{T}{2} - 1$차 다항식 $f_{a\_even}(x)$, $f_{a\_odd}(x)$ 이 각각 유일하게 정해집니다. <br>
     
     이 값들을 구하려면 위에서 했던 것처럼 $0 \leq n < \frac{T}{4}$ 인 모든 $n$에 대해
     
@@ -129,13 +196,34 @@
 
     Python을 이용해 FFT 함수를 코드로 생각해볼 수 있습니다. <br> <br>
 
-    먼저 입력으로 길이 $T = 2^L$의 List인 $a = \left[a_0, a_1, a_2, ..., a_{T - 1}\right]$가 주어집니다. <br>
+    먼저 입력으로 길이 $T = 2^L$의 List인
     
-    ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$라 할 때, 출력으로는 길이 $T$의 List인 $A = \left[A_0, A_1, A_2, ..., A_{T - 1}\right] = \left[f_{a}\left({w_{T}}^{0}\right), f_{a}\left({w_{T}}^{1}\right), f_{a}\left({w_{T}}^{2}\right), \cdots, f_{a}\left({w_{T}}^{T - 1}\right)\right]$을 return 해야합니다. 여기서 위에서 보인 것처럼 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$입니다. <br> <br>
+    $$
+    a = \left[a_0, a_1, a_2, ..., a_{T - 1}\right]
+    $$
+    
+    가 주어집니다. <br>
+    
+    ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$라 할 때, 출력으로는 길이 $T$의 List인
+    
+    $$
+    A = \left[A_0, A_1, A_2, ..., A_{T - 1}\right] = \left[f_{a}\left({w_{T}}^{0}\right), f_{a}\left({w_{T}}^{1}\right), f_{a}\left({w_{T}}^{2}\right), \cdots, f_{a}\left({w_{T}}^{T - 1}\right)\right]
+    $$
+    
+    을 return 해야합니다. 여기서 위에서 보인 것처럼 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$입니다. <br> <br>
     
     0. 만약 길이가 $1$이면 $A = \left[A_{0}\right] = \left[a_{0}\right]$을 return 합니다. (재귀 종료 조건) <br> <br>
 
-    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$로 정의합니다. ${w_{T}}$는 두 성질 ${w_{T}}^{n} = -{w_{T}}^{n + \frac{T}{2}}$, ${\left({w_{T}}^{n}\right)}^2 = {w_{\frac{T}{2}}}^{n}$ 이 성립합니다. <br> <br>
+    1. ${w_{T}} = e^{i \frac{- 2 \pi}{T}}$로 정의합니다. ${w_{T}}$는 두 성질
+    
+    $$
+    \begin{align}
+    {w_{T}}^{n} &= -{w_{T}}^{n + \frac{T}{2}}\\
+    {\left({w_{T}}^{n}\right)}^2 &= {w_{\frac{T}{2}}}^{n}
+    \end{align}
+    $$
+
+    이 성립합니다. <br> <br>
 
     2. $0 \leq n < T$인 모든 정수 $n$에 대하여 $A_{n} = f_{a}\left({w_{T}}^{n}\right)$의 값을 구해야 합니다. <br> <br>
 
@@ -516,7 +604,7 @@
 
     푸리에 변환을 도구로 쓰는 경우가 아니라 정말로 그냥 정의에 맞춰서 $A_{n}$의 값을 구해야 할 때는 그냥 정의대로 푸는게 맞습니다. <br>
 
-    하지만 푸리에 변환을 도구로 쓰는 경우라면, 즉 <b>주객전도</b>가 되어서 그냥 수열 $\{a_{n}\}$으로 다항식 $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$ 의 값들을 알기 위해서 푸리에 변환을 하는거라면 다음과 같은 과정을 거치면 됩니다. <br>
+    하지만 푸리에 변환을 도구로 쓰는 경우라면, 즉 <b>주객전도</b>가 되어서 그냥 수열 $\{a_{n}\}$으로 <b>다항식</b> $f_{a}(x) = \sum\limits_{k = 0}^{T - 1} a_{k} x^{k}$ <b>의 값들</b>을 알기 위해서 푸리에 변환을 하는거라면 다음과 같은 과정을 거치면 됩니다. <br>
 
     1. 수열 $\{a_{n}\}$의 길이가 $2$의 거듭제곱이 아닌 $T_{\times}$이다. <br>
 
@@ -619,6 +707,8 @@
     중간 계수도 다릅니다. FFT를 이용할 때는 계수가 $c_{n} = \sum\limits_{k = 0}^{T - 1} a_{k} b_{n - k}$ 이고, 곱셈에서의 계수는 $c_{n} = \sum\limits_{k = 0}^{n} a_{k} b_{n - k}$입니다. <br>
     
     곱셈에서의 계수는 $0$차항의 계수에서 $a_{0}b_{0}$만 남고, $a_{1}b_{-1} = a_{1}b_{3}$, $a_{2}b_{-2} = a_{2}b_{2}$, $a_{3}b_{-3} = a_{3}b_{1}$ 같은 잡다한 계수들은 사라진 상태입니다. <br>
+
+    <hr>
 
     FFT를 이용해서 다항식 곱셈을 하고 싶은데, 이러면 $b_{-1}$, $b_{-2}$, $b_{-3}$ 같은건 무시했으면 좋겠고... <br>
     
