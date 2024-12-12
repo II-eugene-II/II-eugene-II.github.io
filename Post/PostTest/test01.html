@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> REDC </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> REDC </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        몽고메리 곱셈법 & 나눗셈법
+    </blockquote>
+      
+    고속 모듈러 방식 <br>
+
+    한국어 자료가 단 하나도 보이지 않음 <br>
+
+    $R = 2^L > p$ <br>
+    
+    $p$는 $R$과 서로소 <br>
+
+    $R R^{-1} \mod p = 1$
+      
+    <blockquote>
+        $\mathscr{M}_{p}(x) := xR \mod p$ 로 정의
+    </blockquote>
+
+    $\mathscr{M}_{p}(x + y) = (x + y)R \mod p = xR + yR \mod p = \mathscr{M}(x) + \mathscr{M}(y) \mod p$ <br>
+
+    $\mathscr{M}_{p}(xy) = (xy)R \mod p = (xR) (yR) R^{-1} \mod p = \mathscr{M}_{p}(x)\mathscr{M}_{p}(y)R^{-1} \mod p$
+      
+    <blockquote>
+        Algo REDC <br>
+        $T = \mathscr{M}_{p}(x)\mathscr{M}_{p}(y) \mod p$ <br>
+        $NN' + 1 \mod p = 0$ <br>
+        $M = ((T \mod R) \times N') \mod R$ <br>
+        $t = (T + MN) / R$ <br>
+        $\mathscr{M}_{p}(xy) = t \mod p$
+    </blockquote>
+
+    $MN \mod R = (((T \mod R) \times N') \mod R) \times N \mod p$
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
