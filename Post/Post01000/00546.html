@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 자연수의 덧셈과 곱셈 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 자연수의 덧셈과 곱셈 </div>
+      
+    <hr>
+      
+    <p>
+      
+    <a href="/Post/Post01000/00458.html"> 자연수 </a> 집합 (Integer) $\mathbb{N}$ 은 페아노 공리계 (Peano's axioms)를 사용하면 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        1. $\mathbb{N}$은 $0$이라는 원소를 갖는다. <br>
+
+        2. $\mathbb{N}$의 임의의 원소 $n$에 대하여 $n$의 (다음 수 / 후계) (Successor) $n^{+}$도 $\mathbb{N}$의 원소이다. <br>
+
+        3. $0$이 다음 수인 원소는 $\mathbb{N}$에 존재하지 않는다. <br>
+
+        4. $\mathbb{N}$의 두 원소가 같은 다음 수를 가지면, 두 원소는 같다. <br>
+
+        5. $\mathbb{N}$의 부분집합 $S$가 $0 \in S$이고, 임의의 $n \in S$에 대하여 $n^{+} \in S$이면 $\mathbb{N} = S$이다. (<a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a>) <br>
+    </blockquote>
+
+    $n^{+}$만 정의했을 뿐, 덧셈과 곱셈은 정의하지 않았음을 알 수 있습니다. <br>
+
+    먼저 덧셈부터 정의해줍니다. $n$, $m$은 자연수 이고, $A := B$는 $A$를 $B$라 정의한다는 뜻입니다.\ <br>
+      
+    <blockquote>
+        자연수의 덧셈 <br>
+
+        1. $0 + m := m$ ($0 + m$은 $m$으로 정의한다.) <br>
+
+        2. $n^{+} + m := (n + m)^{+}$
+    </blockquote>
+
+    덧셈이 재귀적으로 잘 정의되었습니다. <br>
+
+    그리고 덧셈이라는 연산에 다음과 같은 규칙이 성립하는지 <b>증명</b>할 수 있습니다. <br>
+      
+    <blockquote>
+        자연수 덧셈 연산의 닫힘 <br>
+        $$
+        n + m \in \mathbb{N}
+        $$
+    </blockquote>
+
+    <details><summary> 자연수 덧셈 연산의 닫힘 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            먼저, $0 + m = m$에서 $m$은 자연수이므로 $0 + m \in \mathbb{N}$이다. <br>
+
+            이제 $n + m \in \mathbb{N}$이라 가정하고, $n^{+} + m \in \mathbb{N}$임을 보이면 된다. <br>
+
+            $n + m \in \mathbb{N}$인데, 덧셈의 정의에서 $n^{+} + m = (n + m)^{+}$이고, 페아노 공리계 2번에 따라 $n + m \in \mathbb{N}$이면 $(n + m)^{+} \in \mathbb{N}$이고, 따라서 $n^{+} + m \in \mathbb{N}$이다. <br>
+
+            따라서 수학적 귀납법에 따라 모든 자연수 $n$에 대해 $n + m \in \mathbb{N}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 자연수 덧셈 연산의 닫힘 증명 -->
+
+    <br>
+      
+    <blockquote>
+        보조정리 1. <br>
+
+        $$
+        m + 0 = m
+        $$
+    </blockquote>
+      
+    <blockquote>
+        자연수 덧셈의 교환법칙 <br>
+
+        $$
+        n + m = m + n
+        $$
+    </blockquote>
+      
+    <blockquote>
+        자연수 덧셈의 결합법칙 <br>
+
+        $$
+        (m + n) + k = m + (n + k)
+        $$
+    </blockquote>
+      
+    <blockquote>
+        자연수 덧셈의 소거법칙 <br>
+
+        $$
+        m + k = n + k
+        $$
+        이면
+
+        $$
+        m = n
+        $$
+    </blockquote>
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
