@@ -42,13 +42,13 @@
     다음과 같은 간단한 예시를 들 수 있습니다. <br>
       
     <blockquote>
-        예시 1 <br>
+        Ex 1. <br>
 
         $$ \frac{dy}{dx} = y $$ <br>
 
         Solution : $y = e^{x + C}$ <br>
 
-        <details><summary> 예시 1 풀이과정 </summary>
+        <details><summary> Ex 1 풀이과정 </summary>
     
             <p>
 
@@ -58,16 +58,26 @@
                     
             </p>
         
-        </details> <!-- 예시 1 풀이과정 -->
+        </details> <!-- Ex 1 풀이과정 -->
     </blockquote>
 
     $e$는 <a href="/Post/Post01000/00094.html"> 자연로그의 밑 $e$ </a> 입니다. <br>
 
     $\frac{dy}{dx} = \frac{-x}{y}$는 원의 방정식이 됩니다. <br>
 
-    <a href="/Post/Post01000/00035.html"> 로지스틱 함수 </a>는 $\frac{dy}{dx} = y (1 - y)$의 해입니다. <br>
+    치환을 이용해서 변수분리를 할 수도 있습니다. <br>
+      
+    <blockquote>
+        $$
+        \frac{dy}{dx} = f\left(\frac{y}{x}\right)
+        $$ 
+    </blockquote>
 
-    변수 분리가 안될 것 같이 생겼지만, $\frac{dy}{dx} = f(x, y)$ 꼴에서 $\frac{dx}{dy} = \frac{1}{f(x, y)}$로 보면 변수분리가 되는 케이스가 있습니다. <br>
+    $\frac{y}{x} = u$로 치환하면 $y = ux$에서 양 변을 $x$에 대해 미분하여 $\frac{dy}{dx} = \frac{du}{dx}x + u$라고 할 수 있습니다. <br>
+
+    $\frac{dy}{dx} = f\left(\frac{y}{x}\right)$에서 $\frac{du}{dx}x + u = f(u)$이므로, $\frac{1}{x} dx = \frac{1}{f(u) - u} du$가 됩니다. $(f(u) - u \not= 0)$ <br>
+
+    <a href="/Post/Post01000/00035.html"> 로지스틱 함수 </a>는 $\frac{dy}{dx} = y (1 - y)$의 해입니다. <br>
       
     </p>
       

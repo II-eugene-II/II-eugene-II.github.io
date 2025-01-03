@@ -39,19 +39,100 @@
 
         <p>
 
-            $f(x) = e^{\int p(x)dx}$라 하면, $f '(x) = p(x) e^{\int p(x)dx} = p(x) f(x)$라 할 수 있다. <br>
+            함수 $f(x)$를
+            
+            $$
+            f(x) = e^{\int p(x)dx}
+            $$
+            
+            라 정의한다. 이때, $f '(x) = p(x) e^{\int p(x)dx} = p(x) f(x)$라 할 수 있다. <br>
 
-            다음과 같은 식 $$ f(x) y = C + \int f(x) q(x) dx $$ ($C$는 상수) 의 양 변을 미분하면 $$ f'(x) y + f(x) \frac{dy}{dx} = f(x) q(x) $$ 이고, $f '(x) = p(x) f(x)$에서 $$ p(x) f(x) y + f(x) \frac{dy}{dx} = f(x) q(x) $$ 이다. 양변을 $f(x)$로 나누면 원하는 꼴인 $$ \frac{dy}{dx} + p(x) y = q(x) $$ 가 나오게 된다. 따라서 $$ f(x) y = C + \int f(x) q(x) dx $$ 에서 $$ y = \frac{C + \int f(x) q(x) dx}{f(x)} $$ 가 주어진 미분방정식의 해이다. <br>
+            다음과 같은 식
+            
+            $$
+            f(x) y = C + \int f(x) q(x) dx
+            $$
+            
+            ($C$는 상수) 의 양 변을 미분하면
+            
+            $$
+            f'(x) y + f(x) \frac{dy}{dx} = f(x) q(x)
+            $$
 
-            $f(x) = e^{\int p(x)dx}$를 이용해 식을 풀어주면, $$ y = C e^{- \int p(x)dx} + e^{- \int p(x)dx} \int e^{\int p(x)dx} q(x) dx $$ 이다. <br>
+            이고, $f '(x) = p(x) f(x)$에서
+            
+            $$
+            p(x) f(x) y + f(x) \frac{dy}{dx} = f(x) q(x)
+            $$
+            
+            이다. 양변을 $f(x)$로 나누면 주어진 미분방정식인
+            
+            $$
+            \frac{dy}{dx} + p(x) y = q(x)
+            $$
+            
+            가 나오게 된다. 따라서
+            
+            $$
+            f(x) y = C + \int f(x) q(x) dx
+            $$
+            
+            에서
+            
+            $$
+            y = \frac{C + \int f(x) q(x) dx}{f(x)}
+            $$
+            
+            가 주어진 미분방정식의 해이다. <br>
+
+            $f(x) = e^{\int p(x)dx}$를 이용해 식을 풀어주면,
+            
+            $$
+            y = C e^{- \int p(x)dx} + e^{- \int p(x)dx} \int e^{\int p(x)dx} q(x) dx
+            $$
+            
+            이다. <br>
                 
         </p>
     
     </details> <!-- 풀이과정 1 -->
 
-    사실 이런 풀이는 답을 알고 있다는 가정 하에서나 가능한 풀이입니다. $y$를 $x$에 대한 함수 $y(x)$로 생각하고, $e^{\int p(x)dx} y(x)$의 미분이 $e^{\int p(x)dx} y'(x) + p(x) e^{\int p(x)dx} y(x) = \{y'(x) + p(x) y(x)\} e^{\int p(x)dx}$인 점을 이용해, $y'(x) + p(x) y(x)$를 적분하기 위해 적분인자인 $e^{\int p(x)dx}$를 곱해준 것입니다. <br>
+    사실 이런 풀이는 답을 알고 있다는 가정 하에서나 가능한 풀이입니다. <br>
+    
+    $y$를 $x$에 대한 함수 $y(x)$로 생각하고, $e^{\int p(x)dx} y(x)$의 미분이 $e^{\int p(x)dx} y'(x) + p(x) e^{\int p(x)dx} y(x) = \{y'(x) + p(x) y(x)\} e^{\int p(x)dx}$인 점을 이용해, $y'(x) + p(x) y(x)$를 적분하기 위해 적분인자인 $e^{\int p(x)dx}$를 곱해준 것입니다. <br>
 
-    <a href="/Post/Post01000/00441.html"> 1계 선형 미분방정식 </a> 의 일종입니다. <br>
+    $C e^{- \int p(x)dx}$는 미분방정식 $\frac{dy}{dx} + p(x) y = 0$의 해이기도 합니다. 따라서 $C$의 값에 상관없이 $\frac{dy}{dx} + p(x) y$의 값이 $0$의 값을 갖게 됩니다. <br>
+      
+    <blockquote>
+        Ex 1.
+        $$
+        \frac{dy}{dx} + y = x
+        $$
+        의 해는 $C e^{-x} + x - 1$이다.
+    </blockquote>
+
+    <details><summary> Ex 1 풀이 </summary>
+
+        <p>
+
+            $f(x) = e^{\int 1 dx} = e^{x + C_{1}}$, $q(x) = x$에서 
+
+            $$
+            \begin{align}
+            y & = \frac{C_{2} + \int f(x) q(x) dx}{f(x)} \\
+              & = \frac{C_{2} + \int x e^{x + C_{1}} dx}{e^{x + C_{1}}} \\
+              & = \frac{C_{2}e^{-C_{1}} + \int x e^{x} dx}{e^{x}} \\
+              & = \frac{C_{2}e^{-C_{1}} + \left((x - 1) e^{x} + C_{3}\right)}{e^{x}} \\
+              & = \frac{C + (x - 1) e^{x}}{e^{x}} \quad (C = C_{2}e^{-C_{1}} + C_{3}) \\
+              & = C e^{-x} + (x - 1)
+            \end{align}
+            $$
+            
+            가 주어진 미분방정식의 해이다.
+                
+        </p>
+    
+    </details> <!-- Ex 1 풀이 -->
 
     <hr>
 
