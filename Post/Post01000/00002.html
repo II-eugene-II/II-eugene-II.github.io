@@ -24,10 +24,22 @@
     <hr>
       
     <p>
+    
+    모듈러 연산 (Modular arithmetic) $a \equiv b \pmod{n}$은 다음과 같은 뜻입니다. <br>
       
-    프로그래밍에서의 모듈러 연산 (나머지 연산 / 통상적으로 % 연산) 과 정수론에서의 mod 연산 (Modular arithmetic) 은 거의 비슷하지만 약간은 다릅니다.  <br> 
+    <blockquote>
+        $a + mn = b$를 만족시키는 정수 $m$가 존재하면
+        
+        $$
+        a \equiv b \pmod{n}
+        $$
+        
+        라 표기한다. <br>
+    </blockquote>
       
-    예를 들어, 프로그래밍에서 101 % 10 == 1 이지만, 수학에서는 $101 \equiv 11 \pmod{10}$로 표기할 수도 있고, <br>
+    프로그래밍에서의 모듈러 연산 (나머지 연산 / 통상적으로 % 연산) 과 정수론에서의 mod 연산 은 거의 비슷하지만 약간은 다릅니다.  <br> 
+      
+    예를 들어, 프로그래밍에서 <code>101 % 10 == 1</code> 이지만, 수학에서는 $101 \equiv 11 \pmod{10}$로 표기할 수도 있고, <br>
     
     $101 \equiv 1 \equiv 10001 \pmod{10}$로 이야기 할 수도 있습니다. <br> 
       
@@ -37,9 +49,21 @@
       
     <p>
       
-    0. 기본 전제 - $a \equiv b \pmod{n}$, $a_{1} \equiv b_{1} \pmod{n}$, $a_{2} \equiv b_{2} \pmod{n}$, $k$는 모든 <a href="/Post/Post01000/00459.html"> 정수 </a>, $\phi(n)$은 <a href="/Post/Post01000/00138.html"> 오일러 토션트 함수 </a> <br>
+    0. 기본 전제 - $a \equiv b \pmod{n}$, $a_{1} \equiv b_{1} \pmod{n}$, $a_{2} \equiv b_{2} \pmod{n}$, $k$는 임의의 모든 <a href="/Post/Post01000/00459.html"> 정수 </a>, $\phi(n)$은 <a href="/Post/Post01000/00138.html"> 오일러 토션트 함수 </a> <br>
     
     1. $a + k \equiv b + k \pmod{n}$ <br>
+
+    <details><summary> 1번 성질 증명 </summary>
+    
+        <p>
+
+            $a \equiv b \pmod{n}$이므로 어떤 정수 $m$이 존재하여 $a + mn = b$이다. <br>
+
+            $a + mn = b$의 양변에 $k$를 더하면 $a + k + mn = b + k$에서 $(a + k) + mn = (b + k)$이므로, $a + k \equiv b + k \pmod{n}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 1번 성질 증명 -->
     
     2. $ka \equiv kb \pmod{n}$ <br>
     

@@ -69,21 +69,17 @@
         
     단순한 조건문 문제로 <b>우선은</b> 볼 수 있습니다. <br>
 
-    파이썬에서는 <br>
-
-    if (A1) : print(A2) <br>
-
-    elif (B1) : print(B2) <br>
-
-    elif (C1) : print(C2) <br>
-
-    else: print(D2) <br>
+    파이썬에서는 <pre>
+    if (A1) : print(A2)
+    elif (B1) : print(B2)
+    elif (C1) : print(C2)
+    else: print(D2) </pre>
 
     같은 형식으로 elif를 쭉 늘어쓰면서 A1이면 A2를 하고, <b>A1이 아니면서 B1이면</b> B2를 하고, <b>A1도 아니고 B1도 아니고 C1이면</b> C2를 하고...를 쭉 늘릴 수 있습니다. <br>
 
-    시험 성적이 A이면서 B일 수는 없으므로, if - elif - else문 사용이 적절해보입니다. <br>
+    시험 성적이 A이면서 B일 수는 없으므로, <code>if - elif - else</code>문 사용이 적절해보입니다. <br>
 
-    score = int(input())으로 입력받은 문자열을 정수로 바꿔준 후, if문을 사용해줍니다. <br>
+    <code>score = int(input())</code>으로 입력받은 문자열을 정수로 바꿔준 후, if문을 사용해줍니다. <br>
 
     <script src="https://gist.github.com/II-eugene-II/f63eb182bc205ca2e9e7c34710029eb1.js"></script> <br>
 
@@ -103,9 +99,9 @@
 
     이마저도 "F"도 여러번 쓰기 귀찮고, "," 쉼표도 여러번 쓰기 귀찮다면 파이썬에서의 문자열 기능을 사용하면 됩니다. <br>
 
-    파이썬에서 "ABCDEFG"[0] == "A", "ABCDEFG"[6] == "G" 같은 형식으로 사용할 수 있습니다. <br>
+    파이썬에서 <code>"ABCDEFG"[0] == "A", "ABCDEFG"[6] == "G"</code> 같은 형식으로 사용할 수 있습니다. <br>
 
-    그리고 Score 변수도 여러번 사용하는게 아니니 쓰기 귀찮다면, 지워버리고 int(input())만 남겨버릴 수 있습니다. <br>
+    그리고 Score 변수도 여러번 사용하는게 아니니 쓰기 귀찮다면, 지워버리고 <code>int(input())</code>만 남겨버릴 수 있습니다. <br>
 
     <script src="https://gist.github.com/II-eugene-II/90f341b13e279add4eaa6656d4aa73be.js"></script> <br>
 

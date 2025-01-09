@@ -36,11 +36,22 @@
       
     $| x |$는 <a href="/Post/Post01000/00388.html"> 절댓값 함수 </a>입니다. <br>
 
-    <details><summary> <del> 삼각 부등식 증명 </del> </summary>
+    <details><summary> 삼각 부등식 증명 </summary>
     
         <p>
 
-            가볍게 두 수가 양수일 때, 두 수가 음수일 때, 두 수의 부호가 다를 때...로 나누어서 증명할 수 있음 <br>
+            $$
+            \begin{align}
+            \left| x + y \right|^{2} & = \left( x + y \right)^{2} \\
+                                     & = x^{2} + y^{2} + 2xy \\
+                                     & \leq x^{2} + y^{2} + 2 |x| |y| \\
+                                     & = |x|^{2} + |y|^{2} + 2 |x| |y| \\
+                                     & = \left( |x| + |y| \right)^{2}
+            \end{align}
+            $$
+
+            음이 아닌 두 실수 $A$, $B$에 대해 $A^{2} \leq B^{2}$이면 $A \leq B$이므로, $\left| x + y \right|^{2} \leq \left( |x| + |y| \right)^{2}$에서 $| x + y | \leq | x | + | y |$이다.
+            <br>
                 
         </p>
     
