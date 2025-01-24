@@ -1125,7 +1125,7 @@
 
     1, 2를 넣었을 때 결과로 2가 나와버리는 약간의 미스가 있지만, 굳이 에라토스테네스의 체에 2를 넣진 않을거라고 생각됩니다. <br>
 
-    i * i부터 판단해줘도 되므로 구간도 바꿔주도록 합니다. <br>
+    <code>i * i</code>부터 판단해줘도 되므로 구간도 바꿔주도록 합니다. <br>
 
     <br>
 
@@ -1133,7 +1133,7 @@
 
     <br>
 
-    return 부분에서 아에 sieve 짝수 부분이 어떻게 되든 상관하지도 않으므로 애초에 i가 짝수일 때는 계산 하지 않아도 됩니다. <br>
+    return 부분에서 아에 sieve 짝수 부분이 어떻게 되든 상관하지도 않으므로 애초에 <code>i</code>가 짝수일 때는 계산 하지 않아도 됩니다. <br>
 
     <br>
 
@@ -1141,7 +1141,7 @@
 
     <br>
 
-    i가 홀수일 때만 검사하고, i * i(홀수)부터 검사를 시작하므로 2i만큼 거리를 두고 걸러주면 홀수만 건드릴 수 있습니다. <br>
+    <code>i</code>가 홀수일 때만 검사하고, <code>i * i</code> (홀수) 부터 검사를 시작하므로 <code>2 * i</code>만큼 거리를 두고 걸러주면 홀수만 건드릴 수 있습니다. <br>
 
     여기서 더욱 최적화 하면 Linear-sieve (선형 체) 로 진화하는 과정도 존재합니다. <br>
 
@@ -1149,9 +1149,9 @@
 
     "에라토스테네스의 체"의 시간복잡도는 어떻게 될까요?
     
-    1부터 n까지 $2$의 배수는 대략 $\frac{n}{2}$번 있고, $3$의 배수는 $\frac{n}{3}$번, $\frac{n}{5}$번, $\frac{n}{7}$번, $\frac{n}{11}$번, ... <br>
+    $1$부터 $n$까지 $2$의 배수는 대략 $\frac{n}{2}$번 있고, $3$의 배수는 $\frac{n}{3}$번, 또 $\frac{n}{5}$번, $\frac{n}{7}$번, $\frac{n}{11}$번, ... <br>
 
-    $\sqrt{n}$ 이하의 모든 소수 $p$에 대하여 $\frac{n}{p}$의 값을 다 더한 $\sum\limits_{p \in \mathbb{P}, p \leq \sqrt{n}} \frac{n}{p}$의 값이 시간복잡도일텐데, <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a>에 따라 $\sum\limits_{p \in \mathbb{P}, p \leq n} \frac{1}{p} \sim \ln{\ln n}$이므로, $\sum\limits_{p \in \mathbb{P}, p \leq \sqrt{n}} \frac{n}{p} = n \times \sum\limits_{p \in \mathbb{P}, p \leq \sqrt{n}} \frac{1}{p} \sim n \ln{\ln \sqrt{n}} \sim n \ln{\ln n}$에서, 시간복잡도는 $O(n \ln{\ln n})$이라는 다소 충격적인 복잡도로 나오게 됩니다. 이때, $O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 </a>이고, $\ln n$은 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>입니다. <br>
+    $\sqrt{n}$ 이하의 모든 소수 $p$에 대하여 $\frac{n}{p}$의 값을 다 더한 $\sum\limits_{p \in \mathbb{P} , p \leq \sqrt{n}} \frac{n}{p}$의 값이 시간복잡도일텐데, <a href="/Post/Post01000/00098.html"> 메르텐스의 제 2 정리 </a>에 따라 $\sum\limits_{p \in \mathbb{P}, p \leq n} \frac{1}{p} \sim \ln{\ln n}$이므로, $\sum\limits_{p \in \mathbb{P}, p \leq \sqrt{n}} \frac{n}{p} = n \times \sum\limits_{p \in \mathbb{P}, p \leq \sqrt{n}} \frac{1}{p} \sim n \ln{\ln \sqrt{n}} \sim n \ln{\ln n}$에서, 시간복잡도는 $O(n \ln{\ln n})$이라는 다소 충격적인 복잡도로 나오게 됩니다. 이때, $O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 </a>이고, $\ln n$은 <a href="/Post/Post01000/00183.html"> 자연로그함수 </a>입니다. <br>
 
     $n = 10^9$일 때도 $\ln{\ln n} = 3.03125...$ 정도이고, $n = 2^{64}$일 때도 $\ln{\ln n} = 3.79237...$ 정도이므로, 거의 $O(n)$으로 생각해도 좋습니다. (어차피 10억개짜리 리스트를 만들면 메모리 초과가 날 것입니다.) <br>
       

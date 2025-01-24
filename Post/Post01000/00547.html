@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 자연수의 곱셈 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 자연수의 곱셈 </div>
+      
+    <hr>
+      
+    <p>
+      
+    <a href="/Post/Post01000/00458.html"> 자연수 </a> 집합 $\mathbb{N}$ 에서 <a href="/Post/Post01000/00546.html"> 덧셈 </a>은 다음과 같이 정의했습니다. <br> 
+      
+    <blockquote>
+        자연수의 덧셈 <br>
+
+        1. $0 + m := m$ <br>
+
+        2. $n^{+} + m := (n + m)^{+}$
+    </blockquote>
+
+    이와 비슷하게 곱셈을 정의할 수 있습니다. <br>
+      
+    <blockquote>
+        자연수의 곱셈 <br>
+
+        1. $0 \times m := 0$ <br>
+
+        2. $n^{+} \times m := (n \times m) + m$
+    </blockquote>
+      
+    <blockquote>
+        자연수 곱셈 연산의 닫힘 <br>
+        $$
+        n \times m \in \mathbb{N}
+        $$
+    </blockquote>
+
+    <details><summary> 자연수 곱셈 연산의 닫힘 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            먼저, $0 \times m = 0$에서 $0$은 자연수(페아노 공리계 1번)이므로 $0 \times m \in \mathbb{N}$이다. <br>
+
+            이제 $n \times m \in \mathbb{N}$이라 가정하고, $n^{+} \times m \in \mathbb{N}$임을 보이면 된다. <br>
+
+            $n \times m \in \mathbb{N}$인데, 곱셈의 정의에서 $n^{+} \times m = (n \times m) + m$이고, 덧셈 연산이 닫혀있으므로 두 자연수 $(n \times m)$와 $m$의 합은 자연수이다. <br>
+
+            따라서 수학적 귀납법에 따라 모든 자연수 $n$에 대해 $n \times m \in \mathbb{N}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 자연수 곱셈 연산의 닫힘 증명 -->
+
+    <br>
+      
+    <blockquote>
+        보조정리 1. <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        n \times 0 = 0
+        $$
+    </blockquote>
+
+    <details><summary> 보조정리 1 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            곱셈의 정의에서 $0 \times m = m$이므로 $0 \times 0 = 0$을 만족한다. ($m \leftarrow 0$) <br>
+
+            $n \times 0 = 0$이라 가정하고 $n^{+} \times 0 = 0$임을 보이면 충분하다. <br>
+
+            곱셈의 정의에서 $n^{+} \times 0 = (n \times 0) + 0$인데, $n \times 0 = 0$이라 가정했으니 $n^{+} \times 0 = (n \times 0) + 0 = 0 + 0 = 0$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 보조정리 1 증명 -->
+      
+    <blockquote>
+        보조정리 2. <br>
+
+        모든 자연수 $n$, $m$에 대하여
+
+        $$
+        n \times m^{+} = (n \times m) + n
+        $$
+    </blockquote>
+
+    <details><summary> 보조정리 2 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            $m$은 고정하고 $n$에 대한 성질 $n \times m^{+} = (n \times m) + n$으로 볼 수 있다. <br>
+
+            $n = 0$이면 좌변은 $0 \times m^{+}$에서 곱셈의 정의에 의해 $0$의 값을 갖는다. <br>
+
+            우변은 $(0 \times m) + 0$에서 곱셈의 정의에 의해 $0 \times m = 0$, $0 + 0 = 0$에서 $0$의 값을 가지므로, $n = 0$일 때 $n \times m^{+} = (n \times m) + n$이 성립한다. <br>
+
+            $n \times m^{+} = (n \times m) + n$이라 가정하고 $n^{+} \times m^{+} = (n^{+} \times m) + n^{+}$임을 보이면 충분하다. <br>
+
+            먼저, 좌변은 곱셈의 정의에 의해 $(n \times m^{+}) + m^{+}$이고, $n \times m^{+} = (n \times m) + n$이라 가정했으니 $(n \times m^{+}) + m^{+} = ((n \times m) + n) + m^{+}$이다. <br>
+
+            우변은 곱셈의 정의에 의해 $(n^{+} \times m) + n^{+} = ((n \times m) + m) + n^{+}$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 보조정리 2 증명 -->
+
+    $1 := 0^{+}$이라 하면 다음과 같은 정리를 얻을 수 있습니다. <br>
+      
+    <blockquote>
+        따름정리 1. <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        n \times 1 = n
+        $$
+    </blockquote>
+
+    <details><summary> 따름정리 1 증명 </summary>
+    
+        <p>
+
+            $1 := 0^{+}$, 보조정리 2에서 $n \times 0^{+} = (n \times 0) + n$이고, 보조정리 1에서 $n \times 0 = 0$이므로 $(n \times 0) + n = 0 + n = 0$이다. 따라서 $n \times 1 = n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 1 증명 -->
+
+    <hr>
+
+    자연수의 곱셈에서 <b>분배법칙</b>, <b>교환법칙</b>, <b>결합법칙</b>, <b>소거법칙</b>을 <b>증명</b>할 수 있게 되었습니다. <br>
+      
+    <blockquote>
+        자연수 곱셈의 <b>분배법칙</b> <br>
+
+        $$
+        a \times (b + c) = (a \times b) + (a \times c)
+        $$
+    </blockquote>
+
+    <details><summary> 분배법칙 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            $a$, $b$는 고정하고 $c$에 대한 성질 $a \times (b + c) = (a \times b) + (a \times c)$로 볼 수 있다. <br>
+
+            $c = 0$일 때 좌변의 값은 $a \times (b + 0) = a \times b$이고, 우변의 값은 $(a \times b) + (a \times 0)$이고 보조정리 1에서 $a \times 0 = 0$이므로, $(a \times b) + (a \times 0) = (a \times b) + 0 = a \times b$이다. <br>
+
+            따라서 $a \times (b + 0) = (a \times b) + (a \times 0)$이다. <br>
+
+            $a \times (b + c) = (a \times b) + (a \times c)$이라 가정하고 $a \times (b + c^{+}) = (a \times b) + (a \times c^{+})$임을 보이면 충분하다. <br>
+
+            좌변의 값은 $a \times (b + c^{+}) = a \times (b + c)^{+}$에서 보조정리 2에 의해 $a \times (b + c)^{+} = (a \times (b + c)) + a$이다. <br>
+            
+            우변의 값은 보조정리 2에서 $(a \times b) + (a \times c^{+}) = (a \times b) + (a \times c + a)$이다. <br>
+
+            덧셈의 교환법칙에서 $(a \times b) + (a \times c + a) = (a \times b + a \times c) + a$이고, $a \times (b + c) = (a \times b) + (a \times c)$이라 가정했으니 좌변과 우변의 값이 같다. <br>
+
+            귀납법에 의해 모든 자연수 $c$에 대해 $a \times (b + c) = (a \times b) + (a \times c)$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 분배법칙 증명 -->
+      
+    <blockquote>
+        자연수 곱셈의 <b>교환법칙</b> <br>
+
+        $$
+        n \times m = m \times n
+        $$
+    </blockquote>
+
+    <details><summary> 교환법칙 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            $m$은 고정하고 $n$에 대한 성질 $n \times m = m \times n$로 볼 수 있다. <br>
+
+            $n = 0$일 때 $0 \times m$의 값은 곱셈의 정의에서 $0$이고, $m \times 0$의 값은 보조정리 1에서 $0$이다. <br>
+
+            따라서 $0 \times m = m \times 0$이다. <br>
+
+            $n \times m = m \times n$이라 가정하고 $n^{+} \times m = m \times n^{+}$임을 보이면 충분하다. <br>
+
+            좌변의 값은 곱셈의 정의에 따라 $(n \times m) + m$이고, 우변의 값은 보조정리 2에서 $(m \times n) + m$이다. <br>
+
+            $n \times m = m \times n$이라 가정했으니 $(n \times m) + m = (m \times n) + m$이다. 귀납법에 의해 모든 자연수 $n$에 대해 $n \times m = m \times n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 교환법칙 증명 -->
+      
+    <blockquote>
+        자연수 곱셈의 <b>결합법칙</b> <br>
+
+        $$
+        (a \times b) \times c = a \times (b \times c)
+        $$
+    </blockquote>
+
+    <details><summary> 결합법칙 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 기반 증명 <br>
+
+            $a$, $b$는 고정하고 $c$에 대한 성질 $(a \times b) \times c = a \times (b \times c)$로 볼 수 있다. <br>
+
+            $c = 0$일 때 좌변은 $(a \times b) \times 0$에서 보조정리 1에 의해 $0$의 값을 갖는이다. <br>
+
+            우변은 $a \times (b \times 0)$에서 보조정리 1에 의해 $b \times 0 = 0$에서 $a \times (b \times 0) = a \times 0$이고, 다시 보조정리 1에서 $a \times 0 = 0$이므로 좌변과 우변 두 값이 같다. <br>
+
+            $(a \times b) \times c = a \times (b \times c)$이라 가정하고 $(a \times b) \times c^{+} = a \times (b \times c^{+})$임을 보이면 충분하다. <br>
+
+            좌변의 값은 보조정리 2에 따라 $((a \times b) \times c) + (a \times b)$이고, 우변의 값은 보조정리 2에서 $a \times ((b \times c) + b)$이다. <br>
+
+            곱셈의 분배법칙에서 $a \times ((b \times c) + b) = (a \times (b \times c)) + (a \times b)$이다. <br>
+            
+            좌변과 우변의 값이 동일하므로, 귀납법에 의해 모든 자연수 $c$에 대해 $(a \times b) \times c = a \times (b \times c)$이 성립한다. <br>
+                
+        </p>
+    
+    </details> <!-- 결합법칙 증명 -->
+      
+    <blockquote>
+        자연수 곱셈의 <b>소거법칙</b> (단, $n \not= 0$) <br>
+
+        $$
+        a \times n = b \times n
+        $$
+        이면
+
+        $$
+        a = b
+        $$
+    </blockquote>
+
+    <details><summary> 소거법칙 증명 </summary>
+    
+        <p>
+
+            <a href="/Post/Post01000/00548.html"> 자연수의 순서관계 </a>에서 "순서 명제 5 (곱셈의 순서 보존)", "자연수의 삼분법"의 따름명제로 볼 수 있다. <br>
+
+            $a < b$이면 순서 명제 5에 의해 $a \times n < b \times n$인데 이는 $a \times n = b \times n$임에 모순이다. <br>
+
+            $b < a$이면 (= $a > b$이면) 순서 명제 5에 의해 $a \times n > b \times n$인데 이는 $a \times n = b \times n$임에 모순이다. <br>
+
+            자연수의 삼분법에 의해 $a < b$가 아니고 $a > b$가 아니므로 $a = b$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 소거법칙 증명 -->
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

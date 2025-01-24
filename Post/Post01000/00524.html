@@ -73,13 +73,13 @@
 
     점수가 $X$라 하면, $X \leq 40$이면 $40$점이 "진짜 점수"가 되고, $X > 40$이면 $X$점이 "진짜 점수"가 됩니다. <br> 
         
-    max() 함수를 이용하여 max(X, 40)이라 할 수 있고, 이는 애초에 score = max(int(input()), 40) 같은 식으로 입력을 받아주면 가능합니다. <br>
+    <code>max</code> 함수를 이용하여 <code>max(X, 40)</code>이라 할 수 있고, 이는 애초에 <code>score = max(int(input()), 40)</code> 같은 식으로 입력을 받아주면 가능합니다. <br>
 
-    모든 점수의 합을 구하고 5로 나눠주면 되므로, 5번 max(int(input()), 40)을 더해주면 됩니다. <br>
+    모든 점수의 합을 구하고 5로 나눠주면 되므로, 5번 <code>max(int(input()), 40)</code>을 더해주면 됩니다. <br>
 
     <script src="https://gist.github.com/II-eugene-II/6381916e28c54c3220890aadadb17d22.js"></script> <br>
 
-    리스트 컨프리헨션과 <a href="/Post/Post01000/00415.html"> 파이썬 sum 함수 </a> 를 이용하면 print(sum([max(int(input()), 40) for _ in range(5)])) 로 한 줄로 풀 수도 있습니다. <br>
+    리스트 컨프리헨션과 <a href="/Post/Post01000/00415.html"> 파이썬 sum 함수 </a> 를 이용하면 <code>print(sum([max(int(input()), 40) for _ in range(5)]) // 5)</code> 로 한 줄로 풀 수도 있습니다. <br>
         
     </p>
         

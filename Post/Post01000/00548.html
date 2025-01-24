@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 자연수의 순서관계 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 자연수의 순서관계 </div>
+      
+    <hr>
+      
+    <p>
+      
+    <a href="/Post/Post01000/00458.html"> 자연수 </a> 집합 $\mathbb{N}$ 에서 순서관계 (order) 는 다음과 같이 정의할 수 있습니다. <br> 
+      
+    <blockquote>
+        두 자연수 $n$, $m$에 대해
+        $$
+        n \leq m
+        $$
+        은 "$n + a = m$인 자연수 $a$가 존재한다"와 동치이다. <br>
+    </blockquote>
+
+    $n + a$는 <a href="/Post/Post01000/00546.html"> 자연수의 덧셈 </a> 표기입니다. <br>
+
+    혹은 자연수를 다음과 같이 정의한 경우에는 순서관계를 다음과 같이 간단하게 적을 수 있습니다. <br>
+      
+    <blockquote>
+        $\mathbb{N}$의 정의 <br>
+        
+        1. $0 := \emptyset$ <br>
+
+        2. $n^{+} := n \cup \left\{ n \right\}$ <br>
+
+        3. $\emptyset \in \mathbb{I}$, $n \in \mathbb{I} \Rightarrow n^{+} \in \mathbb{I}$를 만족시키는 모든 집합 $\mathbb{I}$의 <b>교집합</b>을 $\mathbb{N}$이라 한다. <br>
+    </blockquote>
+      
+    <blockquote>
+        두 자연수 $n$, $m$에 대해
+        $$
+        n \subseteq m
+        $$
+        과 
+        $$
+        n \leq m
+        $$
+        는 동치이다. <br>
+    </blockquote>
+
+    흔히 "$m$이 $n$ 이상"이라는 말이 $n \leq m$이라 할 수 있습니다. <br>
+
+    $m$이 $n$ <b>초과</b>라는 말은 다음과 같이 쓸 수 있습니다. <br>
+      
+    <blockquote>
+        두 자연수 $n$, $m$에 대해
+        $$
+        n \leq m
+        $$
+        이고 $n \not= m$이면 
+        $$
+        n < m
+        $$
+        이다. <br>
+    </blockquote>
+
+    <hr>
+
+    양의 자연수 (양수, Positive) 는 다음과 같이 정의합니다. <br>
+      
+    <blockquote>
+        $0$이 아닌 모든 자연수 $n$을 <b>양의 자연수</b>라고 한다.
+    </blockquote>
+      
+    <blockquote>
+        따름정리 1. <br>
+
+        양의 자연수 $n$에 대하여
+
+        $$
+        a + n = b \Leftrightarrow a < b
+        $$
+        이다.
+    </blockquote>
+
+    <details><summary> 따름정리 1 증명 </summary>
+    
+        <p>
+
+            $a + n = b \Rightarrow a < b$ <br>
+
+            $a + n = b$인 자연수 $n$이 존재하므로 $a \leq b$이다. <br>
+
+            $a = b$이면 $a + n = b + 0$ ($b + 0 = b$는 덧셈의 보조정리 1)에서 덧셈의 소거법칙에 따라 $n = 0$이어야 한다. $n$이 양의 자연수라는 전제에 모순이므로 $a \not= b$이다. <br> <br>
+
+            $a + n = b \Leftarrow a < b$ <br>
+
+            $a < b$이므로 $a + n = b$를 만족시키는 자연수 $n$이 존재한다. $n = 0$이면 $a + 0 = a$에서 $a = b$이므로 $a < b$임에 모순이다. 따라서 $n$은 $0$이 아니므로 양의 자연수이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 1 증명 -->
+      
+    <blockquote>
+        따름정리 2. <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        n < n^{+}
+        $$
+    </blockquote>
+
+    <details><summary> 따름정리 2 증명 </summary>
+    
+        <p>
+
+            $1 := 0^{+}$, 덧셈의 따름정리 1에서 $n + 1 = n^{+}$이므로 $n \leq n^{+}$이고, $n \not= n^{+}$이므로 $n < n^{+}$이다. <br>
+
+            (1. $n \not= n^{+}$는 수학적 귀납법이나 $n^{+} := n \cup \left\{ n \right\}$을 이용해 증명할 수 있다.) <br>
+
+            (2. 혹은 $1 := 0^{+}$이 양의 자연수임을 이용해 따름정리 1을 이용해 증명할 수 있다.) <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 2 증명 -->
+      
+    <blockquote>
+        따름정리 3. <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        0 \leq n
+        $$
+    </blockquote>
+
+    <details><summary> 따름정리 3 증명 </summary>
+    
+        <p>
+
+            덧셈의 정의에서 $0 + n = n$이므로 $0 \leq n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 3 증명 -->
+      
+    <blockquote>
+        따름정리 4. <br>
+
+        모든 양의 자연수 $n$에 대하여
+
+        $$
+        0 < n
+        $$
+    </blockquote>
+
+    <details><summary> 따름정리 4 증명 </summary>
+    
+        <p>
+
+            덧셈의 정의에서 $0 + n = n$이므로 $0 \leq n$이고, $n$이 양의 자연수이므로 $n \not= 0$이다. 따라서 $0 < n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 4 증명 -->
+      
+    <blockquote>
+        따름정리 5. <br>
+
+        양의 자연수 $n$에 대하여
+
+        $$
+        1 \leq n
+        $$
+        이다. ($1 := 0^{+}$)
+    </blockquote>
+
+    <details><summary> 따름정리 5 증명 </summary>
+    
+        <p>
+
+            $n$이 $0$이 아니므로 $n = m^{+}$인 자연수 $m$이 존재한다. (<a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a> 참고) <br>
+
+            덧셈의 따름정리 1번에 따라 $m + 1 = m^{+} = n$에서 $1 + m = n$이므로 $1 \leq n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 5 증명 -->
+      
+    <blockquote>
+        따름정리 6. <br>
+
+        모든 양의 자연수 $n$과 자연수 $m$에 대하여 $n + m$은 양의 자연수이다. <br>
+    </blockquote>
+
+    <details><summary> 따름정리 6 증명 </summary>
+    
+        <p>
+
+            덧셈의 보조정리 1에서 $n + 0 = n$이므로 $n + 0$은 양의 자연수이다. <br>
+
+            $n + m$이 양의 자연수라고 하고 $n + m^{+}$이 양의 자연수임을 보이면 충분하다. <br>
+
+            덧셈의 보조정리 2에서 $n + m^{+} = (n + m)^{+}$이고, 페아노 공리계 3번에서 $(n + m)^{+} = 0$이 되게 하는 자연수 $n + m$이 존재하지 않는다. <br>
+
+            따라서 $(n + m)^{+}$는 $0$이 아닌 자연수이므로 양의 자연수이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 6 증명 -->
+      
+    <blockquote>
+        따름정리 7. <br>
+
+        자연수 $n$, $m$에 대하여 $n + m = 0$이면 $n = 0$, $m = 0$이다. <br>
+    </blockquote>
+
+    <details><summary> 따름정리 7 증명 </summary>
+    
+        <p>
+
+            $n \not= 0$이면 $n$이 양의 자연수이므로 따름정리 6에 의해 $n + m$이 양의 자연수이다. $n + m = 0$에서 $n + m$이 양의 자연수인 것에 모순이므로 $n = 0$이다. <br>
+
+            덧셈의 교환법칙에 의해 $n + m = m + n$이라 할 수 있고, $m \not= 0$이면 $m$이 양의 자연수이므로 따름정리 6에 의해 $m + n$이 양의 자연수이다. $m + n = 0$에서 $m + n$이 양의 자연수인 것에 모순이므로 $m = 0$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 7 증명 -->
+      
+    <blockquote>
+        따름정리 8. <br>
+
+        모든 양의 자연수 $n$, $m$에 대하여 $n \times m$은 양의 자연수이다. <br>
+    </blockquote>
+
+    <details><summary> 따름정리 8 증명 </summary>
+    
+        <p>
+
+            $1$에서부터 <a href="/Post/Post01000/00487.html"> 수학적 귀납법 </a>을 시작할 수 있다. <br>
+
+            $m$은 고정하고 $n$에 대한 성질 "$n \times m$은 양의 자연수이다."로 볼 수 있다. <br>
+            
+            $n = 1$이면 곱셈의 따름정리 1과 교환법칙으로 $1 \times m = m$이고, $m$은 양의 자연수이므로 $1 \times m$은 양의 자연수이다. <br>
+
+            $n \times m$이 양의 자연수라고 가정하고 $n^{+} \times m$이 양의 자연수임을 보이면 된다. <br>
+
+            곱셈의 정의에서 $n^{+} \times m = (n \times m) + m$에서 $(n \times m)$, $m$이 모두 양의 자연수이므로 따름정리 6에 따라 $(n \times m) + m = n^{+} \times m$이 양의 자연수이다. <br>
+
+            귀납법에 따라 모든 자연수 $n$에 대해 $n \times m$이 양의 자연수이다. <br>
+                
+        </p>
+    
+    </details> <!-- 따름정리 6 증명 -->
+
+    <hr>
+
+    순서관게에 관한 여러가지 명제도 증명할 수 있습니다. <br>
+      
+    <blockquote>
+        순서 명제 1 (반사성) <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        n \leq n
+        $$
+    </blockquote>
+
+    <details><summary> 반사성 증명 </summary>
+    
+        <p>
+
+            덧셈의 보조정리 1에서 $n + 0 = n$이므로 $n \leq n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 반사성 증명 -->
+      
+    <blockquote>
+        순서 명제 2A (추이성) <br>
+
+        $a \leq b$, $b \leq c$인 모든 자연수 $a$, $b$, $c$에 대하여
+
+        $$
+        a \leq c
+        $$
+    </blockquote>
+
+    <details><summary> 추이성A 증명 </summary>
+    
+        <p>
+
+            $a \leq b$에서 $a + n_{ab} = b$이고, $b \leq c$에서 $b + n_{bc} = c$이다. <br>
+
+            $a + n_{ab} = b$와 덧셈의 결합법칙을 이용해주면 $b + n_{bc} = (a + n_{ab}) + n_{bc} = a + (n_{ab} + n_{bc}) = c$이므로, $a \leq c$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 추이성A 증명 -->
+      
+    <blockquote>
+        순서 명제 2B (추이성) <br>
+
+        $a < b$, $b < c$인 모든 자연수 $a$, $b$, $c$에 대하여
+
+        $$
+        a < c
+        $$
+    </blockquote>
+
+    <details><summary> 추이성B 증명 </summary>
+    
+        <p>
+
+            $a < b$에서 $a + n_{ab} = b$이고, $b < c$에서 $b + n_{bc} = c$이다. ($n_{ab}$, $n_{bc}$는 양의 자연수) <br>
+
+            $a + n_{ab} = b$와 덧셈의 결합법칙을 이용해주면 $b + n_{bc} = (a + n_{ab}) + n_{bc} = a + (n_{ab} + n_{bc}) = c$이다. <br>
+            
+            따름정리 7(의 대우명제)에 따라 $n_{ab} + n_{bc}$는 $0$이 아니므로 양의 자연수이고, 따름정리 1에서 $a < c$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 추이성B 증명 -->
+      
+    <blockquote>
+        순서 명제 3 (비대칭성) <br>
+
+        $a \leq b$, $b \leq a$인 모든 자연수 $a$, $b$에 대하여
+
+        $$
+        a = b
+        $$
+    </blockquote>
+
+    <details><summary> 비대칭성 증명 </summary>
+    
+        <p>
+
+            $a \leq b$에서 $a + n_{ab} = b$이고, $b \leq a$에서 $b + n_{ba} = a$이다. <br>
+
+            $a + n_{ab} = b$와 덧셈의 결합법칙을 이용해주면 $b + n_{ba} = (a + n_{ab}) + n_{ba} = a + (n_{ab} + n_{ba}) = a$이다. <br>
+
+            $a + (n_{ab} + n_{ba}) = a = a + 0$이고, 덧셈의 소거법칙에서 $(n_{ab} + n_{ba}) = 0$이라 할 수 있다. <br>
+
+            따름정리 7에서 $n_{ab} = 0$, $n_{ba} = 0$이므로, $a + 0 = b$에서 덧셈의 보조정리 1에 의해 $a + 0 = a$이므로, $a + 0 = a = b$에서 $a = b$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 비대칭성 증명 -->
+      
+    <blockquote>
+        순서 명제 4 (덧셈의 순서 보존) <br>
+
+        모든 자연수 $n$에 대하여
+
+        $$
+        a \leq b \Leftrightarrow a + n \leq b + n
+        $$
+    </blockquote>
+
+    <details><summary> 덧셈의 순서 보존 증명 </summary>
+    
+        <p>
+
+            $a \leq b$에서 $a + n_{ab} = b$이고, 양 변에 $n$을 더하면 $(a + n_{ab}) + n = b + n$이다. <br>
+
+            덧셈의 교환법칙과 결합법칙을 적절히 사용하면 $(a + n_{ab}) + n = a + (n_{ab} + n) = a + (n + n_{ab}) = (a + n) + n_{ab} = (b + n)$이므로, $a \leq b$이면 $a + n \leq b + n$이다. <br>
+
+            역방향도 동일하게 $a + n \leq b + n$이면 순서관계의 정의에 따라 $(a + n) + n_{ab} = (b + n)$이고, 교환법칙과 결합법칙으로 $(a + n_{ab}) + n = b + n$이므로, 소거법칙에 따라 $a + n_{ab} = b$이므로 $a \leq b$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 덧셈의 순서 보존 증명 -->
+      
+    <blockquote>
+        순서 명제 5 (곱셈의 순서 보존) <br>
+
+        모든 양의 자연수 $n$에 대하여
+
+        $$
+        a < b \Rightarrow a \times n < b \times n
+        $$
+    </blockquote>
+
+    <details><summary> 곱셈의 순서 보존 증명 </summary>
+    
+        <p>
+
+            $a < b$에서 어떤 양의 자연수 $n_{ab}$에 대해 (따름정리 1) $a + n_{ab} = b$이다. <br>
+
+            양변에 $n$을 곱하면 $(a + n_{ab}) \times n = b \times n$에서 분배법칙에 의해 $(a \times n) + (n_{ab} \times n) = b \times n$이고, $n_{ab} \times n$이 따름정리 8에 따라 양의 자연수이므로 따름정리 1에 의해 $a \times n < b \times n$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 곱셈의 순서 보존 증명 -->
+      
+    <blockquote>
+        순서 명제 6. <br>
+
+        자연수 $a$, $b$에 대하여
+
+        $$
+        a < b \Leftrightarrow a^{+} \leq b
+        $$
+    </blockquote>
+
+    <details><summary> 순서 명제 6 증명 </summary>
+    
+        <p>
+
+            $a < b \Rightarrow a^{+} \leq b$ <br>
+
+            $a < b$에서 $a + n_{ab} = b$이다. 따름정리 1에 따라 $n_{ab}$는 양의 자연수이므로, 따름정리 5에 따라 $1 \leq n_{ab}$이다. 따라서 $1 + n_{1} = n_{ab}$이다. <br>
+
+            $a + n_{ab} = b$, $1 + n_{1} = n_{ab}$에서 $a + (1 + n_{1}) = b$이고 $(a + 1) + n_{1} = b$에서 덧셈의 따름정리 1에 따라 $a + 1 = a^{+}$에서 $a^{+} + n_{1} = b$이다. 따라서 $a^{+} \leq b$이다. <br>
+
+            $a < b \Leftarrow a^{+} \leq b$ <br>
+
+            $a^{+} \leq b$에서 $a^{+} + n_{1} = b$이고, 덧셈의 따름정리 1에 따라 $a^{+} = a + 1$에서 $a^{+} + n_{1} = (a + 1) + n_{1} = a + (1 + n_{1}) = b$이다. <br>
+
+            $1 + n_{1}$은 따름정리 7에 의해 $0$이 아니고(혹은 페아노 공리계 3번에 따라 $n_{1}^{+} = 0$일 수가 없으므로 $0$이 아니고), $0$이 아니므로 $1 + n_{1}$은 양의 자연수이다. <br>
+
+            따라서 따름정리 1에 따라 $a < b$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 순서 명제 6 증명 -->
+
+    <hr>
+
+    자연수의 삼분법을 보일 수 있습니다. <br>
+      
+    <blockquote>
+        자연수의 삼분법 <br>
+
+        모든 자연수 $a$, $b$에 대하여
+
+        $$
+        a < b \\
+        a = b \\
+        a > b
+        $$
+
+        세 명제 중 하나만 참이다. <br>
+    </blockquote>
+
+    <details><summary> 자연수의 삼분법 증명 </summary>
+    
+        <p>
+
+            $a < b$이 성립하거나 성립하지 않거나, $a = b$이 성립하거나 성립하지 않거나, $a > b$이 성립하거나 성립하지 않거나, 총 $2^{3} = 8$가지의 가능성이다. <br>
+
+            $a < b$의 정의에 따라 $a = b$일 수는 없으므로 3가지 다 성립하는 경우, 1번과 2번이 동시에 성립하는 경우의 2가지 경우는 제외할 수 있고, 마찬가지로 $a > b$의 정의에 따라 $a = b$가 아니므로 2번과 3번이 동시에 성립하는 경우를 제외할 수 있다. <br>
+
+            $a < b$이면서 $a > b$이고 $a \not= b$인 경우에는 $a < b$의 정의에 따라 $a \leq b$이고, $a > b$의 정의에 따라서 $a \geq b$이다. <br>
+
+            비대칭성에 따라서 $a \leq b$, $b \geq a$이면 $a = b$여야 하는데 $a \not= b$임에 모순이므로 $a < b$이면서 $a > b$일 수 없다. <br>
+
+            <hr>
+
+            세 명제 중 두 개 이상이 성립하는 경우는 존재하지 않고, 한 명제만 성립하거나 모든 명제가 성립하지 않는 경우만 남았다. <br>
+
+            $a$에 대한 성질 "$a = b$이거나 $a < b$이거나 $a > b$이다"를 수학적 귀납법에 따라 증명할 수 있다. <br>
+
+            $a = 0$이면 따름정리 3에 따라 $0 \leq b$이므로 $0 < b$이거나 $0 = b$이다. <br>
+
+            "$a = b$이거나 $a < b$이거나 $a > b$이다"를 참이라 하고 "$a^{+} = b$이거나 $a^{+} < b$이거나 $a^{+} > b$이다"를 증명하면 충분하다. <br>
+
+            $a = b$이면 따름정리 2에 따라 $a < a^{+}$이므로 $a^{+} > a$에서 $a = b$이므로 $a^{+} > b$이다. <br>
+
+            $a > b$이면 어떤 양의 자연수 $n_{ab}$에 대해 $b + n_{ab} = a$이고, $(b + n_{ab})^{+} = b + {n_{ab}}^{+} = a^{+}$에서 ${n_{ab}}^{+}$가 양의 자연수이므로 $a^{+} > b$이다. <br>
+
+            <details><summary> ${n_{ab}}^{+}$가 양의 자연수? </summary>
+            
+                <p>
+        
+                    $n_{ab}$가 양의 자연수이므로 따름정리 4에 따라 $0 < n_{ab}$이다. <br>
+
+                    따름정리 2에 따라 $n_{ab} < {n_{ab}}^{+}$이고, 추이성B에 따라 $0 < {n_{ab}}^{+}$이므로, ${n_{ab}}^{+}$가 양의 자연수이다. <br>
+                        
+                </p>
+            
+            </details> <!-- 양의 자연수? -->
+
+            $a < b$이면 순서명제 6에 따라서 $a^{+} \leq b$이므로 $a^{+} < b$이거나 $a^{+} = b$이다. <br>
+
+            따라서 삼분법이 성립한다. <br>
+                
+        </p>
+    
+    </details> <!-- 자연수의 삼분법 증명 -->
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>
