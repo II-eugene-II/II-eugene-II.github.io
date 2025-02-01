@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 정수의 연산 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = 'wrap'>  
+    <div class="container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 정수의 연산 </div>
+      
+    <hr>
+      
+    <p>
+      
+    <a href="/Post/Post01000/00546.html"> 자연수의 덧셈 </a>, <a href="/Post/Post01000/00547.html"> 자연수의 곱셈 </a> 처럼 <a href="/Post/Post01000/00459.html"> 정수 </a>에서도 다음과 같은 연산을 정의할 수 있습니다. <br>
+      
+    <blockquote>
+        정수의 덧셈과 곱셈 <br>
+        
+        정수의 덧셈. $[a, b] + [c, d] := [a + c, b + d]$ <br>
+
+        정수의 곱셈. $[a, b] \times [c, d] := [(a \times c) + (b \times d), (a \times d) + (b \times c)]$
+    </blockquote>
+
+    정의에서 $a + c$, $b + d$, $(a \times c) + (b \times d)$, $(a \times d) + (b \times c)$ 각각이 모두 자연수이므로 정수의 덧셈과 곱셈은 닫혀있는 꼴임을 알 수 있습니다. <br>
+
+    덧셈과 곱셈이 잘 정의되었는지 확인하려면 서로 같은 두 정수 $[a_{1}, b_{1}]$, $[a_{2}, b_{2}]$에 대해 연산결과가 동일해야 합니다. (입력이 같으면 출력이 같아야 한다는 치환공리) <br>
+      
+    <blockquote>
+        정수의 덧셈과 곱셈 연산의 정당성 <br>
+
+        $[a_{1}, b_{1}] = [a_{2}, b_{2}]$이면 임의의 정수 $[c, d]$에 대하여 다음이 성립한다. <br>
+        
+        $$
+        \begin{align}
+        [a_{1}, b_{1}] + [c, d] & = [a_{2}, b_{2}] + [c, d] \tag{1} \\ 
+        [a_{1}, b_{1}] \times [c, d] & = [a_{2}, b_{2}] \times [c, d] \tag{2} \\
+        [c, d] + [a_{1}, b_{1}] & = [c, d] + [a_{2}, b_{2}] \tag{3} \\ 
+        [c, d] \times [a_{1}, b_{1}]  & = [c, d] \times [a_{2}, b_{2}] \tag{4}
+        \end{align}
+        $$
+    </blockquote>
+
+    <details><summary> 정수의 덧셈과 곱셈 연산의 정당성 증명 </summary>
+    
+        <p>
+
+            먼저, $[a_{1}, b_{1}] = [a_{2}, b_{2}]$ 이므로 정수의 같음의 정의에서 $a_{1} + b_{2} = a_{2} + b_{1}$이 전제조건이다. <br>
+
+            <details><summary> $(1)$ 증명 </summary>
+            
+                <p>
+        
+                    $[a_{1}, b_{1}] + [c, d]$, $[a_{2}, b_{2}] + [c, d]$는 각각 덧셈의 정의에서 $[a_{1} + c, b_{1} + d]$, $[a_{2} + c, b_{2} + d]$이다. <br>
+
+                    정수의 같음의 정의에서 $(a_{1} + c) + (b_{2} + d) = (a_{2} + c) + (b_{1} + d)$이면 $[a_{1}, b_{1}] + [c, d] = [a_{2}, b_{2}] + [c, d]$이다. <br>
+
+                    $(a_{1} + c) + (b_{2} + d) = (a_{1} + b_{2}) + (c + d)$이고, $(a_{2} + c) + (b_{1} + d) = (a_{2} + b_{1}) + (c + d)$이다. <br>
+                    
+                    전제조건으로 $a_{1} + b_{2} = a_{2} + b_{1}$이므로 양 변에 $(c + d)$를 더하면 $(a_{1} + b_{2}) + (c + d) = (a_{2} + b_{1}) + (c + d)$이다. 따라서 $[a_{1}, b_{1}] + [c, d] = [a_{2}, b_{2}] + [c, d]$이다. <br>
+
+                    <details><summary> $(a_{1} + c) + (b_{2} + d) = (a_{1} + b_{2}) + (c + d)$...? </summary>
+                    
+                        <p>
+                
+                            $$
+                            \begin{align}
+                            (a_{1} + c) + (b_{2} + d) \\ & \underset{(b)}= \\
+                            ((a_{1} + c) + b_{2}) + d \\ & \underset{(b)}= \\
+                            (a_{1} + (c + b_{2})) + d \\ & \underset{(a)}= \\
+                            (a_{1} + (b_{2} + c)) + d \\ & \underset{(b)}= \\
+                            ((a_{1} + b_{2}) + c) + d \\ & \underset{(b)}= \\
+                            (a_{1} + b_{2}) + (c + d)
+                            \end{align}
+                            $$
+
+                            $(a)$는 덧셈의 교환법칙, $(b)$는 덧셈의 결합법칙 <br>
+                                
+                        </p>
+                    
+                    </details> <!-- 긴 수식 증명 -->
+                        
+                </p>
+            
+            </details> <!-- $(1)$ 증명 -->
+
+            <details><summary> $(2)$ 증명 </summary>
+            
+                <p>
+        
+                    $[a_{1}, b_{1}] \times [c, d]$, $[a_{2}, b_{2}] \times [c, d]$는 각각 곱셈의 정의에서 $[(a_{1} \times c) + (b_{1} \times d), (a_{1} \times d) + (b_{1} \times c)]$, $[(a_{2} \times c) + (b_{2} \times d), (a_{2} \times d) + (b_{2} \times c)]$이다. <br>
+
+                    정수의 같음의 정의에서 $((a_{1} \times c) + (b_{1} \times d)) + ((a_{2} \times d) + (b_{2} \times c)) = ((a_{1} \times d) + (b_{1} \times c)) + ((a_{2} \times c) + (b_{2} \times d))$이면 $[a_{1}, b_{1}] + [c, d] = [a_{2}, b_{2}] + [c, d]$이다. <br>
+
+                    $((a_{1} \times c) + (b_{1} \times d)) + ((a_{2} \times d) + (b_{2} \times c)) = ((a_{1} + b_{2}) \times c) + ((a_{2} + b_{1}) \times d)$이고, $((a_{1} \times d) + (b_{1} \times c)) + ((a_{2} \times c) + (b_{2} \times d)) = ((a_{2} + b_{1}) \times c) + ((a_{1} + b_{2}) \times d)$이다. <br>
+                    
+                    전제조건으로 $a_{1} + b_{2} = a_{2} + b_{1}$이므로 양 변에 $c$를 곱하면 $(a_{1} + b_{2}) \times c = (a_{2} + b_{1}) \times c$, 양 변에 $d$를 곱하면 $(a_{1} + b_{2}) \times d = (a_{2} + b_{1}) \times d$이다. <br>
+
+                    각 변을 더해주면 $((a_{1} \times c) + (b_{1} \times d)) + ((a_{2} \times d) + (b_{2} \times c)) = ((a_{1} \times d) + (b_{1} \times c)) + ((a_{2} \times c) + (b_{2} \times d))$이므로, $[a_{1}, b_{1}] \times [c, d] = [a_{2}, b_{2}] \times [c, d]$ 이다. <br>
+
+                    <details><summary> $((a_{1} \times c) + (b_{1} \times d)) + ((a_{2} \times d) + (b_{2} \times c)) = ((a_{1} + b_{2}) \times c) + ((a_{2} + b_{1}) \times d)$...? </summary>
+                    
+                        <p>
+                
+                            $$
+                            \begin{align}
+                            ((a_{1} \times c) + (b_{1} \times d)) + ((a_{2} \times d) + (b_{2} \times c)) \\ & \underset{(b)}= \\
+                            (((a_{1} \times c) + (b_{1} \times d)) + (a_{2} \times d)) + (b_{2} \times c) \\ & \underset{(b)}= \\
+                            (a_{1} \times c) + (((b_{1} \times d) + (a_{2} \times d)) + (b_{2} \times c)) \\ & \underset{(a)}= \\
+                            (a_{1} \times c) + ((b_{2} \times c) + ((b_{1} \times d) + (a_{2} \times d))) \\ & \underset{(b)}= \\
+                            ((a_{1} \times c) + (b_{2} \times c)) + ((b_{1} \times d) + (a_{2} \times d)) \\ & \underset{(a)}= \\
+                            ((a_{1} \times c) + (b_{2} \times c)) + ((a_{2} \times d) + (b_{1} \times d)) \\ & \underset{(c)}= \\
+                            ((a_{1} + b_{2}) \times c) + ((a_{2} + b_{1}) \times d)
+                            \end{align}
+                            $$
+
+                            $(a)$는 덧셈의 교환법칙, $(b)$는 덧셈의 결합법칙, $(c)$는 곱셈의 분배법칙 <br>
+                                
+                        </p>
+                    
+                    </details> <!-- 긴 수식 증명 --> <!-- \underline{(\underline{(a_{1} \times c)} + \underline{(b_{2} \times c)})} + ((b_{1} \times d) + (a_{2} \times d)) \\ & \underset{(a)}= \\ -->
+                        
+                </p>
+            
+            </details> <!-- $(2)$ 증명 -->
+
+            $(3)$은 $(1)$처럼, $(4)$는 $(2)$처럼 증명할 수 있다. <br>
+                
+        </p>
+    
+    </details> <!-- 정수의 덧셈과 곱셈 연산의 정당성 -->
+
+    <hr>
+
+    정수에는 마이너스 연산을 생각해 볼 수 있습니다. <br>
+      
+    <blockquote>
+        정수의 마이너스 연산 <br>
+        
+        $-[a, b] := [b, a]$ <br>
+    </blockquote>
+      
+    <blockquote>
+        정수의 마이너스 연산의 정당성 <br>
+
+        $[a_{1}, b_{1}] = [a_{2}, b_{2}]$이면 $-[a_{1}, b_{1}] = -[a_{2}, b_{2}]$이다. <br>
+    </blockquote>
+
+    <details><summary> 정수의 마이너스 연산의 정당성 증명 </summary>
+    
+        <p>
+
+            $[a_{1}, b_{1}] = [a_{2}, b_{2}]$이면 정수의 같음의 정의에서 $a_{1} + b_{2} = a_{2} + b_{1}$이다. <br>
+
+            $-[a_{1}, b_{1}] = [b_{1}, a_{1}]$, $-[a_{2}, b_{2}] = [b_{2}, a_{2}]$인데, $a_{1} + b_{2} = a_{2} + b_{1}$에서 $b_{1} + a_{2} = b_{2} + a_{1}$이므로 $[b_{1}, a_{1}] = [b_{2}, a_{2}]$이다. <br>
+
+            따라서, $[a_{1}, b_{1}] = [a_{2}, b_{2}]$이면 $-[a_{1}, b_{1}] = -[a_{2}, b_{2}]$이다. <br>
+                
+        </p>
+    
+    </details> <!-- 정수의 마이너스 연산의 정당성 증명 -->
+
+    정수의 덧셈과 곱셈 연산에서 $[n, 0]$, $[m, 0]$은 자연수 $n$, $m$과 거의 동일하게 연산이 이루어집니다. <br>
+
+    예를 들어, $[n, 0] + [m, 0] = [n + m, 0 + 0] = [n + m, 0]$이고, $[n, 0] \times [m, 0] = [n \times m + 0 \times 0, n \times 0 + 0 \times m] = [n \times m, 0]$입니다. <br>
+
+    따라서 다음과 같은 정의가 가능합니다. <br>
+      
+    <blockquote>
+        정수의 표기 <br>
+
+        $n$이 $0$이 아닌 자연수 (양의 자연수) 라면 <br>
+        
+        $$
+        \begin{align}
+        n_{\mathbb{Z}} & := [n_{\mathbb{N}}, 0_{\mathbb{N}}] \\
+        -n_{\mathbb{Z}} & := [0_{\mathbb{N}}, n_{\mathbb{N}}] = -[n_{\mathbb{N}}, 0_{\mathbb{N}}]
+        \end{align}
+        $$
+
+        이라 하고, $n_{\mathbb{Z}}$는 <b>양의 정수</b>, $-n_{\mathbb{Z}}$는 <b>음의 정수</b>라고 한다. <br>
+        
+        (또한, $0_{\mathbb{Z}} := [0_{\mathbb{N}}, 0_{\mathbb{N}}]$) <br>
+    </blockquote>
+
+    <details><summary> 정수 $2_{\mathbb{Z}}$와 자연수 $2_{\mathbb{N}}$ </summary>
+    
+        <p>
+
+            엄밀하게 집합으로만 따지면 정수 $2$와 자연수 $2$는 다르다. <br>
+
+            자연수의 폰 노이만식 구성으로 $0_{\mathbb{N}} := \emptyset$, $n^{+} := n \cup \left\{ n \right\}$이라 한다면
+            
+            $$
+            \begin{align}
+            2_{\mathbb{N}} & = \{ \emptyset, \{ \emptyset \} \} \\
+            2_{\mathbb{Z}} & = [2_{\mathbb{N}}, 0_{\mathbb{N}}] = \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ m + 2_{\mathbb{N}} = n\}
+            \end{align}
+            $$
+
+            이고, $\{ \emptyset, \{ \emptyset \} \} \underset{???}= \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ m + 2_{\mathbb{N}} = n\}$ 이라 하기엔 이상함이 있다. <br>
+
+            단순히 연산의 관점에서 정수 $2_{\mathbb{Z}}$와 자연수 $2_{\mathbb{N}}$가 동일하게 작동하므로, 특별히 구분짓지 않고 편의상 밑첨자 $\mathbb{N}$과 $\mathbb{Z}$를 제거하고 $2$라 표기하는 것이다. <br>
+
+            $n_{\mathbb{Z}}$와 $[n_{\mathbb{N}}, 0_{\mathbb{N}}]$ 사이에 동형사상이 존재한다고 할 수도 있다. <br>
+
+        </p>
+    
+    </details> <!-- 정수의 마이너스 연산의 정당성 증명 -->
+
+    그리고 편의상 집합 표기인 밑첨자 $\mathbb{Z}$를 제거해서 $n$, $-n$, $0$이라 쓸 수 있습니다. <br>
+      
+    <blockquote>
+        정수의 삼분법 <br>
+        
+        임의의 정수 $m$은 다음 세 명제 중 하나만 참이다. <br>
+
+        1. $m = 0$ <br>
+
+        2. $m$은 양의 정수이다. <br>
+
+        2. $m$은 음의 정수이다. <br>
+    </blockquote>
+
+    <details><summary> 정수의 삼분법 증명 </summary>
+    
+        <p>
+
+            정수의 정의에 따라 어떤 자연수 $a$, $b$에 대해 $m = [a, b]$이다. <br>
+
+            <a href="/Post/Post01000/00548.html"> 자연수의 순서관계 중 자연수의 삼분법 </a> 에 따라 $a > b$이거나, $a = b$이거나, $a < b$이다. <br>
+
+            1. $a > b$이면 $a = b + c$인 양의 자연수 $c$가 존재하고, $[a, b] = [c, 0]$이므로 $m = [c, 0]$에서 $c$는 양의 자연수이므로 $m$은 양의 정수이다. <br>
+
+            2. $a = b$이면 $[a, b] = [a, a] = [0, 0]$에서 $m = [0, 0] = 0$이다. <br>
+
+            3. $a < b$이면 $b = a + c$인 양의 자연수 $c$가 존재하고 $[a, b] = -[b, a] = -[c, 0] = [0, c]$이다. $c$는 양의 자연수이므로 $m$은 음의 정수이다. <br>
+
+            $m$이 $0$, 양의 정수, 음의 정수 중 최소한 한 가지는 만족한다. <br>
+
+            <hr>
+
+            $0$이 양의 정수라 하면 $[0, 0] = [c, 0]$인 양의 자연수 $c$가 있어야 한다. 정수의 같음에서 $0 + 0 = 0 + c$여야 하는데, $0 = c$이면 $c$가 양의 자연수라는 것에 모순이다. <br>
+
+            $0$이 음의 정수라 하면 $[0, 0] = [0, c]$인 양의 자연수 $c$가 있어야 한다. 정수의 같음에서 $0 + c = 0 + 0$이어야 하는데, $c = 0$이면 $c$가 양의 자연수라는 것에 모순이다. <br>
+
+            따라서 $m$이 $0$이면서 양의 정수일 수도 없고, $0$이면서 음의 정수일 수도 없다. (마찬가지로 3가지 전부 다 해당되는 경우일 수도 없다.) <br>
+
+            $m$이 양의 정수이면서 음의 정수이려면 어떤 양의 자연수 $c$, $d$에 대해 $m = [c, 0] = [0, d]$여야 한다. <br>
+
+            정수의 같음에서 $c + d = 0 + 0 = 0$인데, <a href="/Post/Post01000/00548.html"> 자연수의 순서관계 중 따름정리 6 </a> 에서 두 양의 자연수 $c$, $d$의 합인 $c + d$는 양의 자연수여야 하는데 $c + d = 0$이므로 모순이다. <br>
+
+            따라서 양의 정수이면서 음의 정수일 수 없으므로, 정수의 삼분법이 성립한다. <br>
+
+        </p>
+    
+    </details> <!-- 정수의 삼분법 증명 -->
+
+    이제 마이너스도 도입했으니, 뺄셈도 도입할 수 있습니다. <br>
+      
+    <blockquote>
+        정수의 뺄셈 <br>
+        
+        $$
+        n - m := n + (-m)
+        $$
+    </blockquote>
+
+    덧셈 연산도, 마이너스 연산도 정당성을 증명했고 뺄셈 연산은 그 두 연산으로 이루어져있으니 정당성을 증명할 필요가 없습니다. <br>
+
+    $n - m = n + (-m) = [n, 0] + [0, m] = [n, m]$에서 $[n, m] = n - m$이라 할 수 있습니다. <br>
+
+    <hr>
+      
+    <blockquote>
+        보조정리 1. <br>
+        
+        정수 $a$에 대하여 $a = 0$과 $a = [n, n]$은 필요충분조건이다. <br>
+    </blockquote>
+
+    <details><summary> 보조정리 1 증명 </summary>
+    
+        <p>
+
+            $a = 0 \Leftarrow a = [n, n]$ <br>
+            
+            $n = n + 0$에서 $[n, n] = [0, 0]$이고, $0 = [n, n]$이다. <br>
+
+            <br>
+
+            $a = 0 \Rightarrow a = [n, n]$ <br>
+
+            $0 = [0, 0] = [a, b]$이려면 정수의 같음에서 $0 + b = 0 + a$여야 하고, 따라서 $b = a$이다. <br>
+
+        </p>
+    
+    </details> <!-- 보조정리 1 증명 -->
+      
+    <blockquote>
+        보조정리 2. <br>
+        
+        정수 $a$, $b$가 $ab = 0$을 만족하면 $a = 0$이거나 $b = 0$이다. (혹은 둘 다 이다.) <br>
+    </blockquote>
+
+    <details><summary> 보조정리 2 증명 </summary>
+    
+        <p>
+
+            0. <a href="/Post/Post01000/00548.html"> 자연수의 순서관계 중 따름정리 8 </a>에 따라 두 양의 자연수 $a$, $b$의 곱 $a \times b$는 양의 자연수이다. ($0$이 아니다.) <br>
+
+            1. $a$가 양의 정수이고, $b$가 양의 정수인 경우 <br>
+            
+            $a \times b = [a, 0] \times [b, 0] = [a \times b, 0]$에서 $a \times b$가 $0$이 아니므로 $[a \times b, 0] \not= 0$이다. <br>
+
+            2. $a$가 양의 정수이고, $b$가 음의 정수인 경우 <br>
+            
+            $a \times b = [a, 0] \times [0, b] = [(a \times 0) + (0 \times b), (a \times b) + (0 \times 0)] = [0, a \times b]$에서 $a \times b$가 $0$이 아니므로 $[0, a \times b] \not= 0$이다. <br>
+
+            3. $a$가 음의 정수이고, $b$가 양의 정수인 경우 <br>
+            
+            $a \times b = [0, a] \times [b, 0] = [(0 \times b) + (a \times 0), (0 \times 0) + (a \times b)] = [0, a \times b]$에서 $a \times b$가 $0$이 아니므로 $[0, a \times b] \not= 0$이다. <br>
+
+            4. $a$가 음의 정수이고, $b$가 음의 정수인 경우 <br>
+            
+            $a \times b = [0, a] \times [0, b] = [(0 \times 0) + (a \times b), (0 \times b) + (a \times 0)] = [a \times b, 0]$에서 $a \times b$가 $0$이 아니므로 $[a \times b, 0] \not= 0$이다. <br>
+
+            따라서 $a$나 $b$중 최소한 하나는 $0$이어야 한다. <br>
+
+        </p>
+    
+    </details> <!-- 보조정리 2 증명 --> <!-- 소거법칙, 대수법칙(환), 순서 -->
+
+    <hr>
+
+    정수는 다음과 같은 성질을 만족하는데 이를 환(ring)이라고도 부릅니다. (혹은 가환환) <br>
+      
+    <blockquote>
+        임의의 세 정수 $x$, $y$, $z$에 대하여... <br>
+        
+        R1. (덧셈의 교환법칙) $x + y = y + x$ <br>
+        
+        R2. (덧셈의 결합법칙) $x + (y + z) = (x + y) + z$ <br>
+        
+        R3. (덧셈의 항등원) $x + 0 = 0 + x = x$ <br>
+        
+        R4. (덧셈의 역원) $x + (-x) = (-x) + x = 0$ <br>
+        
+        R5. (곱셈의 교환법칙) $x \times y = y \times x$ <br>
+        
+        R6. (곱셈의 결합법칙) $(x \times y) \times z = x \times (y \times z)$ <br>
+        
+        R7. (곱셈의 분배법칙) $x \times (y + z) = x \times y + x \times z$ <br>
+        
+        R8. (곱셈의 항등원) $x \times 1 = 1 \times x = x$ <br>
+    </blockquote>
+
+    <details><summary> R1 ~ R8 증명 </summary>
+    
+        <p>
+
+            여섯개의 자연수 $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$, $z_{1}$, $z_{2}$에 대하여 $x = [x_{1}, x_{2}]$, $y = [y_{1}, y_{2}]$, $z = [z_{1}, z_{2}]$라 하자. <br>
+
+            또한, "정수의 같음" 정의에서 $a + b = b + a$이므로 $[a, b] = [a, b]$이다. (R0) <br>
+
+            <details><summary> R1 증명 </summary>
+            
+                <p>
+        
+                    덧셈의 정의에서 $x + y = [x_{1}, x_{2}] + [y_{1}, y_{2}] = [x_{1} + y_{1}, x_{2} + y_{2}]$이고, $y + x = [y_{1}, y_{2}] + [x_{1}, x_{2}] = [y_{1} + x_{1}, y_{2} + x_{2}]$이다. <br>
+
+                    자연수의 덧셈에서 교환법칙이 성립하므로, $x_{1} + y_{1} = y_{1} + x_{1}$, $x_{2} + y_{2} = y_{2} + x_{2}$에서 R0에 의해 $x + y = y + x$임을 알 수 있다. <br>
+        
+                </p>
+            
+            </details> <!-- R1 증명 -->
+
+            <details><summary> R2 증명 </summary>
+            
+                <p>
+        
+                    덧셈의 정의에서 $x + (y + z) = [x_{1}, x_{2}] + ([y_{1}, y_{2}] + [z_{1}, z_{2}]) = [x_{1}, x_{2}] + [y_{1} + z_{1}, y_{2} + z_{2}] = [x_{1} + (y_{1} + z_{1}), x_{2} + (y_{2} + z_{2})]$이고, $(x + y) + z = ([x_{1}, x_{2}] + [y_{1}, y_{2}]) + [z_{1}, z_{2}] = [x_{1} + y_{1}, x_{2} + y_{2}] + [z_{1}, z_{2}] = [(x_{1} + y_{1}) + z_{1}, (x_{2} + y_{2}) + z_{2}]$이다. <br>
+
+                    자연수의 덧셈에서 결합법칙이 성립하므로, $x_{1} + (y_{1} + z_{1}) = (x_{1} + y_{1}) + z_{1}$, $x_{2} + (y_{2} + z_{2}) = (x_{2} + y_{2}) + z_{2}$이고, R0에 의해 $x + (y + z) = (x + y) + z$이다. <br>
+        
+                </p>
+            
+            </details> <!-- R2 증명 -->
+
+            <details><summary> R3 증명 </summary>
+            
+                <p>
+        
+                    R1에 의해 $x + 0 = 0 + x$이므로, $x + 0 = x$이기만 하면 된다. <br>
+
+                    $0 = [0, 0]$에서 $x + 0 = [x_{1}, x_{2}] + [0, 0] = [x_{1} + 0, x_{2} + 0] = [x_{1}, x_{2}] = x$이므로, R3이 성립한다. <br>
+        
+                </p>
+            
+            </details> <!-- R3 증명 -->
+
+            <details><summary> R4 증명 </summary>
+            
+                <p>
+        
+                    R1에 의해 $x + (-x) = (-x) + x$이므로, $x + (-x) = 0$이기만 하면 된다. <br>
+
+                    마이너스 연산의 정의에 의해 $-x = [x_{2}, x_{1}]$에서 $x + (-x) = [x_{1}, x_{2}] + [x_{2}, x_{1}] = [x_{1} + x_{2}, x_{2} + x_{1}]$이다. <br>
+
+                    자연수의 덧셈에서 교환법칙이 성립하므로 $x_{1} + x_{2} = x_{2} + x_{1}$이고, 보조정리 1에 따라 $[x_{1} + x_{2}, x_{2} + x_{1}] = 0$이다. <br>
+        
+                </p>
+            
+            </details> <!-- R4 증명 -->
+
+            <details><summary> R5 증명 </summary>
+            
+                <p>
+        
+                    곱셈의 정의에서 $x \times y = [x_{1}, x_{2}] \times [y_{1}, y_{2}] = [(x_{1} \times y_{1}) + (x_{2} \times y_{2}), (x_{1} \times y_{2}) + (x_{2} \times y_{1})]$이고, $y \times x = [y_{1}, y_{2}] \times [x_{1}, x_{2}] = [(y_{1} \times x_{1}) + (y_{2} \times x_{2}), (y_{1} \times x_{2}) + (y_{2} \times x_{1})]$이다. <br>
+
+                    자연수의 덧셈과 곱셈에서 교환법칙이 성립하므로 $(x_{1} \times y_{1}) + (x_{2} \times y_{2}) = (y_{1} \times x_{1}) + (y_{2} \times x_{2})$이고, $(x_{1} \times y_{2}) + (x_{2} \times y_{1}) = (y_{1} \times x_{2}) + (y_{2} \times x_{1})$이므로, R0에 따라 $x \times y = y \times x$이다. <br>
+        
+                </p>
+            
+            </details> <!-- R5 증명 -->
+
+        </p>
+    
+    </details> <!-- R1 ~ R8 증명 -->
+      
+    <blockquote>
+        정수의 소거법칙 <br>
+        
+        $0$이 아닌 정수 $n$에 대하여 정수 $a$, $b$가
+        
+        $$
+        an = bn
+        $$
+
+        이면
+
+        $$
+        a = b
+        $$
+
+        이다. <br>
+    </blockquote>
+
+    <details><summary> 정수의 소거법칙 증명 </summary>
+    
+        <p>
+
+            보조정리 1에서 $an - bn = 0$이다. <br>
+
+            $(a + -b)n$으로 묶으려면 R7 필요 <br>
+
+        </p>
+    
+    </details> <!-- 정수의 소거법칙 증명 -->
+      
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+    
+    </div> <!-- wrap -->
+  
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

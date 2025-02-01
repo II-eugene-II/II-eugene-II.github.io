@@ -28,7 +28,9 @@
     정수 (Integer) 는 다음과 같이 정의합니다. <br>
       
     <blockquote>
-        두 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$, $m$의 순서쌍 $[n, m]$을 <b>정수</b> 라고 한다. <br>
+        두 <a href="/Post/Post01000/00458.html"> 자연수 </a> $n$, $m$에 대하여 $[n, m] := \{ (n_{1}, m_{1}) \in \mathbb{N} \times \mathbb{N} \ | \ n + m_{1} = m + n_{1}\}$을 <b>정수</b> 라고 한다. <br>
+        
+        ($(n_{1}, m_{1})$은 순서쌍 표기) <br>
     </blockquote>
       
     <blockquote>
@@ -37,8 +39,28 @@
         $$
         n_1 + m_2 = n_2 + m_1
         $$
-        이면 두 정수 $[n_1, m_1]$, $[n_2, m_2]$가 <b>같다</b>고 한다. <br>
+        이면 두 정수 $[n_1, m_1]$, $[n_2, m_2]$가 <b>같다</b>. ($[n_1, m_1] = [n_2, m_2] \Leftrightarrow n_1 + m_2 = n_2 + m_1$) <br>
     </blockquote>
+
+    <details><summary> 두 정수의 같음 증명 </summary>
+    
+        <p>
+
+            $$
+            \begin{align}
+            [n_{1}, m_{1}] & = \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ n_{1} + m = m_{1} + n \} \\
+                           & = \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ (n_{1} + m) + (n_{2} + m_{2}) = (m_{1} + n) + (n_{2} + m_{2}) \} \\
+                           & = \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ (n_{1} + m_{2}) + (n_{2} + m) = (n_{2} + m_{1}) + (m_{2} + n) \} \\
+                           & = \{ (n, m) \in \mathbb{N} \times \mathbb{N} \ | \ n_{2} + m = m_{2} + n \} \\
+                           & = [n_{2}, m_{2}]
+            \end{align}
+            $$
+
+            $n_{1} + m = m_{1} + n$의 양변에 $(n_{2} + m_{2})$를 더해주고 $n_{1} + m_{2} = n_{2} + m_{1}$에서 식 $(n_{1} + m_{2}) + (n_{2} + m) = (n_{2} + m_{1}) + (m_{2} + n)$은 소거법칙으로 $n_{2} + m = m_{2} + n$가 되어 $[n_{2}, m_{2}]$의 정의가 된다는 것을 쉽게 알 수 있다. <br>
+                
+        </p>
+    
+    </details> <!-- 같음 증명 -->
 
     모든 정수의 집합을 독일어 zahlen에서 따온 $\mathbb{Z}$로 표기합니다. <br>
 
@@ -46,9 +68,19 @@
 
     자연수만을 이용해 뺄셈(의 원리와 방식)을 가져와 정수를 정의한 것이라 보면 되겠습니다. <br>
 
-    정수에 대한 이야기를 하는 것이 정수론이고, 가장 큰 주제는 <a href="/Post/Post01000/00342.html"> 소수 </a> 입니다. <br>
+    자연수에서 덧셈과 곱셈을 정의한 것 처럼 <a href="/Post/Post01000/00549.html"> 정수의 연산 </a> 또한 <b>정의</b>하고 <b>증명</b>할 수 있습니다. <br>
 
     일반적으로 정수를 이용하여 <a href="/Post/Post01000/00336.html"> 유리수 </a> 를 정의합니다. <br>
+
+    <!-- $n \neg m$ $n \rightharpoondown m$ -->
+
+    <!-- 
+
+    집합 $\mathbb{N} \times \mathbb{N}$ ($\mathbb{N}$는 자연수 집합)에 대하여 $\mathbb{N} \times \mathbb{N}$ 위의 원소 $(a, b)$에 동치관계
+    
+    $$
+    (a, b) \sim (c, d) \Leftrightarrow a + d = b + c
+    $$ -->
       
     </p>
       
