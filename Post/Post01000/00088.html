@@ -3,6 +3,12 @@
   
 <head>
     <meta charset="UTF-8">
+    <style>
+        .bg-00088-blue { background-color: rgba(0, 158, 229, 0.25); }
+        .bg-00088-red { background-color: rgba(224, 17, 95, 0.25); }
+        .bg-00088-green { background-color: rgba(81, 253, 189, 0.25); }
+        .bg-00088-white { background-color: rgb(255, 255, 255); }
+    </style>
     <title> 선택 정렬 </title>
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,93 +39,111 @@
 
     빨간색은 정렬되지 않은 리스트의 최솟값, 파란색은 빨간색 요소와 교환될 요소 (혹은 교환 후 위치), 초록색은 이미 정렬된 리스트를 뜻합니다. <br>
 
-    리스트 안에서 교환만을 이용해 추가 공간 필요 없이(교환 할 때 생기는 tmp는 제외) 정렬한다는 점에서 제자리 정렬로 볼 수 있습니다. <br>
+    리스트 안에서 교환만을 이용해 추가 공간 필요 없이(교환 할 때 생기는 <code>tmp</code>는 제외) 정렬한다는 점에서 제자리 정렬로 볼 수 있습니다. <br>
       
     <p>
       
-        <table>
+        <table style="margin-left: auto; margin-right: auto; text-align: center; background-color:rgb(255, 255, 255);">
             <tr>
-                <th scope="col"> 1번 칸 </td>
-                <th scope="col"> 2번 칸 </td>
-                <th scope="col"> 3번 칸 </td>
-                <th scope="col"> 4번 칸 </td>
-                <th scope="col"> 5번 칸 </td>
+                <th scope="col"> 1번 칸 </th>
+                <th scope="col"> 2번 칸 </th>
+                <th scope="col"> 3번 칸 </th>
+                <th scope="col"> 4번 칸 </th>
+                <th scope="col"> 5번 칸 </th>
             </tr>
             <tr>
-                <td class = "tdPost"> 5 </td>
-                <td class = "tdPost"> 4 </td>
-                <td class = "tdPost"> 1 </td>
-                <td class = "tdPost"> 3 </td>
-                <td class = "tdPost"> 2 </td>
+                <td class="tdPost"> 5 </td>
+                <td class="tdPost"> 4 </td>
+                <td class="tdPost"> 1 </td>
+                <td class="tdPost"> 3 </td>
+                <td class="tdPost"> 2 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
-                <td class = "tdPost"> 4 </td>
-                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 1 </td>
-                <td class = "tdPost"> 3 </td>
-                <td class = "tdPost"> 2 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
+                <td class="tdPost"> 4 </td>
+                <td class="tdPost bg-00088-red"> 1 </td>
+                <td class="tdPost"> 3 </td>
+                <td class="tdPost"> 2 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost"> 4 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
-                <td class = "tdPost"> 3 </td>
-                <td class = "tdPost"> 2 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost"> 4 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
+                <td class="tdPost"> 3 </td>
+                <td class="tdPost"> 2 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 4 </td>
-                <td class = "tdPost"> 5 </td>
-                <td class = "tdPost"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 2 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-blue"> 4 </td>
+                <td class="tdPost"> 5 </td>
+                <td class="tdPost"> 3 </td>
+                <td class="tdPost bg-00088-red"> 2 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost"> 5 </td>
-                <td class = "tdPost"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 4 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost"> 5 </td>
+                <td class="tdPost"> 3 </td>
+                <td class="tdPost bg-00088-blue"> 4 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
-                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 3 </td>
-                <td class = "tdPost"> 4 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
+                <td class="tdPost bg-00088-red"> 3 </td>
+                <td class="tdPost"> 4 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
-                <td class = "tdPost"> 4 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost bg-00088-green"> 3 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
+                <td class="tdPost"> 4 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
-                <td class = "tdPost" style="background-color:rgb(224, 17, 95, 0.2);"> 4 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost bg-00088-green"> 3 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
+                <td class="tdPost bg-00088-red"> 4 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 4 </td>
-                <td class = "tdPost" style="background-color:rgb(0, 158, 229, 0.2);"> 5 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost bg-00088-green"> 3 </td>
+                <td class="tdPost bg-00088-green"> 4 </td>
+                <td class="tdPost bg-00088-blue"> 5 </td>
             </tr>
             <tr>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 1 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 2 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 3 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 4 </td>
-                <td class = "tdPost" style="background-color:rgb(81, 253, 189, 0.2);"> 5 </td>
+                <td class="tdPost bg-00088-green"> 1 </td>
+                <td class="tdPost bg-00088-green"> 2 </td>
+                <td class="tdPost bg-00088-green"> 3 </td>
+                <td class="tdPost bg-00088-green"> 4 </td>
+                <td class="tdPost bg-00088-green"> 5 </td>
             </tr>
         </table>
           
     </p>
 
-    시간복잡도는 $O(n^2)$ 입니다. $O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 (빅 오 표기법) </a> 입니다. <br>
+    다음과 같은 알고리즘으로 쓸 수 있습니다. <br>
+
+    1. <code>i</code>번째 원소로 <code>i</code>번째로 작은 값을 넣는다. <br>
+
+    1 - 1. <code>0</code>번째부터 <code>i - 1</code>번째 원소로 이미 <code>0</code>번째로 작은 값부터 <code>i - 1</code>번째로 작은 값이 들어가있다. (== 정렬되어있다.) <br>
+
+    1 - 2. <code>i</code>번째부터 마지막 원소(<code>n - 1</code>번째 원소)까지 중에 가장 작은 값이 <code>i</code>번째로 작은 값이다. <br>
+
+    2. <code>i</code>번째부터 마지막 원소(<code>n - 1</code>번째 원소)까지 중에 가장 작은 값이 <code>min_idx</code> 번째 원소라고 하면, <code>i</code>번째 원소와 <code>min_idx</code>번째 원소를 서로 바꾼다. <br>
+
+    이를 바탕으로 다음과 같은 파이썬 코드를 짤 수 있습니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/60edd036d1ab0bbb10f0796e40889107.js"></script>
+
+    값 끼리의 직접적인 비교인 <code>if arr[j] < arr[min_idx]</code> 구문이 <code>n - i - 1</code>번 반복되고, <code>i</code>는 <code>0</code>부터 <code>n - 2</code>까지 반복됩니다. <br>
+    
+    따라서 시간복잡도는 $\sum\limits_{i = 0}^{n - 2} (n - i - 1) = \frac{n(n - 1)}{2} = O(n^2)$ 입니다. $O(f(n))$은 <a href="/Post/Post01000/00341.html"> 란다우 표기법 (빅 오 표기법) </a> 입니다. <br>
+
+    <code>[3, 3, 4, 1]</code>를 편의상 <code>[3a, 3b, 4, 1]</code>로 보면 정렬 후에 <code>[1, 3b, 3a, 4]</code>가 되어 같은 값인 <code>3</code>의 위치가 바뀌므로, 같은 값의 원래 순서가 보장되지 않음을 알 수 있습니다. 따라서 선택 정렬은 불안정 정렬입니다. <br> 
       
     </p>
       
