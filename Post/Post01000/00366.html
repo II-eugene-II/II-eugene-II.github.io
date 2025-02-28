@@ -25,7 +25,7 @@
       
     <p>
       
-    상승계승 (Rising Factorial) 은 다음과 같이 정의합니다. <br>
+    상승계승 (Rising Factorial) 은 다음과 같이 정의합니다. ($x$는 <a href="/Post/Post01000/00460.html"> 실수 </a>, $n$은 <a href="/Post/Post01000/00458.html"> 자연수 </a>) <br>
       
     <blockquote>
         $$
@@ -40,10 +40,22 @@
         x^{\underline n} = x(x-1)(x-2)\cdots(x-n+1) = \frac{x!}{(x-n)!} = \frac{\Gamma(x+1)}{\Gamma(x-n+1)}
         $$
     </blockquote>
+
+    포츠하머 기호 (Pochhammer Symbol) 라고도 표현합니다. (Knuth의 구체수학 (류광 역) 에서는 올림 / 내림 거듭제곱이라고도 합니다.) <br>
+
+    상승계승부터 $x$부터 $1$씩 더해가면서 $n$번 곱하고, 하강계승은 반대로 $1$씩 빼가면서 $n$번 곱한다고 생각할 수 있습니다. <br>
       
     <a href="/Post/Post01000/00029.html"> 팩토리얼 </a> 이나 <a href="/Post/Post01000/00028.html"> 감마함수 </a>의 굉장히 특수한 확장으로 볼 수 있습니다. <br>
 
-    포츠하머 기호라고도 표현합니다. <br>
+    실제로 $n!$은 $n! = 1^{\overline n} = n^{\underline n}$이라고 할 수 있습니다. <br>
+
+    $x^{p}$꼴의 미분을 쉽게 표기할 수도 있습니다. <br>
+      
+    <blockquote>
+        $$
+        {\operatorname{d}^{n}\over\operatorname{d}\!x^{n}} x^{p} = p^{\underline n} x^{p - n}
+        $$
+    </blockquote>
 
     </p>
       
