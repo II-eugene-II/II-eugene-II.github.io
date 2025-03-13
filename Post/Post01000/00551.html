@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <title> 백준 04299번 해설 / 4299번 해설 </title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script type="text/javascript" src="/googleAnalytics.js"></script>
+</head>
+
+<body>
+    <div id = "wrap">  
+    <div class = "container">
+        <header>
+            <script type="text/javascript" src="/headerWrite.js"></script>
+        </header>
+    </div>
+    <section>
+    
+    <div id = "postTitle"> 백준 04299번 - AFC 윔블던 </div>
+    
+    <hr>
+      
+    <p>
+      
+    <blockquote>
+        <a href="https://www.acmicpc.net/problem/04299"> 백준 04299번 / 4299번 문제 링크 </a> <br>
+        문제 이름 : AFC 윔블던 <br>
+        주 언어 : Python <br>
+        태그 : 수학 / 사칙연산 <br>
+        solved.ac 등급 : Bronze IV (2025/03/02 확인) <br>
+    </blockquote>
+      
+    </p>
+        
+    <hr>
+        
+    <p>
+      
+    <details> <summary> 문제 보기 </summary>
+    
+        <p>
+    
+        <h4> 문제 : </h4>
+
+        (생략) <br>
+        
+        원섭이는 잉글랜드에 거주하는 지수에게 경기 결과를 물어봤다. 지수는 축구에는 큰 관심이 없지만 원섭이를 괴롭히는 것을 좋아하는 친구다. 지수는 두 팀의 최종 점수를 알려주는 대신, 두 팀이 득점한 점수의 합과 차를 알려주었다. <br>
+        
+        MK 돈스와 AFC 윔블던의 점수의 합과 차가 주어졌을 때, 최종 점수를 구하는 프로그램을 작성하시오. <br>
+        
+        <h4> 입력 : </h4>
+        
+        첫째 줄에 두 팀 점수의 합과 차가 빈 칸으로 구분되어 주어진다. 축구 점수는 항상 음이 아닌 정수이고, 합과 차는 1000보다 작거나 같은 음이 아닌 정수이다. <br>
+        
+        <h4> 출력 : </h4>
+        
+        첫째 줄에 두 팀의 경기 결과를 출력한다. 득점을 많이 한 쪽을 먼저 출력한다. 만약, 그러한 합과 차를 갖는 경기 결과가 없다면, -1을 출력한다. <br> 
+    
+        </p>
+    
+    </details>
+
+    <br>
+        
+    </p>
+      
+    <hr>
+        
+    <p>
+
+    문제를 전부 다 읽으면 정신사나운 문제지만 사실상 저 두 줄만 읽어주면 됩니다. <br>
+
+    득점을 많이 한 팀의 (동점일 수 있으니 엄밀하게는 득점을 적게 하지 않은 팀의) 점수를 $A$, 아닌 팀의 점수를 $B$라 하면 입력으로 두 수 $C = A + B$, $D = A - B$가 입력되어 $A$, $B$를 구하는 문제라고 할 수 있습니다. <br>
+    
+    식 조작을 해준다면 $C - D = 2B$, $C + D = 2A$이고, $A$와 $B$가 정수이므로 $C - D$와 $C + D$가 $2$로 나누어 떨어지는지를 확인해야하고, $C - D$가 음이 아닌 정수인지도 확인해야 합니다. <br>
+
+    <script src="https://gist.github.com/II-eugene-II/e9f530c9d5c51d59420c9ebb05600f38.js"></script> <br>
+
+    $C - D$를 $2$로 나눈 나머지와 $C + D$를 $2$로 나눈 나머지는 동일하므로 사실 $C - D$가 $2$로 나누어 떨어지는지만 확인하면 됩니다. <br>
+
+    <details><summary> $C - D \equiv C + D \pmod{2}$ </summary>
+
+        <p>
+
+            1. 각각이 홀짝인 경우 <br>
+
+            $C$가 짝수이고 $D$가 짝수이면 $C - D \equiv C + D \equiv 0 \pmod{2}$ <br>
+
+            $C$가 짝수이고 $D$가 홀수이면 $C - D \equiv C + D \equiv 1 \pmod{2}$ <br>
+
+            $C$가 홀수이고 $D$가 짝수이면 $C - D \equiv C + D \equiv 1 \pmod{2}$ <br>
+
+            $C$가 홀수이고 $D$가 홀수이면 $C - D \equiv C + D \equiv 0 \pmod{2}$ <br>
+
+            2. 임의의 정수 $D$에 대하여 $2D \equiv 0 \pmod{2}$ <br>
+            
+            $$
+            \begin{align}
+            2D &\equiv 0 \pmod{2} \\
+            D &\equiv -D \pmod{2} \\
+            C + D &\equiv C - D \pmod{2} \\
+            \end{align}
+            $$
+                
+        </p>
+    
+    </details> <!-- $C - D \equiv C + D \pmod{2}$ -->
+
+    </p>
+        
+    <hr>
+        
+    <p>
+        
+    -번째 푼 문제 (2022/--/--) <br>
+        
+    </p>
+      
+    </section>
+    <aside>
+        <script type="text/javascript" src="/asideWrite.js"></script>
+    </aside>
+    
+    <footer>
+        <script type="text/javascript" src="/footerWrite.js"></script>
+    </footer>
+      
+    </div> <!-- wrap -->
+    
+    <script type="text/javascript" src="/LaTexWrite.js"></script>
+
+</body>
+</html>

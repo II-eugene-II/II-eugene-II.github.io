@@ -39,9 +39,108 @@
       
     <a href="/Post/Post01000/00029.html"> 팩토리얼 </a>의 굉장히 특수한 확장으로 볼 수 있습니다. <br>
 
+    팩토리얼과는 다음과 같은 관계를 가집니다. <br>
+      
+    <blockquote>
+        팩토리얼 → 이중계승
+        $$
+        n! = n!! \times (n - 1)!!
+        $$
+    </blockquote>
+
+    <details><summary> 팩토리얼 → 이중계승 증명 </summary>
+
+        <p>
+
+            1. $n$이 홀수인 경우 ($n = 2p + 1$) <br>
+            
+            $$
+            \begin{align}
+            n! & = \prod_{k = 1}^{n} k \\
+               & = \prod_{k = 1}^{2p + 1} k \\
+               & = \left(\prod_{k = 1}^{p + 1} (2k - 1) \right)\left( \prod_{k = 1}^{p} 2k \right) \\
+               & = (2p + 1)!! (2p)!! \\
+               & = n!! (n - 1)!!
+            \end{align}
+            $$
+
+            2. $n$이 짝수인 경우 ($n = 2p$, $p > 0$)
+            
+            $$
+            \begin{align}
+            n! & = \prod_{k = 1}^{n} k \\
+               & = \prod_{k = 1}^{2p} k \\
+               & = \left(\prod_{k = 1}^{p} 2k \right)\left( \prod_{k = 1}^{p} (2k - 1) \right) \\
+               & = (2p)!! (2p - 1)!! \\
+               & = n!! (n - 1)!!
+            \end{align}
+            $$
+
+            $n$이 $0$일 때는 직접 값을 대입해서 참임을 알 수 있다. <br>
+        </p>
+    
+    </details> <!-- 팩토리얼 → 이중계승 증명 -->
+      
+    <blockquote>
+        이중계승 → 팩토리얼 1
+        $$
+        (2n)!! = 2^n n!
+        $$
+    </blockquote>
+
+    <details><summary> 이중계승 → 팩토리얼 1 증명 </summary>
+
+        <p>
+
+            $$
+            \begin{align}
+            (2n)!! & = \prod_{k = 1}^{n} 2k \\
+                   & = 2^n \prod_{k = 1}^{n} k \\
+                   & = 2^n n! \\
+            \end{align}
+            $$
+                
+        </p>
+    
+    </details> <!-- 이중계승 → 팩토리얼 1 증명 -->
+      
+    <blockquote>
+        이중계승 → 팩토리얼 2
+        $$
+        (2n - 1)!! = \frac{(2n)!}{2^n n!}
+        $$
+    </blockquote>
+
+    <details><summary> 이중계승 → 팩토리얼 2 증명 </summary>
+
+        <p>
+
+            팩토리얼 → 이중계승에서 $n! = n!! \times (n - 1)!!$이므로 $(2n)! = (2n)!! \times (2n - 1)!!$이고, 이중계승 → 팩토리얼 1에서 $(2n)!! = 2^n n!$이므로
+
+            $$
+            \begin{align}
+            (2n)! & = (2n)!! \times (2n - 1)!! \\
+                  & = 2^n n! \times (2n - 1)!! \\
+            \end{align}
+            $$
+
+            이다. 따라서 $(2n - 1)!! = \frac{(2n)!}{2^n n!}$이다.
+                
+        </p>
+    
+    </details> <!-- 이중계승 → 팩토리얼 2 증명 -->
+
+    $\frac{(2n)!}{2^n n!}$에서 $\frac{(2n)!}{n!}$은 $\prod\limits_{k = n + 1}^{2n} k$와 동일하므로, <a href="/Post/Post01000/00366.html"> 하강계승 </a>을 사용하여 나타낼 수도 있습니다. <br>
+      
+    <blockquote>
+        $$
+        (2n - 1)!! = \frac{(2n)^{\underline n}}{2^n}
+        $$
+    </blockquote>
+
     여기서 더 확장을 한다면 <a href="/Post/Post01000/00476.html"> 다중계승 </a>으로 확장할 수 있습니다. <br>
 
-    일부 삼각함수 등의 <a href="/Post/Post01000/00453.html"> 테일러 급수 </a> 표기에 사용됩니다. <br>
+    일부 함수 등의 <a href="/Post/Post01000/00453.html"> 테일러 급수 </a> 표기에 사용됩니다. 예를 들어, <a href="/Post/Post01000/00311.html"> 아크사인함수 </a>는 $\arcsin x = \sum\limits_{n = 0}^{\infty} \frac{(2n - 1)!!}{(2n)!! (2n + 1)} x^{2n + 1}$로 나타낼 수 있습니다. $x = 1$을 대입하면 $\arcsin 1 = \sum\limits_{n = 0}^{\infty} \frac{(2n - 1)!!}{(2n)!! (2n + 1)} 1^{2n + 1} = \sum\limits_{n = 0}^{\infty} \frac{(2n - 1)!!}{(2n)!! (2n + 1)} = \frac{\pi}{2}$임을 알 수 있습니다. <br>
 
     </p>
       
